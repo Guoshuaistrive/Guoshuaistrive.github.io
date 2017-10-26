@@ -323,26 +323,26 @@
       
         
           
-            <p>#Git介绍<br>   一个可以管理和追踪代码或类似内容的不同版本的工具，通常称为：版本控制系统（VCS）。本文主要介绍Git这款功能强大、灵活而且低开销的VCS，它可以让协同开发成为一种乐趣。Git由Linus Torvalds发明，起初为了方便管理Linux的内核的开发工作。如今，Git已经在大量的项目中得到非常成功的应用。</p>
-<p>#####相较于其他版本控制系统的优势：</p>
-<ul>
+            <h1 id="Git介绍"><a href="#Git介绍" class="headerlink" title="Git介绍"></a>Git介绍</h1><p>   一个可以管理和追踪代码或类似内容的不同版本的工具，通常称为：版本控制系统（VCS）。本文主要介绍Git这款功能强大、灵活而且低开销的VCS，它可以让协同开发成为一种乐趣。Git由Linus Torvalds发明，起初为了方便管理Linux的内核的开发工作。如今，Git已经在大量的项目中得到非常成功的应用。</p>
+<h5 id="相较于其他版本控制系统的优势："><a href="#相较于其他版本控制系统的优势：" class="headerlink" title="相较于其他版本控制系统的优势："></a>相较于其他版本控制系统的优势：</h5><ul>
 <li>直接快照，而非比较差异</li>
 <li>可本地执行，无需联网</li>
 <li>时刻保持数据完整性</li>
 <li>多数操作仅添加数据</li>
 </ul>
 <hr>
-<p>#Git安装： </p>
-<pre><code>Ubuntu:  sudo apt-get install git
+<h1 id="Git安装："><a href="#Git安装：" class="headerlink" title="Git安装："></a>Git安装：</h1><pre><code>Ubuntu:  sudo apt-get install git
 CentOS:  sudo yum install git
-</code></pre><p>#创建版本库<br>    初始化一个Git仓库：git init<br>    添加文件到Git仓库：git add readme.txt<br>                     git commit -m “本次提交说明”</p>
-<p>&gt;</p>
-<ul>
-<li>查看工作区状态，文件是否被修改过：git status<br>&gt;</li>
-<li>查看修改的内容：git diff</li>
+</code></pre><h1 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h1><pre><code>初始化一个Git仓库：git init
+添加文件到Git仓库：git add readme.txt 
+                 git commit -m &quot;本次提交说明&quot;
+</code></pre><ul>
+<li><p>查看工作区状态，文件是否被修改过：git status</p>
+</li>
+<li><p>查看修改的内容：git diff</p>
+</li>
 </ul>
-<p>#版本回退</p>
-<pre><code>HEAD:     当前版本
+<h1 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h1><pre><code>HEAD:     当前版本
 HEAD^:    上个版本
 HEAD^^:   上上个版本
 HEAD~100: 往上100个版本
@@ -352,8 +352,7 @@ HEAD~100: 往上100个版本
 <li>git log –pretty=oneline ： 使输出信息清晰</li>
 <li>git reflog：要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。</li>
 </ul>
-<p>#工作区和暂存区</p>
-<ul>
+<h1 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h1><ul>
 <li>工作区：就是你在电脑里能看到的目录，比如我的learngit文件夹就是一个工作区；</li>
 <li>版本库：工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库；</li>
 <li>暂存区：Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区；          <ol>
@@ -381,8 +380,8 @@ HEAD~100: 往上100个版本
 <ul>
 <li>git rm ：从版本库中删除文件</li>
 </ul>
-<p>#远程仓库<br>    添加远程库</p>
-<ul>
+<h1 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h1><pre><code>添加远程库
+</code></pre><ul>
 <li>关联一个远程库：git remote add origin git@github.com:username/path.git</li>
 <li>关联后第一次推送master分支的所有内容：git push -u origin master</li>
 <li><p>此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改<br>&gt;<br>ps:由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
@@ -391,42 +390,53 @@ HEAD~100: 往上100个版本
 <li>要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆<br>git clone git@github.com:michaelliao/xinjianyuanchengkuming.git</li>
 <li>Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快 </li>
 </ul>
-<p>#分支管理 </p>
-<p>####创建与合并分支<br>    查看分支：git branch<br>    创建分支：git branch<name><br>    切换分支：git cheakout<name><br>    创建+切换分支：git cheakout -b <name><br>    合并某分支到当前分支：git merge<name><br>    删除分支：git branch - d <name></name></name></name></name></name></p>
-<p>####解决冲突<br>    查看分支合并图：git log – graph</p>
-<blockquote>
+<h1 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h1><h4 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h4><pre><code>查看分支：git branch
+创建分支：git branch&lt;name&gt;
+切换分支：git cheakout&lt;name&gt;
+创建+切换分支：git cheakout -b &lt;name&gt;
+合并某分支到当前分支：git merge&lt;name&gt;
+删除分支：git branch - d &lt;name&gt;
+</code></pre><h4 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h4><pre><code>查看分支合并图：git log -- graph
+</code></pre><blockquote>
 <p>eg：git log –graph –pretty =oneline –abbrev -commit</p>
 </blockquote>
-<p>####分支管理策略</p>
-<blockquote>
+<h4 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h4><blockquote>
 <p>合并分支时加–no-ff参数：普通模式合并，合并后的历史有分支，禁用fast forward合并看不出来曾经做过合并<br>eg:   git log –no-ff-m”merge with no–ff”dev</p>
 </blockquote>
-<p>####Bug分支<br>    git stash：把当前工作现场隐藏起来，去修复bug<br>    git stash pop：恢复工作现场同时删除stash内容</p>
-<p>####Feature分支<br>     开发一个新feature，最好新建一个分支:git checkout -b feature-vulcan<br>     如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除</name></p>
-<p>####多人协作<br>    git remote -v：查看远程库信息<br>    git push origin branch-name：从本地推送分支<br>    git pull：推送失败时，抓取远程的新提交<br>    git checkout -b branch-name origin/branch-name：在本地创建和远程分支对应的分支（本地和远程分支的名称最好一致）<br>    git branch –set-upstream branch-name origin/branch-name：建立本地分支和远程分支的关联</p>
-<p>#标签管理</p>
-<p>####创建标签<br>    git tag <name>：新建一个标签（默认为HEAD，也可以指定commit id）<br>    git tag -a <tagname> -m “blablabla…”：可以指定标签信息<br>    git tag -s <tagname> -m “blablabla…”：可以用PGP签名信息<br>    git tag：查看所有标签</tagname></tagname></name></p>
-<p>####操作标签<br>    git push origin <tagname>：推送一个本地标签<br>    git push origin –tags：推送全部未推送过的本地标签<br>    git tag -d <tagname>：删除一个本地标签<br>    git push origin :refs/tags/<tagname>：删除一个远程标签</tagname></tagname></tagname></p>
-<p>#使用GitHub</p>
-<ul>
+<h4 id="Bug分支"><a href="#Bug分支" class="headerlink" title="Bug分支"></a>Bug分支</h4><pre><code>git stash：把当前工作现场隐藏起来，去修复bug
+git stash pop：恢复工作现场同时删除stash内容
+</code></pre><h4 id="Feature分支"><a href="#Feature分支" class="headerlink" title="Feature分支"></a>Feature分支</h4><pre><code>开发一个新feature，最好新建一个分支:git checkout -b feature-vulcan
+如果要丢弃一个没有被合并过的分支，可以通过git branch -D &lt;name&gt;强行删除
+</code></pre><h4 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h4><pre><code>git remote -v：查看远程库信息
+git push origin branch-name：从本地推送分支
+git pull：推送失败时，抓取远程的新提交
+git checkout -b branch-name origin/branch-name：在本地创建和远程分支对应的分支（本地和远程分支的名称最好一致）
+git branch --set-upstream branch-name origin/branch-name：建立本地分支和远程分支的关联
+</code></pre><h1 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h1><h4 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h4><pre><code>git tag &lt;name&gt;：新建一个标签（默认为HEAD，也可以指定commit id）
+git tag -a &lt;tagname&gt; -m &quot;blablabla...&quot;：可以指定标签信息
+git tag -s &lt;tagname&gt; -m &quot;blablabla...&quot;：可以用PGP签名信息
+git tag：查看所有标签
+</code></pre><h4 id="操作标签"><a href="#操作标签" class="headerlink" title="操作标签"></a>操作标签</h4><pre><code>git push origin &lt;tagname&gt;：推送一个本地标签
+git push origin --tags：推送全部未推送过的本地标签
+git tag -d &lt;tagname&gt;：删除一个本地标签
+git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
+</code></pre><h1 id="使用GitHub"><a href="#使用GitHub" class="headerlink" title="使用GitHub"></a>使用GitHub</h1><ul>
 <li>在GitHub上，可以任意Fork（复刻）开源仓库；</li>
 <li>自己拥有Fork后的仓库的读写权限；</li>
 <li>可以推送pull request给官方仓库来贡献代码。</li>
 </ul>
-<p>#自定义Git</p>
-<p>####忽略特殊文件</p>
-<blockquote>
+<h1 id="自定义Git"><a href="#自定义Git" class="headerlink" title="自定义Git"></a>自定义Git</h1><h4 id="忽略特殊文件"><a href="#忽略特殊文件" class="headerlink" title="忽略特殊文件"></a>忽略特殊文件</h4><blockquote>
 <p>忽略某些文件时，需要在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。</p>
 </blockquote>
-<p>####配置别名</p>
-<ul>
+<h4 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h4><ul>
 <li><p>我们只需要敲一行命令，告诉Git，以后st就表示status：git config –global alias.st status</p>
 <p>  $ git config –global alias.co checkout</p>
 <p>  $ git config –global alias.ci commit</p>
 <p>  $ git config –global alias.br branch</p>
 <p>  $ git config –global alias.unstage ‘reset HEAD’</p>
 </li>
-<li><p>配置Git的时候，加上–global是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。每个仓库的Git配置文件都放在.git/config文件中，别名就在[alias]后面，要删除别名，直接把对应的行删掉即可。<br>####搭建Git服务器<br>GitHub就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又不想给GitHub交保护费，那就只能自己搭建一台Git服务器作为私有仓库使用。</p>
+<li><p>配置Git的时候，加上–global是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。每个仓库的Git配置文件都放在.git/config文件中，别名就在[alias]后面，要删除别名，直接把对应的行删掉即可。</p>
+<h4 id="搭建Git服务器"><a href="#搭建Git服务器" class="headerlink" title="搭建Git服务器"></a>搭建Git服务器</h4><p>GitHub就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又不想给GitHub交保护费，那就只能自己搭建一台Git服务器作为私有仓库使用。</p>
 </li>
 </ul>
 
