@@ -82,14 +82,14 @@
 <meta name="description" content="Git介绍   一个可以管理和追踪代码或类似内容的不同版本的工具，通常称为：版本控制系统（VCS）。本文主要介绍Git这款功能强大、灵活而且低开销的VCS，它可以让协同开发成为一种乐趣。Git由Linus Torvalds发明，起初为了方便管理Linux的内核的开发工作。如今，Git已经在大量的项目中得到非常成功的应用。 相较于其他版本控制系统的优势： 直接快照，而非比较差异 可本地执行，无需联网">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git笔记（初稿待更）">
+<meta property="og:title" content="Git版本控制管理">
 <meta property="og:url" content="http://Guoshuaistrive.github.io/2017/10/26/git/index.html">
 <meta property="og:site_name" content="Gavin的博客">
 <meta property="og:description" content="Git介绍   一个可以管理和追踪代码或类似内容的不同版本的工具，通常称为：版本控制系统（VCS）。本文主要介绍Git这款功能强大、灵活而且低开销的VCS，它可以让协同开发成为一种乐趣。Git由Linus Torvalds发明，起初为了方便管理Linux的内核的开发工作。如今，Git已经在大量的项目中得到非常成功的应用。 相较于其他版本控制系统的优势： 直接快照，而非比较差异 可本地执行，无需联网">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-27T02:40:13.077Z">
+<meta property="og:updated_time" content="2017-10-27T09:15:13.415Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git笔记（初稿待更）">
+<meta name="twitter:title" content="Git版本控制管理">
 <meta name="twitter:description" content="Git介绍   一个可以管理和追踪代码或类似内容的不同版本的工具，通常称为：版本控制系统（VCS）。本文主要介绍Git这款功能强大、灵活而且低开销的VCS，它可以让协同开发成为一种乐趣。Git由Linus Torvalds发明，起初为了方便管理Linux的内核的开发工作。如今，Git已经在大量的项目中得到非常成功的应用。 相较于其他版本控制系统的优势： 直接快照，而非比较差异 可本地执行，无需联网">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>Git笔记（初稿待更） | Gavin的博客</title>
+  <title>Git版本控制管理 | Gavin的博客</title>
   
 
 
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git笔记（初稿待更）</h1>
+          <h1 class="post-title" itemprop="name headline">Git版本控制管理</h1>
         
 
         <div class="post-meta">
@@ -354,7 +354,7 @@
 
       
         <h1 id="Git介绍"><a href="#Git介绍" class="headerlink" title="Git介绍"></a>Git介绍</h1><p>   一个可以管理和追踪代码或类似内容的不同版本的工具，通常称为：版本控制系统（VCS）。本文主要介绍Git这款功能强大、灵活而且低开销的VCS，它可以让协同开发成为一种乐趣。Git由Linus Torvalds发明，起初为了方便管理Linux的内核的开发工作。如今，Git已经在大量的项目中得到非常成功的应用。</p>
-<h4 id="相较于其他版本控制系统的优势："><a href="#相较于其他版本控制系统的优势：" class="headerlink" title="相较于其他版本控制系统的优势："></a>相较于其他版本控制系统的优势：</h4><ul>
+<h2 id="相较于其他版本控制系统的优势："><a href="#相较于其他版本控制系统的优势：" class="headerlink" title="相较于其他版本控制系统的优势："></a>相较于其他版本控制系统的优势：</h2><ul>
 <li>直接快照，而非比较差异</li>
 <li>可本地执行，无需联网</li>
 <li>时刻保持数据完整性</li>
@@ -414,39 +414,41 @@ HEAD~100: 往上100个版本
 <li>关联后第一次推送master分支的所有内容：git push -u origin master</li>
 <li>此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改</li>
 </ul>
-<p>&gt;<br>ps:由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
+<blockquote>
+<p>ps:由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
+</blockquote>
 <pre><code>从远程库克隆
 </code></pre><ul>
 <li>要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆<br>git clone git@github.com:michaelliao/xinjianyuanchengkuming.git</li>
 <li>Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快 </li>
 </ul>
-<h1 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h1><h4 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h4><pre><code>查看分支：git branch
+<h1 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h1><h2 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h2><pre><code>查看分支：git branch
 创建分支：git branch&lt;name&gt;
 切换分支：git cheakout&lt;name&gt;
 创建+切换分支：git cheakout -b &lt;name&gt;
 合并某分支到当前分支：git merge&lt;name&gt;
 删除分支：git branch - d &lt;name&gt;
-</code></pre><h4 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h4><pre><code>查看分支合并图：git log -- graph
+</code></pre><h2 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h2><pre><code>查看分支合并图：git log -- graph
 </code></pre><blockquote>
 <p>eg：git log –graph –pretty =oneline –abbrev -commit</p>
 </blockquote>
-<h4 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h4><blockquote>
+<h2 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h2><blockquote>
 <p>合并分支时加–no-ff参数：普通模式合并，合并后的历史有分支，禁用fast forward合并看不出来曾经做过合并<br>eg:   git log –no-ff-m”merge with no–ff”dev</p>
 </blockquote>
-<h4 id="Bug分支"><a href="#Bug分支" class="headerlink" title="Bug分支"></a>Bug分支</h4><pre><code>git stash：把当前工作现场隐藏起来，去修复bug
+<h2 id="Bug分支"><a href="#Bug分支" class="headerlink" title="Bug分支"></a>Bug分支</h2><pre><code>git stash：把当前工作现场隐藏起来，去修复bug
 git stash pop：恢复工作现场同时删除stash内容
-</code></pre><h4 id="Feature分支"><a href="#Feature分支" class="headerlink" title="Feature分支"></a>Feature分支</h4><pre><code>开发一个新feature，最好新建一个分支:git checkout -b feature-vulcan
+</code></pre><h2 id="Feature分支"><a href="#Feature分支" class="headerlink" title="Feature分支"></a>Feature分支</h2><pre><code>开发一个新feature，最好新建一个分支:git checkout -b feature-vulcan
 如果要丢弃一个没有被合并过的分支，可以通过git branch -D &lt;name&gt;强行删除
-</code></pre><h4 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h4><pre><code>git remote -v：查看远程库信息
+</code></pre><h2 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h2><pre><code>git remote -v：查看远程库信息
 git push origin branch-name：从本地推送分支
 git pull：推送失败时，抓取远程的新提交
 git checkout -b branch-name origin/branch-name：在本地创建和远程分支对应的分支（本地和远程分支的名称最好一致）
 git branch --set-upstream branch-name origin/branch-name：建立本地分支和远程分支的关联
-</code></pre><h1 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h1><h4 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h4><pre><code>git tag &lt;name&gt;：新建一个标签（默认为HEAD，也可以指定commit id）
+</code></pre><h1 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h1><h2 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h2><pre><code>git tag &lt;name&gt;：新建一个标签（默认为HEAD，也可以指定commit id）
 git tag -a &lt;tagname&gt; -m &quot;blablabla...&quot;：可以指定标签信息
 git tag -s &lt;tagname&gt; -m &quot;blablabla...&quot;：可以用PGP签名信息
 git tag：查看所有标签
-</code></pre><h4 id="操作标签"><a href="#操作标签" class="headerlink" title="操作标签"></a>操作标签</h4><pre><code>git push origin &lt;tagname&gt;：推送一个本地标签
+</code></pre><h2 id="操作标签"><a href="#操作标签" class="headerlink" title="操作标签"></a>操作标签</h2><pre><code>git push origin &lt;tagname&gt;：推送一个本地标签
 git push origin --tags：推送全部未推送过的本地标签
 git tag -d &lt;tagname&gt;：删除一个本地标签
 git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
@@ -455,10 +457,10 @@ git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
 <li>自己拥有Fork后的仓库的读写权限；</li>
 <li>可以推送pull request给官方仓库来贡献代码。</li>
 </ul>
-<h1 id="自定义Git"><a href="#自定义Git" class="headerlink" title="自定义Git"></a>自定义Git</h1><h4 id="忽略特殊文件"><a href="#忽略特殊文件" class="headerlink" title="忽略特殊文件"></a>忽略特殊文件</h4><blockquote>
+<h1 id="自定义Git"><a href="#自定义Git" class="headerlink" title="自定义Git"></a>自定义Git</h1><h2 id="忽略特殊文件"><a href="#忽略特殊文件" class="headerlink" title="忽略特殊文件"></a>忽略特殊文件</h2><blockquote>
 <p>忽略某些文件时，需要在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。</p>
 </blockquote>
-<h4 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h4><ul>
+<h2 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h2><ul>
 <li><p>我们只需要敲一行命令，告诉Git，以后st就表示status：git config –global alias.st status</p>
 <p>  $ git config –global alias.co checkout</p>
 <p>  $ git config –global alias.ci commit</p>
@@ -468,7 +470,7 @@ git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
 <li><p>配置Git的时候，加上–global是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。每个仓库的Git配置文件都放在.git/config文件中，别名就在[alias]后面，要删除别名，直接把对应的行删掉即可。</p>
 </li>
 </ul>
-<h4 id="搭建Git服务器"><a href="#搭建Git服务器" class="headerlink" title="搭建Git服务器"></a>搭建Git服务器</h4><p>GitHub就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又不想给GitHub交保护费，那就只能自己搭建一台Git服务器作为私有仓库使用。</p>
+<h2 id="搭建Git服务器"><a href="#搭建Git服务器" class="headerlink" title="搭建Git服务器"></a>搭建Git服务器</h2><p>GitHub就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又不想给GitHub交保护费，那就只能自己搭建一台Git服务器作为私有仓库使用。</p>
 
       
     </div>
@@ -508,6 +510,10 @@ git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/27/Markdowm/" rel="prev" title="Markdowm指南">
+                Markdowm指南 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -598,7 +604,7 @@ git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -620,7 +626,7 @@ git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -669,7 +675,7 @@ git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git介绍"><span class="nav-number">1.</span> <span class="nav-text">Git介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#相较于其他版本控制系统的优势："><span class="nav-number">1.0.0.1.</span> <span class="nav-text">相较于其他版本控制系统的优势：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git安装："><span class="nav-number">2.</span> <span class="nav-text">Git安装：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建版本库"><span class="nav-number">3.</span> <span class="nav-text">创建版本库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#版本回退"><span class="nav-number">4.</span> <span class="nav-text">版本回退</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#工作区和暂存区"><span class="nav-number">5.</span> <span class="nav-text">工作区和暂存区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#远程仓库"><span class="nav-number">6.</span> <span class="nav-text">远程仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分支管理"><span class="nav-number">7.</span> <span class="nav-text">分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建与合并分支"><span class="nav-number">7.0.0.1.</span> <span class="nav-text">创建与合并分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决冲突"><span class="nav-number">7.0.0.2.</span> <span class="nav-text">解决冲突</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分支管理策略"><span class="nav-number">7.0.0.3.</span> <span class="nav-text">分支管理策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bug分支"><span class="nav-number">7.0.0.4.</span> <span class="nav-text">Bug分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Feature分支"><span class="nav-number">7.0.0.5.</span> <span class="nav-text">Feature分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多人协作"><span class="nav-number">7.0.0.6.</span> <span class="nav-text">多人协作</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标签管理"><span class="nav-number">8.</span> <span class="nav-text">标签管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建标签"><span class="nav-number">8.0.0.1.</span> <span class="nav-text">创建标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作标签"><span class="nav-number">8.0.0.2.</span> <span class="nav-text">操作标签</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用GitHub"><span class="nav-number">9.</span> <span class="nav-text">使用GitHub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义Git"><span class="nav-number">10.</span> <span class="nav-text">自定义Git</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#忽略特殊文件"><span class="nav-number">10.0.0.1.</span> <span class="nav-text">忽略特殊文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置别名"><span class="nav-number">10.0.0.2.</span> <span class="nav-text">配置别名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#搭建Git服务器"><span class="nav-number">10.0.0.3.</span> <span class="nav-text">搭建Git服务器</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git介绍"><span class="nav-number">1.</span> <span class="nav-text">Git介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#相较于其他版本控制系统的优势："><span class="nav-number">1.1.</span> <span class="nav-text">相较于其他版本控制系统的优势：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git安装："><span class="nav-number">2.</span> <span class="nav-text">Git安装：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建版本库"><span class="nav-number">3.</span> <span class="nav-text">创建版本库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#版本回退"><span class="nav-number">4.</span> <span class="nav-text">版本回退</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#工作区和暂存区"><span class="nav-number">5.</span> <span class="nav-text">工作区和暂存区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#远程仓库"><span class="nav-number">6.</span> <span class="nav-text">远程仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分支管理"><span class="nav-number">7.</span> <span class="nav-text">分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建与合并分支"><span class="nav-number">7.1.</span> <span class="nav-text">创建与合并分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决冲突"><span class="nav-number">7.2.</span> <span class="nav-text">解决冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支管理策略"><span class="nav-number">7.3.</span> <span class="nav-text">分支管理策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bug分支"><span class="nav-number">7.4.</span> <span class="nav-text">Bug分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Feature分支"><span class="nav-number">7.5.</span> <span class="nav-text">Feature分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多人协作"><span class="nav-number">7.6.</span> <span class="nav-text">多人协作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标签管理"><span class="nav-number">8.</span> <span class="nav-text">标签管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建标签"><span class="nav-number">8.1.</span> <span class="nav-text">创建标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作标签"><span class="nav-number">8.2.</span> <span class="nav-text">操作标签</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用GitHub"><span class="nav-number">9.</span> <span class="nav-text">使用GitHub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义Git"><span class="nav-number">10.</span> <span class="nav-text">自定义Git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#忽略特殊文件"><span class="nav-number">10.1.</span> <span class="nav-text">忽略特殊文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置别名"><span class="nav-number">10.2.</span> <span class="nav-text">配置别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建Git服务器"><span class="nav-number">10.3.</span> <span class="nav-text">搭建Git服务器</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -756,12 +762,12 @@ git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
 
 
 
+
+
+
+
   
   
-
-
-
-
 
 
 
@@ -804,7 +810,7 @@ git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
 
   
   
-    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
   
 
 
@@ -854,7 +860,7 @@ git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
         var disqus_config = function () {
           this.page.url = 'http://Guoshuaistrive.github.io/2017/10/26/git/';
           this.page.identifier = '2017/10/26/git/';
-          this.page.title = 'Git笔记（初稿待更）';
+          this.page.title = 'Git版本控制管理';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Gavin.disqus.com/embed.js';
