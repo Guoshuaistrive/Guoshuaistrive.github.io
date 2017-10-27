@@ -294,8 +294,41 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/summary/" itemprop="url" rel="index">
+                    <span itemprop="name">summary</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/26/git/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/10/26/git/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -324,7 +357,7 @@
         
           
             <h1 id="Git介绍"><a href="#Git介绍" class="headerlink" title="Git介绍"></a>Git介绍</h1><p>   一个可以管理和追踪代码或类似内容的不同版本的工具，通常称为：版本控制系统（VCS）。本文主要介绍Git这款功能强大、灵活而且低开销的VCS，它可以让协同开发成为一种乐趣。Git由Linus Torvalds发明，起初为了方便管理Linux的内核的开发工作。如今，Git已经在大量的项目中得到非常成功的应用。</p>
-<h5 id="相较于其他版本控制系统的优势："><a href="#相较于其他版本控制系统的优势：" class="headerlink" title="相较于其他版本控制系统的优势："></a>相较于其他版本控制系统的优势：</h5><ul>
+<h4 id="相较于其他版本控制系统的优势："><a href="#相较于其他版本控制系统的优势：" class="headerlink" title="相较于其他版本控制系统的优势："></a>相较于其他版本控制系统的优势：</h4><ul>
 <li>直接快照，而非比较差异</li>
 <li>可本地执行，无需联网</li>
 <li>时刻保持数据完整性</li>
@@ -337,10 +370,8 @@ CentOS:  sudo yum install git
 添加文件到Git仓库：git add readme.txt 
                  git commit -m &quot;本次提交说明&quot;
 </code></pre><ul>
-<li><p>查看工作区状态，文件是否被修改过：git status</p>
-</li>
-<li><p>查看修改的内容：git diff</p>
-</li>
+<li>查看工作区状态，文件是否被修改过：git status</li>
+<li>查看修改的内容：git diff</li>
 </ul>
 <h1 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h1><pre><code>HEAD:     当前版本
 HEAD^:    上个版本
@@ -365,13 +396,13 @@ HEAD~100: 往上100个版本
 <p>管理修改</p>
 </blockquote>
 <ul>
-<li><p>每次修改，如果不add到暂存区，就不会加入到commit中</p>
+<li>每次修改，如果不add到暂存区，就不会加入到commit</li>
+</ul>
 <blockquote>
 <p>撤销修改</p>
 </blockquote>
-</li>
-<li><p>git checkout – file：丢弃工作区的修改(用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”</p>
-</li>
+<ul>
+<li>git checkout – file：丢弃工作区的修改(用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”</li>
 <li>git reset HEAD file：把暂存区的修改撤销掉，重新放回工作区</li>
 </ul>
 <blockquote>
@@ -384,9 +415,11 @@ HEAD~100: 往上100个版本
 </code></pre><ul>
 <li>关联一个远程库：git remote add origin git@github.com:username/path.git</li>
 <li>关联后第一次推送master分支的所有内容：git push -u origin master</li>
-<li><p>此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改<br>&gt;<br>ps:由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
-<p>  从远程库克隆</p>
-</li>
+<li>此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改</li>
+</ul>
+<p>&gt;<br>ps:由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
+<pre><code>从远程库克隆
+</code></pre><ul>
 <li>要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆<br>git clone git@github.com:michaelliao/xinjianyuanchengkuming.git</li>
 <li>Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快 </li>
 </ul>
@@ -436,9 +469,9 @@ git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
 <p>  $ git config –global alias.unstage ‘reset HEAD’</p>
 </li>
 <li><p>配置Git的时候，加上–global是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。每个仓库的Git配置文件都放在.git/config文件中，别名就在[alias]后面，要删除别名，直接把对应的行删掉即可。</p>
-<h4 id="搭建Git服务器"><a href="#搭建Git服务器" class="headerlink" title="搭建Git服务器"></a>搭建Git服务器</h4><p>GitHub就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又不想给GitHub交保护费，那就只能自己搭建一台Git服务器作为私有仓库使用。</p>
 </li>
 </ul>
+<h4 id="搭建Git服务器"><a href="#搭建Git服务器" class="headerlink" title="搭建Git服务器"></a>搭建Git服务器</h4><p>GitHub就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又不想给GitHub交保护费，那就只能自己搭建一台Git服务器作为私有仓库使用。</p>
 
           
         
@@ -529,8 +562,41 @@ git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/learn/" itemprop="url" rel="index">
+                    <span itemprop="name">learn</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/21/firstblog/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/10/21/firstblog/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -691,15 +757,24 @@ hexo d == hexo deploy    #部署到GitHub
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
             
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
@@ -817,6 +892,9 @@ hexo d == hexo deploy    #部署到GitHub
 
 
 
+  
+  
+
 
 
 
@@ -855,6 +933,16 @@ hexo d == hexo deploy    #部署到GitHub
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
 
   
 
@@ -889,6 +977,14 @@ hexo d == hexo deploy    #部署到GitHub
 
   
 
+    
+      <script id="dsq-count-scr" src="https://Gavin.disqus.com/count.js" async></script>
+    
+
+    
+
+  
+
 
 
 
@@ -901,10 +997,6 @@ hexo d == hexo deploy    #部署到GitHub
   
 
 
-
-
-
-  
 
 
 
