@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="git," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="环境准备1.系统 Window 7 64位 2.Git  2.7.2  3.Node.js 6.11.4  PS：不同软件版本的安装使用或有有差异，尽量与本文保持一致 验证软件是否正确安装1. git --version                   2. node -v 3. npm -v 登陆github并创建仓库   还没GitHub账号的童鞋注册一个，记得验证邮箱额！登陆之后，点击”">
-<meta name="keywords" content="hexo">
+<meta name="description" content="Git与SVN区别 Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：  对比表| 区别 | Git | SVN | | -- | --- | --- | | 开发模型 | 分布式 | 非分布式 | | 存储方式 | 元数据方式（blob）| 文件 | | 索">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于hexo和Github搭建个人博客">
-<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/10/21/firstblog/index.html">
+<meta property="og:title" content="Git学习心得（待续）">
+<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/10/28/git-1/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="环境准备1.系统 Window 7 64位 2.Git  2.7.2  3.Node.js 6.11.4  PS：不同软件版本的安装使用或有有差异，尽量与本文保持一致 验证软件是否正确安装1. git --version                   2. node -v 3. npm -v 登陆github并创建仓库   还没GitHub账号的童鞋注册一个，记得验证邮箱额！登陆之后，点击”">
+<meta property="og:description" content="Git与SVN区别 Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：  对比表| 区别 | Git | SVN | | -- | --- | --- | | 开发模型 | 分布式 | 非分布式 | | 存储方式 | 元数据方式（blob）| 文件 | | 索">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-28T10:13:44.274Z">
+<meta property="og:updated_time" content="2017-10-28T14:11:33.402Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于hexo和Github搭建个人博客">
-<meta name="twitter:description" content="环境准备1.系统 Window 7 64位 2.Git  2.7.2  3.Node.js 6.11.4  PS：不同软件版本的安装使用或有有差异，尽量与本文保持一致 验证软件是否正确安装1. git --version                   2. node -v 3. npm -v 登陆github并创建仓库   还没GitHub账号的童鞋注册一个，记得验证邮箱额！登陆之后，点击”">
+<meta name="twitter:title" content="Git学习心得（待续）">
+<meta name="twitter:description" content="Git与SVN区别 Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：  对比表| 区别 | Git | SVN | | -- | --- | --- | | 开发模型 | 分布式 | 非分布式 | | 存储方式 | 元数据方式（blob）| 文件 | | 索">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/10/21/firstblog/"/>
+  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/10/28/git-1/"/>
 
 
 
 
 
-  <title>基于hexo和Github搭建个人博客 | Gavin的博客</title>
+  <title>Git学习心得（待续） | Gavin的博客</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/10/21/firstblog/">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/10/28/git-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guo shuai">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">基于hexo和Github搭建个人博客</h1>
+          <h1 class="post-title" itemprop="name headline">Git学习心得（待续）</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-21T18:54:26+08:00">
-                2017-10-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T20:18:55+08:00">
+                2017-10-28
               </time>
             
 
@@ -323,9 +323,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/10/21/firstblog/#comments" itemprop="discussionUrl">
+                <a href="/2017/10/28/git-1/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/10/21/firstblog/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/10/28/git-1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -353,48 +353,27 @@
       
 
       
-        <h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><pre><code>1.系统 Window 7 64位
-2.Git  2.7.2 
-3.Node.js 6.11.4 
-PS：不同软件版本的安装使用或有有差异，尽量与本文保持一致
-</code></pre><h2 id="验证软件是否正确安装"><a href="#验证软件是否正确安装" class="headerlink" title="验证软件是否正确安装"></a>验证软件是否正确安装</h2><pre><code>1. git --version                  
-2. node -v
-3. npm -v
-</code></pre><h1 id="登陆github并创建仓库"><a href="#登陆github并创建仓库" class="headerlink" title="登陆github并创建仓库"></a>登陆github并创建仓库</h1><p>   还没GitHub账号的童鞋注册一个，记得验证邮箱额！登陆之后，点击”New repository”，新建一个版本库,输入Repository name: yourname.github.io,(yourname与你的注册用户名一致,这个就是你博客的域名了),然后点击Create repository，仓库创建成功可能不会立即生效，我的等了10min才生效。<br><a id="more"></a></p>
-<h1 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h1><pre><code>A fast, simple &amp; powerful blog framework
-一个快速简单强大的博客框架
-</code></pre><h2 id="hexo安装"><a href="#hexo安装" class="headerlink" title="hexo安装"></a>hexo安装</h2><pre><code>新建一个blog文件夹,用于存放博客文件,然后右键单击选择“Git Bash”        
-npm install -g hexo
-安装完成后，再输入命令，验证是否安装正确
-hexo -v
-</code></pre><h2 id="hexo初始化"><a href="#hexo初始化" class="headerlink" title="hexo初始化"></a>hexo初始化</h2><pre><code>hexo init
-</code></pre><h2 id="生成页面"><a href="#生成页面" class="headerlink" title="生成页面"></a>生成页面</h2><pre><code>hexo g
-</code></pre><h2 id="启动本地服务"><a href="#启动本地服务" class="headerlink" title="启动本地服务"></a>启动本地服务</h2><pre><code>hexo s
-在浏览器地址栏输入localhost:4000,即可看到你的个人博客
-按住Ctrl+C键停止
-</code></pre><h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><pre><code>用Markdown软件打开blog/_config.yml文件，翻到最后四行配置如下 
-deploy: 
-  type: git
-  repo: https://github.com/yourname/yourname.github.io.git
-  branch: master 
-</code></pre><h1 id="安装hexo-git插件"><a href="#安装hexo-git插件" class="headerlink" title="安装hexo git插件"></a>安装hexo git插件</h1><pre><code>npm install hexo-deployer-git --save
-</code></pre><h1 id="新建博文"><a href="#新建博文" class="headerlink" title="新建博文"></a>新建博文</h1><pre><code>cd folder
-hexo new &quot;postName&quot;         #新建文章
-hexo new page &quot;postName&quot;    #新建页面
-</code></pre><h1 id="发布博文"><a href="#发布博文" class="headerlink" title="发布博文"></a>发布博文</h1><pre><code>hexo clean
-hexo g      #生成静态页面至public目录
-hexo s      #开启预览访问端口
-hexo d      #部署到GitHub
-</code></pre><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><pre><code>至此，就可以访问blog啦，域名yourname.github.io，是不是很简单？
-too young too naive!
-中间很多坑要你亲自去填的，所以要有耐心、细心和抗压能力，一步一步来！
-</code></pre><h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><pre><code>hexo help                # 查看帮助
-hexo version             #查看Hexo的版本
-hexo n == hexo new       #新建文章
-hexo g == hexo generate  #生成静态页面至public目录
-hexo s == hexo server    #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）
-hexo d == hexo deploy    #部署到GitHub
-</code></pre>
+        <h1 id="Git与SVN区别"><a href="#Git与SVN区别" class="headerlink" title="Git与SVN区别"></a>Git与SVN区别</h1><ul>
+<li>Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：</li>
+</ul>
+<h2 id="对比表"><a href="#对比表" class="headerlink" title="对比表"></a>对比表</h2><pre><code>| 区别 | Git | SVN |
+| -- | --- | --- |
+| 开发模型 | 分布式 | 非分布式 |
+| 存储方式 | 元数据方式（blob）| 文件 |
+| 索引机制 | .git/objects/hash | 目录（/path/to/file) |
+| 分支管理 | 1s完成 | 蜗牛速度 |
+</code></pre><h1 id="Git三种状态"><a href="#Git三种状态" class="headerlink" title="Git三种状态"></a>Git三种状态</h1><blockquote>
+<ul>
+<li>已提交</li>
+</ul>
+<ul>
+<li>已修改</li>
+</ul>
+<ul>
+<li>已暂存</li>
+</ul>
+</blockquote>
+
       
     </div>
     
@@ -411,7 +390,7 @@ hexo d == hexo deploy    #部署到GitHub
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/git/" rel="tag"># git</a>
           
         </div>
       
@@ -424,15 +403,15 @@ hexo d == hexo deploy    #部署到GitHub
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/10/27/Markdowm/" rel="next" title="Markdowm指南">
+                <i class="fa fa-chevron-left"></i> Markdowm指南
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/26/git/" rel="prev" title="Git版本控制管理">
-                Git版本控制管理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -594,7 +573,7 @@ hexo d == hexo deploy    #部署到GitHub
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境准备"><span class="nav-number">1.</span> <span class="nav-text">环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#验证软件是否正确安装"><span class="nav-number">1.1.</span> <span class="nav-text">验证软件是否正确安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#登陆github并创建仓库"><span class="nav-number">2.</span> <span class="nav-text">登陆github并创建仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo"><span class="nav-number">3.</span> <span class="nav-text">Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo安装"><span class="nav-number">3.1.</span> <span class="nav-text">hexo安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo初始化"><span class="nav-number">3.2.</span> <span class="nav-text">hexo初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成页面"><span class="nav-number">3.3.</span> <span class="nav-text">生成页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动本地服务"><span class="nav-number">3.4.</span> <span class="nav-text">启动本地服务</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置文件"><span class="nav-number">4.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装hexo-git插件"><span class="nav-number">5.</span> <span class="nav-text">安装hexo git插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新建博文"><span class="nav-number">6.</span> <span class="nav-text">新建博文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#发布博文"><span class="nav-number">7.</span> <span class="nav-text">发布博文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用命令"><span class="nav-number">9.</span> <span class="nav-text">常用命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git与SVN区别"><span class="nav-number">1.</span> <span class="nav-text">Git与SVN区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对比表"><span class="nav-number">1.1.</span> <span class="nav-text">对比表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git三种状态"><span class="nav-number">2.</span> <span class="nav-text">Git三种状态</span></a></li></ol></div>
             
 
           </div>
@@ -777,9 +756,9 @@ hexo d == hexo deploy    #部署到GitHub
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://Guoshuaistrive.github.io/2017/10/21/firstblog/';
-          this.page.identifier = '2017/10/21/firstblog/';
-          this.page.title = '基于hexo和Github搭建个人博客';
+          this.page.url = 'http://Guoshuaistrive.github.io/2017/10/28/git-1/';
+          this.page.identifier = '2017/10/28/git-1/';
+          this.page.title = 'Git学习心得（待续）';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Gavin.disqus.com/embed.js';

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Gavin的博客">
 <meta property="og:description" content="Git介绍   一个可以管理和追踪代码或类似内容的不同版本的工具，通常称为：版本控制系统（VCS）。本文主要介绍Git这款功能强大、灵活而且低开销的VCS，它可以让协同开发成为一种乐趣。Git由Linus Torvalds发明，起初为了方便管理Linux的内核的开发工作。如今，Git已经在大量的项目中得到非常成功的应用。 相较于其他版本控制系统的优势： 直接快照，而非比较差异 可本地执行，无需联网">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-28T10:13:54.279Z">
+<meta property="og:updated_time" content="2017-10-28T12:45:45.850Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git版本控制管理">
 <meta name="twitter:description" content="Git介绍   一个可以管理和追踪代码或类似内容的不同版本的工具，通常称为：版本控制系统（VCS）。本文主要介绍Git这款功能强大、灵活而且低开销的VCS，它可以让协同开发成为一种乐趣。Git由Linus Torvalds发明，起初为了方便管理Linux的内核的开发工作。如今，Git已经在大量的项目中得到非常成功的应用。 相较于其他版本控制系统的优势： 直接快照，而非比较差异 可本地执行，无需联网">
@@ -361,6 +361,7 @@
 <li>多数操作仅添加数据</li>
 </ul>
 <hr>
+<a id="more"></a>
 <h1 id="Git安装："><a href="#Git安装：" class="headerlink" title="Git安装："></a>Git安装：</h1><pre><code>Ubuntu:  sudo apt-get install git
 CentOS:  sudo yum install git
 </code></pre><h1 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h1><pre><code>初始化一个Git仓库：git init
@@ -368,12 +369,13 @@ CentOS:  sudo yum install git
                  git commit -m &quot;本次提交说明&quot;
 </code></pre><ul>
 <li>查看工作区状态，文件是否被修改过：git status</li>
-<li><p>查看修改的内容：git diff</p>
-<a id="more"></a>
-<h1 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h1><p>  HEAD:     当前版本<br>  HEAD^:    上个版本<br>  HEAD^^:   上上个版本<br>  HEAD~100: 往上100个版本</p>
-</li>
+<li>查看修改的内容：git diff</li>
 </ul>
-<ul>
+<h1 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h1><pre><code>HEAD:     当前版本
+HEAD^:    上个版本
+HEAD^^:   上上个版本
+HEAD~100: 往上100个版本
+</code></pre><ul>
 <li>git reset –hard commit_id ：定位版本</li>
 <li>git log：穿梭前，用git log可查看提交历史，以确定要回退到哪个版本</li>
 <li>git log –pretty=oneline ： 使输出信息清晰</li>
@@ -414,7 +416,7 @@ CentOS:  sudo yum install git
 <li>此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改</li>
 </ul>
 <blockquote>
-<p>ps:由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
+<p>由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
 </blockquote>
 <pre><code>从远程库克隆
 </code></pre><ul>
@@ -603,7 +605,7 @@ git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -761,10 +763,10 @@ git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
 
 
 
-
-
   
   
+
+
 
 
 
@@ -809,7 +811,7 @@ git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
 
   
   
-    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
   
 
 

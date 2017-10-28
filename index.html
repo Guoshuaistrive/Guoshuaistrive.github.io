@@ -252,6 +252,178 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/10/28/git-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guo shuai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/28/git-1/" itemprop="url">Git学习心得（待续）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T20:18:55+08:00">
+                2017-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/learn/" itemprop="url" rel="index">
+                    <span itemprop="name">learn</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/28/git-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/10/28/git-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Git与SVN区别"><a href="#Git与SVN区别" class="headerlink" title="Git与SVN区别"></a>Git与SVN区别</h1><ul>
+<li>Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：</li>
+</ul>
+<h2 id="对比表"><a href="#对比表" class="headerlink" title="对比表"></a>对比表</h2><pre><code>| 区别 | Git | SVN |
+| -- | --- | --- |
+| 开发模型 | 分布式 | 非分布式 |
+| 存储方式 | 元数据方式（blob）| 文件 |
+| 索引机制 | .git/objects/hash | 目录（/path/to/file) |
+| 分支管理 | 1s完成 | 蜗牛速度 |
+</code></pre><h1 id="Git三种状态"><a href="#Git三种状态" class="headerlink" title="Git三种状态"></a>Git三种状态</h1><blockquote>
+<ul>
+<li>已提交</li>
+</ul>
+<ul>
+<li>已修改</li>
+</ul>
+<ul>
+<li>已暂存</li>
+</ul>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/10/27/Markdowm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -526,14 +698,6 @@
 <li>多数操作仅添加数据</li>
 </ul>
 <hr>
-<h1 id="Git安装："><a href="#Git安装：" class="headerlink" title="Git安装："></a>Git安装：</h1><pre><code>Ubuntu:  sudo apt-get install git
-CentOS:  sudo yum install git
-</code></pre><h1 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h1><pre><code>初始化一个Git仓库：git init
-添加文件到Git仓库：git add readme.txt 
-                 git commit -m &quot;本次提交说明&quot;
-</code></pre><ul>
-<li>查看工作区状态，文件是否被修改过：git status</li>
-<li><p>查看修改的内容：git diff</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/10/26/git/#more" rel="contents">
@@ -788,7 +952,7 @@ PS：不同软件版本的安装使用或有有差异，尽量与本文保持一
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -930,10 +1094,10 @@ PS：不同软件版本的安装使用或有有差异，尽量与本文保持一
 
 
 
-
-
   
   
+
+
 
 
 
@@ -978,7 +1142,7 @@ PS：不同软件版本的安装使用或有有差异，尽量与本文保持一
 
   
   
-    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
   
 
 
