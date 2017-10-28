@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="Git与SVN区别 Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：  对比表| 区别 | Git | SVN | | -- | --- | --- | | 开发模型 | 分布式 | 非分布式 | | 存储方式 | 元数据方式（blob）| 文件 | | 索">
+<meta name="description" content="Git与SVN区别 Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：  对比表    Git SVN &amp;amp; CVS     开发模型 分布式 非分布式   存储方式 元数据方式（blob) 文件   索引机制 .git/objects/hash 目录（">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git学习心得（待续）">
 <meta property="og:url" content="http://Guoshuaistrive.github.io/2017/10/28/git-1/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="Git与SVN区别 Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：  对比表| 区别 | Git | SVN | | -- | --- | --- | | 开发模型 | 分布式 | 非分布式 | | 存储方式 | 元数据方式（blob）| 文件 | | 索">
+<meta property="og:description" content="Git与SVN区别 Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：  对比表    Git SVN &amp;amp; CVS     开发模型 分布式 非分布式   存储方式 元数据方式（blob) 文件   索引机制 .git/objects/hash 目录（">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-28T14:11:33.402Z">
+<meta property="og:image" content="http://jbcdn2.b0.upaiyun.com/2012/08/Git-start6.png">
+<meta property="og:updated_time" content="2017-10-28T14:41:32.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git学习心得（待续）">
-<meta name="twitter:description" content="Git与SVN区别 Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：  对比表| 区别 | Git | SVN | | -- | --- | --- | | 开发模型 | 分布式 | 非分布式 | | 存储方式 | 元数据方式（blob）| 文件 | | 索">
+<meta name="twitter:description" content="Git与SVN区别 Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：  对比表    Git SVN &amp;amp; CVS     开发模型 分布式 非分布式   存储方式 元数据方式（blob) 文件   索引机制 .git/objects/hash 目录（">
+<meta name="twitter:image" content="http://jbcdn2.b0.upaiyun.com/2012/08/Git-start6.png">
 
 
 
@@ -356,23 +358,48 @@
         <h1 id="Git与SVN区别"><a href="#Git与SVN区别" class="headerlink" title="Git与SVN区别"></a>Git与SVN区别</h1><ul>
 <li>Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：</li>
 </ul>
-<h2 id="对比表"><a href="#对比表" class="headerlink" title="对比表"></a>对比表</h2><pre><code>| 区别 | Git | SVN |
-| -- | --- | --- |
-| 开发模型 | 分布式 | 非分布式 |
-| 存储方式 | 元数据方式（blob）| 文件 |
-| 索引机制 | .git/objects/hash | 目录（/path/to/file) |
-| 分支管理 | 1s完成 | 蜗牛速度 |
-</code></pre><h1 id="Git三种状态"><a href="#Git三种状态" class="headerlink" title="Git三种状态"></a>Git三种状态</h1><blockquote>
-<ul>
-<li>已提交</li>
-</ul>
-<ul>
-<li>已修改</li>
-</ul>
-<ul>
-<li>已暂存</li>
-</ul>
+<h2 id="对比表"><a href="#对比表" class="headerlink" title="对比表"></a>对比表</h2><table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">Git</th>
+<th style="text-align:center">SVN &amp; CVS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>开发模型</td>
+<td style="text-align:center">分布式</td>
+<td style="text-align:center">非分布式</td>
+</tr>
+<tr>
+<td>存储方式</td>
+<td style="text-align:center">元数据方式（blob)</td>
+<td style="text-align:center">文件</td>
+</tr>
+<tr>
+<td>索引机制</td>
+<td style="text-align:center">.git/objects/hash</td>
+<td style="text-align:center">目录（/path/to/file)</td>
+</tr>
+<tr>
+<td>分支管理</td>
+<td style="text-align:center">1s完成</td>
+<td style="text-align:center">蜗牛速度</td>
+</tr>
+</tbody>
+</table>
+<h1 id="Git三种状态"><a href="#Git三种状态" class="headerlink" title="Git三种状态"></a>Git三种状态</h1><blockquote>
+<p> 已提交：表示该文件已经被安全地保存在本地数据库中了</p>
+<p> 已修改：表示修改了某个文件，但还没有提交保存</p>
+<p> 已暂存：表示把已修改的文件放在下次提交时要保存的清单中</p>
 </blockquote>
+<ul>
+<li><p>Git在管理项目时，文件流转的三个工作区域：Git 的工作目录，暂存区域，以及本地仓库：</p>
+<p><img src="http://jbcdn2.b0.upaiyun.com/2012/08/Git-start6.png" alt=""></p>
+</li>
+</ul>
+<p>#Git分支概念<br>   待续</p>
 
       
     </div>
