@@ -271,7 +271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/28/git-1/" itemprop="url">Git学习心得（待续）</a></h1>
+                <a class="post-title-link" href="/2017/10/28/git-1/" itemprop="url">Git学习小结</a></h1>
         
 
         <div class="post-meta">
@@ -333,6 +333,17 @@
           
 
           
+          
+             <span id="/2017/10/28/git-1/" class="leancloud_visitors" data-flag-title="Git学习小结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -400,7 +411,27 @@
 <p><img src="http://jbcdn2.b0.upaiyun.com/2012/08/Git-start6.png" alt=""></p>
 </li>
 </ul>
-<p>#Git分支概念<br>   待续</p>
+<hr>
+<h1 id="Git分支概念"><a href="#Git分支概念" class="headerlink" title="Git分支概念"></a>Git分支概念</h1><blockquote>
+<ul>
+<li>分支是在软件项目中启动一条单独的开发线的基本方法；</li>
+<li>Git允许很多分支，因此在同一个版本库中可有很多不同的开发线；</li>
+<li>一个分支通常代表一个单独的客户发布版。</li>
+</ul>
+</blockquote>
+<p>git分支整体预览图如下：</p>
+<p> <img src="http://legendtkl.com/img/uploads/2016/git-model.png" alt=""></p>
+<blockquote>
+<p>预览图中主要包含下面几个分支：</p>
+</blockquote>
+<ul>
+<li>master: 主分支，主要用来版本发布。</li>
+<li>develop：日常开发分支，该分支正常保存了开发的最新代码，开发完成并且测试没有问题则将 develop 分支的代码合并到master分支并发布。（develop分支只有发布完了才能进行下一个版本开发，开发会比较缓慢。）</li>
+<li>feature：具体的功能开发分支，只与develop分支交互。</li>
+<li>release：release分支可以认为是master分支的未测试版。比如说某一期的功能全部开发完成，那么就将develop分支合并到release分支，测试没有问题并且到了发布日期就合并到 master 分支，进行发布。</li>
+<li>hotfix：线上bug修复分支。</li>
+<li>除此之后还可以有fast-track等分支。</li>
+</ul>
 
           
         
@@ -530,6 +561,17 @@
           
 
           
+          
+             <span id="/2017/10/27/Markdowm/" class="leancloud_visitors" data-flag-title="Markdowm指南">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -694,6 +736,17 @@
 
           
           
+             <span id="/2017/10/26/git/" class="leancloud_visitors" data-flag-title="Git版本控制管理">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -857,6 +910,17 @@
           
 
           
+          
+             <span id="/2017/10/21/firstblog/" class="leancloud_visitors" data-flag-title="基于hexo和Github搭建个人博客">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -1243,6 +1307,113 @@ PS：不同软件版本的安装使用或有有差异，尽量与本文保持一
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("wtJqgSNKGTRTF9MFm1vCjaTd-gzGzoHsz", "Qb1NWIBxY5EzOcUkKCxANpaA");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
