@@ -355,8 +355,7 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>Docker是一款针对程序开发人员和系统管理员来开发、部署、运行应用的一款虚拟化平台。</p>
 </blockquote>
 <ul>
@@ -368,51 +367,15 @@
 </blockquote>
 <ul>
 <li>The Docker Engine – Docker Engine 是一个基于虚拟化技术的轻量级并且功能强大的开源容器引擎管理工具。它可以将不同的 work flow 组合起来构建成你的应用。</li>
-<li>Docker Hub 可以分享和管理你的images镜像的一个 Saas 服务。<h1 id="Docker镜像使用"><a href="#Docker镜像使用" class="headerlink" title="Docker镜像使用"></a>Docker镜像使用</h1>容器都基于镜像创建。镜像提供了部署和运行Docker所需的一切基础。若想启动容器，必须下载公共镜像或者自己创建镜像。每个docker都包含一个或者多个文件系统层，一般来说创建镜像时每个构建步骤都会创建一个文件系统层。</li>
+<li>Docker Hub 可以分享和管理你的images镜像的一个 Saas 服务。</li>
 </ul>
-<ul>
-<li><p>获取镜像：docker pull centos</p>
-</li>
-<li><p>列出本地镜像：docker images</p>
-</li>
-<li><p>创建镜像：</p>
-<ol>
-<li>修改已有镜像</li>
-<li>利用dockerfile来创建镜像（docker build创建一个新的镜像，首先需创建一个Dockerfile，包含一些如何创建镜像的指令）</li>
-<li>从本地文件系统导入</li>
-<li>上传镜像（docker push ouruser/sinatra）</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li><p>导出镜像（到本地文件）：docker save -o ubuntu_14.04.tar ubuntu:14.04</p>
-</li>
-<li><p>载入镜像（从导出的本地文件中再导入到本地镜像库）：docker load –input ubuntu:14.04</p>
-</li>
-<li><p>移除本地镜像：docker rmi training/sinatra</p>
-</li>
-</ul>
-<h1 id="Docker容器使用"><a href="#Docker容器使用" class="headerlink" title="Docker容器使用"></a>Docker容器使用</h1><ul>
-<li>容器是什么？容器使自成一体的执行环境，所有容器共用宿主系统的内核，而且系统中的容器之间是相互隔离的。</li>
-<li>容器的优势？容器最大的优势是高效使用资源，因为不用为了使用各个独立的功能而运行整个操作系统。<blockquote>
-<p>因为容器共用一个内核，所以隔离执行的任务和底层硬件之间少了一层交互，运行在容器里的进程只需要使用很少一部分内核，进程在特权模式下进出处理器时不会再调出一个完整的内核。</p>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li>新建并启动容器： docker run (docker create &amp; docker start)</li>
-<li>终止一个运行中的容器： docker stop</li>
-<li><p>导出本地某个容器: docker export 7691a814370e &gt; ubuntu.tar</p>
-</li>
-<li><p>从容器快照文件中再导入到本地镜像库:docker import （容器快照文件将丢弃所有的历史记录和元数据信息（即仅保存容器当时的快照状态））</p>
-</li>
-<li><p>导入镜像存储文件到本地镜像库:docker load （保存完整记录，体积也要大）</p>
-</li>
-<li><p>删除一个处于终止状态的容器：docker rm trusting_newton </p>
-</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/01/docker/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -570,7 +533,7 @@
 <hr>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/11/01/git-2/#espandi" rel="contents">
+            <a class="btn" href="/2017/11/01/git-2/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -766,7 +729,7 @@
 <li><p>已暂存：表示把已修改的文件放在下次提交时要保存的清单中  </p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/10/28/git-1/#espandi" rel="contents">
+            <a class="btn" href="/2017/10/28/git-1/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -929,7 +892,7 @@
 <h1 id="常用示例"><a href="#常用示例" class="headerlink" title="常用示例"></a>常用示例</h1>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/10/27/Markdowm/#espandi" rel="contents">
+            <a class="btn" href="/2017/10/27/Markdowm/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1093,7 +1056,7 @@
 <hr>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/10/26/git/#espandi" rel="contents">
+            <a class="btn" href="/2017/10/26/git/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1257,7 +1220,7 @@ PS：不同软件版本的安装使用或有有差异，尽量与本文保持一
 </code></pre><h1 id="登陆github并创建仓库"><a href="#登陆github并创建仓库" class="headerlink" title="登陆github并创建仓库"></a>登陆github并创建仓库</h1><p>   还没GitHub账号的童鞋注册一个，记得验证邮箱额！登陆之后，点击”New repository”，新建一个版本库,输入Repository name: yourname.github.io,(yourname与你的注册用户名一致,这个就是你博客的域名了),然后点击Create repository，仓库创建成功可能不会立即生效，我的等了10min才生效。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/10/21/firstblog/#espandi" rel="contents">
+            <a class="btn" href="/2017/10/21/firstblog/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
