@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="git," />
+  <meta name="keywords" content="docker," />
 
 
 
@@ -79,21 +79,18 @@
 
 
 
-<meta name="description" content="Git与SVN区别 Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：  对比表    Git SVN &amp;amp; CVS     开发模型 分布式 非分布式   存储方式 元数据方式（blob) 文件   索引机制 .git/objects/hash 目录（">
-<meta name="keywords" content="git">
+<meta name="description" content="Docker是一款针对程序开发人员和系统管理员来开发、部署、运行应用的一款虚拟化平台。   Docker 可以让你像使用集装箱一样快速的组合成应用，并且可以像运输标准集装箱一样，尽可能的屏蔽代码层面的差异。 Docker 会尽可能的缩短从代码测试到产品部署的时间。   Docker 组件   The Docker Engine – Docker Engine 是一个基于虚拟化技术的轻量级并且功能">
+<meta name="keywords" content="docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git学习小结">
-<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/10/28/git-1/index.html">
+<meta property="og:title" content="Docker镜像使用与容器使用">
+<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/01/docker/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="Git与SVN区别 Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：  对比表    Git SVN &amp;amp; CVS     开发模型 分布式 非分布式   存储方式 元数据方式（blob) 文件   索引机制 .git/objects/hash 目录（">
+<meta property="og:description" content="Docker是一款针对程序开发人员和系统管理员来开发、部署、运行应用的一款虚拟化平台。   Docker 可以让你像使用集装箱一样快速的组合成应用，并且可以像运输标准集装箱一样，尽可能的屏蔽代码层面的差异。 Docker 会尽可能的缩短从代码测试到产品部署的时间。   Docker 组件   The Docker Engine – Docker Engine 是一个基于虚拟化技术的轻量级并且功能">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://jbcdn2.b0.upaiyun.com/2012/08/Git-start6.png">
-<meta property="og:image" content="http://legendtkl.com/img/uploads/2016/git-model.png">
-<meta property="og:updated_time" content="2017-10-31T12:52:06.150Z">
+<meta property="og:updated_time" content="2017-11-01T12:57:51.283Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git学习小结">
-<meta name="twitter:description" content="Git与SVN区别 Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：  对比表    Git SVN &amp;amp; CVS     开发模型 分布式 非分布式   存储方式 元数据方式（blob) 文件   索引机制 .git/objects/hash 目录（">
-<meta name="twitter:image" content="http://jbcdn2.b0.upaiyun.com/2012/08/Git-start6.png">
+<meta name="twitter:title" content="Docker镜像使用与容器使用">
+<meta name="twitter:description" content="Docker是一款针对程序开发人员和系统管理员来开发、部署、运行应用的一款虚拟化平台。   Docker 可以让你像使用集装箱一样快速的组合成应用，并且可以像运输标准集装箱一样，尽可能的屏蔽代码层面的差异。 Docker 会尽可能的缩短从代码测试到产品部署的时间。   Docker 组件   The Docker Engine – Docker Engine 是一个基于虚拟化技术的轻量级并且功能">
 
 
 
@@ -123,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/10/28/git-1/"/>
+  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/11/01/docker/"/>
 
 
 
 
 
-  <title>Git学习小结 | Gavin的博客</title>
+  <title>Docker镜像使用与容器使用 | Gavin的博客</title>
   
 
 
@@ -256,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/10/28/git-1/">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/01/docker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guo shuai">
@@ -273,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git学习小结</h1>
+          <h1 class="post-title" itemprop="name headline">Docker镜像使用与容器使用</h1>
         
 
         <div class="post-meta">
@@ -285,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T20:18:55+08:00">
-                2017-10-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-01T20:49:58+08:00">
+                2017-11-01
               </time>
             
 
@@ -325,7 +322,7 @@
 
           
           
-             <span id="/2017/10/28/git-1/" class="leancloud_visitors" data-flag-title="Git学习小结">
+             <span id="/2017/11/01/docker/" class="leancloud_visitors" data-flag-title="Docker镜像使用与容器使用">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -356,80 +353,62 @@
       
 
       
-        <h1 id="Git与SVN区别"><a href="#Git与SVN区别" class="headerlink" title="Git与SVN区别"></a>Git与SVN区别</h1><ul>
-<li>Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：</li>
-</ul>
-<h2 id="对比表"><a href="#对比表" class="headerlink" title="对比表"></a>对比表</h2><table>
-<thead>
-<tr>
-<th></th>
-<th style="text-align:center">Git</th>
-<th style="text-align:center">SVN &amp; CVS</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>开发模型</td>
-<td style="text-align:center">分布式</td>
-<td style="text-align:center">非分布式</td>
-</tr>
-<tr>
-<td>存储方式</td>
-<td style="text-align:center">元数据方式（blob)</td>
-<td style="text-align:center">文件</td>
-</tr>
-<tr>
-<td>索引机制</td>
-<td style="text-align:center">.git/objects/hash</td>
-<td style="text-align:center">目录（/path/to/file)</td>
-</tr>
-<tr>
-<td>分支管理</td>
-<td style="text-align:center">1s完成</td>
-<td style="text-align:center">蜗牛速度</td>
-</tr>
-</tbody>
-</table>
-<h1 id="Git三种状态"><a href="#Git三种状态" class="headerlink" title="Git三种状态"></a>Git三种状态</h1><ul>
-<li><p>已提交：表示该文件已经被安全地保存在本地数据库中了</p>
-</li>
-<li><p>已修改：表示修改了某个文件，但还没有提交保存</p>
-</li>
-<li><p>已暂存：表示把已修改的文件放在下次提交时要保存的清单中  </p>
-<a id="more"></a>
-</li>
-</ul>
-<blockquote>
-<p> Git在管理项目时，文件流转的三个工作区域：Git 的工作目录，暂存区域，以及本地仓库：</p>
-</blockquote>
-<p> <img src="http://jbcdn2.b0.upaiyun.com/2012/08/Git-start6.png" alt=""></p>
-<hr>
-<h1 id="Git分支概念"><a href="#Git分支概念" class="headerlink" title="Git分支概念"></a>Git分支概念</h1><blockquote>
-<ul>
-<li>分支是在软件项目中启动一条单独的开发线的基本方法；</li>
-<li>Git允许很多分支，因此在同一个版本库中可有很多不同的开发线；</li>
-<li>一个分支通常代表一个单独的客户发布版。</li>
-</ul>
-</blockquote>
-<p>git分支整体预览图如下：</p>
-<p> <img src="http://legendtkl.com/img/uploads/2016/git-model.png" alt=""></p>
-<blockquote>
-<p>预览图中主要包含下面几个分支：</p>
+        <blockquote>
+<p>Docker是一款针对程序开发人员和系统管理员来开发、部署、运行应用的一款虚拟化平台。</p>
 </blockquote>
 <ul>
-<li>master: 主分支，主要用来版本发布。</li>
-<li>develop：日常开发分支，该分支正常保存了开发的最新代码，开发完成并且测试没有问题则将 develop 分支的代码合并到master分支并发布。（develop分支只有发布完了才能进行下一个版本开发，开发会比较缓慢。）</li>
-<li>feature：具体的功能开发分支，只与develop分支交互。</li>
-<li>release：release分支可以认为是master分支的未测试版。比如说某一期的功能全部开发完成，那么就将develop分支合并到release分支，测试没有问题并且到了发布日期就合并到 master 分支，进行发布。</li>
-<li>hotfix：线上bug修复分支。</li>
-<li>除此之后还可以有fast-track等分支。</li>
+<li>Docker 可以让你像使用集装箱一样快速的组合成应用，并且可以像运输标准集装箱一样，尽可能的屏蔽代码层面的差异。</li>
+<li>Docker 会尽可能的缩短从代码测试到产品部署的时间。</li>
 </ul>
-<h1 id="远程库"><a href="#远程库" class="headerlink" title="远程库"></a>远程库</h1><h2 id="添加远程库"><a href="#添加远程库" class="headerlink" title="添加远程库"></a>添加远程库</h2><pre><code>1.关联一个远程库
- git remote add origin git@github.com:username/path.git
-2.推送master分支的所有内容(本地与远程关联起来)：
- git push -u origin master
-</code></pre><h2 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h2><pre><code>git clone git@github.com:username/path.git
-</code></pre>
+<blockquote>
+<p>Docker 组件</p>
+</blockquote>
+<ul>
+<li>The Docker Engine – Docker Engine 是一个基于虚拟化技术的轻量级并且功能强大的开源容器引擎管理工具。它可以将不同的 work flow 组合起来构建成你的应用。</li>
+<li>Docker Hub 可以分享和管理你的images镜像的一个 Saas 服务。<h1 id="Docker镜像使用"><a href="#Docker镜像使用" class="headerlink" title="Docker镜像使用"></a>Docker镜像使用</h1>容器都基于镜像创建。镜像提供了部署和运行Docker所需的一切基础。若想启动容器，必须下载公共镜像或者自己创建镜像。每个docker都包含一个或者多个文件系统层，一般来说创建镜像时每个构建步骤都会创建一个文件系统层。</li>
+</ul>
+<ul>
+<li><p>获取镜像：docker pull centos</p>
+</li>
+<li><p>列出本地镜像：docker images</p>
+</li>
+<li><p>创建镜像：</p>
+<ol>
+<li>修改已有镜像</li>
+<li>利用dockerfile来创建镜像（docker build创建一个新的镜像，首先需创建一个Dockerfile，包含一些如何创建镜像的指令）</li>
+<li>从本地文件系统导入</li>
+<li>上传镜像（docker push ouruser/sinatra）</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>导出镜像（到本地文件）：docker save -o ubuntu_14.04.tar ubuntu:14.04</p>
+</li>
+<li><p>载入镜像（从导出的本地文件中再导入到本地镜像库）：docker load –input ubuntu:14.04</p>
+</li>
+<li><p>移除本地镜像：docker rmi training/sinatra</p>
+</li>
+</ul>
+<h1 id="Docker容器使用"><a href="#Docker容器使用" class="headerlink" title="Docker容器使用"></a>Docker容器使用</h1><ul>
+<li>容器是什么？容器使自成一体的执行环境，所有容器共用宿主系统的内核，而且系统中的容器之间是相互隔离的。</li>
+<li>容器的优势？容器最大的优势是高效使用资源，因为不用为了使用各个独立的功能而运行整个操作系统。<blockquote>
+<p>因为容器共用一个内核，所以隔离执行的任务和底层硬件之间少了一层交互，运行在容器里的进程只需要使用很少一部分内核，进程在特权模式下进出处理器时不会再调出一个完整的内核。</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>新建并启动容器： docker run (docker create &amp; docker start)</li>
+<li>终止一个运行中的容器： docker stop</li>
+<li><p>导出本地某个容器: docker export 7691a814370e &gt; ubuntu.tar</p>
+</li>
+<li><p>从容器快照文件中再导入到本地镜像库:docker import （容器快照文件将丢弃所有的历史记录和元数据信息（即仅保存容器当时的快照状态））</p>
+</li>
+<li><p>导入镜像存储文件到本地镜像库:docker load （保存完整记录，体积也要大）</p>
+</li>
+<li><p>删除一个处于终止状态的容器：docker rm trusting_newton </p>
+</li>
+</ul>
+
       
     </div>
     
@@ -446,7 +425,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/docker/" rel="tag"># docker</a>
           
         </div>
       
@@ -459,8 +438,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/27/Markdowm/" rel="next" title="Markdowm指南">
-                <i class="fa fa-chevron-left"></i> Markdowm指南
+              <a href="/2017/11/01/git-2/" rel="next" title="Git的关键架构">
+                <i class="fa fa-chevron-left"></i> Git的关键架构
               </a>
             
           </div>
@@ -468,10 +447,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/01/git-2/" rel="prev" title="Git的关键架构">
-                Git的关键架构 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -623,7 +598,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git与SVN区别"><span class="nav-number">1.</span> <span class="nav-text">Git与SVN区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对比表"><span class="nav-number">1.1.</span> <span class="nav-text">对比表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git三种状态"><span class="nav-number">2.</span> <span class="nav-text">Git三种状态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git分支概念"><span class="nav-number">3.</span> <span class="nav-text">Git分支概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#远程库"><span class="nav-number">4.</span> <span class="nav-text">远程库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加远程库"><span class="nav-number">4.1.</span> <span class="nav-text">添加远程库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从远程库克隆"><span class="nav-number">4.2.</span> <span class="nav-text">从远程库克隆</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker镜像使用"><span class="nav-number">1.</span> <span class="nav-text">Docker镜像使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker容器使用"><span class="nav-number">2.</span> <span class="nav-text">Docker容器使用</span></a></li></ol></div>
             
 
           </div>
