@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Gavin的博客">
 <meta property="og:description" content="Git版本库 Git版本库（repository）只是一个简单的数据库，其中包含所有用来维护与管理项目的修订版本和历史的信息。在版本库中，Git主要维护两个主要的数据结构：对象库和索引。所有这些版本库数据存放在工作目录下一个名为.git的隐藏子目录中。  Git对象类型 对象库是Git版本库实现的心脏。它包含你的原始数据文件和所有日志消息、作并信息、日期，以及其他用来重建项目任意版本或分支的信息。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-01T12:59:24.240Z">
+<meta property="og:updated_time" content="2017-11-03T11:12:36.644Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git的关键架构">
 <meta name="twitter:description" content="Git版本库 Git版本库（repository）只是一个简单的数据库，其中包含所有用来维护与管理项目的修订版本和历史的信息。在版本库中，Git主要维护两个主要的数据结构：对象库和索引。所有这些版本库数据存放在工作目录下一个名为.git的隐藏子目录中。  Git对象类型 对象库是Git版本库实现的心脏。它包含你的原始数据文件和所有日志消息、作并信息、日期，以及其他用来重建项目任意版本或分支的信息。">
@@ -357,14 +357,14 @@
 <p>Git版本库（repository）只是一个简单的数据库，其中包含所有用来维护与管理项目的修订版本和历史的信息。在版本库中，Git主要维护两个主要的数据结构：对象库和索引。所有这些版本库数据存放在工作目录下一个名为.git的隐藏子目录中。</p>
 </blockquote>
 <h1 id="Git对象类型"><a href="#Git对象类型" class="headerlink" title="Git对象类型"></a>Git对象类型</h1><blockquote>
-<p>对象库是Git版本库实现的心脏。它包含你的原始数据文件和所有日志消息、作并信息、日期，以及其他用来重建项目任意版本或分支的信息。Git放在对象库里的对象只有4种类型：块(blob)、目录树(tree)、提交(commit)和标签(tag)，这4种原子对象构成Git高层数据结构的基础。</p>
-<hr>
-<a id="more"></a>
-<ul>
-<li>块 ( blob )<br>文件的每一个版本表示为一个块(blob)。blob是“二进制大对象”(binary large object)的缩写，是计算机领域的常用术语，用来指代某些可以包含任意数据的变量或文件，同时其内部结构会被程序忽略。一个blob被视为一个黑盒。一个blob保存一个文件的数据，但不包含任何关于这个文件的元数据，甚至连文件名也没有。</li>
-</ul>
+<p>对象库是Git版本库实现的心脏。它包含你的原始数据文件和所有日志消息、作并信息、日期，以及其他用来重建项目任意版本或分支的信息。Git放在对象库里的对象只有4种类型：块(blob)、目录树(tree)、提交(commit)和标签(tag)，这4种原子对象构成Git高层数据结构的基础。<br><a id="more"></a></p>
 </blockquote>
 <ul>
+<li><p>块 ( blob )</p>
+<blockquote>
+<p>文件的每一个版本表示为一个块(blob)。blob是“二进制大对象”(binary large object)的缩写，是计算机领域的常用术语，用来指代某些可以包含任意数据的变量或文件，同时其内部结构会被程序忽略。一个blob被视为一个黑盒。一个blob保存一个文件的数据，但不包含任何关于这个文件的元数据，甚至连文件名也没有。</p>
+</blockquote>
+</li>
 <li><p>目录树(tree)</p>
 <blockquote>
 <p>一个目录树(tree)对象代表一层目录信息、它记录blob标识符、路径名和在一个目录里所有文件的一些元数据，它也可以递归引用其他目录树戏子树对象，从而建立一个包含文件和子目录的完整层次结构。</p>
@@ -511,7 +511,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -522,7 +522,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
