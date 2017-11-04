@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Docker是一款针对程序开发人员和系统管理员来开发、部署、运行应用的一款虚拟化平台。   Docker 可以让你像使用集装箱一样快速的组合成应用，并且可以像运输标准集装箱一样，尽可能的屏蔽代码层面的差异。  Docker 会尽可能的缩短从代码测试到产品部署的时间。    Docker 组件   The Docker Engine – Docker Engine 是一个基于虚拟化技术的轻量级并且">
+<meta name="description" content="Docker目前的学习还处于初级阶段，仅掌握了基础概念和基本命令执行而已，今天因为上海市举办的研究生论坛折腾了一天，白天没时间学习，晚上回到实验室想着在自己的Ubuntu上熟悉一下docker，没想到安装好之后一直显示Cannot connect to the Docker daemon问题，其实原因很简单还是自己没经验，经过几番调试终于显示成功。给大家分享一下过程，有遇到同样问题的同学可以参考">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker镜像使用与容器使用">
-<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/01/docker/index.html">
+<meta property="og:title" content="安装Docker问题：Cannot connect to the Docker daemon.">
+<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/04/docker-3/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="Docker是一款针对程序开发人员和系统管理员来开发、部署、运行应用的一款虚拟化平台。   Docker 可以让你像使用集装箱一样快速的组合成应用，并且可以像运输标准集装箱一样，尽可能的屏蔽代码层面的差异。  Docker 会尽可能的缩短从代码测试到产品部署的时间。    Docker 组件   The Docker Engine – Docker Engine 是一个基于虚拟化技术的轻量级并且">
+<meta property="og:description" content="Docker目前的学习还处于初级阶段，仅掌握了基础概念和基本命令执行而已，今天因为上海市举办的研究生论坛折腾了一天，白天没时间学习，晚上回到实验室想着在自己的Ubuntu上熟悉一下docker，没想到安装好之后一直显示Cannot connect to the Docker daemon问题，其实原因很简单还是自己没经验，经过几番调试终于显示成功。给大家分享一下过程，有遇到同样问题的同学可以参考">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-02T11:35:11.503Z">
+<meta property="og:updated_time" content="2017-11-04T11:25:18.797Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker镜像使用与容器使用">
-<meta name="twitter:description" content="Docker是一款针对程序开发人员和系统管理员来开发、部署、运行应用的一款虚拟化平台。   Docker 可以让你像使用集装箱一样快速的组合成应用，并且可以像运输标准集装箱一样，尽可能的屏蔽代码层面的差异。  Docker 会尽可能的缩短从代码测试到产品部署的时间。    Docker 组件   The Docker Engine – Docker Engine 是一个基于虚拟化技术的轻量级并且">
+<meta name="twitter:title" content="安装Docker问题：Cannot connect to the Docker daemon.">
+<meta name="twitter:description" content="Docker目前的学习还处于初级阶段，仅掌握了基础概念和基本命令执行而已，今天因为上海市举办的研究生论坛折腾了一天，白天没时间学习，晚上回到实验室想着在自己的Ubuntu上熟悉一下docker，没想到安装好之后一直显示Cannot connect to the Docker daemon问题，其实原因很简单还是自己没经验，经过几番调试终于显示成功。给大家分享一下过程，有遇到同样问题的同学可以参考">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/11/01/docker/"/>
+  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/11/04/docker-3/"/>
 
 
 
 
 
-  <title>Docker镜像使用与容器使用 | Gavin的博客</title>
+  <title>安装Docker问题：Cannot connect to the Docker daemon. | Gavin的博客</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/01/docker/">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/04/docker-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guo shuai">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Docker镜像使用与容器使用</h1>
+          <h1 class="post-title" itemprop="name headline">安装Docker问题：Cannot connect to the Docker daemon.</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-01T20:49:58+08:00">
-                2017-11-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-04T18:49:06+08:00">
+                2017-11-04
               </time>
             
 
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/learn/" itemprop="url" rel="index">
-                    <span itemprop="name">learn</span>
+                  <a href="/categories/analysis/" itemprop="url" rel="index">
+                    <span itemprop="name">analysis</span>
                   </a>
                 </span>
 
@@ -322,7 +322,7 @@
 
           
           
-             <span id="/2017/11/01/docker/" class="leancloud_visitors" data-flag-title="Docker镜像使用与容器使用">
+             <span id="/2017/11/04/docker-3/" class="leancloud_visitors" data-flag-title="安装Docker问题：Cannot connect to the Docker daemon.">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -353,67 +353,113 @@
       
 
       
-        <blockquote>
-<p>Docker是一款针对程序开发人员和系统管理员来开发、部署、运行应用的一款虚拟化平台。</p>
+        <ul>
+<li>Docker目前的学习还处于初级阶段，仅掌握了基础概念和基本命令执行而已，今天因为上海市举办的研究生论坛折腾了一天，白天没时间学习，晚上回到实验室想着在自己的Ubuntu上熟悉一下docker，没想到安装好之后一直显示Cannot connect to the Docker daemon问题，其实原因很简单还是自己没经验，经过几番调试终于显示成功。给大家分享一下过程，有遇到同样问题的同学可以参考，希望能有帮助！</li>
+</ul>
+<h1 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h1><pre><code>guoshuai@guoshuai:~$ sudo apt-get update
+命中:1 http://cn.archive.ubuntu.com/ubuntu xenial InRelease
+命中:2 http://cn.archive.ubuntu.com/ubuntu xenial-updates InRelease                                                              
+命中:3 http://cn.archive.ubuntu.com/ubuntu xenial-backports InRelease                                                            
+命中:4 http://security.ubuntu.com/ubuntu xenial-security InRelease                                                               
+正在读取软件包列表... 完成 
+</code></pre><a id="more"></a>
+<pre><code>guoshuai@guoshuai:~$ sudo apt-get install docker
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树       
+正在读取状态信息... 完成       
+下列【新】软件包将被安装：
+  docker
+升级了 0 个软件包，新安装了 1 个软件包，要卸载 0 个软件包，有 351 个软件包未被升级。
+需要下载 12.2 kB 的归档。
+解压缩后会消耗 65.5 kB 的额外空间。
+获取:1 http://cn.archive.ubuntu.com/ubuntu xenial/universe amd64 docker amd64 
+1.5-1 [12.2 kB]
+已下载 12.2 kB，耗时 0秒 (41.5 kB/s)
+正在选中未选择的软件包 docker。
+(正在读取数据库 ... 系统当前共安装有 211750 个文件和目录。)
+正准备解包 .../docker_1.5-1_amd64.deb  ...
+正在解包 docker (1.5-1) ...
+正在处理用于 man-db (2.7.5-1) 的触发器 ...
+正在设置 docker (1.5-1) ...                    
+</code></pre><h1 id="查看docker服务器信息和版本号，却显示如下错误："><a href="#查看docker服务器信息和版本号，却显示如下错误：" class="headerlink" title="查看docker服务器信息和版本号，却显示如下错误："></a>查看docker服务器信息和版本号，却显示如下错误：</h1><pre><code>guoshuai@guoshuai:~$ docker info
+Cannot connect to the Docker daemon. Is the docker daemon running on this host?
+
+guoshuai@guoshuai:~$ docker version
+Client:
+ Version:      1.12.6
+ API version:  1.24
+ Go version:   go1.6.2
+ Git commit:   78d1802
+ Built:        Tue Jan 31 23:35:14 2017
+ OS/Arch:      linux/amd64
+Cannot connect to the Docker daemon. Is the docker daemon running on this host?
+</code></pre><h1 id="后来以为是服务器没有启动，在执行以下命令之后，依然不行"><a href="#后来以为是服务器没有启动，在执行以下命令之后，依然不行" class="headerlink" title="后来以为是服务器没有启动，在执行以下命令之后，依然不行"></a>后来以为是服务器没有启动，在执行以下命令之后，依然不行</h1><pre><code>guoshuai@guoshuai:~$ service docker start
+guoshuai@guoshuai:~$ docker version
+Client:
+ Version:      1.12.6
+ API version:  1.24
+ Go version:   go1.6.2
+ Git commit:   78d1802
+ Built:        Tue Jan 31 23:35:14 2017
+ OS/Arch:      linux/amd64
+Cannot connect to the Docker daemon. Is the docker daemon running on this host?
+</code></pre><h1 id="最后加了sudo才解决了问题（囧），如下："><a href="#最后加了sudo才解决了问题（囧），如下：" class="headerlink" title="最后加了sudo才解决了问题（囧），如下："></a>最后加了sudo才解决了问题（囧），如下：</h1><pre><code>guoshuai@guoshuai:~$ sudo docker info
+Containers: 0
+ Running: 0
+ Paused: 0
+ Stopped: 0
+Images: 0
+Server Version: 1.12.6
+Storage Driver: aufs
+ Root Dir: /var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 0
+ Dirperm1 Supported: true
+Logging Driver: json-file
+Cgroup Driver: cgroupfs
+Plugins:
+ Volume: local
+ Network: null overlay host bridge
+Swarm: inactive
+Runtimes: runc
+Default Runtime: runc
+Security Options: apparmor seccomp
+Kernel Version: 4.10.0-27-generic
+Operating System: Ubuntu 16.04.2 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 1.951 GiB
+Name: guoshuai
+ID: VOW6:JZTH:DY5U:QFLH:N3VK:HID5:JLXU:RNKU:76CP:OEWX:2YPE:YKNL
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+WARNING: No swap limit support
+Insecure Registries:
+ 127.0.0.0/8
+</code></pre><hr>
+<pre><code>guoshuai@guoshuai:~$ sudo docker version
+Client:
+ Version:      1.12.6
+ API version:  1.24
+ Go version:   go1.6.2
+ Git commit:   78d1802
+ Built:        Tue Jan 31 23:35:14 2017
+ OS/Arch:      linux/amd64
+
+Server:
+ Version:      1.12.6
+ API version:  1.24
+ Go version:   go1.6.2
+ Git commit:   78d1802
+ Built:        Tue Jan 31 23:35:14 2017
+ OS/Arch:      linux/amd64
+</code></pre><blockquote>
+<p>是不是很水？？刚开始学习新的技术会有各种傻X的问题，慢慢排错吧。</p>
+<p>自己笔记本的Linux是Ubuntu，与公司的Centos有区别，很用法多命令执行结果也有很大区别，对于刚刚接触docker的同学来说要多尝试多练习，先把docker的一些基础命令和掌握熟练，之后在容器里面安装软件或做项目会更块上手，避免不必要的错误。</p>
 </blockquote>
-<ul>
-<li><p>Docker 可以让你像使用集装箱一样快速的组合成应用，并且可以像运输标准集装箱一样，尽可能的屏蔽代码层面的差异。</p>
-</li>
-<li><p>Docker 会尽可能的缩短从代码测试到产品部署的时间。</p>
-</li>
-</ul>
-<blockquote>
-<p>Docker 组件</p>
-</blockquote>
-<ul>
-<li>The Docker Engine – Docker Engine 是一个基于虚拟化技术的轻量级并且功能强大的开源容器引擎管理工具。它可以将不同的 work flow 组合起来构建成你的应用。</li>
-</ul>
-<ul>
-<li>Docker Hub 可以分享和管理你的images镜像的一个 Saas 服务。</li>
-</ul>
-<a id="more"></a>
-<h1 id="Docker镜像使用"><a href="#Docker镜像使用" class="headerlink" title="Docker镜像使用"></a>Docker镜像使用</h1><p>容器都基于镜像创建。镜像提供了部署和运行Docker所需的一切基础。若想启动容器，必须下载公共镜像或者自己创建镜像。每个docker都包含一个或者多个文件系统层，一般来说创建镜像时每个构建步骤都会创建一个文件系统层。</p>
-<ul>
-<li><p>获取镜像：docker pull centos</p>
-</li>
-<li><p>列出本地镜像：docker images</p>
-</li>
-<li><p>创建镜像：</p>
-<ol>
-<li>修改已有镜像</li>
-<li>利用dockerfile来创建镜像（docker build创建一个新的镜像，首先需创建一个Dockerfile，包含一些如何创建镜像的指令）</li>
-<li>从本地文件系统导入</li>
-<li>上传镜像（docker push ouruser/sinatra）</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li><p>导出镜像（到本地文件）：docker save -o ubuntu_14.04.tar ubuntu:14.04</p>
-</li>
-<li><p>载入镜像（从导出的本地文件中再导入到本地镜像库）：docker load –input ubuntu:14.04</p>
-</li>
-<li><p>移除本地镜像：docker rmi training/sinatra</p>
-</li>
-</ul>
-<h1 id="Docker容器使用"><a href="#Docker容器使用" class="headerlink" title="Docker容器使用"></a>Docker容器使用</h1><ul>
-<li>容器是什么？容器使自成一体的执行环境，所有容器共用宿主系统的内核，而且系统中的容器之间是相互隔离的。</li>
-<li>容器的优势？容器最大的优势是高效使用资源，因为不用为了使用各个独立的功能而运行整个操作系统。<blockquote>
-<p>因为容器共用一个内核，所以隔离执行的任务和底层硬件之间少了一层交互，运行在容器里的进程只需要使用很少一部分内核，进程在特权模式下进出处理器时不会再调出一个完整的内核。</p>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li>新建并启动容器： docker run (docker create &amp; docker start)</li>
-<li>终止一个运行中的容器： docker stop</li>
-<li><p>导出本地某个容器: docker export 7691a814370e &gt; ubuntu.tar</p>
-</li>
-<li><p>从容器快照文件中再导入到本地镜像库:docker import （容器快照文件将丢弃所有的历史记录和元数据信息（即仅保存容器当时的快照状态））</p>
-</li>
-<li><p>导入镜像存储文件到本地镜像库:docker load （保存完整记录，体积也要大）</p>
-</li>
-<li><p>删除一个处于终止状态的容器：docker rm trusting_newton </p>
-</li>
-</ul>
 
       
     </div>
@@ -444,8 +490,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/01/git-2/" rel="next" title="Git的关键架构">
-                <i class="fa fa-chevron-left"></i> Git的关键架构
+              <a href="/2017/11/03/docker-2/" rel="next" title="剖析Dockerfile文件">
+                <i class="fa fa-chevron-left"></i> 剖析Dockerfile文件
               </a>
             
           </div>
@@ -453,10 +499,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/02/docker-1/" rel="prev" title="Docker指令练习">
-                Docker指令练习 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -608,7 +650,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker镜像使用"><span class="nav-number">1.</span> <span class="nav-text">Docker镜像使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker容器使用"><span class="nav-number">2.</span> <span class="nav-text">Docker容器使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker安装"><span class="nav-number">1.</span> <span class="nav-text">Docker安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看docker服务器信息和版本号，却显示如下错误："><span class="nav-number">2.</span> <span class="nav-text">查看docker服务器信息和版本号，却显示如下错误：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后来以为是服务器没有启动，在执行以下命令之后，依然不行"><span class="nav-number">3.</span> <span class="nav-text">后来以为是服务器没有启动，在执行以下命令之后，依然不行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后加了sudo才解决了问题（囧），如下："><span class="nav-number">4.</span> <span class="nav-text">最后加了sudo才解决了问题（囧），如下：</span></a></li></ol></div>
             
 
           </div>

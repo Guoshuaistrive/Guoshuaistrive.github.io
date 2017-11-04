@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Git版本库 Git版本库（repository）只是一个简单的数据库，其中包含所有用来维护与管理项目的修订版本和历史的信息。在版本库中，Git主要维护两个主要的数据结构：对象库和索引。所有这些版本库数据存放在工作目录下一个名为.git的隐藏子目录中。  Git对象类型 对象库是Git版本库实现的心脏。它包含你的原始数据文件和所有日志消息、作并信息、日期，以及其他用来重建项目任意版本或分支的信息。">
+<meta name="description" content="Git版本库 Git版本库（repository）只是一个简单的数据库，其中包含所有用来维护与管理项目的修订版本和历史的信息。在版本库中，Git主要维护两个主要的数据结构：对象库和索引。所有这些版本库数据存放在工作目录下一个名为.git的隐藏子目录中。">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git的关键架构">
 <meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/01/git-2/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="Git版本库 Git版本库（repository）只是一个简单的数据库，其中包含所有用来维护与管理项目的修订版本和历史的信息。在版本库中，Git主要维护两个主要的数据结构：对象库和索引。所有这些版本库数据存放在工作目录下一个名为.git的隐藏子目录中。  Git对象类型 对象库是Git版本库实现的心脏。它包含你的原始数据文件和所有日志消息、作并信息、日期，以及其他用来重建项目任意版本或分支的信息。">
+<meta property="og:description" content="Git版本库 Git版本库（repository）只是一个简单的数据库，其中包含所有用来维护与管理项目的修订版本和历史的信息。在版本库中，Git主要维护两个主要的数据结构：对象库和索引。所有这些版本库数据存放在工作目录下一个名为.git的隐藏子目录中。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-03T11:12:36.644Z">
+<meta property="og:updated_time" content="2017-11-03T13:13:30.592Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git的关键架构">
-<meta name="twitter:description" content="Git版本库 Git版本库（repository）只是一个简单的数据库，其中包含所有用来维护与管理项目的修订版本和历史的信息。在版本库中，Git主要维护两个主要的数据结构：对象库和索引。所有这些版本库数据存放在工作目录下一个名为.git的隐藏子目录中。  Git对象类型 对象库是Git版本库实现的心脏。它包含你的原始数据文件和所有日志消息、作并信息、日期，以及其他用来重建项目任意版本或分支的信息。">
+<meta name="twitter:description" content="Git版本库 Git版本库（repository）只是一个简单的数据库，其中包含所有用来维护与管理项目的修订版本和历史的信息。在版本库中，Git主要维护两个主要的数据结构：对象库和索引。所有这些版本库数据存放在工作目录下一个名为.git的隐藏子目录中。">
 
 
 
@@ -354,10 +354,8 @@
 
       
         <h1 id="Git版本库"><a href="#Git版本库" class="headerlink" title="Git版本库"></a>Git版本库</h1><blockquote>
-<p>Git版本库（repository）只是一个简单的数据库，其中包含所有用来维护与管理项目的修订版本和历史的信息。在版本库中，Git主要维护两个主要的数据结构：对象库和索引。所有这些版本库数据存放在工作目录下一个名为.git的隐藏子目录中。</p>
-</blockquote>
-<h1 id="Git对象类型"><a href="#Git对象类型" class="headerlink" title="Git对象类型"></a>Git对象类型</h1><blockquote>
-<p>对象库是Git版本库实现的心脏。它包含你的原始数据文件和所有日志消息、作并信息、日期，以及其他用来重建项目任意版本或分支的信息。Git放在对象库里的对象只有4种类型：块(blob)、目录树(tree)、提交(commit)和标签(tag)，这4种原子对象构成Git高层数据结构的基础。<br><a id="more"></a></p>
+<p>Git版本库（repository）只是一个简单的数据库，其中包含所有用来维护与管理项目的修订版本和历史的信息。在版本库中，Git主要维护两个主要的数据结构：对象库和索引。所有这些版本库数据存放在工作目录下一个名为.git的隐藏子目录中。<br><a id="more"></a></p>
+<h1 id="Git对象类型"><a href="#Git对象类型" class="headerlink" title="Git对象类型"></a>Git对象类型</h1><p>对象库是Git版本库实现的心脏。它包含你的原始数据文件和所有日志消息、作并信息、日期，以及其他用来重建项目任意版本或分支的信息。Git放在对象库里的对象只有4种类型：块(blob)、目录树(tree)、提交(commit)和标签(tag)，这4种原子对象构成Git高层数据结构的基础。</p>
 </blockquote>
 <ul>
 <li><p>块 ( blob )</p>
@@ -511,7 +509,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -522,7 +520,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
