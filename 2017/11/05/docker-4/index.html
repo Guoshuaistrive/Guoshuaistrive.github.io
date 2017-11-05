@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="git," />
+  <meta name="keywords" content="docker," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Git介绍   一个可以管理和追踪代码或类似内容的不同版本的工具，通常称为：版本控制系统（VCS）。本文主要介绍Git这款功能强大、灵活而且低开销的VCS，它可以让协同开发成为一种乐趣。Git由Linus Torvalds发明，起初为了方便管理Linux的内核的开发工作。如今，Git已经在大量的项目中得到非常成功的应用。 相较于其他版本控制系统的优势： 直接快照，而非比较差异 可本地执行，无需联网">
-<meta name="keywords" content="git">
+<meta name="description" content="前言这篇文章主要介绍了初次使用Docker的体验总结，对初学Docker具有一定的参考价值，有需要的可以了解一下。以下内容大部分是主观片面的，可根据自己情况执行。 环境我的基础运行环境是运行在Win7虚拟机中的Ubuntu版本，Ubuntu安装Docker简洁明快：        apt-get install docker```1234567891011121314151617181920212">
+<meta name="keywords" content="docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git版本控制系统">
-<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/10/26/git/index.html">
+<meta property="og:title" content="初学docker必看总结">
+<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/05/docker-4/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="Git介绍   一个可以管理和追踪代码或类似内容的不同版本的工具，通常称为：版本控制系统（VCS）。本文主要介绍Git这款功能强大、灵活而且低开销的VCS，它可以让协同开发成为一种乐趣。Git由Linus Torvalds发明，起初为了方便管理Linux的内核的开发工作。如今，Git已经在大量的项目中得到非常成功的应用。 相较于其他版本控制系统的优势： 直接快照，而非比较差异 可本地执行，无需联网">
+<meta property="og:description" content="前言这篇文章主要介绍了初次使用Docker的体验总结，对初学Docker具有一定的参考价值，有需要的可以了解一下。以下内容大部分是主观片面的，可根据自己情况执行。 环境我的基础运行环境是运行在Win7虚拟机中的Ubuntu版本，Ubuntu安装Docker简洁明快：        apt-get install docker```1234567891011121314151617181920212">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-29T09:37:53.364Z">
+<meta property="og:updated_time" content="2017-11-05T14:37:19.957Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git版本控制系统">
-<meta name="twitter:description" content="Git介绍   一个可以管理和追踪代码或类似内容的不同版本的工具，通常称为：版本控制系统（VCS）。本文主要介绍Git这款功能强大、灵活而且低开销的VCS，它可以让协同开发成为一种乐趣。Git由Linus Torvalds发明，起初为了方便管理Linux的内核的开发工作。如今，Git已经在大量的项目中得到非常成功的应用。 相较于其他版本控制系统的优势： 直接快照，而非比较差异 可本地执行，无需联网">
+<meta name="twitter:title" content="初学docker必看总结">
+<meta name="twitter:description" content="前言这篇文章主要介绍了初次使用Docker的体验总结，对初学Docker具有一定的参考价值，有需要的可以了解一下。以下内容大部分是主观片面的，可根据自己情况执行。 环境我的基础运行环境是运行在Win7虚拟机中的Ubuntu版本，Ubuntu安装Docker简洁明快：        apt-get install docker```1234567891011121314151617181920212">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/10/26/git/"/>
+  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/11/05/docker-4/"/>
 
 
 
 
 
-  <title>Git版本控制系统 | Gavin的博客</title>
+  <title>初学docker必看总结 | Gavin的博客</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/10/26/git/">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/05/docker-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guo shuai">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git版本控制系统</h1>
+          <h1 class="post-title" itemprop="name headline">初学docker必看总结</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-26T20:25:34+08:00">
-                2017-10-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-05T22:15:24+08:00">
+                2017-11-05
               </time>
             
 
@@ -322,7 +322,7 @@
 
           
           
-             <span id="/2017/10/26/git/" class="leancloud_visitors" data-flag-title="Git版本控制系统">
+             <span id="/2017/11/05/docker-4/" class="leancloud_visitors" data-flag-title="初学docker必看总结">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -353,125 +353,80 @@
       
 
       
-        <h1 id="Git介绍"><a href="#Git介绍" class="headerlink" title="Git介绍"></a>Git介绍</h1><p>   一个可以管理和追踪代码或类似内容的不同版本的工具，通常称为：版本控制系统（VCS）。本文主要介绍Git这款功能强大、灵活而且低开销的VCS，它可以让协同开发成为一种乐趣。Git由Linus Torvalds发明，起初为了方便管理Linux的内核的开发工作。如今，Git已经在大量的项目中得到非常成功的应用。</p>
-<h2 id="相较于其他版本控制系统的优势："><a href="#相较于其他版本控制系统的优势：" class="headerlink" title="相较于其他版本控制系统的优势："></a>相较于其他版本控制系统的优势：</h2><ul>
-<li>直接快照，而非比较差异</li>
-<li>可本地执行，无需联网</li>
-<li>时刻保持数据完整性</li>
-<li>多数操作仅添加数据</li>
-</ul>
-<hr>
-<a id="more"></a>
-<h1 id="Git安装："><a href="#Git安装：" class="headerlink" title="Git安装："></a>Git安装：</h1><pre><code>Ubuntu:  sudo apt-get install git
-CentOS:  sudo yum install git
-</code></pre><h1 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h1><pre><code>初始化一个Git仓库：git init
-添加文件到Git仓库：git add readme.txt 
-                 git commit -m &quot;本次提交说明&quot;
-</code></pre><ul>
-<li>查看工作区状态，文件是否被修改过：git status</li>
-<li>查看修改的内容：git diff</li>
-</ul>
-<h1 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h1><pre><code>HEAD:     当前版本
-HEAD^:    上个版本
-HEAD^^:   上上个版本
-HEAD~100: 往上100个版本
-</code></pre><ul>
-<li>git reset –hard commit_id ：定位版本</li>
-<li>git log：穿梭前，用git log可查看提交历史，以确定要回退到哪个版本</li>
-<li>git log –pretty=oneline ： 使输出信息清晰</li>
-<li>git reflog：要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。</li>
-</ul>
-<h1 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h1><ul>
-<li>工作区：就是你在电脑里能看到的目录，比如我的learngit文件夹就是一个工作区；</li>
-<li>版本库：工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库；</li>
-<li>暂存区：Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区；          <ol>
-<li>第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；</li>
-<li>第二步是用git commit提交更改，实际上把暂存区的内容提交到当前分支。</li>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇文章主要介绍了初次使用Docker的体验总结，对初学Docker具有一定的参考价值，有需要的可以了解一下。以下内容大部分是主观片面的，可根据自己情况执行。</p>
+<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>我的基础运行环境是运行在Win7虚拟机中的Ubuntu版本，Ubuntu安装Docker简洁明快：<br>        <figure class="highlight plain"><figcaption><span>apt-get install docker```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">等着就行...安装内容如下：</div><div class="line">&lt;!-- more --&gt;</div><div class="line">	guoshuai@guoshuai:~$ sudo apt-get install docker</div><div class="line">	正在读取软件包列表... 完成</div><div class="line">	正在分析软件包的依赖关系树       </div><div class="line">	正在读取状态信息... 完成       </div><div class="line">	下列【新】软件包将被安装：</div><div class="line"> 	 docker</div><div class="line">	升级了 0 个软件包，新安装了 1 个软件包，要卸载 0 个软件包，有 351 个软件包未被升级。</div><div class="line">	需要下载 12.2 kB 的归档。</div><div class="line">	解压缩后会消耗 65.5 kB 的额外空间。</div><div class="line">	获取:1 http://cn.archive.ubuntu.com/ubuntu xenial/universe amd64 docker amd64 </div><div class="line">	1.5-1 [12.2 kB]</div><div class="line">	已下载 12.2 kB，耗时 0秒 (41.5 kB/s)</div><div class="line">	正在选中未选择的软件包 docker。</div><div class="line">	(正在读取数据库 ... 系统当前共安装有 211750 个文件和目录。)</div><div class="line">	正准备解包 .../docker_1.5-1_amd64.deb  ...</div><div class="line">	正在解包 docker (1.5-1) ...</div><div class="line">	正在处理用于 man-db (2.7.5-1) 的触发器 ...</div><div class="line">	正在设置 docker (1.5-1) ...                    </div><div class="line"></div><div class="line">如果不成功，在执行此命令前，先执行</div><div class="line">	```sudo apt-get update</div></pre></td></tr></table></figure></p>
+<h1 id="启动Docker服务"><a href="#启动Docker服务" class="headerlink" title="启动Docker服务"></a>启动Docker服务</h1><p>与安装一样简洁明快：<figure class="highlight plain"><figcaption><span>docker start ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">命令没有回显,我就不截图了。</div><div class="line"></div><div class="line"># 获取容器镜像</div><div class="line">Docker提供镜像搜索命令（search），方便你快速找到自己想要的镜像。搜索命令如下： </div><div class="line"></div><div class="line">	guoshuai@guoshuai:~$ sudo docker search ubuntu</div><div class="line">	NAME                STARS     OFFICIAL   AUTOMATED         DESCRIPTION              </div><div class="line"></div><div class="line">	ubuntu               6768      [OK]                       Ubuntu is a Debian-based </div><div class="line"></div><div class="line">	Linux operating s...    141                  [OK]      </div><div class="line">	dorowu/ubuntu-desktop-lxde-vnc                         Ubuntu with openssh-</div><div class="line"></div><div class="line">	server and NoVNC       115                  [OK]      </div><div class="line">	rastasheep/ubuntu-sshd                                 Dockerized SSH service, </div><div class="line"></div><div class="line"></div><div class="line">可以看到，搜索到好多镜像。我选择第一个，标记着“官方的”，应该没有装任何其他的</div><div class="line">东西。接下来就是下载（pull）镜像了。命令如下（时间略长）：</div><div class="line"></div><div class="line">	guoshuai@guoshuai:~$ sudo docker pull ubuntu</div><div class="line">	Using default tag: latest</div><div class="line">	latest: Pulling from library/ubuntu</div><div class="line">	</div><div class="line">	ae79f2514705: Pull complete </div><div class="line">	c59d01a7e4ca: Pull complete </div><div class="line">	41ba73a9054d: Pull complete </div><div class="line">	f1bbfd495cc1: Pull complete </div><div class="line">	0c346f7223e2: Pull complete </div><div class="line">	Digest: sha256:6eb24585b1b2e7402600450d289ea0fd195cfb76893032bbbb3943e041ec8a65</div><div class="line">	Status: Downloaded newer image for ubuntu:latest</div><div class="line"></div><div class="line">可以看到，默认下载的是最新的（latest）。当然，你可以下载其他非最新的版本，具体操作请查询pull命令的相关参数。</div><div class="line"></div><div class="line"></div><div class="line"># 创建容器</div><div class="line"></div><div class="line">接下来就是从刚下载的镜像创建一个容器了。创建容器（run）命令就比较复杂了，参数较多：</div><div class="line">```docker run -itd --name strive -ubuntu /bin/bash</div></pre></td></tr></table></figure></p>
+<pre><code>guoshuai@guoshuai:~$ sudo docker run -itd --name strive ubuntu /bin/bash
+[sudo] guoshuai 的密码： 
+136c6463541d4e1c3dbd1924a2ee886f2bcc15f8d167d71c5091cf87221bd256
+</code></pre><p>如上，我来一个一个解释：</p>
+<ul>
+<li><ol>
+<li>-itd：这是 -i -t -d 的简写。-i 表示保持打开标准输入流（stdin），无论是否连接<br>到此容器。-t 为容器分配一个虚拟的tty。-d 表示后台模式运行容器，即容器启动后将断<br>开与当前终端的连接。</li>
+</ol>
+</li>
+<li><ol>
+<li>–name：这是为容器起一个名字，之后与容器的交互需要用到。</li>
+</ol>
+</li>
+<li><ol>
+<li>ubuntu：这个是本地镜像名称（ubuntu），必须是已经下载（pull）到本地的镜像。当<br>然，若是本地没有，Docker会执行search并询问你是不是要下载。</li>
+</ol>
+</li>
+<li><ol>
+<li>/bin/bash：这个是本次启动的镜像要执行的任务。</li>
 </ol>
 </li>
 </ul>
-<blockquote>
-<p>管理修改</p>
-</blockquote>
-<ul>
-<li>每次修改，如果不add到暂存区，就不会加入到commit</li>
-</ul>
-<blockquote>
-<p>撤销修改</p>
-</blockquote>
-<ul>
-<li>git checkout – file：丢弃工作区的修改(用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”</li>
-<li>git reset HEAD file：把暂存区的修改撤销掉，重新放回工作区</li>
-</ul>
-<blockquote>
-<p>删除文件</p>
-</blockquote>
-<ul>
-<li>git rm ：从版本库中删除文件</li>
-</ul>
-<h1 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h1><pre><code>添加远程库
-</code></pre><ul>
-<li>关联一个远程库：git remote add origin git@github.com:username/path.git</li>
-<li>关联后第一次推送master分支的所有内容：git push -u origin master</li>
-<li>此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改</li>
-</ul>
-<blockquote>
-<p>由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
-</blockquote>
-<pre><code>从远程库克隆
-</code></pre><ul>
-<li>要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆<br>git clone git@github.com:michaelliao/xinjianyuanchengkuming.git</li>
-<li>Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快 </li>
-</ul>
-<h1 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h1><h2 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h2><pre><code>查看分支：git branch
-创建分支：git branch&lt;name&gt;
-切换分支：git cheakout&lt;name&gt;
-创建+切换分支：git cheakout -b &lt;name&gt;
-合并某分支到当前分支：git merge&lt;name&gt;
-删除分支：git branch - d &lt;name&gt;
-</code></pre><h2 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h2><pre><code>查看分支合并图：git log -- graph
+<h1 id="查看容器"><a href="#查看容器" class="headerlink" title="查看容器"></a>查看容器</h1><p>使用docker ps -a 命令可以查看当前存在的所有容器：</p>
+<pre><code>guoshuai@guoshuai:~$ sudo docker ps -a
+CONTAINER ID        IMAGE       COMMAND         CREATED             STATUS             NAMES
+136c6463541d        ubuntu     &quot;/bin/bash&quot;      About a minute ago  Up About a minute  strive
+</code></pre><p>如上，我只运行了一个容器。命令显示了容器的ID、使用的镜像、运行的命令、创建时间、运行时间、名称。</p>
+<h1 id="连接容器"><a href="#连接容器" class="headerlink" title="连接容器"></a>连接容器</h1><p>连接容器有多种办法。在宿主机中使用Docker的attach命令，即可连接到容器：</p>
+<pre><code>guoshuai@guoshuai:~$ sudo docker attach strive
+root@136c6463541d:/# 
+root@136c6463541d:/# ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  
+
+srv  sys  tmp  usr  var
+root@136c6463541d:/# ps -aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.1  18240  3452 ?        Ss   13:55   0:00 /bin/bash
+root        10  0.0  0.1  34424  2864 ?        R+   14:01   0:00 ps -aux
 </code></pre><blockquote>
-<p>eg：git log –graph –pretty =oneline –abbrev -commit</p>
+<p>如上，就已经连接到容器了。可以看到命令行信息的变化。我使用了ps命令查看了容器中的进程。可以看到一个ID为1的进程，这个进程就是run命令最后的那个参数。Run命令所指定的任务进程Id一定是1 。我们使用attach命令连接的也是这个命令的标准输入输出流（错误流我不知道连接了没）。由于run指定的命令是bash，所以attach也是连接到了bash，这样就能随意操作容器了。</p>
 </blockquote>
-<h2 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h2><blockquote>
-<p>合并分支时加–no-ff参数：普通模式合并，合并后的历史有分支，禁用fast forward合并看不出来曾经做过合并<br>eg:   git log –no-ff-m”merge with no–ff”dev</p>
-</blockquote>
-<h2 id="Bug分支"><a href="#Bug分支" class="headerlink" title="Bug分支"></a>Bug分支</h2><pre><code>git stash：把当前工作现场隐藏起来，去修复bug
-git stash pop：恢复工作现场同时删除stash内容
-</code></pre><h2 id="Feature分支"><a href="#Feature分支" class="headerlink" title="Feature分支"></a>Feature分支</h2><pre><code>开发一个新feature，最好新建一个分支:git checkout -b feature-vulcan
-如果要丢弃一个没有被合并过的分支，可以通过git branch -D &lt;name&gt;强行删除
-</code></pre><h2 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h2><pre><code>git remote -v：查看远程库信息
-git push origin branch-name：从本地推送分支
-git pull：推送失败时，抓取远程的新提交
-git checkout -b branch-name origin/branch-name：在本地创建和远程分支对应的分支（本地和远程分支的名称最好一致）
-git branch --set-upstream branch-name origin/branch-name：建立本地分支和远程分支的关联
-</code></pre><h1 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h1><h2 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h2><pre><code>git tag &lt;name&gt;：新建一个标签（默认为HEAD，也可以指定commit id）
-git tag -a &lt;tagname&gt; -m &quot;blablabla...&quot;：可以指定标签信息
-git tag -s &lt;tagname&gt; -m &quot;blablabla...&quot;：可以用PGP签名信息
-git tag：查看所有标签
-</code></pre><h2 id="操作标签"><a href="#操作标签" class="headerlink" title="操作标签"></a>操作标签</h2><pre><code>git push origin &lt;tagname&gt;：推送一个本地标签
-git push origin --tags：推送全部未推送过的本地标签
-git tag -d &lt;tagname&gt;：删除一个本地标签
-git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
-</code></pre><h1 id="使用GitHub"><a href="#使用GitHub" class="headerlink" title="使用GitHub"></a>使用GitHub</h1><ul>
-<li>在GitHub上，可以任意Fork（复刻）开源仓库；</li>
-<li>自己拥有Fork后的仓库的读写权限；</li>
-<li>可以推送pull request给官方仓库来贡献代码。</li>
-</ul>
-<h1 id="自定义Git"><a href="#自定义Git" class="headerlink" title="自定义Git"></a>自定义Git</h1><h2 id="忽略特殊文件"><a href="#忽略特殊文件" class="headerlink" title="忽略特殊文件"></a>忽略特殊文件</h2><blockquote>
-<p>忽略某些文件时，需要在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。</p>
-</blockquote>
-<h2 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h2><ul>
-<li><p>我们只需要敲一行命令，告诉Git，以后st就表示status：git config –global alias.st status</p>
-<p>  $ git config –global alias.co checkout</p>
-<p>  $ git config –global alias.ci commit</p>
-<p>  $ git config –global alias.br branch</p>
-<p>  $ git config –global alias.unstage ‘reset HEAD’</p>
-</li>
-<li><p>配置Git的时候，加上–global是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。每个仓库的Git配置文件都放在.git/config文件中，别名就在[alias]后面，要删除别名，直接把对应的行删掉即可。</p>
-</li>
-</ul>
-<h2 id="搭建Git服务器"><a href="#搭建Git服务器" class="headerlink" title="搭建Git服务器"></a>搭建Git服务器</h2><p>GitHub就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又不想给GitHub交保护费，那就只能自己搭建一台Git服务器作为私有仓库使用。</p>
+<p>关闭连接很容易想到，就是退出bash：exit。但是这样退出会导致一个问题，那时就是：容器因为1号进程的退出（就是attach命令连接的bash），会认为任务已完成，容器就停止了。</p>
+<pre><code>root@136c6463541d:/# exit
+exit
+guoshuai@guoshuai:~$ sudo docker ps -a
+CONTAINER ID    IMAGE     COMMAND       CREATED        STATUS                       NAMES
+136c6463541d    ubuntu    &quot;/bin/bash&quot;   9 minutes ago  Exited (0) 2 minutes ago     strive
+</code></pre><p>如上，容器已经停止了（Exited）。</p>
+<p>所以，我建议使用exec命令对容器进行操作。我们重启容器：</p>
+<pre><code>guoshuai@guoshuai:~$ sudo docker start strive
+strive
+guoshuai@guoshuai:~$ sudo docker ps -a
+CONTAINER ID    IMAGE    COMMAND        CREATED          STATUS         NAMES
+136c6463541d    ubuntu   &quot;/bin/bash&quot;    10 minutes ago   Up 6 seconds   strive
+</code></pre><p>可以看到，start 加容器名称就能启动。使用exec命令，可以让容器直接执行命令（docker exec 容器名称 命令）：<code>docker exec strive ps -aux</code></p>
+<pre><code>guoshuai@guoshuai:~$ sudo docker exec strive ps -aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.1  18236  3300 ?        Ss+  14:05   0:00 /bin/bash
+root         9  0.0  0.1  34424  2860 ?        Rs   14:08   0:00 ps -aux
+guoshuai@guoshuai:~$ sudo docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED            STATUS       NAMES
+136c6463541d        ubuntu              &quot;/bin/bash&quot;         15 minutes ago     Up 5 minutes   strive
+</code></pre><p>上图可见，我退出了容器的bash后，容器依然在运行。我在宿主机中使用exec执行ps命令后，strice这个容器中1号进程仍然在运行。</p>
+<h1 id="停止容器"><a href="#停止容器" class="headerlink" title="停止容器"></a>停止容器</h1><p>上面提到了启动容器（start）命令，停止容器当然是停止命令（stop）了。</p>
+<pre><code>guoshuai@guoshuai:~$ sudo docker stop strive
+strive
+guoshuai@guoshuai:~$ sudo docker ps -a
+CONTAINER ID    IMAGE    COMMAND        CREATED          STATUS                       NAMES
+136c6463541d    ubuntu   &quot;/bin/bash&quot;    17 minutes ago   Exited (0) 6 seconds ago     strive
+</code></pre><p>stop命令执行效果如上。</p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>其他的内容，如：备份、迁移、上传镜像等，我还没有试过，暂时不进行记录。</p>
 
       
     </div>
@@ -489,7 +444,7 @@ git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/docker/" rel="tag"># docker</a>
           
         </div>
       
@@ -502,8 +457,8 @@ git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/21/firstblog/" rel="next" title="基于hexo和Github搭建个人博客">
-                <i class="fa fa-chevron-left"></i> 基于hexo和Github搭建个人博客
+              <a href="/2017/11/04/docker-3/" rel="next" title="安装Docker问题：Cannot connect to the Docker daemon.">
+                <i class="fa fa-chevron-left"></i> 安装Docker问题：Cannot connect to the Docker daemon.
               </a>
             
           </div>
@@ -511,10 +466,6 @@ git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/27/Markdowm/" rel="prev" title="Markdowm指南">
-                Markdowm指南 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -666,7 +617,7 @@ git push origin :refs/tags/&lt;tagname&gt;：删除一个远程标签
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git介绍"><span class="nav-number">1.</span> <span class="nav-text">Git介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#相较于其他版本控制系统的优势："><span class="nav-number">1.1.</span> <span class="nav-text">相较于其他版本控制系统的优势：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git安装："><span class="nav-number">2.</span> <span class="nav-text">Git安装：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建版本库"><span class="nav-number">3.</span> <span class="nav-text">创建版本库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#版本回退"><span class="nav-number">4.</span> <span class="nav-text">版本回退</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#工作区和暂存区"><span class="nav-number">5.</span> <span class="nav-text">工作区和暂存区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#远程仓库"><span class="nav-number">6.</span> <span class="nav-text">远程仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分支管理"><span class="nav-number">7.</span> <span class="nav-text">分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建与合并分支"><span class="nav-number">7.1.</span> <span class="nav-text">创建与合并分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决冲突"><span class="nav-number">7.2.</span> <span class="nav-text">解决冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支管理策略"><span class="nav-number">7.3.</span> <span class="nav-text">分支管理策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bug分支"><span class="nav-number">7.4.</span> <span class="nav-text">Bug分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Feature分支"><span class="nav-number">7.5.</span> <span class="nav-text">Feature分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多人协作"><span class="nav-number">7.6.</span> <span class="nav-text">多人协作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标签管理"><span class="nav-number">8.</span> <span class="nav-text">标签管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建标签"><span class="nav-number">8.1.</span> <span class="nav-text">创建标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作标签"><span class="nav-number">8.2.</span> <span class="nav-text">操作标签</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用GitHub"><span class="nav-number">9.</span> <span class="nav-text">使用GitHub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义Git"><span class="nav-number">10.</span> <span class="nav-text">自定义Git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#忽略特殊文件"><span class="nav-number">10.1.</span> <span class="nav-text">忽略特殊文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置别名"><span class="nav-number">10.2.</span> <span class="nav-text">配置别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建Git服务器"><span class="nav-number">10.3.</span> <span class="nav-text">搭建Git服务器</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境"><span class="nav-number">2.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动Docker服务"><span class="nav-number">3.</span> <span class="nav-text">启动Docker服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看容器"><span class="nav-number">4.</span> <span class="nav-text">查看容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连接容器"><span class="nav-number">5.</span> <span class="nav-text">连接容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#停止容器"><span class="nav-number">6.</span> <span class="nav-text">停止容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他"><span class="nav-number">7.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
 
           </div>
