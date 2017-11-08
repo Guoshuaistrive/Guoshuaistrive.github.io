@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="git," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="Things could be diferent!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gavin的博客">
-<meta property="og:url" content="http://Guoshuaistrive.github.io/archives/index.html">
+<meta name="description" content="Git版本库 Git版本库（repository）只是一个简单的数据库，其中包含所有用来维护与管理项目的修订版本和历史的信息。在版本库中，Git主要维护两个主要的数据结构：对象库和索引。所有这些版本库数据存放在工作目录下一个名为.git的隐藏子目录中。">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git的关键架构">
+<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/10/30/git-2/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="Things could be diferent!">
+<meta property="og:description" content="Git版本库 Git版本库（repository）只是一个简单的数据库，其中包含所有用来维护与管理项目的修订版本和历史的信息。在版本库中，Git主要维护两个主要的数据结构：对象库和索引。所有这些版本库数据存放在工作目录下一个名为.git的隐藏子目录中。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-08T06:37:59.296Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gavin的博客">
-<meta name="twitter:description" content="Things could be diferent!">
+<meta name="twitter:title" content="Git的关键架构">
+<meta name="twitter:description" content="Git版本库 Git版本库（repository）只是一个简单的数据库，其中包含所有用来维护与管理项目的修订版本和历史的信息。在版本库中，Git主要维护两个主要的数据结构：对象库和索引。所有这些版本库数据存放在工作目录下一个名为.git的隐藏子目录中。">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Guoshuaistrive.github.io/archives/"/>
+  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/10/30/git-2/"/>
 
 
 
 
 
-  <title>归档 | Gavin的博客</title>
+  <title>Git的关键架构 | Gavin的博客</title>
   
 
 
@@ -143,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,411 +239,216 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/10/30/git-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guo shuai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Git的关键架构</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T22:41:08+08:00">
+                2017-10-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 13 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/learn/" itemprop="url" rel="index">
+                    <span itemprop="name">learn</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/2017/10/30/git-2/" class="leancloud_visitors" data-flag-title="Git的关键架构">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/08/docker-7/" itemprop="url">
-              
-                <span itemprop="name">Docker网络</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-08T21:46:00+08:00"
-              content="2017-11-08" >
-          11-08
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/07/docker-6/" itemprop="url">
-              
-                <span itemprop="name">Dockerfile构建镜像实例</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-07T22:19:21+08:00"
-              content="2017-11-07" >
-          11-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/06/docker-5/" itemprop="url">
-              
-                <span itemprop="name">容器生态系统</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-06T21:10:38+08:00"
-              content="2017-11-06" >
-          11-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/05/docker-4/" itemprop="url">
-              
-                <span itemprop="name">初学docker必看总结</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-05T22:15:24+08:00"
-              content="2017-11-05" >
-          11-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="Git版本库"><a href="#Git版本库" class="headerlink" title="Git版本库"></a>Git版本库</h1><blockquote>
+<p>Git版本库（repository）只是一个简单的数据库，其中包含所有用来维护与管理项目的修订版本和历史的信息。在版本库中，Git主要维护两个主要的数据结构：对象库和索引。所有这些版本库数据存放在工作目录下一个名为.git的隐藏子目录中。<br><a id="more"></a></p>
+<h1 id="Git对象类型"><a href="#Git对象类型" class="headerlink" title="Git对象类型"></a>Git对象类型</h1><p>对象库是Git版本库实现的心脏。它包含你的原始数据文件和所有日志消息、作并信息、日期，以及其他用来重建项目任意版本或分支的信息。Git放在对象库里的对象只有4种类型：块(blob)、目录树(tree)、提交(commit)和标签(tag)，这4种原子对象构成Git高层数据结构的基础。</p>
+</blockquote>
+<ul>
+<li><p>块 ( blob )</p>
+<blockquote>
+<p>文件的每一个版本表示为一个块(blob)。blob是“二进制大对象”(binary large object)的缩写，是计算机领域的常用术语，用来指代某些可以包含任意数据的变量或文件，同时其内部结构会被程序忽略。一个blob被视为一个黑盒。一个blob保存一个文件的数据，但不包含任何关于这个文件的元数据，甚至连文件名也没有。</p>
+</blockquote>
+</li>
+<li><p>目录树(tree)</p>
+<blockquote>
+<p>一个目录树(tree)对象代表一层目录信息、它记录blob标识符、路径名和在一个目录里所有文件的一些元数据，它也可以递归引用其他目录树戏子树对象，从而建立一个包含文件和子目录的完整层次结构。</p>
+</blockquote>
+</li>
+<li><p>提交(commit)</p>
+<blockquote>
+<p>一个提交(commit)对象保存版本库中每一次变化的元数据，包括作者、提交者、提交日期和日志消息、每一个提交对象指向一个目录树对象，这个目录树对象在一张完整的快照中捕获提交时版本库的状态。最初的提交或者根提交(root commit)是没有父提交的、大多数提交都有一个父提交。</p>
+</blockquote>
+</li>
+<li><p>标签(tag)</p>
+<blockquote>
+<p>一个标签对象分配一个任意的且人类可读的名字给一个特定对象，通常是一个提交对象。</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><p>索引是一个临时的、动态的二进制文件，它描述整个版本库的目录结构。更具体地说，索引捕获项目在某个时刻的整体结构的一个版本。项目的状态可以用一个提交和一棵目录树表示，它可以来自项目历史中的任意时刻，或者它可以是你正在开发的未来状态。</p>
+<ul>
+<li>Git的关键特色之一就是它允许你用有条理的、定义好的步骤来改变索引的内容素使得开发的推进与提交的变更之间能够分离开来。</li>
+</ul>
+<ul>
+<li>执行Git命令在索引中暂存(stage)变更（变更通常是添加、删除或者编辑某个文件或某些文件）。索引会记录和保存那些变更，保障它们的安全直到你准备好提交了，还可以删除或替换索引中的变更，因此，索引支持一个由你主导的从复杂的版本库状态到一个可推测的更好状态的逐步过渡。</li>
+</ul>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/04/docker-3/" itemprop="url">
-              
-                <span itemprop="name">安装Docker问题：Cannot connect to the Docker daemon.</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-04T18:49:06+08:00"
-              content="2017-11-04" >
-          11-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/03/docker-2/" itemprop="url">
-              
-                <span itemprop="name">剖析Dockerfile文件</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-03T19:14:41+08:00"
-              content="2017-11-03" >
-          11-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/02/docker-1/" itemprop="url">
-              
-                <span itemprop="name">Docker指令练习</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-02T19:33:46+08:00"
-              content="2017-11-02" >
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/01/docker/" itemprop="url">
-              
-                <span itemprop="name">Docker镜像使用与容器使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-01T20:49:58+08:00"
-              content="2017-11-01" >
-          11-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/30/git-2/" itemprop="url">
-              
-                <span itemprop="name">Git的关键架构</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-30T22:41:08+08:00"
-              content="2017-10-30" >
-          10-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/28/git-1/" itemprop="url">
-              
-                <span itemprop="name">Git学习小结</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-28T20:18:55+08:00"
-              content="2017-10-28" >
-          10-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/28/git-1/" rel="next" title="Git学习小结">
+                <i class="fa fa-chevron-left"></i> Git学习小结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/01/docker/" rel="prev" title="Docker镜像使用与容器使用">
+                Docker镜像使用与容器使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -649,6 +456,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -669,8 +480,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -750,6 +570,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git版本库"><span class="nav-number">1.</span> <span class="nav-text">Git版本库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git对象类型"><span class="nav-number">2.</span> <span class="nav-text">Git对象类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#索引"><span class="nav-number">3.</span> <span class="nav-text">索引</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -903,6 +739,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 

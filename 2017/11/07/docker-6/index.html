@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Dockerfile 用dockerfile 创建镜像，其内容如下：  [root@i-y61tbtqs ~]# ls Dockerfile  gitgs  gs [root@i-y61tbtqs ~]# vi Dockerfile  FROM ubuntu RUN apt-get update &amp;amp;&amp;amp; apt-get install -y vim  用docker build命令构">
+<meta name="description" content="Dockerfile 用dockerfile 创建镜像，其内容如下：  [root@i-y61tbtqs ~]# ls Dockerfile  gitgs  gs [root@i-y61tbtqs ~]# vi Dockerfile  FROM ubuntu RUN apt-get update &amp;amp;&amp;amp; apt-get install -y vim">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dockerfile构建镜像实例">
 <meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/07/docker-6/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="Dockerfile 用dockerfile 创建镜像，其内容如下：  [root@i-y61tbtqs ~]# ls Dockerfile  gitgs  gs [root@i-y61tbtqs ~]# vi Dockerfile  FROM ubuntu RUN apt-get update &amp;amp;&amp;amp; apt-get install -y vim  用docker build命令构">
+<meta property="og:description" content="Dockerfile 用dockerfile 创建镜像，其内容如下：  [root@i-y61tbtqs ~]# ls Dockerfile  gitgs  gs [root@i-y61tbtqs ~]# vi Dockerfile  FROM ubuntu RUN apt-get update &amp;amp;&amp;amp; apt-get install -y vim">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-08T06:26:40.072Z">
+<meta property="og:updated_time" content="2017-11-08T10:40:34.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dockerfile构建镜像实例">
-<meta name="twitter:description" content="Dockerfile 用dockerfile 创建镜像，其内容如下：  [root@i-y61tbtqs ~]# ls Dockerfile  gitgs  gs [root@i-y61tbtqs ~]# vi Dockerfile  FROM ubuntu RUN apt-get update &amp;amp;&amp;amp; apt-get install -y vim  用docker build命令构">
+<meta name="twitter:description" content="Dockerfile 用dockerfile 创建镜像，其内容如下：  [root@i-y61tbtqs ~]# ls Dockerfile  gitgs  gs [root@i-y61tbtqs ~]# vi Dockerfile  FROM ubuntu RUN apt-get update &amp;amp;&amp;amp; apt-get install -y vim">
 
 
 
@@ -362,10 +362,18 @@ Dockerfile  gitgs  gs
 
 FROM ubuntu
 RUN apt-get update &amp;&amp; apt-get install -y vim
-</code></pre><blockquote>
-<p>用docker build命令构建镜像并分析每个细节：<br><a id="more"></a><br>    [root@i-y61tbtqs ~]# docker build -t ubuntu-gs-vi-dockerfile .<br>    Sending build context to Docker daemon 252.4 kB<br>    Step 1 : FROM ubuntu<br>     —&gt; dd6f76d9cc90<br>    Step 2 : RUN apt-get update &amp;&amp; apt-get install -y vim<br>     —&gt; Running in bb053d594b57</p>
+</code></pre><a id="more"></a>
+<blockquote>
+<p>用docker build命令构建镜像并分析每个细节：</p>
 </blockquote>
-<pre><code>......
+<pre><code>[root@i-y61tbtqs ~]# docker build -t ubuntu-gs-vi-dockerfile .
+Sending build context to Docker daemon 252.4 kB
+Step 1 : FROM ubuntu
+ ---&gt; dd6f76d9cc90
+Step 2 : RUN apt-get update &amp;&amp; apt-get install -y vim
+ ---&gt; Running in bb053d594b57
+
+......
 
 Processing triggers for libc-bin (2.23-0ubuntu9) ...
  ---&gt; d501007edccf
@@ -455,6 +463,10 @@ dd6f76d9cc90        2 days ago          /bin/sh -c #(nop)  CMD [&quot;/bin/bash&
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/11/08/docker-7/" rel="prev" title="Docker网络">
+                Docker网络 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -534,7 +546,7 @@ dd6f76d9cc90        2 days ago          /bin/sh -c #(nop)  CMD [&quot;/bin/bash&
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
