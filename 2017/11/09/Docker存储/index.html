@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Gavin的博客">
 <meta property="og:description" content="Docker为容器提供了两种存放数据的资源：  由storage driver管理的镜像层和容器层 Data Volume   storage driver 容器由最上面一个可写的容器层，以及若干只读的镜像层组成，容器的数据就存放在这些层中。这样的分层结构最大的特性是Copy-on-write:   新数据会直接存放在最上面的容器层 修改现有数据会先从镜像层将数据复制到容器层，修改后的数据直接保">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-09T13:39:05.599Z">
+<meta property="og:updated_time" content="2017-11-09T13:53:41.374Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker存储">
 <meta name="twitter:description" content="Docker为容器提供了两种存放数据的资源：  由storage driver管理的镜像层和容器层 Data Volume   storage driver 容器由最上面一个可写的容器层，以及若干只读的镜像层组成，容器的数据就存放在这些层中。这样的分层结构最大的特性是Copy-on-write:   新数据会直接存放在最上面的容器层 修改现有数据会先从镜像层将数据复制到容器层，修改后的数据直接保">
@@ -377,7 +377,7 @@
 <li>容器可以读写volume中的数据</li>
 <li>volume数据可以被永久地保存，即使使用它的容器已经销毁</li>
 </ul>
-<p>因为Volume是docker host文件系统的一部分，所以Volume的容量取决于文件系统当前未使用的空间。<br>在具体的使用上，docker提供了两种类型的volume：bind mount和 docker managed volume。</p>
+<p>因为Volume是docker host文件系统的一部分，所以Volume的容量取决于文件系统当前未使用的空间。在具体的使用上，docker提供了两种类型的volume：bind mount和 docker managed volume。</p>
 <h2 id="bind-mount"><a href="#bind-mount" class="headerlink" title="bind mount"></a>bind mount</h2><p>bind mount是将host上已经存在的目录或文件mount到容器</p>
 <pre><code>[root@i-y61tbtqs ~]# cat gs/666
 2017/6/6
@@ -391,7 +391,7 @@
 [root@i-y61tbtqs ~]# curl 127.0.0.1:80
 &lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
 </code></pre><blockquote>
-<p>bind mount的使用直观高效，易于理解，但它也有不足的地方：bind mount需要指定host文件系统的特定路径<br>，这就限制了容器的可移植性。当需要将容器迁移到其他host，而该host没有要mount的数据或数据不在相同<br>的路径时，操作会失败。</p>
+<p>bind mount的使用直观高效，易于理解，但它也有不足的地方：bind mount需要指定host文件系统的特定路径，这就限制了容器的可移植性。当需要将容器迁移到其他host，而该host没有要mount的数据或数据不在相同的路径时，操作会失败。</p>
 </blockquote>
 <h2 id="docker-managed-volume"><a href="#docker-managed-volume" class="headerlink" title="docker managed volume"></a>docker managed volume</h2><p>docker managed volume与bind mount在使用上的最大区别是不需要指定mount源。指明mount point就行了。</p>
 <ul>
@@ -399,10 +399,9 @@
 <p>  [root@i-y61tbtqs ~]#  docker run -d -p 80:80 -v /usr/local/apache2/gs httpd<br>  730472aac12172530c214a2de46b7f60d51e5042c0b32444bb1a00e6d19ed36e</p>
 </li>
 <li><p>可以通过docker inspect命令查找data volume在哪儿</p>
-<p>  [root@i-y61tbtqs ~]# docker inspect 730472aac12172530c214a2de46b7f60d51e5042c0b32444bb1a00e6d19ed36e</p>
-</li>
-</ul>
-<pre><code>&quot;Mounts&quot;: [
+<pre><code>[root@i-y61tbtqs ~]# docker inspect 730472aac12172530c214a2de46b7f60d51e5042c0b32444bb1a00e6d19ed36e
+
+&quot;Mounts&quot;: [
         {
             &quot;Name&quot;: &quot;24115c758d31ac79e0c7ebe75f4a19243284d3edcf95ee6403e0b376cde52350&quot;,
             &quot;Source&quot;: &quot;/var/lib/docker/volumes/24115c758d31ac79e0c7ebe75f4a19243284d3edcf95ee6403e0b376cde52350/_data&quot;,
@@ -413,7 +412,9 @@
             &quot;Propagation&quot;: &quot;&quot;
         }
     ],
-</code></pre><p>Mounts部分会显示容器当前使用的所有data volume,包括bind mount和docker managed volume。<br>其中，source就是该volume在host上的目录（该目录就是mount源）。</p>
+</code></pre></li>
+</ul>
+<p>Mounts部分会显示容器当前使用的所有data volume,包括bind mount和docker managed volume。其中，source就是该volume在host上的目录（该目录就是mount源）。</p>
 <blockquote>
 <p>到这我们总结一下这两种data volume的原理和基本使用方法</p>
 </blockquote>
@@ -459,9 +460,16 @@
 <ul>
 <li>对于bind mount非常明确：直接将要共享的目录mount到容器</li>
 <li><p>docker managed volume是在容器启动时，将共享的数据复制到volume中</p>
-<p>  [root@i-y61tbtqs ~]#  docker run -d -p 80:80 -v /usr/local/apache2/gs httpd<br>  730472aac12172530c214a2de46b7f60d51e5042c0b32444bb1a00e6d19ed36e</p>
-<p>  [root@i-y61tbtqs ~]# docker cp ~/gs/666 730472aac121:/usr/local/apache2/gs<br>  [root@i-y61tbtqs ~]#<br>  [root@i-y61tbtqs ~]# curl 127.0.0.1:80<br>  <html><body><h1>It works!</h1></body></html><br>  [root@i-y61tbtqs ~]# </p>
-</li>
+<pre><code>[root@i-y61tbtqs ~]#  docker run -d -p 80:80 -v /usr/local/apache2/gs httpd
+730472aac12172530c214a2de46b7f60d51e5042c0b32444bb1a00e6d19ed36e
+
+[root@i-y61tbtqs ~]# docker cp ~/gs/666 730472aac121:/usr/local/apache2/gs
+[root@i-y61tbtqs ~]# 
+[root@i-y61tbtqs ~]# curl 127.0.0.1:80
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+
+[root@i-y61tbtqs ~]# 
+</code></pre></li>
 </ul>
 <ul>
 <li>docker cp可以在容器和host之间复制数据，当然也可以直接通过命令复制到/var/lib/docker/volumes/xxx</li>
@@ -486,7 +494,7 @@
 </ul>
 <p>至此，其他容器已经成功共享了volume container中的volume</p>
 <h1 id="data-packed-volume-container"><a href="#data-packed-volume-container" class="headerlink" title="data-packed volume container"></a>data-packed volume container</h1><blockquote>
-<p>data-packed volume container可以将数据完全放到volume container中，同时可与其他容器共享。原理是<br>将数据打包到镜像中，然后通过docker managed volume共享。</p>
+<p>data-packed volume container可以将数据完全放到volume container中，同时可与其他容器共享。原理是将数据打包到镜像中，然后通过docker managed volume共享。</p>
 </blockquote>
 <ul>
 <li><p>用dockerfile构建镜像，内容如下</p>
@@ -498,16 +506,16 @@ VOLUME /usr/local/apache2/gs
 <ul>
 <li><p>build新镜像datapacked<br><code>docker build -t datapacked .</code></p>
 </li>
-<li><p>用新镜像创建data-packed volume container<br><code>docker create --name vc_data datapacked</code>因为dockerfile中已经使用了VOLUME指令，这里就不需要指定<br>mount point了。启动httpd容器并使用data-packed volume container<br><code>docker run -d -p 80:80 --volumes-from vc_data httpd</code></p>
+<li><p>用新镜像创建data-packed volume container<br><code>docker create --name vc_data datapacked</code>因为dockerfile中已经使用了VOLUME指令，这里就不需要指定mount point了。启动httpd容器并使用data-packed volume container<br><code>docker run -d -p 80:80 --volumes-from vc_data httpd</code></p>
 </li>
 </ul>
 <blockquote>
-<p>容器能够正确读取volume中的数据。data-packed volume container是自包含的，不依赖host提供数据，<br>具有很强的移植性，非常适合只使用静态数据的场景，比如应用的配置信息、Web server的静态文件。</p>
+<p>容器能够正确读取volume中的数据。data-packed volume container是自包含的，不依赖host提供数据，具有很强的移植性，非常适合只使用静态数据的场景，比如应用的配置信息、Web server的静态文件。</p>
 </blockquote>
 <h1 id="Data-Volume生命周期管理"><a href="#Data-Volume生命周期管理" class="headerlink" title="Data Volume生命周期管理"></a>Data Volume生命周期管理</h1><h2 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h2><ul>
 <li>volume实质是host文件系统中的目录和文件，所以volume的备份实际上是对文件系统的备份</li>
 </ul>
-<p>eg:定期备份所有本地镜像保存在host上的/myregistry目录</p>
+<p>eg: 定期备份所有本地镜像保存在host上的/myregistry目录</p>
 <pre><code>[root@i-y61tbtqs ~]#  docker run -d -p 5000:5000 -v /myregistry:/var/lib/registry registry:2
 Unable to find image &apos;registry:2&apos; locally
 Trying to pull repository docker.io/library/registry ... 
@@ -719,7 +727,7 @@ e16ef4b76684: Waiting
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#storage-driver"><span class="nav-number">1.</span> <span class="nav-text">storage driver</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Volume"><span class="nav-number">2.</span> <span class="nav-text">Data Volume</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bind-mount"><span class="nav-number">2.1.</span> <span class="nav-text">bind mount</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-managed-volume"><span class="nav-number">2.2.</span> <span class="nav-text">docker managed volume</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据共享"><span class="nav-number">3.</span> <span class="nav-text">数据共享</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#容器与host之间共享数据"><span class="nav-number">3.1.</span> <span class="nav-text">容器与host之间共享数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">It works!</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#容器与容器之间共享数据"><span class="nav-number">4.1.</span> <span class="nav-text">容器与容器之间共享数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#data-packed-volume-container"><span class="nav-number">5.</span> <span class="nav-text">data-packed volume container</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Volume生命周期管理"><span class="nav-number">6.</span> <span class="nav-text">Data Volume生命周期管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#备份"><span class="nav-number">6.1.</span> <span class="nav-text">备份</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#恢复"><span class="nav-number">6.2.</span> <span class="nav-text">恢复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迁移"><span class="nav-number">6.3.</span> <span class="nav-text">迁移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#销毁"><span class="nav-number">6.4.</span> <span class="nav-text">销毁</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#storage-driver"><span class="nav-number">1.</span> <span class="nav-text">storage driver</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Volume"><span class="nav-number">2.</span> <span class="nav-text">Data Volume</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bind-mount"><span class="nav-number">2.1.</span> <span class="nav-text">bind mount</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-managed-volume"><span class="nav-number">2.2.</span> <span class="nav-text">docker managed volume</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据共享"><span class="nav-number">3.</span> <span class="nav-text">数据共享</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#容器与host之间共享数据"><span class="nav-number">3.1.</span> <span class="nav-text">容器与host之间共享数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容器与容器之间共享数据"><span class="nav-number">3.2.</span> <span class="nav-text">容器与容器之间共享数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#data-packed-volume-container"><span class="nav-number">4.</span> <span class="nav-text">data-packed volume container</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Volume生命周期管理"><span class="nav-number">5.</span> <span class="nav-text">Data Volume生命周期管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#备份"><span class="nav-number">5.1.</span> <span class="nav-text">备份</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#恢复"><span class="nav-number">5.2.</span> <span class="nav-text">恢复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迁移"><span class="nav-number">5.3.</span> <span class="nav-text">迁移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#销毁"><span class="nav-number">5.4.</span> <span class="nav-text">销毁</span></a></li></ol></li></ol></div>
             
 
           </div>
