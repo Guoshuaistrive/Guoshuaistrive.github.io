@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="文件结构Dockerfile 由一行行命令语句组成，并且支持以#开头的注释行。 Dockerfile文件分为四部分：基础镜像信息、维护者信息、镜像操作指令和容器启动时执行指令。 # This dockerfile uses the ubuntu image # VERSION 2 - EDITION 1 # Author: docker_user # Command format: Instruc">
+<meta name="description" content="Docker为容器提供了两种存放数据的资源：  由storage driver管理的镜像层和容器层 Data Volume   storage driver 容器由最上面一个可写的容器层，以及若干只读的镜像层组成，容器的数据就存放在这些层中。这样的分层结构最大的特性是Copy-on-write:   新数据会直接存放在最上面的容器层 修改现有数据会先从镜像层将数据复制到容器层，修改后的数据直接保">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剖析Dockerfile文件">
-<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/03/docker-2/index.html">
+<meta property="og:title" content="Docker存储">
+<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/09/Docker存储/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="文件结构Dockerfile 由一行行命令语句组成，并且支持以#开头的注释行。 Dockerfile文件分为四部分：基础镜像信息、维护者信息、镜像操作指令和容器启动时执行指令。 # This dockerfile uses the ubuntu image # VERSION 2 - EDITION 1 # Author: docker_user # Command format: Instruc">
+<meta property="og:description" content="Docker为容器提供了两种存放数据的资源：  由storage driver管理的镜像层和容器层 Data Volume   storage driver 容器由最上面一个可写的容器层，以及若干只读的镜像层组成，容器的数据就存放在这些层中。这样的分层结构最大的特性是Copy-on-write:   新数据会直接存放在最上面的容器层 修改现有数据会先从镜像层将数据复制到容器层，修改后的数据直接保">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-03T13:08:18.090Z">
+<meta property="og:updated_time" content="2017-11-09T13:35:55.971Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剖析Dockerfile文件">
-<meta name="twitter:description" content="文件结构Dockerfile 由一行行命令语句组成，并且支持以#开头的注释行。 Dockerfile文件分为四部分：基础镜像信息、维护者信息、镜像操作指令和容器启动时执行指令。 # This dockerfile uses the ubuntu image # VERSION 2 - EDITION 1 # Author: docker_user # Command format: Instruc">
+<meta name="twitter:title" content="Docker存储">
+<meta name="twitter:description" content="Docker为容器提供了两种存放数据的资源：  由storage driver管理的镜像层和容器层 Data Volume   storage driver 容器由最上面一个可写的容器层，以及若干只读的镜像层组成，容器的数据就存放在这些层中。这样的分层结构最大的特性是Copy-on-write:   新数据会直接存放在最上面的容器层 修改现有数据会先从镜像层将数据复制到容器层，修改后的数据直接保">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/11/03/docker-2/"/>
+  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/11/09/Docker存储/"/>
 
 
 
 
 
-  <title>剖析Dockerfile文件 | Gavin的博客</title>
+  <title>Docker存储 | Gavin的博客</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/03/docker-2/">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/09/Docker存储/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guo shuai">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">剖析Dockerfile文件</h1>
+          <h1 class="post-title" itemprop="name headline">Docker存储</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-03T19:14:41+08:00">
-                2017-11-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-09T21:35:44+08:00">
+                2017-11-09
               </time>
             
 
@@ -322,7 +322,7 @@
 
           
           
-             <span id="/2017/11/03/docker-2/" class="leancloud_visitors" data-flag-title="剖析Dockerfile文件">
+             <span id="/2017/11/09/Docker存储/" class="leancloud_visitors" data-flag-title="Docker存储">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -353,88 +353,182 @@
       
 
       
-        <h1 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h1><p>Dockerfile 由一行行命令语句组成，并且支持以#开头的注释行。</p>
-<p>Dockerfile文件分为四部分：基础镜像信息、维护者信息、镜像操作指令和容器启动时执行指令。</p>
-<pre><code># This dockerfile uses the ubuntu image
-# VERSION 2 - EDITION 1
-# Author: docker_user
-# Command format: Instruction [arguments / command] ..
-
-# Base image to use, this must be set as the first line
-FROM ubuntu
-
-# Maintainer: docker_user &lt;docker_user at email.com&gt; (@docker_user)
-MAINTAINER docker_user docker_user@email.com
-
-# Commands to update the image
-RUN echo &quot;deb http://archive.ubuntu.com/ubuntu/ raring main universe&quot; &gt;&gt; /etc/apt/sources.list
-RUN apt-get update &amp;&amp; apt-get install -y nginx
-RUN echo &quot;\ndaemon off;&quot; &gt;&gt; /etc/nginx/nginx.conf
-
-# Commands when creating a new container
-CMD /usr/sbin/nginx
-</code></pre><ul>
-<li>开始必须指明所基于的镜像名称，接下来推荐说明维护者信息。<a id="more"></a></li>
-<li>后面则是镜像操作指令，例如RUN指令对镜像执行跟随的命令。每运行一条RUN指令，镜像添加新的一层，并提交。</li>
-<li>最后是CMD指令，来指定运行容器时的操作命令。</li>
+        <blockquote>
+<p>Docker为容器提供了两种存放数据的资源：</p>
+<ul>
+<li>由storage driver管理的镜像层和容器层</li>
+<li>Data Volume</li>
 </ul>
-<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><p>指令的一般格式为INSTRUCTION arguments，指令包括 FROM、MAINTAINER、RUN等</p>
-<h2 id="FROM"><a href="#FROM" class="headerlink" title="FROM"></a>FROM</h2><p>格式一般为FROM image</p>
-<blockquote>
-<p>第一条指令必须为 FROM 指令。并且，如果在同一个Dockerfile中创建多个镜像时，可以使用多个FROM指令（每个镜像一次）</p>
 </blockquote>
-<h2 id="MAINTAINER"><a href="#MAINTAINER" class="headerlink" title="MAINTAINER"></a>MAINTAINER</h2><p>格式为MAINTAINER name</p>
-<blockquote>
-<p>指定维护者信息（文件作者的联系信息，会出现在Author字段里）。</p>
-</blockquote>
-<h2 id="RUN"><a href="#RUN" class="headerlink" title="RUN"></a>RUN</h2><p>格式为RUN command</p>
-<blockquote>
-<p>使用多个RUN指令创建所需的文件结构，每条RUN指令将在当前镜像基础上执行指定命令，并提交为新的镜像。当命令较长时可以使用 \ 来换行。</p>
-</blockquote>
-<h2 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h2><blockquote>
-<p>指定启动容器时执行的命令，每个 Dockerfile 只能有一条 CMD 命令。如果指定了多条命令，只有最后一条会被执行。</p>
+<h1 id="storage-driver"><a href="#storage-driver" class="headerlink" title="storage driver"></a>storage driver</h1><blockquote>
+<p>容器由最上面一个可写的容器层，以及若干只读的镜像层组成，容器的数据就存放在这些层中。<br>这样的分层结构最大的特性是Copy-on-write:</p>
 </blockquote>
 <ul>
-<li>如果用户启动容器时候指定了运行的命令，则会覆盖掉 CMD 指定的命令。</li>
+<li>新数据会直接存放在最上面的容器层</li>
+<li>修改现有数据会先从镜像层将数据复制到容器层，修改后的数据直接保存在容器层中，镜像层保持不变</li>
+<li>如果多个层中有命名相同的文件，用户只能看到最上面那层中的文件<a id="more"></a>
+</li>
 </ul>
-<h2 id="ENV"><a href="#ENV" class="headerlink" title="ENV"></a>ENV</h2><p>格式为 ENV key value</p>
-<blockquote>
-<p>指定一个环境变量，会被后续RUN指令使用，并在容器运行时保持</p>
-</blockquote>
-<pre><code>ENV PG_MAJOR 9.3
-ENV PG_VERSION 9.3.4
-RUN curl -SL http://example.com/postgres-$PG_VERSION.tar.xz | tar -xJC /usr/src/postgress &amp;&amp; …
-ENV PATH /usr/local/postgres-$PG_MAJOR/bin:$PATH
-</code></pre><h2 id="ADD"><a href="#ADD" class="headerlink" title="ADD"></a>ADD</h2><p>格式为 ADD src dest</p>
-<blockquote>
-<p>该命令将本地文件系统里的文件复制到镜像中，通常使用这个指令复制应用的源码和所需的支持文件。</p>
-</blockquote>
-<h2 id="COPY"><a href="#COPY" class="headerlink" title="COPY"></a>COPY</h2><p>格式为 COPY src dest</p>
-<blockquote>
-<p>复制本地主机的src为 Dockerfile 所在目录的相对路径到容器中的dest</p>
+<h1 id="Data-Volume"><a href="#Data-Volume" class="headerlink" title="Data Volume"></a>Data Volume</h1><blockquote>
+<p>Data Volume本质上是Data Host文件系统中的目录或者文件，能够直接被mount到容器的文件系统中：</p>
 </blockquote>
 <ul>
-<li>当使用本地目录为源目录时，推荐使用 COPY。</li>
+<li>Data Volume是目录或文件，而非没有格式化的磁盘</li>
+<li>容器可以读写volume中的数据</li>
+<li>volume数据可以被永久地保存，即使使用它的容器已经销毁</li>
 </ul>
-<h2 id="VOLUME"><a href="#VOLUME" class="headerlink" title="VOLUME"></a>VOLUME</h2><p>格式为VOLUME [“/data”]</p>
-<blockquote>
-<p>创建一个可以从本地主机或其他容器挂载的挂载点，一般用来存放数据库和需要保持的数据等。</p>
-<h2 id="USER"><a href="#USER" class="headerlink" title="USER"></a>USER</h2></blockquote>
-<p>格式为 USER daemon</p>
-<blockquote>
-<p>指定运行容器时的用户名或 UID，后续的 RUN 也会使用指定用户。</p>
+<p>因为Volume是docker host文件系统的一部分，所以Volume的容量取决于文件系统当前未使用的空间。<br>在具体的使用上，docker提供了两种类型的volume：bind mount和 docker managed volume。</p>
+<h2 id="bind-mount"><a href="#bind-mount" class="headerlink" title="bind mount"></a>bind mount</h2><p>bind mount是将host上已经存在的目录或文件mount到容器</p>
+<pre><code>[root@i-y61tbtqs ~]# cat gs/666
+2017/6/6
+1.gs6666
+2,sg777
+3.strive
+</code></pre><p>通过-v将其mount到httpd容器（-v的格式为<host path="">:<container path="">）</container></host></p>
+<pre><code>[root@i-y61tbtqs ~]#  docker run -d -p 80:80 -v ~/gs:/usr/local/apache2/gs httpd
+347ed9187d334c5eafd8c3c3e1cdb04b371fbcfb223e4b1377a5da418e1d8a0f
+
+[root@i-y61tbtqs ~]# curl 127.0.0.1:80
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre><blockquote>
+<p>bind mount的使用直观高效，易于理解，但它也有不足的地方：bind mount需要指定host文件系统的特定路径<br>，这就限制了容器的可移植性。当需要将容器迁移到其他host，而该host没有要mount的数据或数据不在相同<br>的路径时，操作会失败。</p>
 </blockquote>
-<h2 id="WORKDIR"><a href="#WORKDIR" class="headerlink" title="WORKDIR"></a>WORKDIR</h2><p>格式为 WORKDIR /path/to/workdir。</p>
-<blockquote>
-<p>切换工作目录，位于指令之后的指令都在新的工作目录中执行，即为后续的 RUN、CMD指令配置工作目录。</p>
-</blockquote>
-<h1 id="创建镜像"><a href="#创建镜像" class="headerlink" title="创建镜像"></a>创建镜像</h1><ul>
-<li><p>编写完成 Dockerfile 之后，可以通过 docker build 命令来创建镜像。</p>
+<h2 id="docker-managed-volume"><a href="#docker-managed-volume" class="headerlink" title="docker managed volume"></a>docker managed volume</h2><p>docker managed volume与bind mount在使用上的最大区别是不需要指定mount源。指明mount point就行了。</p>
+<ul>
+<li><p>我们通过-v告诉docker需要一个data volume，并将其mount到/usr/local/apache2/gs。</p>
+<p>  [root@i-y61tbtqs ~]#  docker run -d -p 80:80 -v /usr/local/apache2/gs httpd<br>  730472aac12172530c214a2de46b7f60d51e5042c0b32444bb1a00e6d19ed36e</p>
 </li>
-<li><p>基本的格式为docker build [选项] 路径，该命令将读取指定路径下（包括子目录）的Dockerfile，并将该路径下所有内容发送给 Docker服务端，由服务端来创建镜像，因此一般建议放置Dockerfile的目录为空目录。也可以通过 .dockerignore 文件（每一行添加一条匹配模式）来让 Docker 忽略路径下的目录和文件。</p>
+<li><p>可以通过docker inspect命令查找data volume在哪儿</p>
+<p>  [root@i-y61tbtqs ~]# docker inspect 730472aac12172530c214a2de46b7f60d51e5042c0b32444bb1a00e6d19ed36e</p>
 </li>
-<li>要指定镜像的标签信息，可以通过 -t 选项，例如<br><code>$ sudo docker build -t myrepo/myapp /tmp/test1/</code></li>
 </ul>
+<pre><code>&quot;Mounts&quot;: [
+        {
+            &quot;Name&quot;: &quot;24115c758d31ac79e0c7ebe75f4a19243284d3edcf95ee6403e0b376cde52350&quot;,
+            &quot;Source&quot;: &quot;/var/lib/docker/volumes/24115c758d31ac79e0c7ebe75f4a19243284d3edcf95ee6403e0b376cde52350/_data&quot;,
+            &quot;Destination&quot;: &quot;/usr/local/apache2/gs&quot;,
+            &quot;Driver&quot;: &quot;local&quot;,
+            &quot;Mode&quot;: &quot;&quot;,
+            &quot;RW&quot;: true,
+            &quot;Propagation&quot;: &quot;&quot;
+        }
+    ],
+</code></pre><p>Mounts部分会显示容器当前使用的所有data volume,包括bind mount和docker managed volume。<br>其中，source就是该volume在host上的目录（该目录就是mount源）。</p>
+<blockquote>
+<p>到这我们总结一下这两种data volume的原理和基本使用方法</p>
+</blockquote>
+<p>相同点：两者都是host文件系统中的某个路径<br>不同点：如下表</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">不同点</th>
+<th style="text-align:center">bind mount</th>
+<th style="text-align:center">docker managed volume</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">volume位置</td>
+<td style="text-align:center">可以任意指定</td>
+<td style="text-align:center">/var/lib/docker/volumes/241…</td>
+</tr>
+<tr>
+<td style="text-align:center">对已有mount point的影响</td>
+<td style="text-align:center">隐藏并替换为volume</td>
+<td style="text-align:center">原有数据复制到volume</td>
+</tr>
+<tr>
+<td style="text-align:center">是否支持单个文件</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">不支持，只能是目录</td>
+</tr>
+<tr>
+<td style="text-align:center">权限控制</td>
+<td style="text-align:center">可以设置为只读，默认读写权限</td>
+<td style="text-align:center">无控制，均为读写权限</td>
+</tr>
+<tr>
+<td style="text-align:center">容器移植性</td>
+<td style="text-align:center">移植性弱，与host path绑定</td>
+<td style="text-align:center">移植性强，无须指定host目录</td>
+</tr>
+</tbody>
+</table>
+<h1 id="数据共享"><a href="#数据共享" class="headerlink" title="数据共享"></a>数据共享</h1><p>接下来讨论一下volume如何在容器与host之间、容器与容器之间共享数据</p>
+<h2 id="容器与host之间共享数据"><a href="#容器与host之间共享数据" class="headerlink" title="容器与host之间共享数据"></a>容器与host之间共享数据</h2><p>两种类型的data volume均可以在容器与host之间共享数据，但是方式有所区别。</p>
+<ul>
+<li>对于bind mount非常明确：直接将要共享的目录mount到容器</li>
+<li><p>docker managed volume是在容器启动时，将共享的数据复制到volume中</p>
+<p>  [root@i-y61tbtqs ~]#  docker run -d -p 80:80 -v /usr/local/apache2/gs httpd<br>  730472aac12172530c214a2de46b7f60d51e5042c0b32444bb1a00e6d19ed36e</p>
+<p>  [root@i-y61tbtqs ~]# docker cp ~/gs/666 730472aac121:/usr/local/apache2/gs<br>  [root@i-y61tbtqs ~]#<br>  [root@i-y61tbtqs ~]# curl 127.0.0.1:80<br>  <html><body><h1>It works!</h1></body></html><br>  [root@i-y61tbtqs ~]# </p>
+</li>
+</ul>
+<ul>
+<li>docker cp可以在容器和host之间复制数据，当然也可以直接通过命令复制到/var/lib/docker/volumes/xxx</li>
+</ul>
+<h2 id="容器与容器之间共享数据"><a href="#容器与容器之间共享数据" class="headerlink" title="容器与容器之间共享数据"></a>容器与容器之间共享数据</h2><blockquote>
+<p>将共享数据放在bind mount中，然后将其mount到多个容器</p>
+<p>volume container是专门为其他容器提供volume的容器</p>
+</blockquote>
+<ul>
+<li><p>创建一个volume container，mount两个volume,将容器命名为vc_data</p>
+<pre><code>docker create --name vc_data\
+   -v ~/gs:/usr/local/apache2/gs \
+   -v /other/useful/tools \
+   busybox
+</code></pre></li>
+</ul>
+<ul>
+<li><p>通过docker inspect查看这两个volume <code>docker inspect vc_data</code></p>
+</li>
+<li><p>其他容器可以通过–volumes-from使用vc_data这个volume container<br><code>docker run --name web1 -d -p 80 --volumes-from vc_data httpd</code></p>
+</li>
+</ul>
+<p>至此，其他容器已经成功共享了volume container中的volume</p>
+<h1 id="data-packed-volume-container"><a href="#data-packed-volume-container" class="headerlink" title="data-packed volume container"></a>data-packed volume container</h1><blockquote>
+<p>data-packed volume container可以将数据完全放到volume container中，同时可与其他容器共享。原理是<br>将数据打包到镜像中，然后通过docker managed volume共享。</p>
+</blockquote>
+<ul>
+<li><p>用dockerfile构建镜像，内容如下</p>
+<pre><code>FROM busybox:latest
+ADD gs /usr/local/apache2/gs
+VOLUME /usr/local/apache2/gs
+</code></pre></li>
+</ul>
+<ul>
+<li><p>build新镜像datapacked<br><code>docker build -t datapacked .</code></p>
+</li>
+<li><p>用新镜像创建data-packed volume container<br><code>docker create --name vc_data datapacked</code>因为dockerfile中已经使用了VOLUME指令，这里就不需要指定<br>mount point了。启动httpd容器并使用data-packed volume container<br><code>docker run -d -p 80:80 --volumes-from vc_data httpd</code></p>
+</li>
+</ul>
+<blockquote>
+<p>容器能够正确读取volume中的数据。data-packed volume container是自包含的，不依赖host提供数据，<br>具有很强的移植性，非常适合只使用静态数据的场景，比如应用的配置信息、Web server的静态文件。</p>
+</blockquote>
+<h1 id="Data-Volume生命周期管理"><a href="#Data-Volume生命周期管理" class="headerlink" title="Data Volume生命周期管理"></a>Data Volume生命周期管理</h1><h2 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h2><ul>
+<li>volume实质是host文件系统中的目录和文件，所以volume的备份实际上是对文件系统的备份</li>
+</ul>
+<p>eg:定期备份所有本地镜像保存在host上的/myregistry目录</p>
+<pre><code>[root@i-y61tbtqs ~]#  docker run -d -p 5000:5000 -v /myregistry:/var/lib/registry registry:2
+Unable to find image &apos;registry:2&apos; locally
+Trying to pull repository docker.io/library/registry ... 
+2: Pulling from docker.io/library/registry
+49388a8c9c86: Pull complete 
+e4d43608dd22: Downloading [===================&gt;                               ] 801.7 kB/2.027 MB
+e4d43608dd22: Pulling fs layer 
+e16ef4b76684: Waiting 
+65f212f7c778: Waiting 
+65f212f7c778: Pulling fs layer 
+</code></pre><h2 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h2><ul>
+<li>volume恢复也很简单。如果数据损坏了，直接用之前备份的数据复制到/myregistry就可以了</li>
+</ul>
+<h2 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h2><ul>
+<li>docker stop当前Registry容器</li>
+<li>启动新版本容器并mount原有volume<br><code>docker run -d -p 5000:5000 -v /myregistry:/var/lib/registry registry:latest</code><br>当然，在启动新容器前要确保新版本的默认数据路径是否发生变化。</li>
+</ul>
+<h2 id="销毁"><a href="#销毁" class="headerlink" title="销毁"></a>销毁</h2><ul>
+<li>可以删除不再需要的volume，删除后数据是找不回来的。</li>
+</ul>
+<p><code>docker volume rm containerID</code><br><code>docker volume ls</code>即可被删除</p>
 
       
     </div>
@@ -465,8 +559,8 @@ ENV PATH /usr/local/postgres-$PG_MAJOR/bin:$PATH
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/02/docker-1/" rel="next" title="Docker指令练习">
-                <i class="fa fa-chevron-left"></i> Docker指令练习
+              <a href="/2017/11/08/docker-7/" rel="next" title="Docker网络">
+                <i class="fa fa-chevron-left"></i> Docker网络
               </a>
             
           </div>
@@ -474,10 +568,6 @@ ENV PATH /usr/local/postgres-$PG_MAJOR/bin:$PATH
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/04/docker-3/" rel="prev" title="安装Docker问题：Cannot connect to the Docker daemon.">
-                安装Docker问题：Cannot connect to the Docker daemon. <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -629,7 +719,7 @@ ENV PATH /usr/local/postgres-$PG_MAJOR/bin:$PATH
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件结构"><span class="nav-number">1.</span> <span class="nav-text">文件结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指令"><span class="nav-number">2.</span> <span class="nav-text">指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#FROM"><span class="nav-number">2.1.</span> <span class="nav-text">FROM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MAINTAINER"><span class="nav-number">2.2.</span> <span class="nav-text">MAINTAINER</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RUN"><span class="nav-number">2.3.</span> <span class="nav-text">RUN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CMD"><span class="nav-number">2.4.</span> <span class="nav-text">CMD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ENV"><span class="nav-number">2.5.</span> <span class="nav-text">ENV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ADD"><span class="nav-number">2.6.</span> <span class="nav-text">ADD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#COPY"><span class="nav-number">2.7.</span> <span class="nav-text">COPY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VOLUME"><span class="nav-number">2.8.</span> <span class="nav-text">VOLUME</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#USER"><span class="nav-number">2.9.</span> <span class="nav-text">USER</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WORKDIR"><span class="nav-number">2.10.</span> <span class="nav-text">WORKDIR</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建镜像"><span class="nav-number">3.</span> <span class="nav-text">创建镜像</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#storage-driver"><span class="nav-number">1.</span> <span class="nav-text">storage driver</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Volume"><span class="nav-number">2.</span> <span class="nav-text">Data Volume</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bind-mount"><span class="nav-number">2.1.</span> <span class="nav-text">bind mount</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-managed-volume"><span class="nav-number">2.2.</span> <span class="nav-text">docker managed volume</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据共享"><span class="nav-number">3.</span> <span class="nav-text">数据共享</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#容器与host之间共享数据"><span class="nav-number">3.1.</span> <span class="nav-text">容器与host之间共享数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">It works!</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#容器与容器之间共享数据"><span class="nav-number">4.1.</span> <span class="nav-text">容器与容器之间共享数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#data-packed-volume-container"><span class="nav-number">5.</span> <span class="nav-text">data-packed volume container</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Volume生命周期管理"><span class="nav-number">6.</span> <span class="nav-text">Data Volume生命周期管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#备份"><span class="nav-number">6.1.</span> <span class="nav-text">备份</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#恢复"><span class="nav-number">6.2.</span> <span class="nav-text">恢复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迁移"><span class="nav-number">6.3.</span> <span class="nav-text">迁移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#销毁"><span class="nav-number">6.4.</span> <span class="nav-text">销毁</span></a></li></ol></li></ol></div>
             
 
           </div>
