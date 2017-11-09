@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Gavin的博客">
 <meta property="og:description" content="Docker为容器提供了两种存放数据的资源：  由storage driver管理的镜像层和容器层 Data Volume   storage driver 容器由最上面一个可写的容器层，以及若干只读的镜像层组成，容器的数据就存放在这些层中。这样的分层结构最大的特性是Copy-on-write:   新数据会直接存放在最上面的容器层 修改现有数据会先从镜像层将数据复制到容器层，修改后的数据直接保">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-09T13:35:55.971Z">
+<meta property="og:updated_time" content="2017-11-09T13:39:05.599Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker存储">
 <meta name="twitter:description" content="Docker为容器提供了两种存放数据的资源：  由storage driver管理的镜像层和容器层 Data Volume   storage driver 容器由最上面一个可写的容器层，以及若干只读的镜像层组成，容器的数据就存放在这些层中。这样的分层结构最大的特性是Copy-on-write:   新数据会直接存放在最上面的容器层 修改现有数据会先从镜像层将数据复制到容器层，修改后的数据直接保">
@@ -361,7 +361,7 @@
 </ul>
 </blockquote>
 <h1 id="storage-driver"><a href="#storage-driver" class="headerlink" title="storage driver"></a>storage driver</h1><blockquote>
-<p>容器由最上面一个可写的容器层，以及若干只读的镜像层组成，容器的数据就存放在这些层中。<br>这样的分层结构最大的特性是Copy-on-write:</p>
+<p>容器由最上面一个可写的容器层，以及若干只读的镜像层组成，容器的数据就存放在这些层中。这样的分层结构最大的特性是Copy-on-write:</p>
 </blockquote>
 <ul>
 <li>新数据会直接存放在最上面的容器层</li>
