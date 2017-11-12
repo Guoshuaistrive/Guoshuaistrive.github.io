@@ -252,6 +252,314 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/12/容器核心知识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guo shuai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/12/容器核心知识/" itemprop="url">容器核心知识</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-12T19:07:54+08:00">
+                2017-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/summary/" itemprop="url" rel="index">
+                    <span itemprop="name">summary</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/11/12/容器核心知识/" class="leancloud_visitors" data-flag-title="容器核心知识">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="什么是容器"><a href="#什么是容器" class="headerlink" title="什么是容器"></a>什么是容器</h1><blockquote>
+<p>容器由两部分组成：</p>
+</blockquote>
+<pre><code>（1）应用程序本身；
+（2）依赖：比如应用程序需要的库或其他软件容器在Host操作系统的用户空间中运行,
+          与操作系统的其他进程隔离。
+</code></pre><blockquote>
+<p>每个容器都有一个软件镜像，相当于集装箱中的货物</p>
+</blockquote>
+<h1 id="容器解决的问题"><a href="#容器解决的问题" class="headerlink" title="容器解决的问题"></a>容器解决的问题</h1><ul>
+<li>Docker将集装箱思想运用到软件打包上，为代码提供了一个基于容器的标准化运输系统。</li>
+<li>Docker可以将任何应用及其依赖打包成一个轻量级、可移植、自包含的容器，容器可以运行在几乎所有的操作系统上。</li>
+</ul>
+<h1 id="Docker镜像"><a href="#Docker镜像" class="headerlink" title="Docker镜像"></a>Docker镜像</h1><blockquote>
+<p>镜像是Docker容器的基石，容器是镜像的运行实例，有了镜像才能启动容器。</p>
+</blockquote>
+<h1 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h1><ol>
+<li><p>docker commit（从容器创建新镜像） </p>
+<ul>
+<li>运行容器： <code>docker run -it ubuntu</code></li>
+<li>修改容器：  在容器安装vim</li>
+<li>将容器保存为新的镜像：  <code>docker commit NAMES Ubuntu-gs-vim</code></li>
+</ul>
+</li>
+<li><p><code>docker build -t centos-gs-dockerfile .</code>（从Dockerfile构建镜像）</p>
+</li>
+</ol>
+<h1 id="镜像上传"><a href="#镜像上传" class="headerlink" title="镜像上传"></a>镜像上传</h1><ul>
+<li><p>在Docker Hub上注册一个账号</p>
+</li>
+<li><p>在Docker Host上登录<code># docker login -u guoshuai</code></p>
+</li>
+<li><p>修改镜像repo使之与Docker Hub账号匹配  <code>docker tag httpd guoshuai/httpd:v1</code></p>
+</li>
+<li><p>将镜像上传到Docker Hub  <code>docker push guoshuai/httpd:v1</code></p>
+</li>
+<li><p>这个镜像就可以被其他Docker host下载使用了:<code>docker pull guoshuai/httpd:v1</code></p>
+</li>
+</ul>
+<h1 id="搭建本地Registry"><a href="#搭建本地Registry" class="headerlink" title="搭建本地Registry"></a>搭建本地Registry</h1><ul>
+<li><p>启动registry,我们使用的镜像时registry：2<br><code>docker run -d -p 5000:5000 -v /myregistry:/var/lib/registry registry:2</code></p>
+</li>
+<li><p>通过docker tag 重命名镜像，使之与registry匹配<br><code>docker tag guoshuai/httpd:v1 registry.example.net:5000/guoshuai/httpd:v1</code></p>
+</li>
+<li><p>通过docker push上镜像: </p>
+<p>   <code>docker push registry.example.net:5000/guoshuai/httpd:v1</code></p>
+<blockquote>
+<p>这个镜像就可以从本地registry下载使用了:docker pull registry.example.net:5000/guoshuai/httpd:v1</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h1><blockquote>
+<p>rmi只能删除host上的镜像，不会删除registry的镜像</p>
+</blockquote>
+<pre><code>[root@i-y61tbtqs ~]# docker images docker.io/node
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+docker.io/node      0.10                0f9a0e09fbda        12 months ago       631.4 MB
+
+[root@i-y61tbtqs ~]# docker rmi docker.io/node:0.10
+Untagged: docker.io/node:0.10
+Untagged: docker.io/node@sha256:c32b4d56f05c69df6e87d06bf7d5f6a5c6a0e7bcdb8e5ffab0e7a1853a90008f
+</code></pre><h1 id="容器长期运行"><a href="#容器长期运行" class="headerlink" title="容器长期运行"></a>容器长期运行</h1><pre><code>[root@i-y61tbtqs ~]# docker run -d centos-gs /bin/bash -c &quot;while true ; do sleep 1; done&quot;
+405a497e2418030560553f08ac218730f33819b08493934c2bdad5d6b428d04b
+</code></pre><ul>
+<li><p>服务类容器以daemon的形式运行，对外提供服务，比如Web Server，数据库等。 通过-d以后台方式启动这类容器是非常合适的。若要排查问题，可以通过exec -it进入容器。</p>
+</li>
+<li><p>工具类容器运行</p>
+<pre><code>[root@i-y61tbtqs ~]# docker run -it busybox
+Unable to find image &apos;busybox:latest&apos; locally
+Trying to pull repository docker.io/library/busybox ... 
+latest: Pulling from docker.io/library/busybox
+0ffadd58f2a6: Pull complete 
+Digest: sha256:bbc3a03235220b170ba48a157dd097dd1379299370e1ed99ce976df0355d24f0
+/ # 
+/ # wget www.baidu.com
+Connecting to www.baidu.com (220.181.112.244:80)
+index.html           100% |*****************************************************************************************************************************************************************************************************************************|  2381   0:00:00 ETA
+/ # 
+/ # 
+/ # exit
+</code></pre></li>
+</ul>
+<h1 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h1><ul>
+<li><p>通过attach直接进入容器启动命令的终端，不会启动新的进程</p>
+<pre><code>` docker attach containerID`
+</code></pre></li>
+<li><p>通过docker exec进入相同的容器，执行bash，打开一个bash终端，可以启动新的进程</p>
+<pre><code>[root@i-y61tbtqs ~]# docker exec -it b39568e501d5 bash
+[root@b39568e501d5 /]# ps -elf
+F S UID        PID  PPID  C PRI  NI ADDR SZ WCHAN  STIME TTY          TIME CMD
+4 S root         1     0  0  80   0 -  2909 do_wai 06:20 ?        00:00:00 /bin/bash -c while true ; do sleep 1; done
+4 S root      1539     0  0  80   0 -  2943 do_wai 06:46 ?        00:00:00 bash
+0 S root      1630     1  0  80   0 -  1079 hrtime 06:47 ?        00:00:00 sleep 1
+0 R root      1631  1539  0  80   0 - 11862 -      06:47 ?        00:00:00 ps -elf
+</code></pre></li>
+</ul>
+<h1 id="通过docker-stop停止运行的容器"><a href="#通过docker-stop停止运行的容器" class="headerlink" title="通过docker stop停止运行的容器"></a>通过docker stop停止运行的容器</h1><pre><code>[root@i-y61tbtqs ~]# docker stop condescending_wright
+condescending_wright
+
+[root@i-y61tbtqs ~]# docker ps -a
+405a497e2418    centos-gs    &quot;/bin/bash -c &apos;while &quot;   52 minutes ago      Exited (137) 12 seconds ago    condescending_wright
+</code></pre><h1 id="通过docker-start重新启动已经停止的容器"><a href="#通过docker-start重新启动已经停止的容器" class="headerlink" title="通过docker start重新启动已经停止的容器"></a>通过docker start重新启动已经停止的容器</h1><pre><code>[root@i-y61tbtqs ~]# docker start condescending_wright
+condescending_wright
+
+[root@i-y61tbtqs ~]# docker ps 
+CONTAINER ID        IMAGE             COMMAND                  CREATED             STATUS              PORTS       NAMES
+0f5a73a251c7        centos-gs        &quot;/bin/bash -c &apos;while &quot;   25 minutes ago      Up 25 minutes                    amazing_northcutt
+405a497e2418        centos-gs        &quot;/bin/bash -c &apos;while &quot;   48 minutes ago      Up About a minute                condescending_wright
+</code></pre><h1 id="通过docker-pause暂停运行的容器"><a href="#通过docker-pause暂停运行的容器" class="headerlink" title="通过docker pause暂停运行的容器"></a>通过docker pause暂停运行的容器</h1><pre><code>[root@i-y61tbtqs ~]# docker pause condescending_wright
+condescending_wright
+
+[root@i-y61tbtqs ~]# docker ps 
+CONTAINER ID        IMAGE                              COMMAND                  CREATED             STATUS                   PORTS                    NAMES
+0f5a73a251c7        centos-gs                          &quot;/bin/bash -c &apos;while &quot;   45 minutes ago      Up 45 minutes                                     amazing_northcutt
+405a497e2418        centos-gs                          &quot;/bin/bash -c &apos;while &quot;   About an hour ago   Up 42 seconds (Paused)                            condescending_wright
+</code></pre><h1 id="通过docker-unpause暂停运行的容器"><a href="#通过docker-unpause暂停运行的容器" class="headerlink" title="通过docker unpause暂停运行的容器"></a>通过docker unpause暂停运行的容器</h1><pre><code>[root@i-y61tbtqs ~]# docker unpause condescending_wright
+condescending_wright
+
+[root@i-y61tbtqs ~]# docker ps 
+CONTAINER ID        IMAGE                              COMMAND                  CREATED             STATUS              PORTS                    NAMES
+0f5a73a251c7        centos-gs                          &quot;/bin/bash -c &apos;while &quot;   46 minutes ago      Up 46 minutes                                amazing_northcutt
+405a497e2418        centos-gs                          &quot;/bin/bash -c &apos;while &quot;   About an hour ago   Up About a minute                            condescending_wright
+</code></pre><h1 id="通过docker-rm-删除容器"><a href="#通过docker-rm-删除容器" class="headerlink" title="通过docker rm 删除容器"></a>通过docker rm 删除容器</h1><pre><code>[root@i-y61tbtqs ~]# docker rm d4077529c75a 
+d4077529c75a
+
+[root@i-y61tbtqs ~]# docker rm c1071a798d4c 5c6e3a3a5ac1 
+c1071a798d4c
+5c6e3a3a5ac1
+</code></pre><ul>
+<li><p>也可以批量删除所有已经退出的容器：<br>docker rm -v $(docker ps -aq -f status=exited)</p>
+<pre><code>[root@i-y61tbtqs ~]# docker rm -v $(docker ps -aq -f status=exited)
+338b1e829092
+2f2dd4a485e6
+6a159ccc70bc
+c48590350063
+b39568e501d5
+5c34170cca83
+1b884b95de8f
+c1866d24cbd0
+45b449430edf
+99f4be7d1b16
+6cc247fece89
+</code></pre></li>
+</ul>
+<h1 id="资源限制"><a href="#资源限制" class="headerlink" title="资源限制"></a>资源限制</h1><ul>
+<li><p>内存限额,执行如下命令含义是：该容器最多使用200MB的内存和100MB的swap。<br><code>docker run -m 200M --memory-swap=300M ubuntu</code></p>
+</li>
+<li><p>CPU限额，通过–cpu-shares设置容器使用CPU的权重值</p>
+</li>
+</ul>
+<h1 id="底层技术"><a href="#底层技术" class="headerlink" title="底层技术"></a>底层技术</h1><ul>
+<li><p>cgroup全称（Control Group）可以设置进程使用资源限额</p>
+</li>
+<li><p>namespace管理着host中全局唯一的资源，并可以让每个容器都觉得只有自己在使用它。换句话说，namespace实现了容器间资源的隔离。</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/10/容器网络/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1751,180 +2059,6 @@ Server:
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/01/docker/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Guo shuai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gavin的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/01/docker/" itemprop="url">Docker镜像使用与容器使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-01T20:49:58+08:00">
-                2017-11-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/learn/" itemprop="url" rel="index">
-                    <span itemprop="name">learn</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/11/01/docker/" class="leancloud_visitors" data-flag-title="Docker镜像使用与容器使用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>Docker是一款针对程序开发人员和系统管理员来开发、部署、运行应用的一款虚拟化平台。</p>
-</blockquote>
-<ul>
-<li><p>Docker 可以让你像使用集装箱一样快速的组合成应用，并且可以像运输标准集装箱一样，尽可能的屏蔽代码层面的差异。</p>
-</li>
-<li><p>Docker 会尽可能的缩短从代码测试到产品部署的时间。</p>
-</li>
-</ul>
-<blockquote>
-<p>Docker 组件</p>
-</blockquote>
-<ul>
-<li>The Docker Engine – Docker Engine 是一个基于虚拟化技术的轻量级并且功能强大的开源容器引擎管理工具。它可以将不同的 work flow 组合起来构建成你的应用。</li>
-</ul>
-<ul>
-<li>Docker Hub 可以分享和管理你的images镜像的一个 Saas 服务。</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/01/docker/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1979,7 +2113,7 @@ Server:
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
