@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="docker macvlan," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="Things could be diferent!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gavin的博客">
-<meta property="og:url" content="http://Guoshuaistrive.github.io/archives/2017/page/2/index.html">
+<meta name="description" content="本文介绍Docker开发的这个支持跨主机容器网络的driver:macvlan   macvlan本身是Linux kernel模块，其功能是允许同一个物理网卡配置多个MAC地址，即多个interface，每个interface可以配置自己的IP。macvlan本质上是一种网卡虚拟化技术，Docker用macvlan实现容器网络就不奇怪了。 macvlan的最大优点是性能极好，相比其他实现，ma">
+<meta name="keywords" content="docker macvlan">
+<meta property="og:type" content="article">
+<meta property="og:title" content="macvlan">
+<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/16/macvlan/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="Things could be diferent!">
+<meta property="og:description" content="本文介绍Docker开发的这个支持跨主机容器网络的driver:macvlan   macvlan本身是Linux kernel模块，其功能是允许同一个物理网卡配置多个MAC地址，即多个interface，每个interface可以配置自己的IP。macvlan本质上是一种网卡虚拟化技术，Docker用macvlan实现容器网络就不奇怪了。 macvlan的最大优点是性能极好，相比其他实现，ma">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-16T11:38:06.609Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gavin的博客">
-<meta name="twitter:description" content="Things could be diferent!">
+<meta name="twitter:title" content="macvlan">
+<meta name="twitter:description" content="本文介绍Docker开发的这个支持跨主机容器网络的driver:macvlan   macvlan本身是Linux kernel模块，其功能是允许同一个物理网卡配置多个MAC地址，即多个interface，每个interface可以配置自己的IP。macvlan本质上是一种网卡虚拟化技术，Docker用macvlan实现容器网络就不奇怪了。 macvlan的最大优点是性能极好，相比其他实现，ma">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Guoshuaistrive.github.io/archives/2017/page/2/"/>
+  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/11/16/macvlan/"/>
 
 
 
 
 
-  <title>归档 | Gavin的博客</title>
+  <title>macvlan | Gavin的博客</title>
   
 
 
@@ -143,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,411 +239,224 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/16/macvlan/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guo shuai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">macvlan</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-16T19:32:48+08:00">
+                2017-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 20 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/learn/" itemprop="url" rel="index">
+                    <span itemprop="name">learn</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/2017/11/16/macvlan/" class="leancloud_visitors" data-flag-title="macvlan">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/05/docker-4/" itemprop="url">
-              
-                <span itemprop="name">初学docker必看总结</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-05T22:15:24+08:00"
-              content="2017-11-05" >
-          11-05
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/04/docker-3/" itemprop="url">
-              
-                <span itemprop="name">安装Docker问题：Cannot connect to the Docker daemon.</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-04T18:49:06+08:00"
-              content="2017-11-04" >
-          11-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/03/docker-2/" itemprop="url">
-              
-                <span itemprop="name">剖析Dockerfile文件</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-03T19:14:41+08:00"
-              content="2017-11-03" >
-          11-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/02/docker-1/" itemprop="url">
-              
-                <span itemprop="name">Docker指令练习</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-02T19:33:46+08:00"
-              content="2017-11-02" >
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <blockquote>
+<p>本文介绍Docker开发的这个支持跨主机容器网络的driver:macvlan</p>
+</blockquote>
+<ul>
+<li>macvlan本身是Linux kernel模块，其功能是允许同一个物理网卡配置多个MAC地址，即多个interface，每个interface可以配置自己的IP。macvlan本质上是一种网卡虚拟化技术，Docker用macvlan实现容器网络就不奇怪了。</li>
+<li>macvlan的最大优点是性能极好，相比其他实现，macvlan不需要创建Linux bridge，而是直接通过以太interface连接到物理网络。<a id="more"></a>
+<h1 id="准备实验环境"><a href="#准备实验环境" class="headerlink" title="准备实验环境"></a>准备实验环境</h1></li>
+</ul>
+<blockquote>
+<p>我们会使用两个host上单独的网卡eth0创建macvlan。为了保证多个MAC地址的网络包都可以从eth0通过，我们需要打开网卡模式</p>
+</blockquote>
+<pre><code>[root@i-y61tbtqs ~]# ip link set eth0 promisc on
+[root@i-y61tbtqs ~]#  ip link show eth0
+2: eth0: &lt;BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP mode DEFAULT qlen 1000
+    link/ether 52:54:de:f8:64:b4 brd ff:ff:ff:ff:ff:ff
+</code></pre><h1 id="创建macvlan网络"><a href="#创建macvlan网络" class="headerlink" title="创建macvlan网络"></a>创建macvlan网络</h1><pre><code>[root@i-y61tbtqs ~]# docker network create -d macvlan --subnet=172.16.86.0/24 --gateway=172.16.86.1 -o parent=eth0 mac_net1
+654d1cebc0e93b8d22d04566d6470b448e4ac4c41b066a2d2417e1fdc52f9fa3
+</code></pre><p>在host1中运行容器gs7并连接到mac_net1</p>
+<pre><code>[root@i-y61tbtqs ~]# docker run -itd --name gs7 --ip=172.16.86.10 --network mac_net1 busybox
+96a995485a3d73056bf62b6947e7bc92de250609f3325eecba88810f42d1557d
+</code></pre><p>在host2中运行容器gs8，指定IP172.16.86.11</p>
+<pre><code>[root@i-oh35oa3y ~]# docker run -itd --name gs8 --ip=172.16.86.11 --network mac_net1 busybox
+a08ec268d83cd0066e0b7c08d9522d0443c0835ce1ebf53b4ecc7fb703159726
+</code></pre><p>验证gs7和gs8的连通性，如下：</p>
+<pre><code>[root@i-oh35oa3y ~]# docker exec gs8 ping -c 2  172.16.86.10
+PING 172.16.86.10 (172.16.86.10): 56 data bytes
+64 bytes from 172.16.86.10: seq=0 ttl=64 time=0.121 ms
+64 bytes from 172.16.86.10: seq=1 ttl=64 time=0.061 ms
+</code></pre><h1 id="macvlan网络结构分析"><a href="#macvlan网络结构分析" class="headerlink" title="macvlan网络结构分析"></a>macvlan网络结构分析</h1><p>查看gs7的网络设备</p>
+<pre><code>[root@i-y61tbtqs ~]# docker exec gs7 ip link
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+194: eth0@if2: &lt;BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN&gt; mtu 1500 qdisc noqueue 
+    link/ether 02:42:ac:10:56:0a brd ff:ff:ff:ff:ff:ff
+</code></pre><ul>
+<li><p>注意eth0后面的@if2，这表明该接口有一个对应的接口，全局编号为2。我们猜测这个接口就是主机的eth0</p>
+<pre><code>[root@i-y61tbtqs ~]# ip link show eth0
+2: eth0: &lt;BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP mode DEFAULT qlen 1000
+    link/ether 52:54:de:f8:64:b4 brd ff:ff:ff:ff:ff:ff
+</code></pre></li>
+</ul>
+<h1 id="用sub-interface实现多macvlan网络"><a href="#用sub-interface实现多macvlan网络" class="headerlink" title="用sub-interface实现多macvlan网络"></a>用sub-interface实现多macvlan网络</h1><p>macvlan会独占主机的网卡，也就是说一个网卡只能创建一个macvlan网络，否则会报错</p>
+<pre><code>[root@i-oh35oa3y ~]# docker network create -d macvlan --subnet=172.16.86.0/24 --gateway=172.16.86.1 -o parent=eth0 mac_net2
+Error response from daemon: failed to allocate gateway (172.16.86.1): Address already in use
+</code></pre><p>在主机网卡数量有限的情况下，如何支持macvlan网络？可以连接sub-interface，详见书上描述。</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/01/docker/" itemprop="url">
-              
-                <span itemprop="name">Docker镜像使用与容器使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-01T20:49:58+08:00"
-              content="2017-11-01" >
-          11-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/30/git-2/" itemprop="url">
-              
-                <span itemprop="name">Git的关键架构</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-30T22:41:08+08:00"
-              content="2017-10-30" >
-          10-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/28/git-1/" itemprop="url">
-              
-                <span itemprop="name">Git学习小结</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-28T20:18:55+08:00"
-              content="2017-10-28" >
-          10-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/27/Markdowm/" itemprop="url">
-              
-                <span itemprop="name">Markdowm指南</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-27T17:21:04+08:00"
-              content="2017-10-27" >
-          10-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/26/git/" itemprop="url">
-              
-                <span itemprop="name">Git版本控制系统</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-26T20:25:34+08:00"
-              content="2017-10-26" >
-          10-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/21/firstblog/" itemprop="url">
-              
-                <span itemprop="name">基于hexo和Github搭建个人博客</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-21T18:54:26+08:00"
-              content="2017-10-21" >
-          10-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/docker-macvlan/" rel="tag"># docker macvlan</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/15/容器通信/" rel="next" title="容器通信">
+                <i class="fa fa-chevron-left"></i> 容器通信
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2017/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2017/">1</a><span class="page-number current">2</span>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -649,6 +464,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -669,8 +488,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -750,6 +578,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#准备实验环境"><span class="nav-number">1.</span> <span class="nav-text">准备实验环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建macvlan网络"><span class="nav-number">2.</span> <span class="nav-text">创建macvlan网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#macvlan网络结构分析"><span class="nav-number">3.</span> <span class="nav-text">macvlan网络结构分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用sub-interface实现多macvlan网络"><span class="nav-number">4.</span> <span class="nav-text">用sub-interface实现多macvlan网络</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -903,6 +747,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
