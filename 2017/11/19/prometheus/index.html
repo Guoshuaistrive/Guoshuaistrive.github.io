@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="Prometheus是一个非常优秀的监控工具，准确说是监控方案。Prometheus提供了监控数据搜集、存储、处理、可视化和告警一套完整的解决方案。  架构 多维数据模型Prometheus只需要定义一个全局指标container_memory_usage_bytes，然后通过添加不同的维度数据来满足不同的业务需求。 实践环境说明通过Prometheus监控两台Docker Host：192.1">
+<meta name="description" content="Prometheus是一个非常优秀的监控工具，准确说是监控方案。Prometheus提供了监控数据搜集、存储、处理、可视化和告警一套完整的解决方案。  架构 多维数据模型">
 <meta name="keywords" content="prometheus">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Prometheus">
 <meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/19/prometheus/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="Prometheus是一个非常优秀的监控工具，准确说是监控方案。Prometheus提供了监控数据搜集、存储、处理、可视化和告警一套完整的解决方案。  架构 多维数据模型Prometheus只需要定义一个全局指标container_memory_usage_bytes，然后通过添加不同的维度数据来满足不同的业务需求。 实践环境说明通过Prometheus监控两台Docker Host：192.1">
+<meta property="og:description" content="Prometheus是一个非常优秀的监控工具，准确说是监控方案。Prometheus提供了监控数据搜集、存储、处理、可视化和告警一套完整的解决方案。  架构 多维数据模型">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://image.ipaiban.com/upload-ueditor-image-20171019-1508397075863083402.png">
-<meta property="og:updated_time" content="2017-11-19T11:26:34.218Z">
+<meta property="og:updated_time" content="2017-11-19T11:28:44.330Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Prometheus">
-<meta name="twitter:description" content="Prometheus是一个非常优秀的监控工具，准确说是监控方案。Prometheus提供了监控数据搜集、存储、处理、可视化和告警一套完整的解决方案。  架构 多维数据模型Prometheus只需要定义一个全局指标container_memory_usage_bytes，然后通过添加不同的维度数据来满足不同的业务需求。 实践环境说明通过Prometheus监控两台Docker Host：192.1">
+<meta name="twitter:description" content="Prometheus是一个非常优秀的监控工具，准确说是监控方案。Prometheus提供了监控数据搜集、存储、处理、可视化和告警一套完整的解决方案。  架构 多维数据模型">
 <meta name="twitter:image" content="https://image.ipaiban.com/upload-ueditor-image-20171019-1508397075863083402.png">
 
 
@@ -359,7 +359,8 @@
 <p>Prometheus是一个非常优秀的监控工具，准确说是监控方案。Prometheus提供了监控数据搜集、存储、处理、<br>可视化和告警一套完整的解决方案。</p>
 </blockquote>
 <h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><p><img src="https://image.ipaiban.com/upload-ueditor-image-20171019-1508397075863083402.png" alt=""></p>
-<h1 id="多维数据模型"><a href="#多维数据模型" class="headerlink" title="多维数据模型"></a>多维数据模型</h1><p>Prometheus只需要定义一个全局指标container_memory_usage_bytes，然后通过添加不同的维度数据来满足不同的业务需求。</p>
+<h1 id="多维数据模型"><a href="#多维数据模型" class="headerlink" title="多维数据模型"></a>多维数据模型</h1><a id="more"></a>
+<p>Prometheus只需要定义一个全局指标container_memory_usage_bytes，然后通过添加不同的维度数据来满足不同的业务需求。</p>
 <h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><h2 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h2><p>通过Prometheus监控两台Docker Host：192.168.0.5和192.168.0.10，监控host和容器两个层次的数据</p>
 <h2 id="运行Node-Exporter"><a href="#运行Node-Exporter" class="headerlink" title="运行Node Exporter"></a>运行Node Exporter</h2><p>在两个host上执行如下命令：</p>
 <pre><code>[root@i-oh35oa3y ~]#  docker run -d -p 9100:9100 -v &quot;/proc:/host/proc&quot; -v &quot;/sys:/host/sys&quot; -v &quot;/:/rootfs&quot; --net=host prom/node-exporter -collector.procfs /host/proc -collector.sysfs /host/sys -collector.filesystem.ignored-mount-points &quot;^/(sys|proc|dev|host|etc)($|/)&quot;
