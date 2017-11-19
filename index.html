@@ -252,6 +252,262 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/19/prometheus/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guo shuai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/19/prometheus/" itemprop="url">Prometheus</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-19T20:13:18+08:00">
+                2017-11-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/learn/" itemprop="url" rel="index">
+                    <span itemprop="name">learn</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/11/19/prometheus/" class="leancloud_visitors" data-flag-title="Prometheus">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>Prometheus是一个非常优秀的监控工具，准确说是监控方案。Prometheus提供了监控数据搜集、存储、处理、<br>可视化和告警一套完整的解决方案。</p>
+</blockquote>
+<h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><p><img src="https://image.ipaiban.com/upload-ueditor-image-20171019-1508397075863083402.png" alt=""></p>
+<h1 id="多维数据模型"><a href="#多维数据模型" class="headerlink" title="多维数据模型"></a>多维数据模型</h1><p>Prometheus只需要定义一个全局指标container_memory_usage_bytes，然后通过添加不同的维度数据来满足不同的业务需求。</p>
+<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><h2 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h2><p>通过Prometheus监控两台Docker Host：192.168.0.5和192.168.0.10，监控host和容器两个层次的数据</p>
+<h2 id="运行Node-Exporter"><a href="#运行Node-Exporter" class="headerlink" title="运行Node Exporter"></a>运行Node Exporter</h2><p>在两个host上执行如下命令：</p>
+<pre><code>[root@i-oh35oa3y ~]#  docker run -d -p 9100:9100 -v &quot;/proc:/host/proc&quot; -v &quot;/sys:/host/sys&quot; -v &quot;/:/rootfs&quot; --net=host prom/node-exporter -collector.procfs /host/proc -collector.sysfs /host/sys -collector.filesystem.ignored-mount-points &quot;^/(sys|proc|dev|host|etc)($|/)&quot;
+Unable to find image &apos;prom/node-exporter:latest&apos; locally
+Trying to pull repository docker.io/prom/node-exporter ... 
+latest: Pulling from docker.io/prom/node-exporter
+aa3e9481fcae: Pull complete 
+a3ed95caeb02: Pull complete 
+afc308b02dc6: Pull complete 
+ec3c6d9cf025: Pull complete 
+Digest: sha256:4e0a5f9097dad2c9e4192054684fcc2956a8e00cae670d6c4aa4d7348be65e7f
+42395deaea34a575736367d76d8a2f4e0e6ad02c0ae4e204ae4e927a44529141
+</code></pre><ul>
+<li>注意：这里使用了–net=host,这样Prometheus Server可以直接与Node Exporter通信</li>
+</ul>
+<blockquote>
+<p>Node Exporter启动后，将通过9100提供host的监控数据。在浏览器中通过<a href="http://hostID:9100/metrics测试一下，结果如下" target="_blank" rel="external">http://hostID:9100/metrics测试一下，结果如下</a></p>
+</blockquote>
+<pre><code># HELP go_gc_duration_seconds A summary of the GC invocation durations.
+# TYPE go_gc_duration_seconds summary
+go_gc_duration_seconds{quantile=&quot;0&quot;} 0.000122301
+go_gc_duration_seconds{quantile=&quot;0.25&quot;} 0.000122301
+go_gc_duration_seconds{quantile=&quot;0.5&quot;} 0.000122301
+go_gc_duration_seconds{quantile=&quot;0.75&quot;} 0.000122301
+go_gc_duration_seconds{quantile=&quot;1&quot;} 0.000122301
+go_gc_duration_seconds_sum 0.000122301
+go_gc_duration_seconds_count 1
+# HELP go_goroutines Number of goroutines that currently exist.
+# TYPE go_goroutines gauge
+go_goroutines 33
+# HELP go_info Information about the Go environment.
+# TYPE go_info gauge
+go_info{version=&quot;go1.9.2&quot;} 1
+# HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
+# TYPE go_memstats_alloc_bytes gauge
+go_memstats_alloc_bytes 2.579648e+06
+</code></pre><h2 id="运行cAdvisor"><a href="#运行cAdvisor" class="headerlink" title="运行cAdvisor"></a>运行cAdvisor</h2><p>在两个host上执行如下命令：</p>
+<pre><code>[root@i-y61tbtqs ~]#  docker run --volume=/:/rootfs:ro --volume=/var/run:/var/run:rw --volume=/sys:/sys:ro --volume=/var/lib/docker/:/var/lib/docker:ro --publish=8080:8080 --detach=true --name=1cadvisor --net=host  docker.io/google/cadvisor:latest
+80825b08b3678a161b4acfcae1db9f43700168e2ea9f460df451e807d6d2fb08
+</code></pre><ul>
+<li>注意：这里使用了–net=host,这样Prometheus Server可以直接与cAdvisor通信</li>
+</ul>
+<blockquote>
+<p>cAdvisor启动后，将通过8080提供host的监控数据。在浏览器中通过<a href="http://hostID:8080/metrics测试一下，结果如下" target="_blank" rel="external">http://hostID:8080/metrics测试一下，结果如下</a></p>
+</blockquote>
+<pre><code># HELP cadvisor_version_info A metric with a constant &apos;1&apos; value labeled by kernel version, OS version, docker version, cadvisor version &amp; cadvisor revision.
+# TYPE cadvisor_version_info gauge
+cadvisor_version_info{cadvisorRevision=&quot;17543be&quot;,cadvisorVersion=&quot;v0.25.0&quot;,dockerVersion=&quot;1.12.6&quot;,kernelVersion=&quot;3.10.0-693.2.2.el7.x86_64&quot;,osVersion=&quot;Alpine Linux v3.4&quot;} 1
+# HELP container_cpu_system_seconds_total Cumulative system cpu time consumed in seconds.
+# TYPE container_cpu_system_seconds_total counter
+container_cpu_system_seconds_total{id=&quot;/&quot;} 87.82
+container_cpu_system_seconds_total{id=&quot;/machine.slice&quot;} 0
+container_cpu_system_seconds_total{id=&quot;/system.slice&quot;} 60.96
+container_cpu_system_seconds_total{id=&quot;/system.slice/NetworkManager-wait-online.service&quot;} 0
+container_cpu_system_seconds_total{id=&quot;/system.slice/NetworkManager.service&quot;} 0.56
+container_cpu_system_seconds_total{id=&quot;/system.slice/acpid.service&quot;} 0
+container_cpu_system_seconds_total{id=&quot;/system.slice/auditd.service&quot;} 0.02
+container_cpu_system_seconds_total{id=&quot;/system.slice/avahi-daemon.service&quot;} 0
+container_cpu_system_seconds_total{id=&quot;/system.slice/crond.service&quot;} 0.09
+container_cpu_system_seconds_total{id=&quot;/system.slice/dbus.service&quot;} 0.02
+</code></pre><h2 id="运行Prometheus-Server"><a href="#运行Prometheus-Server" class="headerlink" title="运行Prometheus Server"></a>运行Prometheus Server</h2><p>在host 192.168.0.5上执行如下命令：</p>
+<pre><code>[root@i-y61tbtqs ~]# docker run -d -p 9090:9090 -v /root/prometheus.yml:/etc/prometheus/prometheus.yml --name prometheus --net=host prom/prometheus 
+Unable to find image &apos;prom/prometheus:latest&apos; locally
+Trying to pull repository docker.io/prom/prometheus ... 
+latest: Pulling from docker.io/prom/prometheus
+aab39f0bc16d: Pull complete 
+a3ed95caeb02: Pull complete 
+2cd9e239cea6: Pull complete 
+4cd9d8cc3556: Pull complete 
+258c3156837d: Pull complete 
+67e020c50549: Pull complete 
+c33c38256bee: Pull complete 
+b17840c391fb: Pull complete 
+ef02cf066b4d: Pull complete 
+582e225ad14c: Pull complete 
+Digest: sha256:a9fd401b348a41f00b8110f8b5e90c4e61caaf57ac0013ce6ed487bbb25a349d
+a46a22d02b0b0546b0bcf13088e10d4eb097973ea957ed49c98f4ab05c1f8305
+</code></pre><ul>
+<li>注意：这里使用了–net=host,这样Prometheus Server可以直接与Exporter和Grafana通信</li>
+</ul>
+<h2 id="运行Grafana"><a href="#运行Grafana" class="headerlink" title="运行Grafana"></a>运行Grafana</h2><p>在host 192.168.0.5上执行如下命令：</p>
+<pre><code>[root@i-y61tbtqs ~]# docker run -d -i -p 3000:3000 -e &quot;GF_SERVER_ROOT_URL=http://grafana.server.name&quot; -e &quot;GF_SECURITY_ADMIN_PASSWORD=secret&quot; --net=host grafana/grafana
+Unable to find image &apos;grafana/grafana:latest&apos; locally
+Trying to pull repository docker.io/grafana/grafana ... 
+latest: Pulling from docker.io/grafana/grafana
+c20dc0c5afeb: Pull complete 
+a3ed95caeb02: Pull complete 
+75979c2134af: Pull complete 
+603f014de07f: Pull complete 
+Digest: sha256:6ca9fcd6e70bf1faeb2f102b96fc8164a3af1e838dac714ab72b8abd9ea4c388
+083c3bb5757dc6301bc4db034a45b169a70ed225f2fa067828e41f857cbdfc65
+</code></pre><ul>
+<li>注意：这里使用了–net=host,这样Grafana可以直接与Prometheus Server通信</li>
+</ul>
+<p>Grafana启动后。在浏览器中打开<a href="http://192.168.0.5:3000，之后登录配置即可。" target="_blank" rel="external">http://192.168.0.5:3000，之后登录配置即可。</a></p>
+<blockquote>
+<p>Grafana是通过Dashboard展示数据的，访问<a href="https://grafana.com/dashboards?dataSource=prometheus&amp;search=docker" target="_blank" rel="external">Dashboards</a><br>可以看到很多用于监控Docker的Dashboard</p>
+</blockquote>
+<p>下载这些现成的Dashboard，然后import到我们的Grafana中就可以直接使用了。Docker会展示出漂亮的图表。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/17/容器监控/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1717,172 +1973,6 @@ bfc8cde0335d        none                null                local
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/07/docker-6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Guo shuai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gavin的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/07/docker-6/" itemprop="url">Dockerfile构建镜像实例</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T22:19:21+08:00">
-                2017-11-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/exercise/" itemprop="url" rel="index">
-                    <span itemprop="name">exercise</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/11/07/docker-6/" class="leancloud_visitors" data-flag-title="Dockerfile构建镜像实例">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h1><blockquote>
-<p>用dockerfile 创建镜像，其内容如下：</p>
-</blockquote>
-<pre><code>[root@i-y61tbtqs ~]# ls
-Dockerfile  gitgs  gs
-[root@i-y61tbtqs ~]# vi Dockerfile
-
-FROM ubuntu
-RUN apt-get update &amp;&amp; apt-get install -y vim
-</code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/07/docker-6/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1937,7 +2027,7 @@ RUN apt-get update &amp;&amp; apt-get install -y vim
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1959,7 +2049,7 @@ RUN apt-get update &amp;&amp; apt-get install -y vim
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

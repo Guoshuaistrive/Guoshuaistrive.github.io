@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="git," />
+  <meta name="keywords" content="prometheus," />
 
 
 
@@ -79,21 +79,20 @@
 
 
 
-<meta name="description" content="Git与SVN区别 Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：  对比表    Git SVN &amp;amp; CVS     开发模型 分布式 非分布式   存储方式 元数据方式（blob) 文件   索引机制 .git/objects/hash 目录（">
-<meta name="keywords" content="git">
+<meta name="description" content="Prometheus是一个非常优秀的监控工具，准确说是监控方案。Prometheus提供了监控数据搜集、存储、处理、可视化和告警一套完整的解决方案。  架构 多维数据模型Prometheus只需要定义一个全局指标container_memory_usage_bytes，然后通过添加不同的维度数据来满足不同的业务需求。 实践环境说明通过Prometheus监控两台Docker Host：192.1">
+<meta name="keywords" content="prometheus">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git学习小结">
-<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/10/28/git-1/index.html">
+<meta property="og:title" content="Prometheus">
+<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/19/prometheus/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="Git与SVN区别 Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：  对比表    Git SVN &amp;amp; CVS     开发模型 分布式 非分布式   存储方式 元数据方式（blob) 文件   索引机制 .git/objects/hash 目录（">
+<meta property="og:description" content="Prometheus是一个非常优秀的监控工具，准确说是监控方案。Prometheus提供了监控数据搜集、存储、处理、可视化和告警一套完整的解决方案。  架构 多维数据模型Prometheus只需要定义一个全局指标container_memory_usage_bytes，然后通过添加不同的维度数据来满足不同的业务需求。 实践环境说明通过Prometheus监控两台Docker Host：192.1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://jbcdn2.b0.upaiyun.com/2012/08/Git-start6.png">
-<meta property="og:image" content="http://legendtkl.com/img/uploads/2016/git-model.png">
-<meta property="og:updated_time" content="2017-10-31T12:52:06.150Z">
+<meta property="og:image" content="https://image.ipaiban.com/upload-ueditor-image-20171019-1508397075863083402.png">
+<meta property="og:updated_time" content="2017-11-19T11:26:34.218Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git学习小结">
-<meta name="twitter:description" content="Git与SVN区别 Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：  对比表    Git SVN &amp;amp; CVS     开发模型 分布式 非分布式   存储方式 元数据方式（blob) 文件   索引机制 .git/objects/hash 目录（">
-<meta name="twitter:image" content="http://jbcdn2.b0.upaiyun.com/2012/08/Git-start6.png">
+<meta name="twitter:title" content="Prometheus">
+<meta name="twitter:description" content="Prometheus是一个非常优秀的监控工具，准确说是监控方案。Prometheus提供了监控数据搜集、存储、处理、可视化和告警一套完整的解决方案。  架构 多维数据模型Prometheus只需要定义一个全局指标container_memory_usage_bytes，然后通过添加不同的维度数据来满足不同的业务需求。 实践环境说明通过Prometheus监控两台Docker Host：192.1">
+<meta name="twitter:image" content="https://image.ipaiban.com/upload-ueditor-image-20171019-1508397075863083402.png">
 
 
 
@@ -123,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/10/28/git-1/"/>
+  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/11/19/prometheus/"/>
 
 
 
 
 
-  <title>Git学习小结 | Gavin的博客</title>
+  <title>Prometheus | Gavin的博客</title>
   
 
 
@@ -256,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/10/28/git-1/">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/19/prometheus/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guo shuai">
@@ -273,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git学习小结</h1>
+          <h1 class="post-title" itemprop="name headline">Prometheus</h1>
         
 
         <div class="post-meta">
@@ -285,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T20:18:55+08:00">
-                2017-10-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-19T20:13:18+08:00">
+                2017-11-19
               </time>
             
 
@@ -325,7 +324,7 @@
 
           
           
-             <span id="/2017/10/28/git-1/" class="leancloud_visitors" data-flag-title="Git学习小结">
+             <span id="/2017/11/19/prometheus/" class="leancloud_visitors" data-flag-title="Prometheus">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -356,80 +355,111 @@
       
 
       
-        <h1 id="Git与SVN区别"><a href="#Git与SVN区别" class="headerlink" title="Git与SVN区别"></a>Git与SVN区别</h1><ul>
-<li>Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，与常用的版本控制工具CVS,SVN等不同，它采用了分布式版本库的方式，不必服务器端软件支持。具体优势与对比见下表：</li>
-</ul>
-<h2 id="对比表"><a href="#对比表" class="headerlink" title="对比表"></a>对比表</h2><table>
-<thead>
-<tr>
-<th></th>
-<th style="text-align:center">Git</th>
-<th style="text-align:center">SVN &amp; CVS</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>开发模型</td>
-<td style="text-align:center">分布式</td>
-<td style="text-align:center">非分布式</td>
-</tr>
-<tr>
-<td>存储方式</td>
-<td style="text-align:center">元数据方式（blob)</td>
-<td style="text-align:center">文件</td>
-</tr>
-<tr>
-<td>索引机制</td>
-<td style="text-align:center">.git/objects/hash</td>
-<td style="text-align:center">目录（/path/to/file)</td>
-</tr>
-<tr>
-<td>分支管理</td>
-<td style="text-align:center">1s完成</td>
-<td style="text-align:center">蜗牛速度</td>
-</tr>
-</tbody>
-</table>
-<h1 id="Git三种状态"><a href="#Git三种状态" class="headerlink" title="Git三种状态"></a>Git三种状态</h1><ul>
-<li><p>已提交：表示该文件已经被安全地保存在本地数据库中了</p>
-</li>
-<li><p>已修改：表示修改了某个文件，但还没有提交保存</p>
-</li>
-<li><p>已暂存：表示把已修改的文件放在下次提交时要保存的清单中  </p>
-<a id="more"></a>
-</li>
+        <blockquote>
+<p>Prometheus是一个非常优秀的监控工具，准确说是监控方案。Prometheus提供了监控数据搜集、存储、处理、<br>可视化和告警一套完整的解决方案。</p>
+</blockquote>
+<h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><p><img src="https://image.ipaiban.com/upload-ueditor-image-20171019-1508397075863083402.png" alt=""></p>
+<h1 id="多维数据模型"><a href="#多维数据模型" class="headerlink" title="多维数据模型"></a>多维数据模型</h1><p>Prometheus只需要定义一个全局指标container_memory_usage_bytes，然后通过添加不同的维度数据来满足不同的业务需求。</p>
+<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><h2 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h2><p>通过Prometheus监控两台Docker Host：192.168.0.5和192.168.0.10，监控host和容器两个层次的数据</p>
+<h2 id="运行Node-Exporter"><a href="#运行Node-Exporter" class="headerlink" title="运行Node Exporter"></a>运行Node Exporter</h2><p>在两个host上执行如下命令：</p>
+<pre><code>[root@i-oh35oa3y ~]#  docker run -d -p 9100:9100 -v &quot;/proc:/host/proc&quot; -v &quot;/sys:/host/sys&quot; -v &quot;/:/rootfs&quot; --net=host prom/node-exporter -collector.procfs /host/proc -collector.sysfs /host/sys -collector.filesystem.ignored-mount-points &quot;^/(sys|proc|dev|host|etc)($|/)&quot;
+Unable to find image &apos;prom/node-exporter:latest&apos; locally
+Trying to pull repository docker.io/prom/node-exporter ... 
+latest: Pulling from docker.io/prom/node-exporter
+aa3e9481fcae: Pull complete 
+a3ed95caeb02: Pull complete 
+afc308b02dc6: Pull complete 
+ec3c6d9cf025: Pull complete 
+Digest: sha256:4e0a5f9097dad2c9e4192054684fcc2956a8e00cae670d6c4aa4d7348be65e7f
+42395deaea34a575736367d76d8a2f4e0e6ad02c0ae4e204ae4e927a44529141
+</code></pre><ul>
+<li>注意：这里使用了–net=host,这样Prometheus Server可以直接与Node Exporter通信</li>
 </ul>
 <blockquote>
-<p> Git在管理项目时，文件流转的三个工作区域：Git 的工作目录，暂存区域，以及本地仓库：</p>
+<p>Node Exporter启动后，将通过9100提供host的监控数据。在浏览器中通过<a href="http://hostID:9100/metrics测试一下，结果如下" target="_blank" rel="external">http://hostID:9100/metrics测试一下，结果如下</a></p>
 </blockquote>
-<p> <img src="http://jbcdn2.b0.upaiyun.com/2012/08/Git-start6.png" alt=""></p>
-<hr>
-<h1 id="Git分支概念"><a href="#Git分支概念" class="headerlink" title="Git分支概念"></a>Git分支概念</h1><blockquote>
-<ul>
-<li>分支是在软件项目中启动一条单独的开发线的基本方法；</li>
-<li>Git允许很多分支，因此在同一个版本库中可有很多不同的开发线；</li>
-<li>一个分支通常代表一个单独的客户发布版。</li>
+<pre><code># HELP go_gc_duration_seconds A summary of the GC invocation durations.
+# TYPE go_gc_duration_seconds summary
+go_gc_duration_seconds{quantile=&quot;0&quot;} 0.000122301
+go_gc_duration_seconds{quantile=&quot;0.25&quot;} 0.000122301
+go_gc_duration_seconds{quantile=&quot;0.5&quot;} 0.000122301
+go_gc_duration_seconds{quantile=&quot;0.75&quot;} 0.000122301
+go_gc_duration_seconds{quantile=&quot;1&quot;} 0.000122301
+go_gc_duration_seconds_sum 0.000122301
+go_gc_duration_seconds_count 1
+# HELP go_goroutines Number of goroutines that currently exist.
+# TYPE go_goroutines gauge
+go_goroutines 33
+# HELP go_info Information about the Go environment.
+# TYPE go_info gauge
+go_info{version=&quot;go1.9.2&quot;} 1
+# HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
+# TYPE go_memstats_alloc_bytes gauge
+go_memstats_alloc_bytes 2.579648e+06
+</code></pre><h2 id="运行cAdvisor"><a href="#运行cAdvisor" class="headerlink" title="运行cAdvisor"></a>运行cAdvisor</h2><p>在两个host上执行如下命令：</p>
+<pre><code>[root@i-y61tbtqs ~]#  docker run --volume=/:/rootfs:ro --volume=/var/run:/var/run:rw --volume=/sys:/sys:ro --volume=/var/lib/docker/:/var/lib/docker:ro --publish=8080:8080 --detach=true --name=1cadvisor --net=host  docker.io/google/cadvisor:latest
+80825b08b3678a161b4acfcae1db9f43700168e2ea9f460df451e807d6d2fb08
+</code></pre><ul>
+<li>注意：这里使用了–net=host,这样Prometheus Server可以直接与cAdvisor通信</li>
 </ul>
-</blockquote>
-<p>git分支整体预览图如下：</p>
-<p> <img src="http://legendtkl.com/img/uploads/2016/git-model.png" alt=""></p>
 <blockquote>
-<p>预览图中主要包含下面几个分支：</p>
+<p>cAdvisor启动后，将通过8080提供host的监控数据。在浏览器中通过<a href="http://hostID:8080/metrics测试一下，结果如下" target="_blank" rel="external">http://hostID:8080/metrics测试一下，结果如下</a></p>
 </blockquote>
-<ul>
-<li>master: 主分支，主要用来版本发布。</li>
-<li>develop：日常开发分支，该分支正常保存了开发的最新代码，开发完成并且测试没有问题则将 develop 分支的代码合并到master分支并发布。（develop分支只有发布完了才能进行下一个版本开发，开发会比较缓慢。）</li>
-<li>feature：具体的功能开发分支，只与develop分支交互。</li>
-<li>release：release分支可以认为是master分支的未测试版。比如说某一期的功能全部开发完成，那么就将develop分支合并到release分支，测试没有问题并且到了发布日期就合并到 master 分支，进行发布。</li>
-<li>hotfix：线上bug修复分支。</li>
-<li>除此之后还可以有fast-track等分支。</li>
+<pre><code># HELP cadvisor_version_info A metric with a constant &apos;1&apos; value labeled by kernel version, OS version, docker version, cadvisor version &amp; cadvisor revision.
+# TYPE cadvisor_version_info gauge
+cadvisor_version_info{cadvisorRevision=&quot;17543be&quot;,cadvisorVersion=&quot;v0.25.0&quot;,dockerVersion=&quot;1.12.6&quot;,kernelVersion=&quot;3.10.0-693.2.2.el7.x86_64&quot;,osVersion=&quot;Alpine Linux v3.4&quot;} 1
+# HELP container_cpu_system_seconds_total Cumulative system cpu time consumed in seconds.
+# TYPE container_cpu_system_seconds_total counter
+container_cpu_system_seconds_total{id=&quot;/&quot;} 87.82
+container_cpu_system_seconds_total{id=&quot;/machine.slice&quot;} 0
+container_cpu_system_seconds_total{id=&quot;/system.slice&quot;} 60.96
+container_cpu_system_seconds_total{id=&quot;/system.slice/NetworkManager-wait-online.service&quot;} 0
+container_cpu_system_seconds_total{id=&quot;/system.slice/NetworkManager.service&quot;} 0.56
+container_cpu_system_seconds_total{id=&quot;/system.slice/acpid.service&quot;} 0
+container_cpu_system_seconds_total{id=&quot;/system.slice/auditd.service&quot;} 0.02
+container_cpu_system_seconds_total{id=&quot;/system.slice/avahi-daemon.service&quot;} 0
+container_cpu_system_seconds_total{id=&quot;/system.slice/crond.service&quot;} 0.09
+container_cpu_system_seconds_total{id=&quot;/system.slice/dbus.service&quot;} 0.02
+</code></pre><h2 id="运行Prometheus-Server"><a href="#运行Prometheus-Server" class="headerlink" title="运行Prometheus Server"></a>运行Prometheus Server</h2><p>在host 192.168.0.5上执行如下命令：</p>
+<pre><code>[root@i-y61tbtqs ~]# docker run -d -p 9090:9090 -v /root/prometheus.yml:/etc/prometheus/prometheus.yml --name prometheus --net=host prom/prometheus 
+Unable to find image &apos;prom/prometheus:latest&apos; locally
+Trying to pull repository docker.io/prom/prometheus ... 
+latest: Pulling from docker.io/prom/prometheus
+aab39f0bc16d: Pull complete 
+a3ed95caeb02: Pull complete 
+2cd9e239cea6: Pull complete 
+4cd9d8cc3556: Pull complete 
+258c3156837d: Pull complete 
+67e020c50549: Pull complete 
+c33c38256bee: Pull complete 
+b17840c391fb: Pull complete 
+ef02cf066b4d: Pull complete 
+582e225ad14c: Pull complete 
+Digest: sha256:a9fd401b348a41f00b8110f8b5e90c4e61caaf57ac0013ce6ed487bbb25a349d
+a46a22d02b0b0546b0bcf13088e10d4eb097973ea957ed49c98f4ab05c1f8305
+</code></pre><ul>
+<li>注意：这里使用了–net=host,这样Prometheus Server可以直接与Exporter和Grafana通信</li>
 </ul>
-<h1 id="远程库"><a href="#远程库" class="headerlink" title="远程库"></a>远程库</h1><h2 id="添加远程库"><a href="#添加远程库" class="headerlink" title="添加远程库"></a>添加远程库</h2><pre><code>1.关联一个远程库
- git remote add origin git@github.com:username/path.git
-2.推送master分支的所有内容(本地与远程关联起来)：
- git push -u origin master
-</code></pre><h2 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h2><pre><code>git clone git@github.com:username/path.git
-</code></pre>
+<h2 id="运行Grafana"><a href="#运行Grafana" class="headerlink" title="运行Grafana"></a>运行Grafana</h2><p>在host 192.168.0.5上执行如下命令：</p>
+<pre><code>[root@i-y61tbtqs ~]# docker run -d -i -p 3000:3000 -e &quot;GF_SERVER_ROOT_URL=http://grafana.server.name&quot; -e &quot;GF_SECURITY_ADMIN_PASSWORD=secret&quot; --net=host grafana/grafana
+Unable to find image &apos;grafana/grafana:latest&apos; locally
+Trying to pull repository docker.io/grafana/grafana ... 
+latest: Pulling from docker.io/grafana/grafana
+c20dc0c5afeb: Pull complete 
+a3ed95caeb02: Pull complete 
+75979c2134af: Pull complete 
+603f014de07f: Pull complete 
+Digest: sha256:6ca9fcd6e70bf1faeb2f102b96fc8164a3af1e838dac714ab72b8abd9ea4c388
+083c3bb5757dc6301bc4db034a45b169a70ed225f2fa067828e41f857cbdfc65
+</code></pre><ul>
+<li>注意：这里使用了–net=host,这样Grafana可以直接与Prometheus Server通信</li>
+</ul>
+<p>Grafana启动后。在浏览器中打开<a href="http://192.168.0.5:3000，之后登录配置即可。" target="_blank" rel="external">http://192.168.0.5:3000，之后登录配置即可。</a></p>
+<blockquote>
+<p>Grafana是通过Dashboard展示数据的，访问<a href="https://grafana.com/dashboards?dataSource=prometheus&amp;search=docker" target="_blank" rel="external">Dashboards</a><br>可以看到很多用于监控Docker的Dashboard</p>
+</blockquote>
+<p>下载这些现成的Dashboard，然后import到我们的Grafana中就可以直接使用了。Docker会展示出漂亮的图表。</p>
+
       
     </div>
     
@@ -446,7 +476,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/prometheus/" rel="tag"># prometheus</a>
           
         </div>
       
@@ -459,8 +489,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/27/Markdowm/" rel="next" title="Markdowm指南">
-                <i class="fa fa-chevron-left"></i> Markdowm指南
+              <a href="/2017/11/17/容器监控/" rel="next" title="容器监控">
+                <i class="fa fa-chevron-left"></i> 容器监控
               </a>
             
           </div>
@@ -468,10 +498,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/30/git-2/" rel="prev" title="Git的关键架构">
-                Git的关键架构 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -623,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git与SVN区别"><span class="nav-number">1.</span> <span class="nav-text">Git与SVN区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对比表"><span class="nav-number">1.1.</span> <span class="nav-text">对比表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git三种状态"><span class="nav-number">2.</span> <span class="nav-text">Git三种状态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git分支概念"><span class="nav-number">3.</span> <span class="nav-text">Git分支概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#远程库"><span class="nav-number">4.</span> <span class="nav-text">远程库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加远程库"><span class="nav-number">4.1.</span> <span class="nav-text">添加远程库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从远程库克隆"><span class="nav-number">4.2.</span> <span class="nav-text">从远程库克隆</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#架构"><span class="nav-number">1.</span> <span class="nav-text">架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多维数据模型"><span class="nav-number">2.</span> <span class="nav-text">多维数据模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实践"><span class="nav-number">3.</span> <span class="nav-text">实践</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境说明"><span class="nav-number">3.1.</span> <span class="nav-text">环境说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行Node-Exporter"><span class="nav-number">3.2.</span> <span class="nav-text">运行Node Exporter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行cAdvisor"><span class="nav-number">3.3.</span> <span class="nav-text">运行cAdvisor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行Prometheus-Server"><span class="nav-number">3.4.</span> <span class="nav-text">运行Prometheus Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行Grafana"><span class="nav-number">3.5.</span> <span class="nav-text">运行Grafana</span></a></li></ol></li></ol></div>
             
 
           </div>
