@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="prometheus," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="Things could be diferent!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gavin的博客">
-<meta property="og:url" content="http://Guoshuaistrive.github.io/archives/2017/index.html">
+<meta name="description" content="初次使用Prometheus的同学可能会遇到各种各样的问题，比如所有东西安装就绪之后，监控数据依然无法正常展示等。所以这篇博文给大家讲讲我遇到的坑。   运行Node Exporter和cAdvisor两个收集数据的组件，一般不会有太大问题，暂时略过。  下面我们来看Prometheus Server的运行问题：">
+<meta name="keywords" content="prometheus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为什么Prometheus无法展示数据？">
+<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/21/prometheus-1/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="Things could be diferent!">
+<meta property="og:description" content="初次使用Prometheus的同学可能会遇到各种各样的问题，比如所有东西安装就绪之后，监控数据依然无法正常展示等。所以这篇博文给大家讲讲我遇到的坑。   运行Node Exporter和cAdvisor两个收集数据的组件，一般不会有太大问题，暂时略过。  下面我们来看Prometheus Server的运行问题：">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-21T04:07:12.165Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gavin的博客">
-<meta name="twitter:description" content="Things could be diferent!">
+<meta name="twitter:title" content="为什么Prometheus无法展示数据？">
+<meta name="twitter:description" content="初次使用Prometheus的同学可能会遇到各种各样的问题，比如所有东西安装就绪之后，监控数据依然无法正常展示等。所以这篇博文给大家讲讲我遇到的坑。   运行Node Exporter和cAdvisor两个收集数据的组件，一般不会有太大问题，暂时略过。  下面我们来看Prometheus Server的运行问题：">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Guoshuaistrive.github.io/archives/2017/"/>
+  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/11/21/prometheus-1/"/>
 
 
 
 
 
-  <title>归档 | Gavin的博客</title>
+  <title>为什么Prometheus无法展示数据？ | Gavin的博客</title>
   
 
 
@@ -143,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,411 +239,259 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/21/prometheus-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guo shuai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">为什么Prometheus无法展示数据？</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-21T11:53:26+08:00">
+                2017-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 23 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/learn/" itemprop="url" rel="index">
+                    <span itemprop="name">learn</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/2017/11/21/prometheus-1/" class="leancloud_visitors" data-flag-title="为什么Prometheus无法展示数据？">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/21/prometheus-1/" itemprop="url">
-              
-                <span itemprop="name">为什么Prometheus无法展示数据？</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-21T11:53:26+08:00"
-              content="2017-11-21" >
-          11-21
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/19/prometheus/" itemprop="url">
-              
-                <span itemprop="name">Prometheus</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-19T20:13:18+08:00"
-              content="2017-11-19" >
-          11-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/17/容器监控/" itemprop="url">
-              
-                <span itemprop="name">容器监控</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-17T21:04:07+08:00"
-              content="2017-11-17" >
-          11-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
+      
+        <blockquote>
+<p>初次使用Prometheus的同学可能会遇到各种各样的问题，比如所有东西安装就绪之后，监控数据依然无法正常展示等。所以这篇博文给大家讲讲我遇到的坑。</p>
+</blockquote>
+<ul>
+<li>运行Node Exporter和cAdvisor两个收集数据的组件，一般不会有太大问题，暂时略过。</li>
+</ul>
+<p>下面我们来看Prometheus Server的运行问题：<br><a id="more"></a><br>首先，在host上执行如下命令</p>
+<pre><code>[root@i-oh35oa3y ~]# docker run -d -p 9090:9090 
+             -v /root/prometheus.yml:/etc/prometheus/prometheus.yml
+            --name prometheus4 --net=host prom/prometheus
+072da8637fc35a39386a49eac6e4b93a9e513d0c9cdfb367dfe81d750c8e967c
+</code></pre><p>其中，prometheus.yml是Prometheus Server的配置文件：</p>
+<pre><code># my global config
+global:
+  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
 
-        
-        
+  # Attach these labels to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager).
+  external_labels:
+      monitor: &apos;codelab-monitor&apos;
 
-        
+# Load rules once and periodically evaluate them according to the global &apos;evaluation_interval&apos;.
+rule_files:
+  # - &quot;first.rules&quot;
+  # - &quot;second.rules&quot;
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it&apos;s Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=&lt;job_name&gt;` to any timeseries scraped from this config.
+  - job_name: &apos;prometheus&apos;
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/16/macvlan/" itemprop="url">
-              
-                <span itemprop="name">macvlan</span>
-              
-            </a>
-        
-      </h2>
+    # metrics_path defaults to &apos;/metrics&apos;
+    # scheme defaults to &apos;http&apos;.
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-16T19:32:48+08:00"
-              content="2017-11-16" >
-          11-16
-        </time>
-      </div>
+    static_configs:
+     - targets: [&apos;localhost:9090&apos;,&apos;localhost:8080&apos;,&apos;localhost:9100&apos;,&apos;192.168.0.5:8080&apos;,&apos;192.168.0.5:9100&apos;]
+</code></pre><ul>
+<li>最重要的配置是：static_configs  用于指定从哪些Exporter抓取数据。</li>
+</ul>
+<p>这时访问<a href="http://192.168.0.10:9090报错，来回试了多次都是这样。在命令行访问也是如此" target="_blank" rel="external">http://192.168.0.10:9090报错，来回试了多次都是这样。在命令行访问也是如此</a></p>
+<pre><code>[root@i-oh35oa3y ~]# curl 192.168.0.10:9090
+curl: (7) Failed connect to 192.168.0.10:9090; Connection refused
+</code></pre><p>经过几番调试，感觉问题出在prometheus.yml，因为之前的配置文件是自己创建的，所以重新下载了一份配置文件（建议最新版）<br>解压并切换到该目录下：</p>
+<pre><code>[root@i-oh35oa3y ~]# tar -xvf prometheus-2.0.0-rc.2.linux-amd64.tar.gz
+prometheus-2.0.0-rc.2.linux-amd64/
+prometheus-2.0.0-rc.2.linux-amd64/consoles/
+prometheus-2.0.0-rc.2.linux-amd64/consoles/index.html.example
+prometheus-2.0.0-rc.2.linux-amd64/consoles/node-cpu.html
+prometheus-2.0.0-rc.2.linux-amd64/consoles/node-disk.html
+prometheus-2.0.0-rc.2.linux-amd64/consoles/node-overview.html
+prometheus-2.0.0-rc.2.linux-amd64/consoles/node.html
+prometheus-2.0.0-rc.2.linux-amd64/consoles/prometheus-overview.html
+prometheus-2.0.0-rc.2.linux-amd64/consoles/prometheus.html
+prometheus-2.0.0-rc.2.linux-amd64/console_libraries/
+prometheus-2.0.0-rc.2.linux-amd64/console_libraries/menu.lib
+prometheus-2.0.0-rc.2.linux-amd64/console_libraries/prom.lib
+prometheus-2.0.0-rc.2.linux-amd64/prometheus.yml
+prometheus-2.0.0-rc.2.linux-amd64/LICENSE
+prometheus-2.0.0-rc.2.linux-amd64/NOTICE
+prometheus-2.0.0-rc.2.linux-amd64/prometheus
+prometheus-2.0.0-rc.2.linux-amd64/promtool
 
-    </header>
-  </article>
+[root@i-oh35oa3y ~]# cd prometheus-2.0.0-rc.2.linux-amd64
+[root@i-oh35oa3y prometheus-2.0.0-rc.2.linux-amd64]# ls
+console_libraries  consoles  LICENSE  NOTICE  prometheus  prometheus.yml  promtool
+</code></pre><p>当把配置文件里面的targets配置好，重新测试时，发现依然报错。</p>
+<p>然后重新检查运行Prometheus Server的命令，问题有可能出在-v /root/prometheus.yml:/etc/prometheus/prometheus.yml<br>冒号前后分别为host和container的路径，把host的路径改为当前刚刚下载的这个配置文件的路径，我们再试一下：</p>
+<pre><code>[root@i-oh35oa3y prometheus-2.0.0-rc.2.linux-amd64]# docker run -d -p 9090:9090
+     -v /root/prometheus-2.0.0-rc.2.linux-amd64/prometheus.yml:/etc/prometheus/prometheus.yml 
+    --name prometheus7 
+    --net=host prom/prometheus
+82bbcfe2c6c00529f1f24aeae6cb1e77c487321fe55dc8518c2d199d7085c764
 
-
+[root@i-oh35oa3y prometheus-2.0.0-rc.2.linux-amd64]# curl 192.168.0.10:9090
+&lt;a href=&quot;/graph&quot;&gt;Found&lt;/a&gt;.
+</code></pre><p>成功访问！</p>
+<p>当然中间还有一些其他需要细心配置的东西，比如在运行Grafana组件的时候，Url输入Prometheus Server的地址的端口号要与之前一致，<br>如果一切顺利的话，Grafana应该已经能够访问Prometheus中存放的数据了（Grafana借助Dashboard展示数据）。</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/15/容器通信/" itemprop="url">
-              
-                <span itemprop="name">容器通信</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-15T22:15:05+08:00"
-              content="2017-11-15" >
-          11-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/14/user-defined/" itemprop="url">
-              
-                <span itemprop="name">创建user-defined网络</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-14T22:14:42+08:00"
-              content="2017-11-14" >
-          11-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/13/镜像分层/" itemprop="url">
-              
-                <span itemprop="name">镜像的分层结构</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-13T22:10:55+08:00"
-              content="2017-11-13" >
-          11-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/12/容器核心知识/" itemprop="url">
-              
-                <span itemprop="name">容器核心知识</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-12T19:07:54+08:00"
-              content="2017-11-12" >
-          11-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/10/容器网络/" itemprop="url">
-              
-                <span itemprop="name">容器网络</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-10T21:36:35+08:00"
-              content="2017-11-10" >
-          11-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/09/Docker存储/" itemprop="url">
-              
-                <span itemprop="name">Docker存储</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-09T21:35:44+08:00"
-              content="2017-11-09" >
-          11-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/prometheus/" rel="tag"># prometheus</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/19/prometheus/" rel="next" title="Prometheus">
+                <i class="fa fa-chevron-left"></i> Prometheus
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="page-number" href="/archives/2017/page/3/">3</a><a class="extend next" rel="next" href="/archives/2017/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -649,6 +499,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -903,6 +757,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 

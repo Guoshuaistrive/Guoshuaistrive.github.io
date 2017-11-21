@@ -79,20 +79,18 @@
 
 
 
-<meta name="description" content="Prometheus是一个非常优秀的监控工具，准确说是监控方案。Prometheus提供了监控数据搜集、存储、处理、可视化和告警一套完整的解决方案。  架构 多维数据模型">
+<meta name="description" content="Prometheus是一个非常优秀的监控工具，准确说是监控方案。Prometheus提供了监控数据搜集、存储、处理、可视化和告警一套完整的解决方案。  架构![]( 多维数据模型">
 <meta name="keywords" content="prometheus">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Prometheus">
 <meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/19/prometheus/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="Prometheus是一个非常优秀的监控工具，准确说是监控方案。Prometheus提供了监控数据搜集、存储、处理、可视化和告警一套完整的解决方案。  架构 多维数据模型">
+<meta property="og:description" content="Prometheus是一个非常优秀的监控工具，准确说是监控方案。Prometheus提供了监控数据搜集、存储、处理、可视化和告警一套完整的解决方案。  架构![]( 多维数据模型">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://image.ipaiban.com/upload-ueditor-image-20171019-1508397075863083402.png">
-<meta property="og:updated_time" content="2017-11-19T11:28:44.330Z">
+<meta property="og:updated_time" content="2017-11-21T04:06:34.304Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Prometheus">
-<meta name="twitter:description" content="Prometheus是一个非常优秀的监控工具，准确说是监控方案。Prometheus提供了监控数据搜集、存储、处理、可视化和告警一套完整的解决方案。  架构 多维数据模型">
-<meta name="twitter:image" content="https://image.ipaiban.com/upload-ueditor-image-20171019-1508397075863083402.png">
+<meta name="twitter:description" content="Prometheus是一个非常优秀的监控工具，准确说是监控方案。Prometheus提供了监控数据搜集、存储、处理、可视化和告警一套完整的解决方案。  架构![]( 多维数据模型">
 
 
 
@@ -358,12 +356,20 @@
         <blockquote>
 <p>Prometheus是一个非常优秀的监控工具，准确说是监控方案。Prometheus提供了监控数据搜集、存储、处理、<br>可视化和告警一套完整的解决方案。</p>
 </blockquote>
-<h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><p><img src="https://image.ipaiban.com/upload-ueditor-image-20171019-1508397075863083402.png" alt=""></p>
+<h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><p>![](</p>
 <h1 id="多维数据模型"><a href="#多维数据模型" class="headerlink" title="多维数据模型"></a>多维数据模型</h1><a id="more"></a>
 <p>Prometheus只需要定义一个全局指标container_memory_usage_bytes，然后通过添加不同的维度数据来满足不同的业务需求。</p>
 <h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><h2 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h2><p>通过Prometheus监控两台Docker Host：192.168.0.5和192.168.0.10，监控host和容器两个层次的数据</p>
 <h2 id="运行Node-Exporter"><a href="#运行Node-Exporter" class="headerlink" title="运行Node Exporter"></a>运行Node Exporter</h2><p>在两个host上执行如下命令：</p>
-<pre><code>[root@i-oh35oa3y ~]#  docker run -d -p 9100:9100 -v &quot;/proc:/host/proc&quot; -v &quot;/sys:/host/sys&quot; -v &quot;/:/rootfs&quot; --net=host prom/node-exporter -collector.procfs /host/proc -collector.sysfs /host/sys -collector.filesystem.ignored-mount-points &quot;^/(sys|proc|dev|host|etc)($|/)&quot;
+<pre><code>[root@i-oh35oa3y ~]#  docker run -d -p 9100:9100 
+    -v &quot;/proc:/host/proc&quot; 
+    -v &quot;/sys:/host/sys&quot; 
+    -v &quot;/:/rootfs&quot; 
+    --net=host prom/node-exporter 
+    -collector.procfs /host/proc -collector.sysfs /host/sys 
+    -collector.filesystem.ignored-mount-points 
+    &quot;^/(sys|proc|dev|host|etc)($|/)&quot;
+
 Unable to find image &apos;prom/node-exporter:latest&apos; locally
 Trying to pull repository docker.io/prom/node-exporter ... 
 latest: Pulling from docker.io/prom/node-exporter
@@ -398,7 +404,13 @@ go_info{version=&quot;go1.9.2&quot;} 1
 # TYPE go_memstats_alloc_bytes gauge
 go_memstats_alloc_bytes 2.579648e+06
 </code></pre><h2 id="运行cAdvisor"><a href="#运行cAdvisor" class="headerlink" title="运行cAdvisor"></a>运行cAdvisor</h2><p>在两个host上执行如下命令：</p>
-<pre><code>[root@i-y61tbtqs ~]#  docker run --volume=/:/rootfs:ro --volume=/var/run:/var/run:rw --volume=/sys:/sys:ro --volume=/var/lib/docker/:/var/lib/docker:ro --publish=8080:8080 --detach=true --name=1cadvisor --net=host  docker.io/google/cadvisor:latest
+<pre><code>[root@i-y61tbtqs ~]#  docker run --volume=/:/rootfs:ro 
+    --volume=/var/run:/var/run:rw 
+    --volume=/sys:/sys:ro 
+    --volume=/var/lib/docker/:/var/lib/docker:ro 
+    --publish=8080:8080 
+    --detach=true --name=1cadvisor 
+    --net=host  docker.io/google/cadvisor:latest
 80825b08b3678a161b4acfcae1db9f43700168e2ea9f460df451e807d6d2fb08
 </code></pre><ul>
 <li>注意：这里使用了–net=host,这样Prometheus Server可以直接与cAdvisor通信</li>
@@ -422,7 +434,9 @@ container_cpu_system_seconds_total{id=&quot;/system.slice/avahi-daemon.service&q
 container_cpu_system_seconds_total{id=&quot;/system.slice/crond.service&quot;} 0.09
 container_cpu_system_seconds_total{id=&quot;/system.slice/dbus.service&quot;} 0.02
 </code></pre><h2 id="运行Prometheus-Server"><a href="#运行Prometheus-Server" class="headerlink" title="运行Prometheus Server"></a>运行Prometheus Server</h2><p>在host 192.168.0.5上执行如下命令：</p>
-<pre><code>[root@i-y61tbtqs ~]# docker run -d -p 9090:9090 -v /root/prometheus.yml:/etc/prometheus/prometheus.yml --name prometheus --net=host prom/prometheus 
+<pre><code>[root@i-y61tbtqs ~]# docker run -d -p 9090:9090 
+    -v /root/prometheus.yml:/etc/prometheus/prometheus.yml 
+    --name prometheus --net=host prom/prometheus 
 Unable to find image &apos;prom/prometheus:latest&apos; locally
 Trying to pull repository docker.io/prom/prometheus ... 
 latest: Pulling from docker.io/prom/prometheus
@@ -442,7 +456,11 @@ a46a22d02b0b0546b0bcf13088e10d4eb097973ea957ed49c98f4ab05c1f8305
 <li>注意：这里使用了–net=host,这样Prometheus Server可以直接与Exporter和Grafana通信</li>
 </ul>
 <h2 id="运行Grafana"><a href="#运行Grafana" class="headerlink" title="运行Grafana"></a>运行Grafana</h2><p>在host 192.168.0.5上执行如下命令：</p>
-<pre><code>[root@i-y61tbtqs ~]# docker run -d -i -p 3000:3000 -e &quot;GF_SERVER_ROOT_URL=http://grafana.server.name&quot; -e &quot;GF_SECURITY_ADMIN_PASSWORD=secret&quot; --net=host grafana/grafana
+<pre><code>[root@i-y61tbtqs ~]# docker run -d -i -p 3000:3000 
+    -e &quot;GF_SERVER_ROOT_URL=http://grafana.server.name&quot; 
+    -e &quot;GF_SECURITY_ADMIN_PASSWORD=secret&quot; 
+    --net=host grafana/grafana
+
 Unable to find image &apos;grafana/grafana:latest&apos; locally
 Trying to pull repository docker.io/grafana/grafana ... 
 latest: Pulling from docker.io/grafana/grafana
@@ -499,6 +517,10 @@ Digest: sha256:6ca9fcd6e70bf1faeb2f102b96fc8164a3af1e838dac714ab72b8abd9ea4c388
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/21/prometheus-1/" rel="prev" title="为什么Prometheus无法展示数据？">
+                为什么Prometheus无法展示数据？ <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -579,7 +601,7 @@ Digest: sha256:6ca9fcd6e70bf1faeb2f102b96fc8164a3af1e838dac714ab72b8abd9ea4c388
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
