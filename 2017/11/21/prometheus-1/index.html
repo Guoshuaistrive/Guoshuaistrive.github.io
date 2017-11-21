@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Gavin的博客">
 <meta property="og:description" content="初次使用Prometheus的同学可能会遇到各种各样的问题，比如所有东西安装就绪之后，监控数据依然无法正常展示等。所以这篇博文给大家讲讲我遇到的坑。   运行Node Exporter和cAdvisor两个收集数据的组件，一般不会有太大问题，暂时略过。  下面我们来看Prometheus Server的运行问题：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-21T04:07:12.165Z">
+<meta property="og:updated_time" content="2017-11-21T11:53:07.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为什么Prometheus无法展示数据？">
 <meta name="twitter:description" content="初次使用Prometheus的同学可能会遇到各种各样的问题，比如所有东西安装就绪之后，监控数据依然无法正常展示等。所以这篇博文给大家讲讲我遇到的坑。   运行Node Exporter和cAdvisor两个收集数据的组件，一般不会有太大问题，暂时略过。  下面我们来看Prometheus Server的运行问题：">
@@ -360,9 +360,9 @@
 <li>运行Node Exporter和cAdvisor两个收集数据的组件，一般不会有太大问题，暂时略过。</li>
 </ul>
 <p>下面我们来看Prometheus Server的运行问题：<br><a id="more"></a><br>首先，在host上执行如下命令</p>
-<pre><code>[root@i-oh35oa3y ~]# docker run -d -p 9090:9090 
-             -v /root/prometheus.yml:/etc/prometheus/prometheus.yml
-            --name prometheus4 --net=host prom/prometheus
+<pre><code>[root@i-oh35oa3y ~]# docker run -d -p 9090:9090 \
+             -v /root/prometheus.yml:/etc/prometheus/prometheus.yml \
+            --name prometheus4 --net=host prom/prometheus 
 072da8637fc35a39386a49eac6e4b93a9e513d0c9cdfb367dfe81d750c8e967c
 </code></pre><p>其中，prometheus.yml是Prometheus Server的配置文件：</p>
 <pre><code># my global config
@@ -424,8 +424,8 @@ console_libraries  consoles  LICENSE  NOTICE  prometheus  prometheus.yml  promto
 </code></pre><p>当把配置文件里面的targets配置好，重新测试时，发现依然报错。</p>
 <p>然后重新检查运行Prometheus Server的命令，问题有可能出在-v /root/prometheus.yml:/etc/prometheus/prometheus.yml<br>冒号前后分别为host和container的路径，把host的路径改为当前刚刚下载的这个配置文件的路径，我们再试一下：</p>
 <pre><code>[root@i-oh35oa3y prometheus-2.0.0-rc.2.linux-amd64]# docker run -d -p 9090:9090
-     -v /root/prometheus-2.0.0-rc.2.linux-amd64/prometheus.yml:/etc/prometheus/prometheus.yml 
-    --name prometheus7 
+     -v /root/prometheus-2.0.0-rc.2.linux-amd64/prometheus.yml:/etc/  prometheus/prometheus.yml \
+    --name prometheus7 \
     --net=host prom/prometheus
 82bbcfe2c6c00529f1f24aeae6cb1e77c487321fe55dc8518c2d199d7085c764
 
