@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="docker macvlan," />
+  <meta name="keywords" content="Prometheus," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="本文介绍Docker开发的这个支持跨主机容器网络的driver:macvlan   macvlan本身是Linux kernel模块，其功能是允许同一个物理网卡配置多个MAC地址，即多个interface，每个interface可以配置自己的IP。macvlan本质上是一种网卡虚拟化技术，Docker用macvlan实现容器网络就不奇怪了。 macvlan的最大优点是性能极好，相比其他实现，ma">
-<meta name="keywords" content="docker macvlan">
+<meta name="description" content="第一次安装Prometheus的时候用的rc版本，也没看官方文档出现很多失误。所以今天在host上重新安装Prometheus2.0版本，亲测一次性通过，重新梳理一篇安装教程。  环境说明通过Prometheus监控两台Docker Host：192.168.0.14和192.168.0.10，监控host和容器两个层次的数据 运行Node Exporter组件">
+<meta name="keywords" content="Prometheus">
 <meta property="og:type" content="article">
-<meta property="og:title" content="macvlan">
-<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/16/macvlan/index.html">
+<meta property="og:title" content="Prometheus2.0版本">
+<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/22/prometheus2/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="本文介绍Docker开发的这个支持跨主机容器网络的driver:macvlan   macvlan本身是Linux kernel模块，其功能是允许同一个物理网卡配置多个MAC地址，即多个interface，每个interface可以配置自己的IP。macvlan本质上是一种网卡虚拟化技术，Docker用macvlan实现容器网络就不奇怪了。 macvlan的最大优点是性能极好，相比其他实现，ma">
+<meta property="og:description" content="第一次安装Prometheus的时候用的rc版本，也没看官方文档出现很多失误。所以今天在host上重新安装Prometheus2.0版本，亲测一次性通过，重新梳理一篇安装教程。  环境说明通过Prometheus监控两台Docker Host：192.168.0.14和192.168.0.10，监控host和容器两个层次的数据 运行Node Exporter组件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-16T11:38:06.609Z">
+<meta property="og:updated_time" content="2017-11-22T13:33:04.239Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="macvlan">
-<meta name="twitter:description" content="本文介绍Docker开发的这个支持跨主机容器网络的driver:macvlan   macvlan本身是Linux kernel模块，其功能是允许同一个物理网卡配置多个MAC地址，即多个interface，每个interface可以配置自己的IP。macvlan本质上是一种网卡虚拟化技术，Docker用macvlan实现容器网络就不奇怪了。 macvlan的最大优点是性能极好，相比其他实现，ma">
+<meta name="twitter:title" content="Prometheus2.0版本">
+<meta name="twitter:description" content="第一次安装Prometheus的时候用的rc版本，也没看官方文档出现很多失误。所以今天在host上重新安装Prometheus2.0版本，亲测一次性通过，重新梳理一篇安装教程。  环境说明通过Prometheus监控两台Docker Host：192.168.0.14和192.168.0.10，监控host和容器两个层次的数据 运行Node Exporter组件">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/11/16/macvlan/"/>
+  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/11/22/prometheus2/"/>
 
 
 
 
 
-  <title>macvlan | Gavin的博客</title>
+  <title>Prometheus2.0版本 | Gavin的博客</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/16/macvlan/">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/22/prometheus2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guo shuai">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">macvlan</h1>
+          <h1 class="post-title" itemprop="name headline">Prometheus2.0版本</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-16T19:32:48+08:00">
-                2017-11-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-22T21:22:01+08:00">
+                2017-11-22
               </time>
             
 
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/learn/" itemprop="url" rel="index">
-                    <span itemprop="name">learn</span>
+                  <a href="/categories/exercise/" itemprop="url" rel="index">
+                    <span itemprop="name">exercise</span>
                   </a>
                 </span>
 
@@ -322,7 +322,7 @@
 
           
           
-             <span id="/2017/11/16/macvlan/" class="leancloud_visitors" data-flag-title="macvlan">
+             <span id="/2017/11/22/prometheus2/" class="leancloud_visitors" data-flag-title="Prometheus2.0版本">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -354,50 +354,209 @@
 
       
         <blockquote>
-<p>本文介绍Docker开发的这个支持跨主机容器网络的driver:macvlan</p>
+<p>第一次安装Prometheus的时候用的rc版本，也没看官方文档出现很多失误。所以今天在host上重新安装Prometheus2.0版本，亲测一次性通过，重新梳理一篇安装教程。</p>
 </blockquote>
-<ul>
-<li>macvlan本身是Linux kernel模块，其功能是允许同一个物理网卡配置多个MAC地址，即多个interface，每个interface可以配置自己的IP。macvlan本质上是一种网卡虚拟化技术，Docker用macvlan实现容器网络就不奇怪了。</li>
-<li>macvlan的最大优点是性能极好，相比其他实现，macvlan不需要创建Linux bridge，而是直接通过以太interface连接到物理网络。<a id="more"></a>
-<h1 id="准备实验环境"><a href="#准备实验环境" class="headerlink" title="准备实验环境"></a>准备实验环境</h1></li>
+<h1 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h1><p>通过Prometheus监控两台Docker Host：192.168.0.14和192.168.0.10，监控host和容器两个层次的数据</p>
+<h1 id="运行Node-Exporter组件"><a href="#运行Node-Exporter组件" class="headerlink" title="运行Node Exporter组件"></a>运行Node Exporter组件</h1><a id="more"></a> 
+<p>在两个host上执行如下命令：</p>
+<pre><code>[root@guoshuai-1 ~]# docker run -d -p 9100:9100 \
+     -v &quot;/proc:/host/proc&quot;  \
+     -v &quot;/sys:/host/sys&quot;  \
+     -v &quot;/:/rootfs&quot;  \
+     --net=host prom/node-exporter  \
+     -collector.procfs /host/proc -collector.sysfs /host/sys  \
+     -collector.filesystem.ignored-mount-points  \
+     &quot;^/(sys|proc|dev|host|etc)($|/)&quot;
+Unable to find image &apos;prom/node-exporter:latest&apos; locally
+Trying to pull repository docker.io/prom/node-exporter ... 
+latest: Pulling from docker.io/prom/node-exporter
+aa3e9481fcae: Pull complete 
+a3ed95caeb02: Pull complete 
+afc308b02dc6: Pull complete 
+ec3c6d9cf025: Pull complete 
+Digest: sha256:4e0a5f9097dad2c9e4192054684fcc2956a8e00cae670d6c4aa4d7348be65e7f
+e2a9a69f45ec854f629ba62b03c1fa6a7112b57c129c1a0354653c854d222944
+</code></pre><ul>
+<li>-v 是–volume的简写，通过-v来mount到容器</li>
+<li>这里使用了–net=host,这样Prometheus Server可以直接与Node Exporter通信</li>
+<li>后三行其实可以省略掉，不影响后续任何运行</li>
 </ul>
 <blockquote>
-<p>我们会使用两个host上单独的网卡eth0创建macvlan。为了保证多个MAC地址的网络包都可以从eth0通过，我们需要打开网卡模式</p>
+<p>Node Exporter启动后，将通过9100提供host的监控数据。在浏览器中通过<a href="http://hostID:9100/metrics测试一下，结果如下" target="_blank" rel="external">http://hostID:9100/metrics测试一下，结果如下</a></p>
 </blockquote>
-<pre><code>[root@i-y61tbtqs ~]# ip link set eth0 promisc on
-[root@i-y61tbtqs ~]#  ip link show eth0
-2: eth0: &lt;BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP mode DEFAULT qlen 1000
-    link/ether 52:54:de:f8:64:b4 brd ff:ff:ff:ff:ff:ff
-</code></pre><h1 id="创建macvlan网络"><a href="#创建macvlan网络" class="headerlink" title="创建macvlan网络"></a>创建macvlan网络</h1><pre><code>[root@i-y61tbtqs ~]# docker network create -d macvlan --subnet=172.16.86.0/24 --gateway=172.16.86.1 -o parent=eth0 mac_net1
-654d1cebc0e93b8d22d04566d6470b448e4ac4c41b066a2d2417e1fdc52f9fa3
-</code></pre><p>在host1中运行容器gs7并连接到mac_net1</p>
-<pre><code>[root@i-y61tbtqs ~]# docker run -itd --name gs7 --ip=172.16.86.10 --network mac_net1 busybox
-96a995485a3d73056bf62b6947e7bc92de250609f3325eecba88810f42d1557d
-</code></pre><p>在host2中运行容器gs8，指定IP172.16.86.11</p>
-<pre><code>[root@i-oh35oa3y ~]# docker run -itd --name gs8 --ip=172.16.86.11 --network mac_net1 busybox
-a08ec268d83cd0066e0b7c08d9522d0443c0835ce1ebf53b4ecc7fb703159726
-</code></pre><p>验证gs7和gs8的连通性，如下：</p>
-<pre><code>[root@i-oh35oa3y ~]# docker exec gs8 ping -c 2  172.16.86.10
-PING 172.16.86.10 (172.16.86.10): 56 data bytes
-64 bytes from 172.16.86.10: seq=0 ttl=64 time=0.121 ms
-64 bytes from 172.16.86.10: seq=1 ttl=64 time=0.061 ms
-</code></pre><h1 id="macvlan网络结构分析"><a href="#macvlan网络结构分析" class="headerlink" title="macvlan网络结构分析"></a>macvlan网络结构分析</h1><p>查看gs7的网络设备</p>
-<pre><code>[root@i-y61tbtqs ~]# docker exec gs7 ip link
-1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue qlen 1
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-194: eth0@if2: &lt;BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN&gt; mtu 1500 qdisc noqueue 
-    link/ether 02:42:ac:10:56:0a brd ff:ff:ff:ff:ff:ff
+<pre><code># HELP go_gc_duration_seconds A summary of the GC invocation durations.
+# TYPE go_gc_duration_seconds summary
+go_gc_duration_seconds{quantile=&quot;0&quot;} 0
+go_gc_duration_seconds{quantile=&quot;0.25&quot;} 0
+go_gc_duration_seconds{quantile=&quot;0.5&quot;} 0
+go_gc_duration_seconds{quantile=&quot;0.75&quot;} 0
+go_gc_duration_seconds{quantile=&quot;1&quot;} 0
+go_gc_duration_seconds_sum 0
+go_gc_duration_seconds_count 0
+# HELP go_goroutines Number of goroutines that currently exist.
+# TYPE go_goroutines gauge
+go_goroutines 9
+</code></pre><h1 id="运行cAdvisor组件"><a href="#运行cAdvisor组件" class="headerlink" title="运行cAdvisor组件"></a>运行cAdvisor组件</h1><p>在两个host上执行如下命令：</p>
+<pre><code>[root@guoshuai-1 ~]# docker run --volume=/:/rootfs:ro \
+     --volume=/var/run:/var/run:rw \
+     --volume=/sys:/sys:ro \
+     --volume=/var/lib/docker/:/var/lib/docker:ro \
+     --publish=8080:8080 \
+     --detach=true --name=1cadvisor \
+     --net=host  docker.io/google/cadvisor:latest
+Unable to find image &apos;docker.io/google/cadvisor:latest&apos; locally
+Trying to pull repository docker.io/google/cadvisor ... 
+latest: Pulling from docker.io/google/cadvisor
+709515475419: Pull complete 
+5760eeb1525d: Pull complete 
+e485506b272e: Pull complete 
+Digest: sha256:ed53f9f93bb52d64fa8f95daece42d95d18d1e48a8ec9237bd5944ed634348a1
+49c54258fb4e0c4ee7e3777de931110c3c8123f9243f230de66de3e9bcee3528
 </code></pre><ul>
-<li><p>注意eth0后面的@if2，这表明该接口有一个对应的接口，全局编号为2。我们猜测这个接口就是主机的eth0</p>
-<pre><code>[root@i-y61tbtqs ~]# ip link show eth0
-2: eth0: &lt;BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP mode DEFAULT qlen 1000
-    link/ether 52:54:de:f8:64:b4 brd ff:ff:ff:ff:ff:ff
-</code></pre></li>
+<li>这里使用了–net=host,这样Prometheus Server可以直接与cAdvisor通信</li>
 </ul>
-<h1 id="用sub-interface实现多macvlan网络"><a href="#用sub-interface实现多macvlan网络" class="headerlink" title="用sub-interface实现多macvlan网络"></a>用sub-interface实现多macvlan网络</h1><p>macvlan会独占主机的网卡，也就是说一个网卡只能创建一个macvlan网络，否则会报错</p>
-<pre><code>[root@i-oh35oa3y ~]# docker network create -d macvlan --subnet=172.16.86.0/24 --gateway=172.16.86.1 -o parent=eth0 mac_net2
-Error response from daemon: failed to allocate gateway (172.16.86.1): Address already in use
-</code></pre><p>在主机网卡数量有限的情况下，如何支持macvlan网络？可以连接sub-interface，详见书上描述。</p>
+<blockquote>
+<p>cAdvisor启动后，将通过8080提供host的监控数据。在浏览器中通过<a href="http://hostID:8080/metrics测试一下，结果如下" target="_blank" rel="external">http://hostID:8080/metrics测试一下，结果如下</a></p>
+</blockquote>
+<pre><code># HELP cadvisor_version_info A metric with a constant &apos;1&apos; value labeled by kernel version, OS version, docker version, cadvisor version &amp; cadvisor revision.
+# TYPE cadvisor_version_info gauge
+cadvisor_version_info{cadvisorRevision=&quot;17543be&quot;,cadvisorVersion=&quot;v0.25.0&quot;,dockerVersion=&quot;1.12.6&quot;,kernelVersion=&quot;3.10.0-693.2.2.el7.x86_64&quot;,osVersion=&quot;Alpine Linux v3.4&quot;} 1
+# HELP container_cpu_system_seconds_total Cumulative system cpu time consumed in seconds.
+# TYPE container_cpu_system_seconds_total counter
+container_cpu_system_seconds_total{id=&quot;/&quot;} 27.75
+container_cpu_system_seconds_total{id=&quot;/machine.slice&quot;} 0
+container_cpu_system_seconds_total{id=&quot;/system.slice&quot;} 11.23
+container_cpu_system_seconds_total{id=&quot;/system.slice/NetworkManager-wait-online.service&quot;} 0
+container_cpu_system_seconds_total{id=&quot;/system.slice/NetworkManager.service&quot;} 0.05
+container_cpu_system_seconds_total{id=&quot;/system.slice/acpid.service&quot;} 0
+container_cpu_system_seconds_total{id=&quot;/system.slice/auditd.service&quot;} 0
+</code></pre><h1 id="运行Prometheus-Server组件"><a href="#运行Prometheus-Server组件" class="headerlink" title="运行Prometheus Server组件"></a>运行Prometheus Server组件</h1><p>在host：192.168.0.14上安装prometheus的包并解压（也可用其他方式）</p>
+<pre><code>[root@guoshuai-1 ~]# wget https://github.com/prometheus/prometheus/releases/download/v2.0.0/prometheus-2.0.0.linux-amd64.tar.gz
+--2017-11-22 14:25:52--  https://github.com/prometheus/prometheus/releases/download/v2.0.0/prometheus-2.0.0.linux-amd64.tar.gz
+Resolving github.com (github.com)... 192.30.255.112, 192.30.255.113
+Connecting to github.com (github.com)|192.30.255.112|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://github-production-release-asset-2e65be.s3.amazonaws.com/6838921/faf58f60-c462-11e7-94a3-95f4cd953074?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20171122%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20171122T062554Z&amp;X-Amz-Expires=300&amp;X-Amz-Signature=e396973fc051cf05da71bc9a8ddb620e2874bf1d18a7b91da089748007e20578&amp;X-Amz-SignedHeaders=host&amp;actor_id=0&amp;response-content-disposition=attachment%3B%20filename%3Dprometheus-2.0.0.linux-amd64.tar.gz&amp;response-content-type=application%2Foctet-stream [following]
+--2017-11-22 14:25:54--  https://github-production-release-asset-2e65be.s3.amazonaws.com/6838921/faf58f60-c462-11e7-94a3-95f4cd953074?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20171122%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20171122T062554Z&amp;X-Amz-Expires=300&amp;X-Amz-Signature=e396973fc051cf05da71bc9a8ddb620e2874bf1d18a7b91da089748007e20578&amp;X-Amz-SignedHeaders=host&amp;actor_id=0&amp;response-content-disposition=attachment%3B%20filename%3Dprometheus-2.0.0.linux-amd64.tar.gz&amp;response-content-type=application%2Foctet-stream
+Resolving github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)... 52.216.129.195
+Connecting to github-production-release-asset-2e65be.s3.amazonaws.com (github-production-release-asset-2e65be.s3.amazonaws.com)|52.216.129.195|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 18850224 (18M) [application/octet-stream]
+Saving to: ‘prometheus-2.0.0.linux-amd64.tar.gz’
+
+100%[====================================================================================================================================================================================================================================&gt;] 18,850,224  1.64MB/s   in 20s    
+
+2017-11-22 14:26:16 (916 KB/s) - ‘prometheus-2.0.0.linux-amd64.tar.gz’ saved [18850224/18850224]
+
+[root@guoshuai-1 ~]# tar xvfz prometheus-2.0.0.linux-amd64.tar.gz
+prometheus-2.0.0.linux-amd64/
+prometheus-2.0.0.linux-amd64/consoles/
+prometheus-2.0.0.linux-amd64/consoles/index.html.example
+prometheus-2.0.0.linux-amd64/consoles/node-cpu.html
+prometheus-2.0.0.linux-amd64/consoles/node-disk.html
+prometheus-2.0.0.linux-amd64/consoles/node-overview.html
+prometheus-2.0.0.linux-amd64/consoles/node.html
+prometheus-2.0.0.linux-amd64/consoles/prometheus-overview.html
+prometheus-2.0.0.linux-amd64/consoles/prometheus.html
+prometheus-2.0.0.linux-amd64/console_libraries/
+prometheus-2.0.0.linux-amd64/console_libraries/menu.lib
+prometheus-2.0.0.linux-amd64/console_libraries/prom.lib
+prometheus-2.0.0.linux-amd64/prometheus.yml
+prometheus-2.0.0.linux-amd64/LICENSE
+prometheus-2.0.0.linux-amd64/NOTICE
+prometheus-2.0.0.linux-amd64/prometheus
+prometheus-2.0.0.linux-amd64/promtool
+</code></pre><p>再执行如下命令：</p>
+<pre><code>[root@guoshuai-1 ~]# docker run  \
+     -d -p 9090:9090 \
+     -v /root/prometheus-2.0.0.linux-amd64/prometheus.yml:/etc/ prometheus/prometheus.yml \
+     --name prometheus  \
+     --net=host  \
+     prom/prometheus 
+Unable to find image &apos;prom/prometheus:latest&apos; locally
+Trying to pull repository docker.io/prom/prometheus ... 
+latest: Pulling from docker.io/prom/prometheus
+aab39f0bc16d: Pull complete 
+a3ed95caeb02: Pull complete 
+2cd9e239cea6: Pull complete 
+4cd9d8cc3556: Pull complete 
+258c3156837d: Pull complete 
+67e020c50549: Pull complete 
+c33c38256bee: Pull complete 
+b17840c391fb: Pull complete 
+ef02cf066b4d: Pull complete 
+582e225ad14c: Pull complete 
+Digest: sha256:a9fd401b348a41f00b8110f8b5e90c4e61caaf57ac0013ce6ed487bbb25a349d
+23b264205097fc4ba80577fe6d7bd57949bc01fac2c91524bbc5ea11035bf423
+</code></pre><ul>
+<li>这里使用了–net=host,这样Prometheus Server可以直接与Exporter和Grafana通信</li>
+<li><p>prometheus.yml是Prometheus Server的配置文件：</p>
+<pre><code># my global config
+global:
+  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+  # Attach these labels to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager).
+  external_labels:
+      monitor: &apos;codelab-monitor&apos;
+
+# Load rules once and periodically evaluate them according to the global &apos;evaluation_interval&apos;.
+rule_files:
+  # - &quot;first.rules&quot;
+  # - &quot;second.rules&quot;
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it&apos;s Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=&lt;job_name&gt;` to any timeseries scraped from this config.
+  - job_name: &apos;prometheus&apos;
+
+    # metrics_path defaults to &apos;/metrics&apos;
+    # scheme defaults to &apos;http&apos;.
+
+    static_configs:
+     - targets: [&apos;localhost:9090&apos;,&apos;localhost:8080&apos;,&apos;localhost:9100&apos;,&apos;192.168.0.10:8080&apos;,&apos;192.168.0.10:9100&apos;]
+~                                                                                                                
+</code></pre></li>
+<li><p>最重要的配置是：static_configs  用于指定从哪些Exporter抓取数据。</p>
+</li>
+</ul>
+<blockquote>
+<p>同样的，在浏览器中通过<a href="http://hostID:9090/metrics测试一下，结果如下" target="_blank" rel="external">http://hostID:9090/metrics测试一下，结果如下</a></p>
+</blockquote>
+<pre><code># HELP go_gc_duration_seconds A summary of the GC invocation durations.
+# TYPE go_gc_duration_seconds summary
+go_gc_duration_seconds{quantile=&quot;0&quot;} 1.0595e-05
+go_gc_duration_seconds{quantile=&quot;0.25&quot;} 1.6288e-05
+go_gc_duration_seconds{quantile=&quot;0.5&quot;} 1.9134e-05
+go_gc_duration_seconds{quantile=&quot;0.75&quot;} 2.9143e-05
+go_gc_duration_seconds{quantile=&quot;1&quot;} 3.2709e-05
+go_gc_duration_seconds_sum 0.000239082
+go_gc_duration_seconds_count 11
+</code></pre><h1 id="运行Grafana"><a href="#运行Grafana" class="headerlink" title="运行Grafana"></a>运行Grafana</h1><p>在host:192.168.0.14上执行如下命令：</p>
+<pre><code>[root@guoshuai-1 ~]# docker run -d -i  \
+     -p 3000:3000 \
+     -e &quot;GF_SERVER_ROOT_URL=http://grafana.server.name&quot; \
+     -e &quot;GF_SECURITY_ADMIN_PASSWORD=secret&quot; \
+     --net=host  \
+     grafana/grafana
+Unable to find image &apos;grafana/grafana:latest&apos; locally
+Trying to pull repository docker.io/grafana/grafana ... 
+latest: Pulling from docker.io/grafana/grafana
+c20dc0c5afeb: Pull complete 
+a3ed95caeb02: Pull complete 
+75979c2134af: Pull complete 
+603f014de07f: Pull complete 
+Digest: sha256:6ca9fcd6e70bf1faeb2f102b96fc8164a3af1e838dac714ab72b8abd9ea4c388
+75d3c0dc57a88639870f61744ffe0c6656ef058704cfdf72db5c6a20424a8849
+</code></pre><ul>
+<li>这里使用了–net=host,这样Grafana可以直接与Prometheus Server通信</li>
+</ul>
+<blockquote>
+<p>Grafana启动后。在浏览器中打开<a href="http://192.168.0.5:3000，之后登录配置即可。Grafana是通过Dashboard展示数据的，访问[Dashboards](https://grafana.com/dashboards?dataSource=prometheus&amp;search=docker" target="_blank" rel="external">http://192.168.0.5:3000，之后登录配置即可。Grafana是通过Dashboard展示数据的，访问[Dashboards](https://grafana.com/dashboards?dataSource=prometheus&amp;search=docker</a>)<br>可以看到很多用于监控Docker的Dashboard，之后下载这些现成的Dashboard，然后import到我们的Grafana中就可以直接使用了。Docker会展示出漂亮的图表。</p>
+</blockquote>
 
       
     </div>
@@ -415,7 +574,7 @@ Error response from daemon: failed to allocate gateway (172.16.86.1): Address al
       
         <div class="post-tags">
           
-            <a href="/tags/docker-macvlan/" rel="tag"># docker macvlan</a>
+            <a href="/tags/Prometheus/" rel="tag"># Prometheus</a>
           
         </div>
       
@@ -428,8 +587,8 @@ Error response from daemon: failed to allocate gateway (172.16.86.1): Address al
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/15/容器通信/" rel="next" title="容器通信">
-                <i class="fa fa-chevron-left"></i> 容器通信
+              <a href="/2017/11/21/prometheus-1/" rel="next" title="为什么Prometheus无法展示数据？">
+                <i class="fa fa-chevron-left"></i> 为什么Prometheus无法展示数据？
               </a>
             
           </div>
@@ -437,10 +596,6 @@ Error response from daemon: failed to allocate gateway (172.16.86.1): Address al
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/17/容器监控/" rel="prev" title="容器监控">
-                容器监控 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -592,7 +747,7 @@ Error response from daemon: failed to allocate gateway (172.16.86.1): Address al
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#准备实验环境"><span class="nav-number">1.</span> <span class="nav-text">准备实验环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建macvlan网络"><span class="nav-number">2.</span> <span class="nav-text">创建macvlan网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#macvlan网络结构分析"><span class="nav-number">3.</span> <span class="nav-text">macvlan网络结构分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用sub-interface实现多macvlan网络"><span class="nav-number">4.</span> <span class="nav-text">用sub-interface实现多macvlan网络</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境说明"><span class="nav-number">1.</span> <span class="nav-text">环境说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行Node-Exporter组件"><span class="nav-number">2.</span> <span class="nav-text">运行Node Exporter组件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行cAdvisor组件"><span class="nav-number">3.</span> <span class="nav-text">运行cAdvisor组件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行Prometheus-Server组件"><span class="nav-number">4.</span> <span class="nav-text">运行Prometheus Server组件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行Grafana"><span class="nav-number">5.</span> <span class="nav-text">运行Grafana</span></a></li></ol></div>
             
 
           </div>
