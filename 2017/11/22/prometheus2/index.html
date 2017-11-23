@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Gavin的博客">
 <meta property="og:description" content="第一次安装Prometheus的时候用的rc版本，也没看官方文档出现很多失误。所以今天在host上重新安装Prometheus2.0版本，亲测一次性通过，重新梳理一篇安装教程。  环境说明通过Prometheus监控两台Docker Host：192.168.0.14和192.168.0.10，监控host和容器两个层次的数据 运行Node Exporter组件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-22T13:33:04.239Z">
+<meta property="og:updated_time" content="2017-11-23T13:06:08.213Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Prometheus2.0版本">
 <meta name="twitter:description" content="第一次安装Prometheus的时候用的rc版本，也没看官方文档出现很多失误。所以今天在host上重新安装Prometheus2.0版本，亲测一次性通过，重新梳理一篇安装教程。  环境说明通过Prometheus监控两台Docker Host：192.168.0.14和192.168.0.10，监控host和容器两个层次的数据 运行Node Exporter组件">
@@ -430,7 +430,7 @@ container_cpu_system_seconds_total{id=&quot;/system.slice/NetworkManager-wait-on
 container_cpu_system_seconds_total{id=&quot;/system.slice/NetworkManager.service&quot;} 0.05
 container_cpu_system_seconds_total{id=&quot;/system.slice/acpid.service&quot;} 0
 container_cpu_system_seconds_total{id=&quot;/system.slice/auditd.service&quot;} 0
-</code></pre><h1 id="运行Prometheus-Server组件"><a href="#运行Prometheus-Server组件" class="headerlink" title="运行Prometheus Server组件"></a>运行Prometheus Server组件</h1><p>在host：192.168.0.14上安装prometheus的包并解压（也可用其他方式）</p>
+</code></pre><h1 id="运行Prometheus-Server组件"><a href="#运行Prometheus-Server组件" class="headerlink" title="运行Prometheus Server组件"></a>运行Prometheus Server组件</h1><p>在host：192.168.0.14上安装prometheus的包并解压，可以方便获取到prometheus.yml文件（也可用其他方式）</p>
 <pre><code>[root@guoshuai-1 ~]# wget https://github.com/prometheus/prometheus/releases/download/v2.0.0/prometheus-2.0.0.linux-amd64.tar.gz
 --2017-11-22 14:25:52--  https://github.com/prometheus/prometheus/releases/download/v2.0.0/prometheus-2.0.0.linux-amd64.tar.gz
 Resolving github.com (github.com)... 192.30.255.112, 192.30.255.113
