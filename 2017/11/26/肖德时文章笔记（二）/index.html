@@ -79,23 +79,23 @@
 
 
 
-<meta name="description" content="今天继续上一篇博客，把肖老师的剩下文章记录完毕。 容器主机网络模型Docker 内建的网络模型是 Bridge Network。这种网络是基于主机内部模型的网络，设计之初也是为了解决单机模式下容器之间的互联互通问题。">
+<meta name="description" content="今天继续上一篇博客，把肖老师的剩下文章记录完毕。  容器主机网络模型Docker 内建的网络模型是 Bridge Network。这种网络是基于主机内部模型的网络，设计之初也是为了解决单机模式下容器之间的互联互通问题。">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="肖德时文章笔记（二）">
 <meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/26/肖德时文章笔记（二）/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="今天继续上一篇博客，把肖老师的剩下文章记录完毕。 容器主机网络模型Docker 内建的网络模型是 Bridge Network。这种网络是基于主机内部模型的网络，设计之初也是为了解决单机模式下容器之间的互联互通问题。">
+<meta property="og:description" content="今天继续上一篇博客，把肖老师的剩下文章记录完毕。  容器主机网络模型Docker 内建的网络模型是 Bridge Network。这种网络是基于主机内部模型的网络，设计之初也是为了解决单机模式下容器之间的互联互通问题。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://images.gitbook.cn/20e5c040-c374-11e7-91b9-cb02ca6acdf9">
 <meta property="og:image" content="http://images.gitbook.cn/2ae28e10-c375-11e7-a275-4181d09742c4">
 <meta property="og:image" content="http://images.gitbook.cn/1abcb9c0-c834-11e7-abe8-f7b30b0f0c8d">
 <meta property="og:image" content="http://images.gitbook.cn/3b45d8d0-c833-11e7-8d31-d710380fda5d">
 <meta property="og:image" content="http://images.gitbook.cn/a0c14f00-c833-11e7-8d31-d710380fda5d">
-<meta property="og:updated_time" content="2017-11-26T08:02:27.763Z">
+<meta property="og:updated_time" content="2017-11-26T08:08:18.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="肖德时文章笔记（二）">
-<meta name="twitter:description" content="今天继续上一篇博客，把肖老师的剩下文章记录完毕。 容器主机网络模型Docker 内建的网络模型是 Bridge Network。这种网络是基于主机内部模型的网络，设计之初也是为了解决单机模式下容器之间的互联互通问题。">
+<meta name="twitter:description" content="今天继续上一篇博客，把肖老师的剩下文章记录完毕。  容器主机网络模型Docker 内建的网络模型是 Bridge Network。这种网络是基于主机内部模型的网络，设计之初也是为了解决单机模式下容器之间的互联互通问题。">
 <meta name="twitter:image" content="http://images.gitbook.cn/20e5c040-c374-11e7-91b9-cb02ca6acdf9">
 
 
@@ -361,8 +361,8 @@
       
         <blockquote>
 <p>今天继续上一篇博客，把肖老师的剩下文章记录完毕。</p>
-<h1 id="容器主机网络模型"><a href="#容器主机网络模型" class="headerlink" title="容器主机网络模型"></a>容器主机网络模型</h1><p>Docker 内建的网络模型是 Bridge Network。这种网络是基于主机内部模型的网络，设计之初也是为了解决单机模式下容器之间的互联互通问题。</p>
 </blockquote>
+<h1 id="容器主机网络模型"><a href="#容器主机网络模型" class="headerlink" title="容器主机网络模型"></a>容器主机网络模型</h1><p>Docker 内建的网络模型是 Bridge Network。这种网络是基于主机内部模型的网络，设计之初也是为了解决单机模式下容器之间的互联互通问题。</p>
 <p><img src="http://images.gitbook.cn/20e5c040-c374-11e7-91b9-cb02ca6acdf9" alt=""><br><a id="more"></a> </p>
 <h1 id="跨越主机的容器网络模型"><a href="#跨越主机的容器网络模型" class="headerlink" title="跨越主机的容器网络模型"></a>跨越主机的容器网络模型</h1><p>跨越主机访问，最原生的方式是 Macvlan（真实的网络虚拟化技术） 驱动支持的二层网络模型，它实现了容器网络和主机网络的原生互联。相比 Linux Bridge，性能更高。因为它跳过了主机网卡和容器网络直接的转发过程，容器网卡接口直接对接主机网口，可以视作为主机网络的延伸。这样的网络，让外部访问容器变的非常简便，不再需要端口映射。</p>
 <p><img src="http://images.gitbook.cn/2ae28e10-c375-11e7-a275-4181d09742c4" alt=""></p>
