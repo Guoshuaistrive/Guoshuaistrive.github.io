@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ELK," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="Things could be diferent!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gavin的博客">
-<meta property="og:url" content="http://Guoshuaistrive.github.io/archives/2017/11/page/3/index.html">
+<meta name="description" content="Docker部署环境下的ELK日志管理系统  有了之前配置ELK的过程，在docker里面搭建ELK就容易很多。今天记录一下ELK在docker环境下运行的过程。  确认端口是否占用由于之前使用过elk套件，所以我们在容器里跑的时候要先确认elk对应的端口是否被占用，如果占用容器是跑不起来的,这时候就需要我们终止进程。 查询端口情况 [root@guoshuai-2 ~]# netstat -an">
+<meta name="keywords" content="ELK">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Elk_docker">
+<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/29/elk-docker/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="Things could be diferent!">
+<meta property="og:description" content="Docker部署环境下的ELK日志管理系统  有了之前配置ELK的过程，在docker里面搭建ELK就容易很多。今天记录一下ELK在docker环境下运行的过程。  确认端口是否占用由于之前使用过elk套件，所以我们在容器里跑的时候要先确认elk对应的端口是否被占用，如果占用容器是跑不起来的,这时候就需要我们终止进程。 查询端口情况 [root@guoshuai-2 ~]# netstat -an">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-29T00:37:53.391Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gavin的博客">
-<meta name="twitter:description" content="Things could be diferent!">
+<meta name="twitter:title" content="Elk_docker">
+<meta name="twitter:description" content="Docker部署环境下的ELK日志管理系统  有了之前配置ELK的过程，在docker里面搭建ELK就容易很多。今天记录一下ELK在docker环境下运行的过程。  确认端口是否占用由于之前使用过elk套件，所以我们在容器里跑的时候要先确认elk对应的端口是否被占用，如果占用容器是跑不起来的,这时候就需要我们终止进程。 查询端口情况 [root@guoshuai-2 ~]# netstat -an">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Guoshuaistrive.github.io/archives/2017/11/page/3/"/>
+  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/11/29/elk-docker/"/>
 
 
 
 
 
-  <title>归档 | Gavin的博客</title>
+  <title>Elk_docker | Gavin的博客</title>
   
 
 
@@ -143,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,152 +239,213 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/29/elk-docker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guo shuai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Elk_docker</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-29T08:01:22+08:00">
+                2017-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 28 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/learn/" itemprop="url" rel="index">
+                    <span itemprop="name">learn</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/2017/11/29/elk-docker/" class="leancloud_visitors" data-flag-title="Elk_docker">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/03/docker-2/" itemprop="url">
-              
-                <span itemprop="name">剖析Dockerfile文件</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-03T19:14:41+08:00"
-              content="2017-11-03" >
-          11-03
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/02/docker-1/" itemprop="url">
-              
-                <span itemprop="name">Docker指令练习</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-02T19:33:46+08:00"
-              content="2017-11-02" >
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/01/docker/" itemprop="url">
-              
-                <span itemprop="name">Docker镜像使用与容器使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-01T20:49:58+08:00"
-              content="2017-11-01" >
-          11-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <p>Docker部署环境下的ELK日志管理系统</p>
+<blockquote>
+<p>有了之前配置ELK的过程，在docker里面搭建ELK就容易很多。今天记录一下ELK在docker环境下运行的过程。</p>
+</blockquote>
+<h1 id="确认端口是否占用"><a href="#确认端口是否占用" class="headerlink" title="确认端口是否占用"></a>确认端口是否占用</h1><p>由于之前使用过elk套件，所以我们在容器里跑的时候要先确认elk对应的端口是否被占用，如果占用容器是跑不起来的,这时候就需要我们终止进程。</p>
+<p>查询端口情况</p>
+<pre><code>[root@guoshuai-2 ~]# netstat -anp | grep 5044
+tcp6   0   0 :::5044     :::*     LISTEN   20348/docker-proxy- 
+</code></pre><p>查看端口进程<br><a id="more"></a><br>    [root@guoshuai-2 ~]# lsof -i:5044<br>    COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME<br>    java    20823 root   44u  IPv6 662079      0t0  TCP guoshuai-2:lxi-evntsvc (LISTEN)</p>
+<p>终止进程使用  <code>kill PID</code></p>
+<h1 id="搭建ELK"><a href="#搭建ELK" class="headerlink" title="搭建ELK"></a>搭建ELK</h1><p>  确认端口没被占用的时候，就可以执行如下命令，在容器中搭建ELK</p>
+<pre><code>[root@guoshuai-2 ~]#  docker run -d \
+    -p 5601:5601 -p 9200:9200 -p 5044:5044 \
+    -it --name elk sebp/elk
+fcfe6f2fbdcca520c95bd4a81a0c324bbb9bb6eeb9fe391fe18ce77940468d0b
+</code></pre><blockquote>
+<p>我们使用的是sebp/elk这个现成的image，里面已经包含了整个ELK stack。容器启动后ELK将分别监听如下端口：</p>
+</blockquote>
+<ul>
+<li>5601：kibana web 接口</li>
+<li>9200：Elasticsearch JSON 接口</li>
+<li>5044：Logstash 日志接受接口</li>
+</ul>
+<p>如果一切顺利这样就整体搭好这个框架，后续就可以将docker的日志导入ELK。（下一篇讨论fluentd）今天我们主要讨论两个搭建过程遇到的问题。</p>
+<hr>
+<h2 id="Starting-Elasticsearch-Server-fail"><a href="#Starting-Elasticsearch-Server-fail" class="headerlink" title="* Starting Elasticsearch Server      [ fail ]"></a>* Starting Elasticsearch Server      [ fail ]</h2><p>第一次运行容器的时候出现<code>Starting Elasticsearch Server    [ fail ]</code>这个问题，Elasticsearch无法启动，这样9200端口无法监听。</p>
+<p>解决方法：</p>
+<p>停掉容器，切换到我们另外新建的用户elasticsearch（记得用chown改变一下权限），执行</p>
+<p><code>[elasticsearch@guoshuai-2 root]$ /opt/elasticsearch-6.0.0/bin/elasticsearch -d</code></p>
+<p>之后先用curl检查端口是否联通。再去重新启动容器（要把之前失误的容器rm掉）</p>
+<h2 id="Unable-to-fetch-mapping-Do-you-have-indices-matching-the-pattern"><a href="#Unable-to-fetch-mapping-Do-you-have-indices-matching-the-pattern" class="headerlink" title="Unable to fetch mapping. Do you have indices matching the pattern?"></a>Unable to fetch mapping. Do you have indices matching the pattern?</h2><p>在解决了Elasticsearch的问题之后访问kibana，虽然可以出现界面了但是发现这个问题，原因大多就是<br>Elasticsearch和Logsearch之间的通信问题，数据无法传递</p>
+<p>解决方法：</p>
+<p>手动在Logsearch-6.0.0目录下编写一个配置文件<code>logstash-elasticsearch.conf</code> ，方便logstash和elasticsearch数据传递。然后在此目录下执行<code>bin/logstash -f logstash-elasticsearch.conf</code>启动交互。</p>
+<p>里面的主要内容是读取日志的路径和输出索引的一个设置，文件具体内容可以看上一篇博客，很多人都是卡在这里，所以这个文件记得编写。</p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ELK/" rel="tag"># ELK</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/27/ELK/" rel="next" title="ELK日志管理系统">
+                <i class="fa fa-chevron-left"></i> ELK日志管理系统
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2017/11/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2017/11/">1</a><a class="page-number" href="/archives/2017/11/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -390,6 +453,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -410,8 +477,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -491,6 +567,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#确认端口是否占用"><span class="nav-number">1.</span> <span class="nav-text">确认端口是否占用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建ELK"><span class="nav-number">2.</span> <span class="nav-text">搭建ELK</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Starting-Elasticsearch-Server-fail"><span class="nav-number">2.1.</span> <span class="nav-text">* Starting Elasticsearch Server      [ fail ]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unable-to-fetch-mapping-Do-you-have-indices-matching-the-pattern"><span class="nav-number">2.2.</span> <span class="nav-text">Unable to fetch mapping. Do you have indices matching the pattern?</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -644,6 +736,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
