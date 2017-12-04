@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="docker macvlan," />
+  <meta name="keywords" content="docker," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="本文介绍Docker开发的这个支持跨主机容器网络的driver:macvlan   macvlan本身是Linux kernel模块，其功能是允许同一个物理网卡配置多个MAC地址，即多个interface，每个interface可以配置自己的IP。macvlan本质上是一种网卡虚拟化技术，Docker用macvlan实现容器网络就不奇怪了。 macvlan的最大优点是性能极好，相比其他实现，ma">
-<meta name="keywords" content="docker macvlan">
+<meta name="description" content="今天主要练习docker网络和存储的一些细节，在两种存储方式下分别连接两种容器网络，检验存储形式的差异、端口是否连通以及是否指定端口号的区别。 bind mount存储方式 先在/opt/test目录下创建一个html文件 [root@guoshuai01 ~]# cd /opt [root@guoshuai01 opt]# cd test [root@guoshuai01 test]# vi">
+<meta name="keywords" content="docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="macvlan">
-<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/16/macvlan/index.html">
+<meta property="og:title" content="docker网络&amp;存储交叉测试">
+<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/12/04/1204/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="本文介绍Docker开发的这个支持跨主机容器网络的driver:macvlan   macvlan本身是Linux kernel模块，其功能是允许同一个物理网卡配置多个MAC地址，即多个interface，每个interface可以配置自己的IP。macvlan本质上是一种网卡虚拟化技术，Docker用macvlan实现容器网络就不奇怪了。 macvlan的最大优点是性能极好，相比其他实现，ma">
+<meta property="og:description" content="今天主要练习docker网络和存储的一些细节，在两种存储方式下分别连接两种容器网络，检验存储形式的差异、端口是否连通以及是否指定端口号的区别。 bind mount存储方式 先在/opt/test目录下创建一个html文件 [root@guoshuai01 ~]# cd /opt [root@guoshuai01 opt]# cd test [root@guoshuai01 test]# vi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-16T11:38:06.609Z">
+<meta property="og:updated_time" content="2017-12-04T14:53:04.647Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="macvlan">
-<meta name="twitter:description" content="本文介绍Docker开发的这个支持跨主机容器网络的driver:macvlan   macvlan本身是Linux kernel模块，其功能是允许同一个物理网卡配置多个MAC地址，即多个interface，每个interface可以配置自己的IP。macvlan本质上是一种网卡虚拟化技术，Docker用macvlan实现容器网络就不奇怪了。 macvlan的最大优点是性能极好，相比其他实现，ma">
+<meta name="twitter:title" content="docker网络&amp;存储交叉测试">
+<meta name="twitter:description" content="今天主要练习docker网络和存储的一些细节，在两种存储方式下分别连接两种容器网络，检验存储形式的差异、端口是否连通以及是否指定端口号的区别。 bind mount存储方式 先在/opt/test目录下创建一个html文件 [root@guoshuai01 ~]# cd /opt [root@guoshuai01 opt]# cd test [root@guoshuai01 test]# vi">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/11/16/macvlan/"/>
+  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/12/04/1204/"/>
 
 
 
 
 
-  <title>macvlan | Gavin的博客</title>
+  <title>docker网络&存储交叉测试 | Gavin的博客</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/16/macvlan/">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/12/04/1204/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guo shuai">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">macvlan</h1>
+          <h1 class="post-title" itemprop="name headline">docker网络&存储交叉测试</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-16T19:32:48+08:00">
-                2017-11-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-04T22:29:18+08:00">
+                2017-12-04
               </time>
             
 
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/learn/" itemprop="url" rel="index">
-                    <span itemprop="name">learn</span>
+                  <a href="/categories/exercise/" itemprop="url" rel="index">
+                    <span itemprop="name">exercise</span>
                   </a>
                 </span>
 
@@ -322,7 +322,7 @@
 
           
           
-             <span id="/2017/11/16/macvlan/" class="leancloud_visitors" data-flag-title="macvlan">
+             <span id="/2017/12/04/1204/" class="leancloud_visitors" data-flag-title="docker网络&存储交叉测试">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -354,50 +354,156 @@
 
       
         <blockquote>
-<p>本文介绍Docker开发的这个支持跨主机容器网络的driver:macvlan</p>
+<p>今天主要练习docker网络和存储的一些细节，在两种存储方式下分别连接两种容器网络，检验存储形式的差异、端口是否连通以及是否指定端口号的区别。</p>
+<h1 id="bind-mount存储方式"><a href="#bind-mount存储方式" class="headerlink" title="bind mount存储方式"></a>bind mount存储方式</h1></blockquote>
+<p>先在/opt/test目录下创建一个html文件</p>
+<pre><code>[root@guoshuai01 ~]# cd /opt
+[root@guoshuai01 opt]# cd test
+[root@guoshuai01 test]# vi index.html
+[root@guoshuai01 test]# ls
+index.html
+[root@guoshuai01 test]# cat index.html 
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre><a id="more"></a>
+<h2 id="bridge网络（默认指定）"><a href="#bridge网络（默认指定）" class="headerlink" title="bridge网络（默认指定）"></a>bridge网络（默认指定）</h2><pre><code>[root@guoshui01 ~]# docker run -d -p 80:80 \
+          -v /opt/test:/usr/local/apache2/htdocs \
+          --name gs1 httpd
+7b114b9e12cb66948358f6e3bbceaed868bb76a5619c7110477e8ccb04f618ce
+[root@guoshui01 ~]# docker ps
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                NAMES
+7b114b9e12cb        httpd               &quot;httpd-foreground&quot;   9 seconds ago       Up 8 seconds        0.0.0.0:80-&gt;80/tcp   gs1
+[root@guoshui01 ~]# curl 192.168.0.14:80
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre><p>修改test目录下的文件内容</p>
+<pre><code>[root@guoshuai01 test]# vi index.html 
+[root@guoshuai01 test]# cat index.html 
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;guoshuai xiugai!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre><p>我们可以看到容器内部的文件内容也发生了变化</p>
+<pre><code>[root@guoshui01 ~]# docker exec -it 7b114b9e12cb /bin/bash
+root@7b114b9e12cb:/usr/local/apache2# cd /usr/local/apache2/htdocs
+root@7b114b9e12cb:/usr/local/apache2/htdocs# ls
+index.html
+root@7b114b9e12cb:/usr/local/apache2/htdocs# cat index.html 
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;guoshuai xiugai!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre><p>验证网页内容</p>
+<pre><code>[root@guoshui01 ~]# curl 192.168.0.14:80
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;guoshuai xiugai!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre><h2 id="host网络"><a href="#host网络" class="headerlink" title="host网络"></a>host网络</h2><pre><code>[root@guoshui01 ~]# docker run -d -p 80:80 \
+         -v /opt/test:/usr/local/apache2/htdocs \
+         --network=host --name gs2 httpd
+765093380a6a613214d1903a8f45dcf74bba57967844a916fa1c7ceec3bef803
+[root@guoshui01 ~]# docker ps
+CONTAINER ID   IMAGE    COMMAND              CREATED            STATUS    PORTS     NAMES
+765093380a6a   httpd    &quot;httpd-foreground&quot;   13 seconds ago     Up 13 seconds       gs2
+
+[root@guoshui01 ~]# curl 192.168.0.14:80
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre><p>修改test目录下的文件内容</p>
+<pre><code>[root@guoshuai01 test]# vi index.html 
+[root@guoshuai01 test]# cat index.html 
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;host xiugai!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre><p>我们来看容器内文件内容</p>
+<pre><code>[root@guoshui01 ~]# docker exec -it 765093380a6a  /bin/bash
+root@guoshuai01:/usr/local/apache2# cd /usr/local/apache2/htdocs
+root@guoshuai01:/usr/local/apache2/htdocs# ls
+index.html
+root@guoshuai01:/usr/local/apache2/htdocs# cat index.html 
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;host xiugai!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre><p>验证网页内容</p>
+<pre><code>[root@guoshuai01 test]# curl 192.168.0.14:80
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;host xiugai!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre><blockquote>
+<p>我们来看下host网络不指定端口的情况</p>
 </blockquote>
-<ul>
-<li>macvlan本身是Linux kernel模块，其功能是允许同一个物理网卡配置多个MAC地址，即多个interface，每个interface可以配置自己的IP。macvlan本质上是一种网卡虚拟化技术，Docker用macvlan实现容器网络就不奇怪了。</li>
-<li>macvlan的最大优点是性能极好，相比其他实现，macvlan不需要创建Linux bridge，而是直接通过以太interface连接到物理网络。<a id="more"></a>
-<h1 id="准备实验环境"><a href="#准备实验环境" class="headerlink" title="准备实验环境"></a>准备实验环境</h1></li>
-</ul>
-<blockquote>
-<p>我们会使用两个host上单独的网卡eth0创建macvlan。为了保证多个MAC地址的网络包都可以从eth0通过，我们需要打开网卡模式</p>
+<pre><code>[root@guoshui01 ~]# docker run -d  \
+         -v /opt/test:/usr/local/apache2/htdocs \
+         --network=host --name gs3 httpd
+143d1e25aac9fa1b4508dd328859b2946518b7cb9483cfc5c6eb789467763d1b
+[root@guoshui01 ~]# docker ps
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS               NAMES
+143d1e25aac9        httpd               &quot;httpd-foreground&quot;   8 seconds ago       Up 8 seconds                            gs3
+[root@guoshui01 ~]# curl 192.168.0.14:80
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre><p>发现不指定端口的情况下依然可以访问，所以在host网络下，会有默认端口指定。而bridge网络不可以，验证如下</p>
+<pre><code>[root@guoshui01 ~]# docker run -d  -v /opt/test:/usr/local/apache2/htdocs  --name gs4 httpd
+f7dcfee6309dd274ea2882342ebe645126484b7366052cd59c57e727ed24e312
+[root@guoshui01 ~]# curl 192.168.0.14:80
+curl: (7) Failed connect to 192.168.0.14:80; Connection refused
+</code></pre><h1 id="docker-managed-volume存储方式"><a href="#docker-managed-volume存储方式" class="headerlink" title="docker managed volume存储方式"></a>docker managed volume存储方式</h1><h2 id="bridge网络（默认指定）-1"><a href="#bridge网络（默认指定）-1" class="headerlink" title="bridge网络（默认指定）"></a>bridge网络（默认指定）</h2><pre><code>[root@guoshui01 ~]# docker run -d -p 80:80 \
+            -v gs1:/usr/local/apache2/htdocs  \
+            --name gs5 httpd
+8fdcd3bb6a461793f0fec8a1097d39f6b682dd9e4c9471037394d0425076414f
+[root@guoshui01 ~]# docker ps
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                NAMES
+8fdcd3bb6a46        httpd               &quot;httpd-foreground&quot;   8 seconds ago       Up 7 seconds        0.0.0.0:80-&gt;80/tcp   gs5
+[root@guoshui01 ~]# curl 192.168.0.14:80
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre><p>找到mount源目录，查看并修改文件</p>
+<pre><code>[root@guoshuai01 ~]# cd /var/lib/docker/volumes/gs1/_data
+[root@guoshuai01 _data]# ls
+index.html
+[root@guoshuai01 _data]# cat index.html 
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+[root@guoshuai01 _data]# vi index.html 
+[root@guoshuai01 _data]# cat index.html 
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;managed volume bridge!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre><p>我们来看容器内文件内容</p>
+<pre><code>[root@guoshui01 ~]# docker exec -it 8fdcd3bb6a46   /bin/bash
+root@8fdcd3bb6a46:/usr/local/apache2# cd /usr/local/apache2/htdocs
+root@8fdcd3bb6a46:/usr/local/apache2/htdocs# ls
+index.html
+root@8fdcd3bb6a46:/usr/local/apache2/htdocs# cat index.html 
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;managed volume bridge!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre><p>验证网页内容</p>
+<pre><code>[root@guoshui01 ~]# curl 192.168.0.14:80
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;managed volume bridge!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre><h2 id="host网络-1"><a href="#host网络-1" class="headerlink" title="host网络"></a>host网络</h2><pre><code>[root@guoshui01 ~]# docker run -d -p 80:80 \
+                  --network=host -v gs2:/usr/local/apache2/htdocs  \
+                  --name gs6 httpd
+ee12d4812f0d893bdb433fa7d0ec6bd285eb62450c9b1ebb9e52a99deac616e3
+[root@guoshui01 ~]# docker ps
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS               NAMES
+ee12d4812f0d        httpd               &quot;httpd-foreground&quot;   11 seconds ago      Up 10 seconds                           gs6
+[root@guoshui01 ~]# curl 192.168.0.14:80
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre><p>找到mount源目录，查看并修改文件</p>
+<pre><code>[root@guoshuai01 ~]# cd /var/lib/docker/volumes/gs2/_data
+[root@guoshuai01 _data]# ls
+index.html
+[root@guoshuai01 _data]# cat index.html 
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+[root@guoshuai01 _data]# vi index.html 
+[root@guoshuai01 _data]# cat index.html 
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;host managed volume!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre><p>我们来看容器内文件内容</p>
+<pre><code>[root@guoshui01 ~]# docker exec -it ee12d4812f0d  /bin/bash
+root@guoshuai01:/usr/local/apache2# cd /usr/local/apache2/htdocs
+root@guoshuai01:/usr/local/apache2/htdocs# ls
+index.html
+root@guoshuai01:/usr/local/apache2/htdocs# cat index.html 
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;host managed volume!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre><p>验证网页内容</p>
+<pre><code>[root@guoshui01 ~]# curl 192.168.0.14:80
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;host managed volume!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre><blockquote>
+<p>同样验证不指定端口的情况下host依然可以访问，而bridge网络不可以访问。</p>
 </blockquote>
-<pre><code>[root@i-y61tbtqs ~]# ip link set eth0 promisc on
-[root@i-y61tbtqs ~]#  ip link show eth0
-2: eth0: &lt;BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP mode DEFAULT qlen 1000
-    link/ether 52:54:de:f8:64:b4 brd ff:ff:ff:ff:ff:ff
-</code></pre><h1 id="创建macvlan网络"><a href="#创建macvlan网络" class="headerlink" title="创建macvlan网络"></a>创建macvlan网络</h1><pre><code>[root@i-y61tbtqs ~]# docker network create -d macvlan --subnet=172.16.86.0/24 --gateway=172.16.86.1 -o parent=eth0 mac_net1
-654d1cebc0e93b8d22d04566d6470b448e4ac4c41b066a2d2417e1fdc52f9fa3
-</code></pre><p>在host1中运行容器gs7并连接到mac_net1</p>
-<pre><code>[root@i-y61tbtqs ~]# docker run -itd --name gs7 --ip=172.16.86.10 --network mac_net1 busybox
-96a995485a3d73056bf62b6947e7bc92de250609f3325eecba88810f42d1557d
-</code></pre><p>在host2中运行容器gs8，指定IP172.16.86.11</p>
-<pre><code>[root@i-oh35oa3y ~]# docker run -itd --name gs8 --ip=172.16.86.11 --network mac_net1 busybox
-a08ec268d83cd0066e0b7c08d9522d0443c0835ce1ebf53b4ecc7fb703159726
-</code></pre><p>验证gs7和gs8的连通性，如下：</p>
-<pre><code>[root@i-oh35oa3y ~]# docker exec gs8 ping -c 2  172.16.86.10
-PING 172.16.86.10 (172.16.86.10): 56 data bytes
-64 bytes from 172.16.86.10: seq=0 ttl=64 time=0.121 ms
-64 bytes from 172.16.86.10: seq=1 ttl=64 time=0.061 ms
-</code></pre><h1 id="macvlan网络结构分析"><a href="#macvlan网络结构分析" class="headerlink" title="macvlan网络结构分析"></a>macvlan网络结构分析</h1><p>查看gs7的网络设备</p>
-<pre><code>[root@i-y61tbtqs ~]# docker exec gs7 ip link
-1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue qlen 1
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-194: eth0@if2: &lt;BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN&gt; mtu 1500 qdisc noqueue 
-    link/ether 02:42:ac:10:56:0a brd ff:ff:ff:ff:ff:ff
+<pre><code>[root@guoshui01 ~]# docker run -d  --network=host \
+            -v gs3:/usr/local/apache2/htdocs \
+            --name gs7 httpd
+f36a9004bc23f1011362984e1eb53ed5f149acc48c113605ad9ab197d48c9bc9
+[root@guoshui01 ~]# curl 192.168.0.14:80
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+
+[root@guoshui01 ~]# docker run -d \
+            -v gs4:/usr/local/apache2/htdocs  \
+            --name gs8 httpd
+0fa764301966bfd76b6529dab93b65ab2afb0002ef9783db1bc2b97edc6e118c
+[root@guoshui01 ~]# curl 192.168.0.14:80
+curl: (7) Failed connect to 192.168.0.14:80; Connection refused
 </code></pre><ul>
-<li><p>注意eth0后面的@if2，这表明该接口有一个对应的接口，全局编号为2。我们猜测这个接口就是主机的eth0</p>
-<pre><code>[root@i-y61tbtqs ~]# ip link show eth0
-2: eth0: &lt;BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP mode DEFAULT qlen 1000
-    link/ether 52:54:de:f8:64:b4 brd ff:ff:ff:ff:ff:ff
-</code></pre></li>
+<li>在docker managed volume存储方式下，还可以验证修改httpd.conf里面的端口之后的情况（之后再细更）</li>
 </ul>
-<h1 id="用sub-interface实现多macvlan网络"><a href="#用sub-interface实现多macvlan网络" class="headerlink" title="用sub-interface实现多macvlan网络"></a>用sub-interface实现多macvlan网络</h1><p>macvlan会独占主机的网卡，也就是说一个网卡只能创建一个macvlan网络，否则会报错</p>
-<pre><code>[root@i-oh35oa3y ~]# docker network create -d macvlan --subnet=172.16.86.0/24 --gateway=172.16.86.1 -o parent=eth0 mac_net2
-Error response from daemon: failed to allocate gateway (172.16.86.1): Address already in use
-</code></pre><p>在主机网卡数量有限的情况下，如何支持macvlan网络？可以连接sub-interface，详见书上描述。</p>
 
       
     </div>
@@ -415,7 +521,7 @@ Error response from daemon: failed to allocate gateway (172.16.86.1): Address al
       
         <div class="post-tags">
           
-            <a href="/tags/docker-macvlan/" rel="tag"># docker macvlan</a>
+            <a href="/tags/docker/" rel="tag"># docker</a>
           
         </div>
       
@@ -428,8 +534,8 @@ Error response from daemon: failed to allocate gateway (172.16.86.1): Address al
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/15/容器通信/" rel="next" title="容器通信">
-                <i class="fa fa-chevron-left"></i> 容器通信
+              <a href="/2017/11/29/elk-docker/" rel="next" title="Elk_docker">
+                <i class="fa fa-chevron-left"></i> Elk_docker
               </a>
             
           </div>
@@ -437,10 +543,6 @@ Error response from daemon: failed to allocate gateway (172.16.86.1): Address al
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/17/容器监控/" rel="prev" title="容器监控">
-                容器监控 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -592,7 +694,7 @@ Error response from daemon: failed to allocate gateway (172.16.86.1): Address al
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#准备实验环境"><span class="nav-number">1.</span> <span class="nav-text">准备实验环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建macvlan网络"><span class="nav-number">2.</span> <span class="nav-text">创建macvlan网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#macvlan网络结构分析"><span class="nav-number">3.</span> <span class="nav-text">macvlan网络结构分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用sub-interface实现多macvlan网络"><span class="nav-number">4.</span> <span class="nav-text">用sub-interface实现多macvlan网络</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#bind-mount存储方式"><span class="nav-number">1.</span> <span class="nav-text">bind mount存储方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bridge网络（默认指定）"><span class="nav-number">1.1.</span> <span class="nav-text">bridge网络（默认指定）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#host网络"><span class="nav-number">1.2.</span> <span class="nav-text">host网络</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker-managed-volume存储方式"><span class="nav-number">2.</span> <span class="nav-text">docker managed volume存储方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bridge网络（默认指定）-1"><span class="nav-number">2.1.</span> <span class="nav-text">bridge网络（默认指定）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#host网络-1"><span class="nav-number">2.2.</span> <span class="nav-text">host网络</span></a></li></ol></li></ol></div>
             
 
           </div>
