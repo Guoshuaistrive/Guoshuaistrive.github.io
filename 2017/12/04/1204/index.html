@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="今天主要练习docker网络和存储的一些细节，在两种存储方式下分别连接两种容器网络，检验存储形式的差异、端口是否连通以及是否指定端口号的区别。 bind mount存储方式 先在/opt/test目录下创建一个html文件 [root@guoshuai01 ~]# cd /opt [root@guoshuai01 opt]# cd test [root@guoshuai01 test]# vi">
+<meta name="description" content="今天主要练习docker网络和存储的一些细节，在两种存储方式下分别连接两种容器网络，检验存储形式的差异、端口是否连通以及是否指定端口号的区别。  bind mount存储方式先在/opt/test目录下创建一个html文件 [root@guoshuai01 ~]# cd /opt [root@guoshuai01 opt]# cd test [root@guoshuai01 test]# vi">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker网络&amp;存储交叉测试">
 <meta property="og:url" content="http://Guoshuaistrive.github.io/2017/12/04/1204/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="今天主要练习docker网络和存储的一些细节，在两种存储方式下分别连接两种容器网络，检验存储形式的差异、端口是否连通以及是否指定端口号的区别。 bind mount存储方式 先在/opt/test目录下创建一个html文件 [root@guoshuai01 ~]# cd /opt [root@guoshuai01 opt]# cd test [root@guoshuai01 test]# vi">
+<meta property="og:description" content="今天主要练习docker网络和存储的一些细节，在两种存储方式下分别连接两种容器网络，检验存储形式的差异、端口是否连通以及是否指定端口号的区别。  bind mount存储方式先在/opt/test目录下创建一个html文件 [root@guoshuai01 ~]# cd /opt [root@guoshuai01 opt]# cd test [root@guoshuai01 test]# vi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-04T14:53:04.647Z">
+<meta property="og:updated_time" content="2017-12-04T14:55:50.451Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker网络&amp;存储交叉测试">
-<meta name="twitter:description" content="今天主要练习docker网络和存储的一些细节，在两种存储方式下分别连接两种容器网络，检验存储形式的差异、端口是否连通以及是否指定端口号的区别。 bind mount存储方式 先在/opt/test目录下创建一个html文件 [root@guoshuai01 ~]# cd /opt [root@guoshuai01 opt]# cd test [root@guoshuai01 test]# vi">
+<meta name="twitter:description" content="今天主要练习docker网络和存储的一些细节，在两种存储方式下分别连接两种容器网络，检验存储形式的差异、端口是否连通以及是否指定端口号的区别。  bind mount存储方式先在/opt/test目录下创建一个html文件 [root@guoshuai01 ~]# cd /opt [root@guoshuai01 opt]# cd test [root@guoshuai01 test]# vi">
 
 
 
@@ -355,8 +355,8 @@
       
         <blockquote>
 <p>今天主要练习docker网络和存储的一些细节，在两种存储方式下分别连接两种容器网络，检验存储形式的差异、端口是否连通以及是否指定端口号的区别。</p>
-<h1 id="bind-mount存储方式"><a href="#bind-mount存储方式" class="headerlink" title="bind mount存储方式"></a>bind mount存储方式</h1></blockquote>
-<p>先在/opt/test目录下创建一个html文件</p>
+</blockquote>
+<h1 id="bind-mount存储方式"><a href="#bind-mount存储方式" class="headerlink" title="bind mount存储方式"></a>bind mount存储方式</h1><p>先在/opt/test目录下创建一个html文件</p>
 <pre><code>[root@guoshuai01 ~]# cd /opt
 [root@guoshuai01 opt]# cd test
 [root@guoshuai01 test]# vi index.html
