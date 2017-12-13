@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Wordpress镜像使用练习 简单实例基于wordpress镜像运行一个容器，连接mysql [root@guoshuai01 ~]# docker run --name mywordpress \                                 --link firstsql:mysql \                                 -p 80:80 -d">
+<meta name="description" content="Wordpress镜像使用 先用Dockerfile构建好镜像从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh 具体内容如下">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Wordpress镜像使用练习">
-<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/12/08/wordpress/index.html">
+<meta property="og:title" content="Wordpress博客部署">
+<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/12/13/wordpress/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="Wordpress镜像使用练习 简单实例基于wordpress镜像运行一个容器，连接mysql [root@guoshuai01 ~]# docker run --name mywordpress \                                 --link firstsql:mysql \                                 -p 80:80 -d">
+<meta property="og:description" content="Wordpress镜像使用 先用Dockerfile构建好镜像从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh 具体内容如下">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-08T15:46:56.606Z">
+<meta property="og:updated_time" content="2017-12-13T15:34:14.647Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wordpress镜像使用练习">
-<meta name="twitter:description" content="Wordpress镜像使用练习 简单实例基于wordpress镜像运行一个容器，连接mysql [root@guoshuai01 ~]# docker run --name mywordpress \                                 --link firstsql:mysql \                                 -p 80:80 -d">
+<meta name="twitter:title" content="Wordpress博客部署">
+<meta name="twitter:description" content="Wordpress镜像使用 先用Dockerfile构建好镜像从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh 具体内容如下">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/12/08/wordpress/"/>
+  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/12/13/wordpress/"/>
 
 
 
 
 
-  <title>Wordpress镜像使用练习 | Gavin的博客</title>
+  <title>Wordpress博客部署 | Gavin的博客</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/12/08/wordpress/">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/12/13/wordpress/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guo shuai">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Wordpress镜像使用练习</h1>
+          <h1 class="post-title" itemprop="name headline">Wordpress博客部署</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-08T23:38:02+08:00">
-                2017-12-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-13T23:38:02+08:00">
+                2017-12-13
               </time>
             
 
@@ -322,7 +322,7 @@
 
           
           
-             <span id="/2017/12/08/wordpress/" class="leancloud_visitors" data-flag-title="Wordpress镜像使用练习">
+             <span id="/2017/12/13/wordpress/" class="leancloud_visitors" data-flag-title="Wordpress博客部署">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -353,37 +353,9 @@
       
 
       
-        <p>Wordpress镜像使用练习</p>
-<h1 id="简单实例"><a href="#简单实例" class="headerlink" title="简单实例"></a>简单实例</h1><p>基于wordpress镜像运行一个容器，连接mysql</p>
-<pre><code>[root@guoshuai01 ~]# docker run --name mywordpress \
-                                --link firstsql:mysql \
-                                -p 80:80 -d wordpress
-83e533ac612a4cec9542f4925542cfb53946102f690bd0b0fb0efb3aa723c9d9
-</code></pre><a id="more"></a>
-<blockquote>
-<p>进入容器查看连接是否成功：</p>
-</blockquote>
-<pre><code>[root@guoshuai01 ~]# docker exec -it 83e533ac612a bash
-root@83e533ac612a:/var/www/html# cd /etc/
-root@83e533ac612a:/etc# cat hosts
-127.0.0.1    localhost
-::1    localhost ip6-localhost ip6-loopback
-fe00::0    ip6-localnet
-ff00::0    ip6-mcastprefix
-ff02::1    ip6-allnodes
-ff02::2    ip6-allrouters
-172.17.0.3    mysql 74eed2c033f8 firstsql
-172.17.0.5    83e533ac612a
-root@83e533ac612a:/etc# 
-</code></pre><p>我们看到文件里面的mysql容器的ID，证明连接成功。</p>
-<blockquote>
-<p>这时候我们就可以访问<a href="http://localhost:80就可以访问wordpress博客了（当mysql容器停止运行的时候，访问该博客就会报错）" target="_blank" rel="external">http://localhost:80就可以访问wordpress博客了（当mysql容器停止运行的时候，访问该博客就会报错）</a></p>
-</blockquote>
-<h1 id="利用Dockerfile构建wordpress镜像"><a href="#利用Dockerfile构建wordpress镜像" class="headerlink" title="利用Dockerfile构建wordpress镜像"></a>利用Dockerfile构建wordpress镜像</h1><p>从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh 具体内容如下</p>
-<pre><code>[root@guoshuai01 wordpress]# ls
-dockerfile  scripts
-[root@guoshuai01 wordpress]# cat dockerfile 
-# &quot;ported&quot; by Adam Miller &lt;maxamillion@fedoraproject.org&gt; from
+        <p>Wordpress镜像使用</p>
+<h1 id="先用Dockerfile构建好镜像"><a href="#先用Dockerfile构建好镜像" class="headerlink" title="先用Dockerfile构建好镜像"></a>先用Dockerfile构建好镜像</h1><p>从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh 具体内容如下<br><a id="more"></a><br>    [root@guoshuai01 wordpress]# ls<br>    dockerfile  scripts<br>    [root@guoshuai01 wordpress]# cat dockerfile </p>
+<pre><code># &quot;ported&quot; by Adam Miller &lt;maxamillion@fedoraproject.org&gt; from
 #   https://github.com/fedora-cloud/Fedora-Dockerfiles
 #
 # Originally written for Fedora-Dockerfiles by
@@ -421,11 +393,28 @@ if [ -z &quot;$DB_NAME&quot; ]; then
 # Call all functions
 __check
 __run_apache
-</code></pre><p>在wordpress目录下构建镜像，命令如下</p>
-<p><code>[root@guoshuai01 wordpress]# docker build -t wordpress .</code></p>
-<p>构建成功之后，运行一个容器</p>
-<p><code>docker run --name mywordpress --link firstsql:mysql -p 8080:80 -d wordpress</code></p>
-<p>即可在网页访问wordpress博客了</p>
+</code></pre><p>在wordpress目录下自己构建镜像，命令为wordpress:1</p>
+<p><code>[root@guoshuai01 wordpress]# docker build -t wordpress：1 .</code></p>
+<p>同理，我们也可以自己构建一个MySQL镜像，命名为mysql:1</p>
+<h1 id="运行一个MySQL容器"><a href="#运行一个MySQL容器" class="headerlink" title="运行一个MySQL容器"></a>运行一个MySQL容器</h1><ul>
+<li><p>&amp;记得设置环境变量</p>
+<pre><code>DATABASE=mydb
+USER=myuser
+PASSWORD=password
+ROOTPASS=rootpass
+docker run -d  \
+    -e MYSQL_USER=$USER              \
+    -e MYSQL_PASSWORD=$PASSWORD      \
+    -e MYSQL_DATABASE=$DATABASE      \
+    -e MYSQL_ROOT_PASSWORD=$ROOTPASS \
+    --name=mydb mysql:1
+</code></pre></li>
+</ul>
+<h1 id="运行wordpressde容器"><a href="#运行wordpressde容器" class="headerlink" title="运行wordpressde容器"></a>运行wordpressde容器</h1><ul>
+<li>加上–link，将两个容器连接起来</li>
+</ul>
+<p><code>docker run --link=mydb:db -d --name mywordpress -p 80:80 wordpress:1</code></p>
+<p>运行成功，即可在网页访问到wordpress博客。</p>
 
       
     </div>
@@ -616,7 +605,7 @@ __run_apache
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简单实例"><span class="nav-number">1.</span> <span class="nav-text">简单实例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#利用Dockerfile构建wordpress镜像"><span class="nav-number">2.</span> <span class="nav-text">利用Dockerfile构建wordpress镜像</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#先用Dockerfile构建好镜像"><span class="nav-number">1.</span> <span class="nav-text">先用Dockerfile构建好镜像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行一个MySQL容器"><span class="nav-number">2.</span> <span class="nav-text">运行一个MySQL容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行wordpressde容器"><span class="nav-number">3.</span> <span class="nav-text">运行wordpressde容器</span></a></li></ol></div>
             
 
           </div>
