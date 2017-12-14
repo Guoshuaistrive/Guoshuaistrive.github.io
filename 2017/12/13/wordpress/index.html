@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Wordpress镜像使用 先用Dockerfile构建好镜像从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh 具体内容如下">
+<meta name="description" content="Wordpress镜像使用 先用Dockerfile构建好镜像从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh  [root@guoshuai01 wordpress]# ls dockerfile  scripts     [root@guoshuai01 wordpress]# cd scripts/ [root@guoshuai01">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Wordpress博客部署">
 <meta property="og:url" content="http://Guoshuaistrive.github.io/2017/12/13/wordpress/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="Wordpress镜像使用 先用Dockerfile构建好镜像从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh 具体内容如下">
+<meta property="og:description" content="Wordpress镜像使用 先用Dockerfile构建好镜像从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh  [root@guoshuai01 wordpress]# ls dockerfile  scripts     [root@guoshuai01 wordpress]# cd scripts/ [root@guoshuai01">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-13T15:34:14.647Z">
+<meta property="og:updated_time" content="2017-12-14T15:06:22.124Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Wordpress博客部署">
-<meta name="twitter:description" content="Wordpress镜像使用 先用Dockerfile构建好镜像从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh 具体内容如下">
+<meta name="twitter:description" content="Wordpress镜像使用 先用Dockerfile构建好镜像从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh  [root@guoshuai01 wordpress]# ls dockerfile  scripts     [root@guoshuai01 wordpress]# cd scripts/ [root@guoshuai01">
 
 
 
@@ -354,46 +354,14 @@
 
       
         <p>Wordpress镜像使用</p>
-<h1 id="先用Dockerfile构建好镜像"><a href="#先用Dockerfile构建好镜像" class="headerlink" title="先用Dockerfile构建好镜像"></a>先用Dockerfile构建好镜像</h1><p>从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh 具体内容如下<br><a id="more"></a><br>    [root@guoshuai01 wordpress]# ls<br>    dockerfile  scripts<br>    [root@guoshuai01 wordpress]# cat dockerfile </p>
-<pre><code># &quot;ported&quot; by Adam Miller &lt;maxamillion@fedoraproject.org&gt; from
-#   https://github.com/fedora-cloud/Fedora-Dockerfiles
-#
-# Originally written for Fedora-Dockerfiles by
-#   scollier &lt;scollier@redhat.com&gt;
-FROM centos:centos7
-MAINTAINER The CentOS Project &lt;cloud-ops@centos.org&gt;
-RUN yum -y update &amp;&amp;\
-    yum clean all
-RUN yum -y install httpd php php-mysql php-gd openssl psmisc tar &amp;&amp;\
-    yum clean all
-ADD scripts /scripts
-RUN curl -LO http://wordpress.org/latest.tar.gz                         &amp;&amp;\
-    tar xvzf /latest.tar.gz -C /var/www/html --strip-components=1       &amp;&amp;\
-    rm /latest.tar.gz                                                   &amp;&amp;\
-    chown -R apache:apache /var/www/                                    &amp;&amp;\
-    chmod 755 /scripts/*
-EXPOSE 80
-CMD [&quot;/bin/bash&quot;, &quot;/scripts/start.sh&quot;]
-
-
+<h1 id="先用Dockerfile构建好镜像"><a href="#先用Dockerfile构建好镜像" class="headerlink" title="先用Dockerfile构建好镜像"></a>先用Dockerfile构建好镜像</h1><p>从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh </p>
+<pre><code>[root@guoshuai01 wordpress]# ls
+dockerfile  scripts    
 [root@guoshuai01 wordpress]# cd scripts/
 [root@guoshuai01 scripts]# ls
 run-apache.sh  start.sh
-
-[root@guoshuai01 scripts]# cat run-apache.sh 
-#!/bin/bash
-exec /usr/sbin/httpd -D FOREGROUND
-
-[root@guoshuai01 scripts]# cat start.sh 
-#!/bin/bash    
-__handle_passwords() {
-DB_NAME=&quot;{$DB_NAME}&quot;
-if [ -z &quot;$DB_NAME&quot; ]; then     
-......    
-# Call all functions
-__check
-__run_apache
-</code></pre><p>在wordpress目录下自己构建镜像，命令为wordpress:1</p>
+</code></pre><a id="more"></a>
+<p>在wordpress目录下自己构建镜像，命令为wordpress:1</p>
 <p><code>[root@guoshuai01 wordpress]# docker build -t wordpress：1 .</code></p>
 <p>同理，我们也可以自己构建一个MySQL镜像，命名为mysql:1</p>
 <h1 id="运行一个MySQL容器"><a href="#运行一个MySQL容器" class="headerlink" title="运行一个MySQL容器"></a>运行一个MySQL容器</h1><ul>
@@ -454,6 +422,10 @@ docker run -d  \
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/14/registry/" rel="prev" title="搭建Docker私有仓库Registry">
+                搭建Docker私有仓库Registry <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -534,7 +506,7 @@ docker run -d  \
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
