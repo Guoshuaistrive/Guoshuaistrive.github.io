@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Wordpress镜像使用 先用Dockerfile构建好镜像从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh  [root@guoshuai01 wordpress]# ls dockerfile  scripts     [root@guoshuai01 wordpress]# cd scripts/ [root@guoshuai01">
+<meta name="description" content="Wordpress是一个开源的博客工具，用户可以在支持PHP和MySQL数据库的服务器上架设属于自己的网站，也可以把 WordPress当作一个内容管理系统（CMS）来使用。   基于dockerfile构建mysql的镜像   基于mysql镜像启动一个数据库容器，并进入容器登录数据库进行相关操作     docker run -d           \             -e MYSQ">
 <meta name="keywords" content="wordpress">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Wordpress博客部署">
-<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/12/13/wordpress/index.html">
+<meta property="og:title" content="Wordpress部署验证">
+<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/12/14/Wordpress使用验证/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="Wordpress镜像使用 先用Dockerfile构建好镜像从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh  [root@guoshuai01 wordpress]# ls dockerfile  scripts     [root@guoshuai01 wordpress]# cd scripts/ [root@guoshuai01">
+<meta property="og:description" content="Wordpress是一个开源的博客工具，用户可以在支持PHP和MySQL数据库的服务器上架设属于自己的网站，也可以把 WordPress当作一个内容管理系统（CMS）来使用。   基于dockerfile构建mysql的镜像   基于mysql镜像启动一个数据库容器，并进入容器登录数据库进行相关操作     docker run -d           \             -e MYSQ">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-29T14:12:22.310Z">
+<meta property="og:updated_time" content="2017-12-29T14:12:29.061Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wordpress博客部署">
-<meta name="twitter:description" content="Wordpress镜像使用 先用Dockerfile构建好镜像从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh  [root@guoshuai01 wordpress]# ls dockerfile  scripts     [root@guoshuai01 wordpress]# cd scripts/ [root@guoshuai01">
+<meta name="twitter:title" content="Wordpress部署验证">
+<meta name="twitter:description" content="Wordpress是一个开源的博客工具，用户可以在支持PHP和MySQL数据库的服务器上架设属于自己的网站，也可以把 WordPress当作一个内容管理系统（CMS）来使用。   基于dockerfile构建mysql的镜像   基于mysql镜像启动一个数据库容器，并进入容器登录数据库进行相关操作     docker run -d           \             -e MYSQ">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/12/13/wordpress/"/>
+  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/12/14/Wordpress使用验证/"/>
 
 
 
 
 
-  <title>Wordpress博客部署 | Gavin的博客</title>
+  <title>Wordpress部署验证 | Gavin的博客</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/12/13/wordpress/">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/12/14/Wordpress使用验证/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guo shuai">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Wordpress博客部署</h1>
+          <h1 class="post-title" itemprop="name headline">Wordpress部署验证</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-13T23:38:02+08:00">
-                2017-12-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-14T21:39:54+08:00">
+                2017-12-14
               </time>
             
 
@@ -322,7 +322,7 @@
 
           
           
-             <span id="/2017/12/13/wordpress/" class="leancloud_visitors" data-flag-title="Wordpress博客部署">
+             <span id="/2017/12/14/Wordpress使用验证/" class="leancloud_visitors" data-flag-title="Wordpress部署验证">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -353,36 +353,53 @@
       
 
       
-        <p>Wordpress镜像使用</p>
-<h1 id="先用Dockerfile构建好镜像"><a href="#先用Dockerfile构建好镜像" class="headerlink" title="先用Dockerfile构建好镜像"></a>先用Dockerfile构建好镜像</h1><p>从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh </p>
-<pre><code>[root@guoshuai01 wordpress]# ls
-dockerfile  scripts    
-[root@guoshuai01 wordpress]# cd scripts/
-[root@guoshuai01 scripts]# ls
-run-apache.sh  start.sh
-</code></pre><a id="more"></a>
-<p>在wordpress目录下自己构建镜像，命令为wordpress:1</p>
-<p><code>[root@guoshuai01 wordpress]# docker build -t wordpress：1 .</code></p>
-<p>同理，我们也可以自己构建一个MySQL镜像，命名为mysql:1</p>
-<h1 id="运行一个MySQL容器"><a href="#运行一个MySQL容器" class="headerlink" title="运行一个MySQL容器"></a>运行一个MySQL容器</h1><ul>
-<li><p>&amp;记得设置环境变量</p>
-<pre><code>DATABASE=mydb
-USER=myuser
-PASSWORD=password
-ROOTPASS=rootpass
-docker run -d  \
-    -e MYSQL_USER=$USER              \
-    -e MYSQL_PASSWORD=$PASSWORD      \
-    -e MYSQL_DATABASE=$DATABASE      \
-    -e MYSQL_ROOT_PASSWORD=$ROOTPASS \
-    --name=mydb mysql:1
+        <p>Wordpress是一个开源的博客工具，用户可以在支持PHP和MySQL数据库的服务器上架设属于自己的网站，也可以把 WordPress当作一个内容管理系统（CMS）来使用。</p>
+<hr>
+<ul>
+<li><p>基于dockerfile构建mysql的镜像 </p>
+</li>
+<li><p>基于mysql镜像启动一个数据库容器，并进入容器登录数据库进行相关操作</p>
+<pre><code>    docker run -d           \
+            -e MYSQL_USER=wordpress    \
+            -e MYSQL_PASSWORD=word      \
+            -e MYSQL_DATABASE=wp      \
+            -e MYSQL_ROOT_PASSWORD=666666 \
+            -v mysql:/var/lib/mysql --name mydb mysql:1
+
+PS：进入容器后，数据库可以登录成功，wordpress数据库正常操作，但是创建其他数据库会出现ERROR
+1045 (28000): Access denied for user &apos;username&apos;@&apos;IP&apos; (using password: YES)错误。
 </code></pre></li>
 </ul>
-<h1 id="运行wordpressde容器"><a href="#运行wordpressde容器" class="headerlink" title="运行wordpressde容器"></a>运行wordpressde容器</h1><ul>
-<li>加上–link，将两个容器连接起来</li>
+<a id="more"></a>
+<blockquote>
+<ul>
+<li>验证容器重启 数据库内容是否存在                   </li>
+<li>验证删除当前mysql的容器，重新运行一个容器，挂载之前的volume，查看数据是否还在</li>
+<li>验证另一个mysql容器 挂载同一个volume 查看数据是否还在</li>
 </ul>
-<p><code>docker run --link=mydb:db -d --name mywordpress -p 80:80 wordpress:1</code></p>
-<p>运行成功，即可在网页访问到wordpress博客。</p>
+</blockquote>
+<p> 验证结果表明，之前创建的表依然在。</p>
+<ul>
+<li><p>基于dockerfile构建wordpress的镜像</p>
+</li>
+<li><p>基于wordpress镜像启动一个blog容器，查看端口是否可以访问</p>
+</li>
+</ul>
+<pre><code>DATABASE=wp
+USER=wordpress
+PASSWORD=word
+ROOTPASS=666666
+
+docker run --link=mydb:db -d --name wordpress \
+           -v wordpress:/var/www/html -p 8080:80 wordpress:1
+</code></pre><blockquote>
+<p>验证容器重启   blog内容是否保留</p>
+<ul>
+<li>验证删除当前wordpress的容器，重新运行一个容器挂载之前volume，查看内容是否保留</li>
+<li>验证另一个wordpress容器,，挂载同一个volume，查看内容是否改变（wordpress指定8080端口访问，其他端口跳转到8080页面）</li>
+</ul>
+</blockquote>
+<p>验证结果表明，数据挂同一个vlolume，blog内容不变。</p>
 
       
     </div>
@@ -413,8 +430,8 @@ docker run -d  \
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/07/mysql/" rel="next" title="Mysql镜像使用练习">
-                <i class="fa fa-chevron-left"></i> Mysql镜像使用练习
+              <a href="/2017/12/13/wordpress/" rel="next" title="Wordpress博客部署">
+                <i class="fa fa-chevron-left"></i> Wordpress博客部署
               </a>
             
           </div>
@@ -423,8 +440,8 @@ docker run -d  \
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/14/Wordpress使用验证/" rel="prev" title="Wordpress部署验证">
-                Wordpress部署验证 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/15/registry/" rel="prev" title="搭建本地registry详细流程">
+                搭建本地registry详细流程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -477,17 +494,8 @@ docker run -d  \
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -567,22 +575,6 @@ docker run -d  \
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#先用Dockerfile构建好镜像"><span class="nav-number">1.</span> <span class="nav-text">先用Dockerfile构建好镜像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行一个MySQL容器"><span class="nav-number">2.</span> <span class="nav-text">运行一个MySQL容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行wordpressde容器"><span class="nav-number">3.</span> <span class="nav-text">运行wordpressde容器</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/12/14/registry/">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/12/29/ssh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guo shuai">
@@ -271,7 +271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/14/registry/" itemprop="url">搭建Docker私有仓库Registry</a></h1>
+                <a class="post-title-link" href="/2017/12/29/ssh/" itemprop="url">SSH免密登录VM以及容器过程记录</a></h1>
         
 
         <div class="post-meta">
@@ -283,7 +283,344 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-14T22:59:35+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-29T22:14:17+08:00">
+                2017-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/learn/" itemprop="url" rel="index">
+                    <span itemprop="name">learn</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/12/29/ssh/" class="leancloud_visitors" data-flag-title="SSH免密登录VM以及容器过程记录">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h1><h2 id="linux命令行生成密钥"><a href="#linux命令行生成密钥" class="headerlink" title="linux命令行生成密钥"></a>linux命令行生成密钥</h2><ul>
+<li>如果没有.ssh目录，自己创建一个</li>
+</ul>
+<p>执行<code>ssh-keygen -t rsa</code></p>
+<p>   一路按回车即可，生成密钥之后切换到.ssh目录</p>
+<pre><code>[root@guoshuai01 ~]# cd /root/.ssh/
+[root@guoshuai01 .ssh]# ls
+id_rsa  id_rsa.pub
+</code></pre><h2 id="xshell生成密钥"><a href="#xshell生成密钥" class="headerlink" title="xshell生成密钥"></a>xshell生成密钥</h2><p>在工具选项里面选择新建用户密钥生成向导,正常流程走下来就可以在磁盘目录下看到密钥</p>
+<blockquote>
+<p>需要用到rz命令上传密钥到服务器；如果没有rz可以用<code>yum install lrzsz</code>安装</p>
+</blockquote>
+<pre><code>[root@guoshuai01 .ssh]# rz
+[root@guoshuai01 .ssh]# ls
+id_rsa  id_rsa.pub
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/29/ssh/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/12/15/registry/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guo shuai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/15/registry/" itemprop="url">搭建本地registry详细流程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-15T22:59:35+08:00">
+                2017-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/exercise/" itemprop="url" rel="index">
+                    <span itemprop="name">exercise</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/12/15/registry/" class="leancloud_visitors" data-flag-title="搭建本地registry详细流程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Docker私有仓库Registry</p>
+<h1 id="修改hostname"><a href="#修改hostname" class="headerlink" title="修改hostname"></a>修改hostname</h1><pre><code>vi /etc/hosts
+vi /etc/hostname
+hostname -F /etc/hostname
+</code></pre><h1 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h1><pre><code>yum install docker
+systemctl start docker
+systemctl enable docker （使我们下次重启VM的时候docker 正常工作）
+docker info  /  docker version
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/15/registry/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/12/14/Wordpress使用验证/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Guo shuai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/14/Wordpress使用验证/" itemprop="url">Wordpress部署验证</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-14T21:39:54+08:00">
                 2017-12-14
               </time>
             
@@ -323,7 +660,7 @@
 
           
           
-             <span id="/2017/12/14/registry/" class="leancloud_visitors" data-flag-title="搭建Docker私有仓库Registry">
+             <span id="/2017/12/14/Wordpress使用验证/" class="leancloud_visitors" data-flag-title="Wordpress部署验证">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -355,19 +692,26 @@
 
       
         
-          <p>Docker私有仓库Registry</p>
-<h1 id="先运行一个Registry容器"><a href="#先运行一个Registry容器" class="headerlink" title="先运行一个Registry容器"></a>先运行一个Registry容器</h1><ul>
-<li>记得挂volume</li>
+          <p>Wordpress是一个开源的博客工具，用户可以在支持PHP和MySQL数据库的服务器上架设属于自己的网站，也可以把 WordPress当作一个内容管理系统（CMS）来使用。</p>
+<hr>
+<ul>
+<li><p>基于dockerfile构建mysql的镜像 </p>
+</li>
+<li><p>基于mysql镜像启动一个数据库容器，并进入容器登录数据库进行相关操作</p>
+<pre><code>    docker run -d           \
+            -e MYSQL_USER=wordpress    \
+            -e MYSQL_PASSWORD=word      \
+            -e MYSQL_DATABASE=wp      \
+            -e MYSQL_ROOT_PASSWORD=666666 \
+            -v mysql:/var/lib/mysql --name mydb mysql:1
+
+PS：进入容器后，数据库可以登录成功，wordpress数据库正常操作，但是创建其他数据库会出现ERROR
+1045 (28000): Access denied for user &apos;username&apos;@&apos;IP&apos; (using password: YES)错误。
+</code></pre></li>
 </ul>
-<p><code>docker run -d -p 5000:5000 --name registry -v registry:/var/lib/registry registry:2</code></p>
-<pre><code>[root@guoshuai01 ~]# docker run -d -p 5000:5000 \
-                               --name registry \
-                               -v registry:/var/lib/registry registry:2
-7d82c1930bae248b2653ad1ee9c63686062a0af2c485aec8acb3d66dc75798a9
-</code></pre>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/12/14/registry/#more" rel="contents">
+            <a class="btn" href="/2017/12/14/Wordpress使用验证/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1570,330 +1914,6 @@ logstash-6.0.0
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/22/prometheus2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Guo shuai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gavin的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/22/prometheus2/" itemprop="url">Prometheus2.0版本</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-22T21:22:01+08:00">
-                2017-11-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/exercise/" itemprop="url" rel="index">
-                    <span itemprop="name">exercise</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/11/22/prometheus2/" class="leancloud_visitors" data-flag-title="Prometheus2.0版本">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>第一次安装Prometheus的时候用的rc版本，也没看官方文档出现很多失误。所以今天在host上重新安装Prometheus2.0版本，亲测一次性通过，重新梳理一篇安装教程。</p>
-</blockquote>
-<h1 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h1><p>通过Prometheus监控两台Docker Host：192.168.0.14和192.168.0.10，监控host和容器两个层次的数据</p>
-<h1 id="运行Node-Exporter组件"><a href="#运行Node-Exporter组件" class="headerlink" title="运行Node Exporter组件"></a>运行Node Exporter组件</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/22/prometheus2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/21/prometheus-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Guo shuai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gavin的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/21/prometheus-1/" itemprop="url">为什么Prometheus无法展示数据？</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-21T11:53:26+08:00">
-                2017-11-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/learn/" itemprop="url" rel="index">
-                    <span itemprop="name">learn</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/11/21/prometheus-1/" class="leancloud_visitors" data-flag-title="为什么Prometheus无法展示数据？">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>初次使用Prometheus的同学可能会遇到各种各样的问题，比如所有东西安装就绪之后，监控数据依然无法正常展示等。所以这篇博文给大家讲讲我遇到的坑。</p>
-</blockquote>
-<ul>
-<li>运行Node Exporter和cAdvisor两个收集数据的组件，一般不会有太大问题，暂时略过。</li>
-</ul>
-<p>下面我们来看Prometheus Server的运行问题：<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/21/prometheus-1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1948,7 +1968,7 @@ logstash-6.0.0
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1970,7 +1990,7 @@ logstash-6.0.0
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="wordpress," />
+  <meta name="keywords" content="docker," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Wordpress镜像使用 先用Dockerfile构建好镜像从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh  [root@guoshuai01 wordpress]# ls dockerfile  scripts     [root@guoshuai01 wordpress]# cd scripts/ [root@guoshuai01">
-<meta name="keywords" content="wordpress">
+<meta name="description" content="Docker私有仓库Registry 修改hostnamevi /etc/hosts vi /etc/hostname hostname -F /etc/hostname 安装dockeryum install docker systemctl start docker systemctl enable docker （使我们下次重启VM的时候docker 正常工作） docker info  /">
+<meta name="keywords" content="docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Wordpress博客部署">
-<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/12/13/wordpress/index.html">
+<meta property="og:title" content="搭建本地registry详细流程">
+<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/12/15/registry/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="Wordpress镜像使用 先用Dockerfile构建好镜像从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh  [root@guoshuai01 wordpress]# ls dockerfile  scripts     [root@guoshuai01 wordpress]# cd scripts/ [root@guoshuai01">
+<meta property="og:description" content="Docker私有仓库Registry 修改hostnamevi /etc/hosts vi /etc/hostname hostname -F /etc/hostname 安装dockeryum install docker systemctl start docker systemctl enable docker （使我们下次重启VM的时候docker 正常工作） docker info  /">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-29T14:12:22.310Z">
+<meta property="og:updated_time" content="2017-12-29T13:55:35.787Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wordpress博客部署">
-<meta name="twitter:description" content="Wordpress镜像使用 先用Dockerfile构建好镜像从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh  [root@guoshuai01 wordpress]# ls dockerfile  scripts     [root@guoshuai01 wordpress]# cd scripts/ [root@guoshuai01">
+<meta name="twitter:title" content="搭建本地registry详细流程">
+<meta name="twitter:description" content="Docker私有仓库Registry 修改hostnamevi /etc/hosts vi /etc/hostname hostname -F /etc/hostname 安装dockeryum install docker systemctl start docker systemctl enable docker （使我们下次重启VM的时候docker 正常工作） docker info  /">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/12/13/wordpress/"/>
+  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/12/15/registry/"/>
 
 
 
 
 
-  <title>Wordpress博客部署 | Gavin的博客</title>
+  <title>搭建本地registry详细流程 | Gavin的博客</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/12/13/wordpress/">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/12/15/registry/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guo shuai">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Wordpress博客部署</h1>
+          <h1 class="post-title" itemprop="name headline">搭建本地registry详细流程</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-13T23:38:02+08:00">
-                2017-12-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-15T22:59:35+08:00">
+                2017-12-15
               </time>
             
 
@@ -322,7 +322,7 @@
 
           
           
-             <span id="/2017/12/13/wordpress/" class="leancloud_visitors" data-flag-title="Wordpress博客部署">
+             <span id="/2017/12/15/registry/" class="leancloud_visitors" data-flag-title="搭建本地registry详细流程">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -353,37 +353,74 @@
       
 
       
-        <p>Wordpress镜像使用</p>
-<h1 id="先用Dockerfile构建好镜像"><a href="#先用Dockerfile构建好镜像" class="headerlink" title="先用Dockerfile构建好镜像"></a>先用Dockerfile构建好镜像</h1><p>从github上下载过来dockerfile以及两个执行脚本run-apache.sh  start.sh </p>
-<pre><code>[root@guoshuai01 wordpress]# ls
-dockerfile  scripts    
-[root@guoshuai01 wordpress]# cd scripts/
-[root@guoshuai01 scripts]# ls
-run-apache.sh  start.sh
+        <p>Docker私有仓库Registry</p>
+<h1 id="修改hostname"><a href="#修改hostname" class="headerlink" title="修改hostname"></a>修改hostname</h1><pre><code>vi /etc/hosts
+vi /etc/hostname
+hostname -F /etc/hostname
+</code></pre><h1 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h1><pre><code>yum install docker
+systemctl start docker
+systemctl enable docker （使我们下次重启VM的时候docker 正常工作）
+docker info  /  docker version
 </code></pre><a id="more"></a>
-<p>在wordpress目录下自己构建镜像，命令为wordpress:1</p>
-<p><code>[root@guoshuai01 wordpress]# docker build -t wordpress：1 .</code></p>
-<p>同理，我们也可以自己构建一个MySQL镜像，命名为mysql:1</p>
-<h1 id="运行一个MySQL容器"><a href="#运行一个MySQL容器" class="headerlink" title="运行一个MySQL容器"></a>运行一个MySQL容器</h1><ul>
-<li><p>&amp;记得设置环境变量</p>
-<pre><code>DATABASE=mydb
-USER=myuser
-PASSWORD=password
-ROOTPASS=rootpass
-docker run -d  \
-    -e MYSQL_USER=$USER              \
-    -e MYSQL_PASSWORD=$PASSWORD      \
-    -e MYSQL_DATABASE=$DATABASE      \
-    -e MYSQL_ROOT_PASSWORD=$ROOTPASS \
-    --name=mydb mysql:1
+<h1 id="启动一个镜像仓库容器"><a href="#启动一个镜像仓库容器" class="headerlink" title="启动一个镜像仓库容器"></a>启动一个镜像仓库容器</h1><pre><code>docker run -d -p 5000:5000 --name registry \
+           -v registry:/var/lib/registry registry:2
+</code></pre><h1 id="配置docker文件"><a href="#配置docker文件" class="headerlink" title="配置docker文件"></a>配置docker文件</h1><ul>
+<li><p><code>vi  /usr/lib/systemd/system/docker.service</code>   </p>
+<h1 id="ExecStart-usr-bin-dockerd"><a href="#ExecStart-usr-bin-dockerd" class="headerlink" title="ExecStart=/usr/bin/dockerd"></a>ExecStart=/usr/bin/dockerd</h1><p> ExecStart=/usr/bin/dockerd –insecure-registry 192.168.0.14:5000 </p>
+</li>
+</ul>
+<ul>
+<li><p><code>vi /etc/docker/daemon.json</code></p>
+<pre><code>{
+  &quot;insecure-registries&quot;: [&quot;192.168.0.14:5000&quot;]
+}
 </code></pre></li>
 </ul>
-<h1 id="运行wordpressde容器"><a href="#运行wordpressde容器" class="headerlink" title="运行wordpressde容器"></a>运行wordpressde容器</h1><ul>
-<li>加上–link，将两个容器连接起来</li>
-</ul>
-<p><code>docker run --link=mydb:db -d --name mywordpress -p 80:80 wordpress:1</code></p>
-<p>运行成功，即可在网页访问到wordpress博客。</p>
+<h1 id="重启docker"><a href="#重启docker" class="headerlink" title="重启docker"></a>重启docker</h1><pre><code>systemctl daemon-reload
+systemctl restart docker
+</code></pre><p>#重启registry容器</p>
+<p><code>docker restart registry</code>   </p>
+<blockquote>
+<p>因为重启docker之后容器会停掉，所以要重启容器。但若启动容器前加上–restart=always参数，可省略此步。</p>
+</blockquote>
+<h1 id="重命名镜像，上传至registry"><a href="#重命名镜像，上传至registry" class="headerlink" title="重命名镜像，上传至registry"></a>重命名镜像，上传至registry</h1><pre><code>先从dockerhub上pull一个httpd：2.4的镜像
+docker pull guoshuai6/httpd:2.4
+docker images
 
+docker tag guoshuai6/httpd:2.4 192.168.0.14:5000/httpd:2.4
+docker push 192.168.0.14:5000/httpd:2.4
+</code></pre><h1 id="查看registry中镜像信息"><a href="#查看registry中镜像信息" class="headerlink" title="查看registry中镜像信息"></a>查看registry中镜像信息</h1><p>curl <a href="http://192.168.0.14:5000/v2/_catalog" target="_blank" rel="external">http://192.168.0.14:5000/v2/_catalog</a> </p>
+<h1 id="如何删除registry中某一个镜像"><a href="#如何删除registry中某一个镜像" class="headerlink" title="如何删除registry中某一个镜像"></a>如何删除registry中某一个镜像</h1><p>  进入volume中找到镜像目录，有选择删除</p>
+<hr>
+<blockquote>
+<p>验证volume数据持久性</p>
+</blockquote>
+<p>  删除当前registry的容器，重新运行一个容器，挂载之前的volume，查看数据是否还在</p>
+<pre><code>docker rm registry 
+docker volume ls  查看volume是否还在
+docker run -d -p 5000:5000 --name registry1 \
+           -v registry:/var/lib/registry registry:2  
+挂载之前的容器，重新运行
+        curl http://192.168.0.14:5000/v2/_catalog  查看镜像数据是否与之前一致
+</code></pre><blockquote>
+<p>验证两个容器同时挂一个vlolume</p>
+</blockquote>
+<pre><code>docker run -d -p 6000:5000 --name registry2 \
+           -v registry:/var/lib/registry registry:2
+curl http://192.168.0.14:6000/v2/_catalog 发现镜像数据一致
+
+上传镜像 验证6000与5000端口是否可工作（6000暂时push失败，需要配置daemon.json）           
+</code></pre><h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><pre><code>data managed volume:   
+      同一个volume：Registry镜像仓库数据持久存在，可由host不同端口映射，
+                   且可查看镜像仓库里面的镜像信息，但是推送镜像需要配置
+                   insecure-registry
+
+      不同的volume：可以理解为又做了一个镜像仓库
+
+bind mount:
+      数据也持久存在，可由host不同端口映射，也可在配置好docker文件的前提下
+      推送镜像并查看。只是这个目录要自己先在host上创建出来
+</code></pre>
       
     </div>
     
@@ -400,7 +437,7 @@ docker run -d  \
       
         <div class="post-tags">
           
-            <a href="/tags/wordpress/" rel="tag"># wordpress</a>
+            <a href="/tags/docker/" rel="tag"># docker</a>
           
         </div>
       
@@ -413,8 +450,8 @@ docker run -d  \
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/07/mysql/" rel="next" title="Mysql镜像使用练习">
-                <i class="fa fa-chevron-left"></i> Mysql镜像使用练习
+              <a href="/2017/12/14/Wordpress使用验证/" rel="next" title="Wordpress部署验证">
+                <i class="fa fa-chevron-left"></i> Wordpress部署验证
               </a>
             
           </div>
@@ -423,8 +460,8 @@ docker run -d  \
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/14/Wordpress使用验证/" rel="prev" title="Wordpress部署验证">
-                Wordpress部署验证 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/29/ssh/" rel="prev" title="SSH免密登录VM以及容器过程记录">
+                SSH免密登录VM以及容器过程记录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -577,7 +614,7 @@ docker run -d  \
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#先用Dockerfile构建好镜像"><span class="nav-number">1.</span> <span class="nav-text">先用Dockerfile构建好镜像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行一个MySQL容器"><span class="nav-number">2.</span> <span class="nav-text">运行一个MySQL容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行wordpressde容器"><span class="nav-number">3.</span> <span class="nav-text">运行wordpressde容器</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#修改hostname"><span class="nav-number">1.</span> <span class="nav-text">修改hostname</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装docker"><span class="nav-number">2.</span> <span class="nav-text">安装docker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动一个镜像仓库容器"><span class="nav-number">3.</span> <span class="nav-text">启动一个镜像仓库容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置docker文件"><span class="nav-number">4.</span> <span class="nav-text">配置docker文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ExecStart-usr-bin-dockerd"><span class="nav-number">5.</span> <span class="nav-text">ExecStart=/usr/bin/dockerd</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重启docker"><span class="nav-number">6.</span> <span class="nav-text">重启docker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重命名镜像，上传至registry"><span class="nav-number">7.</span> <span class="nav-text">重命名镜像，上传至registry</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看registry中镜像信息"><span class="nav-number">8.</span> <span class="nav-text">查看registry中镜像信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何删除registry中某一个镜像"><span class="nav-number">9.</span> <span class="nav-text">如何删除registry中某一个镜像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结论"><span class="nav-number">10.</span> <span class="nav-text">结论</span></a></li></ol></div>
             
 
           </div>
