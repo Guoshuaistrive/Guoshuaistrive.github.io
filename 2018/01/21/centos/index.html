@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="docker," />
+  <meta name="keywords" content="cencos," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="容器核心技术容器规范OSI组织（open container initiative）专门制定开放的容器规范， 目前发布了两个规范：runtime spec和image format spec。 容器runtimeruntime是容器真正运行的地方，为容器提供运行环境。  lxc :  Linux老牌容器runtime runc:  docker自己开发的容器runtime，符合OSI规范，dock">
-<meta name="keywords" content="docker">
+<meta name="description" content="查看系统相关信息查看系统版本  cat /etc/redhat-release 查看系统位数  getconf LONG_BIT 查看内核版本   uname -a 升级内核版本  yum update   yum upgrade 重新启动 init 6 发现版本会有变化（看日期）">
+<meta name="keywords" content="cencos">
 <meta property="og:type" content="article">
-<meta property="og:title" content="容器生态系统">
-<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/06/docker-5/index.html">
+<meta property="og:title" content="Centos7.x初始化之后的配置">
+<meta property="og:url" content="http://Guoshuaistrive.github.io/2018/01/21/centos/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="容器核心技术容器规范OSI组织（open container initiative）专门制定开放的容器规范， 目前发布了两个规范：runtime spec和image format spec。 容器runtimeruntime是容器真正运行的地方，为容器提供运行环境。  lxc :  Linux老牌容器runtime runc:  docker自己开发的容器runtime，符合OSI规范，dock">
+<meta property="og:description" content="查看系统相关信息查看系统版本  cat /etc/redhat-release 查看系统位数  getconf LONG_BIT 查看内核版本   uname -a 升级内核版本  yum update   yum upgrade 重新启动 init 6 发现版本会有变化（看日期）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-06T13:25:48.428Z">
+<meta property="og:updated_time" content="2018-01-21T02:50:16.838Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="容器生态系统">
-<meta name="twitter:description" content="容器核心技术容器规范OSI组织（open container initiative）专门制定开放的容器规范， 目前发布了两个规范：runtime spec和image format spec。 容器runtimeruntime是容器真正运行的地方，为容器提供运行环境。  lxc :  Linux老牌容器runtime runc:  docker自己开发的容器runtime，符合OSI规范，dock">
+<meta name="twitter:title" content="Centos7.x初始化之后的配置">
+<meta name="twitter:description" content="查看系统相关信息查看系统版本  cat /etc/redhat-release 查看系统位数  getconf LONG_BIT 查看内核版本   uname -a 升级内核版本  yum update   yum upgrade 重新启动 init 6 发现版本会有变化（看日期）">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/11/06/docker-5/"/>
+  <link rel="canonical" href="http://Guoshuaistrive.github.io/2018/01/21/centos/"/>
 
 
 
 
 
-  <title>容器生态系统 | Gavin的博客</title>
+  <title>Centos7.x初始化之后的配置 | Gavin的博客</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/06/docker-5/">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2018/01/21/centos/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guo shuai">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">容器生态系统</h1>
+          <h1 class="post-title" itemprop="name headline">Centos7.x初始化之后的配置</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T21:10:38+08:00">
-                2017-11-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-21T10:32:54+08:00">
+                2018-01-21
               </time>
             
 
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/summary/" itemprop="url" rel="index">
-                    <span itemprop="name">summary</span>
+                  <a href="/categories/learn/" itemprop="url" rel="index">
+                    <span itemprop="name">learn</span>
                   </a>
                 </span>
 
@@ -322,7 +322,7 @@
 
           
           
-             <span id="/2017/11/06/docker-5/" class="leancloud_visitors" data-flag-title="容器生态系统">
+             <span id="/2018/01/21/centos/" class="leancloud_visitors" data-flag-title="Centos7.x初始化之后的配置">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -353,61 +353,120 @@
       
 
       
-        <h1 id="容器核心技术"><a href="#容器核心技术" class="headerlink" title="容器核心技术"></a>容器核心技术</h1><h2 id="容器规范"><a href="#容器规范" class="headerlink" title="容器规范"></a>容器规范</h2><pre><code>OSI组织（open container initiative）专门制定开放的容器规范，
-目前发布了两个规范：runtime spec和image format spec。
-</code></pre><h2 id="容器runtime"><a href="#容器runtime" class="headerlink" title="容器runtime"></a>容器runtime</h2><pre><code>runtime是容器真正运行的地方，为容器提供运行环境。
-</code></pre><ul>
-<li>lxc :  Linux老牌容器runtime</li>
-<li>runc:  docker自己开发的容器runtime，符合OSI规范，docker的默认runtime</li>
-<li><p>rkt：  CoreOS开发的容器runtime，符合容器规范</p>
+        <h1 id="查看系统相关信息"><a href="#查看系统相关信息" class="headerlink" title="查看系统相关信息"></a>查看系统相关信息</h1><h2 id="查看系统版本"><a href="#查看系统版本" class="headerlink" title="查看系统版本"></a>查看系统版本</h2><p>  <code>cat /etc/redhat-release</code></p>
+<h2 id="查看系统位数"><a href="#查看系统位数" class="headerlink" title="查看系统位数"></a>查看系统位数</h2><p>  <code>getconf LONG_BIT</code></p>
+<h2 id="查看内核版本"><a href="#查看内核版本" class="headerlink" title="查看内核版本"></a>查看内核版本</h2><p>   <code>uname -a</code></p>
+<h2 id="升级内核版本"><a href="#升级内核版本" class="headerlink" title="升级内核版本"></a>升级内核版本</h2><p>  <code>yum update</code></p>
+<p>  <code>yum upgrade</code></p>
+<p>重新启动 <code>init 6</code> 发现版本会有变化（看日期）</p>
 <a id="more"></a>
-<h2 id="容器管理工具"><a href="#容器管理工具" class="headerlink" title="容器管理工具"></a>容器管理工具</h2><p>   用户还得有工具来管理容器。管理工具对内与runtime交互，对外为用户提供interface。</p>
+<h1 id="selinux设置"><a href="#selinux设置" class="headerlink" title="selinux设置"></a>selinux设置</h1><p> 检查selinux是否关闭<code>sestatus</code></p>
+<p>如果是enabled状态要执行关闭</p>
+<pre><code>sed -i &apos;s/SELINUX=enforcing/SELINUX=disabled/&apos; /etc/selinux/config
+setenforce 0
+</code></pre><p>再次检查<code>sestatus</code></p>
+<h1 id="hostname"><a href="#hostname" class="headerlink" title="hostname"></a>hostname</h1><pre><code>vi /etc/hostname
+vi /etc/hosts
+hostname -F /etc/hostname
+</code></pre><p>重新登录，查看主机名以及FQDN</p>
+<pre><code>hostname
+hostname -f
+</code></pre><h1 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h1><h2 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h2><p><code>yum install vim</code></p>
+<p>修改/etc/profile，添加<code>alias vi=&#39;vim&#39;</code>至文件</p>
+<p>让修改立即生效</p>
+<p><code>source /etc/profile</code></p>
+<h2 id="vim常用快捷方式"><a href="#vim常用快捷方式" class="headerlink" title="vim常用快捷方式"></a>vim常用快捷方式</h2><pre><code>gg  可以将光标移动到文章最前
+shift+g 或者 G 可以将光标移动到最后
+^   移动到光标所在行的的 行首
+$   移动到光标所在行的的 行尾
+
+x  删除光标所在位置的后面一个字符
+#x 删除光标所在位置的后面#个字符
+X  删除光标所在位置的前面一个字符
+#X 删除光标所在位置的前面#个字符 
+
+dd   删除光标所在行   
+#dd  从光标所在行开始删除#行
+
+dG 删除当前光标所在行之后的全部内容（ggdG删除全部内容）
+
+yy  复制光标所在行
+#yy 复制光标所在行往下#行
+p  粘贴到光标所在位置
+
+r 替换光标所在处的字符
+冒号模式替换文中的字符 
+  :3,13s/old/new/g(3-13行替换)
+  :%s/old/new/g(全文替换)
+
+u 回到上一个操作
+
+查找字符 / 或者？  按n往后或者往前寻找关键字
+</code></pre><h1 id="ssh免密登录"><a href="#ssh免密登录" class="headerlink" title="ssh免密登录"></a>ssh免密登录</h1><p>创建公钥和私钥 <code>ssh-keygen -t rsa</code></p>
+<p>复制公钥到远程主机 <code>ssh-copy-id -i /root/.ssh/id_rsa.pub root@192.168.0.10</code></p>
+<p>输入远程主机的密码，即可把本地公钥追加到远程主机/root/.ssh/authorized_keys文件中</p>
+<p>改变权限</p>
+<pre><code>chmod 600 id_rsa
+chmod 600 authorized_keys
+</code></pre><p>尝试远程登录，发现不需要密码即可进入</p>
+<h1 id="chrony同步时间"><a href="#chrony同步时间" class="headerlink" title="chrony同步时间"></a>chrony同步时间</h1><h2 id="安装配置-1"><a href="#安装配置-1" class="headerlink" title="安装配置"></a>安装配置</h2><pre><code>yum install chrony
+systemctl start chronyd
+ststemctl enable chronyd
+</code></pre><p>默认同步时间的服务器是Centos，若有需要我们可以改为国内时间服务器</p>
+<pre><code>vi /etc/chrony.conf
+   server 0.cn.pool.ntp.org iburst
+   server 1.cn.pool.ntp.org iburst
+   server 2.cn.pool.ntp.org iburst
+   server 3.cn.pool.ntp.org iburst
+</code></pre><p>重启chronyd服务</p>
+<pre><code>systemctl restart chronyd
+chronyc sources
+</code></pre><h2 id="强制同步时间"><a href="#强制同步时间" class="headerlink" title="强制同步时间"></a>强制同步时间</h2><pre><code>systemctl stop chronyd
+chronyd -q &apos;pool pool.ntp.org iburst&apos;
+systemctl start chronyd
+</code></pre><h1 id="Date-amp-Time"><a href="#Date-amp-Time" class="headerlink" title="Date&amp;Time"></a>Date&amp;Time</h1><p><code>timedatectl status</code></p>
+<h2 id="手动修改时间"><a href="#手动修改时间" class="headerlink" title="手动修改时间"></a>手动修改时间</h2><p>先停止同步时间<code>timedatectl set-ntp 0</code></p>
+<p>设置时间 <code>timedatectl set-time 17:00:00</code></p>
+<p>启动ntp服务<code>timedatectl set-ntp 1</code></p>
+<p>修改日期 <code>timedatectl set-time &#39;YYYY-MM-DD HH:MM:SS&#39;</code></p>
+<h2 id="查看硬件时间"><a href="#查看硬件时间" class="headerlink" title="查看硬件时间"></a>查看硬件时间</h2><p><code>hwclock</code></p>
+<p>同步系统时间到硬件<code>hwclock -w</code></p>
+<h1 id="关闭IPv6"><a href="#关闭IPv6" class="headerlink" title="关闭IPv6"></a>关闭IPv6</h1><p>关闭前先查看下<code>ip a</code></p>
+<p>执行关闭操作</p>
+<pre><code>vi /etc/sysctl.conf
+   net.ipv6.conf.all.disable_ipv6 = 1
+</code></pre><p>立即生效 <code>sysctl -p</code></p>
+<p>对比一下<code>ip a</code></p>
+<h1 id="lrzsz工具的使用"><a href="#lrzsz工具的使用" class="headerlink" title="lrzsz工具的使用"></a>lrzsz工具的使用</h1><pre><code>yum install lrzsz
+rz 上传文件至服务器
+sz 下载文件至本地
+</code></pre><blockquote>
+<p>可以在xshell文件-属性里面设置文件传输的路径以及重复文件处理</p>
+</blockquote>
+<h1 id="Systemd"><a href="#Systemd" class="headerlink" title="Systemd"></a>Systemd</h1><p>列出系统所有的服务<br><code>systemctl list-units --type service</code></p>
+<p>只列出启动的服务<br><code>systemctl list-unit-files --type=service | grep enabled</code></p>
+<p>针对某一个服务的操作</p>
+<pre><code>systemctl status name
+systemctl stop name
+systemctl disable name
+systemctl start name
+systemctl restart name
+</code></pre><h1 id="Git—-gt-gt-Tips"><a href="#Git—-gt-gt-Tips" class="headerlink" title="Git—&gt;&gt;Tips"></a>Git—&gt;&gt;Tips</h1><p>配置git</p>
+<pre><code>git config --global user.name &quot;Guoshuai&quot;
+git config --global user.email &quot;767410530@qq.com&quot;
+git config --list
+</code></pre><p>通过命令行在Github上创建一个repo</p>
+<pre><code>curl -u &apos;767410530@qq.com&apos; \
+https://api.github.com/user/repos -d &apos;{&quot;name&quot;:&quot;shell~docker&quot;}&apos;
+</code></pre><p>通过命令行在Github上删除一个repo</p>
+<pre><code>curl -X DELETE -u &quot;767410530@qq.com&quot; \
+https://api.github.com/repos/Guoshuaistrive/test
+</code></pre><ul>
+<li><p>当我们通过https方式来push文件的时候需要用户名和密码，执行下面这行命令只需要输入一次后自动保存，之后push就不需要输入了</p>
+<p>  <code>git config --global credential.helper store</code></p>
 </li>
 </ul>
-<ul>
-<li>lxd ：           是lxc对应的管理工具</li>
-<li>docker engine：  runc的管理工具,包含后台deamon和cli两个部分</li>
-<li>rkt cli：        rkt的管理工具</li>
-</ul>
-<h2 id="容器定义工具"><a href="#容器定义工具" class="headerlink" title="容器定义工具"></a>容器定义工具</h2><blockquote>
-<p>该工具允许用户定义容器的内容和属性，这样容器可以被保存、共享和重建</p>
-</blockquote>
-<pre><code>docker image ： 是Docker容器的模板，runtime依据docker image创建容器
-dockerfile ：   是包含若干命令的文本文件，可以通过这些命令创建出docker image
-ACI（App Container Image）： 与docker image类似，只不过由CoreOS开发的rkt容器的image格式
-</code></pre><h2 id="Registries"><a href="#Registries" class="headerlink" title="Registries"></a>Registries</h2><pre><code>容器通过image来创建的，所以需要有一个仓库来统一存放image，这个仓库就叫Registry。
-</code></pre><ul>
-<li>Docker Registry  ：   企业可以用它构建私有的Registry</li>
-<li>Docker Hub  ：        Docker为公众提供的托管Registry,上面很多现成的image</li>
-<li>Quay.io :             另一个公共托管Registry，提供与Docker Hub类似的服务</li>
-</ul>
-<h2 id="容器OS"><a href="#容器OS" class="headerlink" title="容器OS"></a>容器OS</h2><pre><code>容器OS是专门运行容器的操作系统，通常体积小，启动更快，运行容器的效率会更高。
-eg： CoreOS、Atomic和Ubuntu Core
-</code></pre><h1 id="容器平台技术"><a href="#容器平台技术" class="headerlink" title="容器平台技术"></a>容器平台技术</h1><pre><code>容器核心技术使得容器能够在单个host上运行，而容器平台技术能够让容器作为集群在分布式环境中运行
-</code></pre><h2 id="容器编排引擎"><a href="#容器编排引擎" class="headerlink" title="容器编排引擎"></a>容器编排引擎</h2><pre><code>通过容器编排引擎，容器被有机地组合成微服务应用，实现业务需求。
 
-      docker swarm ： Docker开发的容器编排引擎
-      Kubernetes ：   Google领导开发的开源容器编排引擎，同时支持Docker和CoreOS容器
-      mesos ：        一个通用的集群资源调度平台，mesos与marathon一起提供容器编排引擎功能
-</code></pre><h2 id="容器管理平台"><a href="#容器管理平台" class="headerlink" title="容器管理平台"></a>容器管理平台</h2><pre><code>通常容器管理平台能够支持多种编排引擎，抽象了编排引擎的底层实现细节，为用户提供更方便的功能。eg：application catalog 和一键应用部署等。
-
-Rancher和ContainerShip是容器管理平台的典型代表
-</code></pre><h2 id="基于容器的PaaS"><a href="#基于容器的PaaS" class="headerlink" title="基于容器的PaaS"></a>基于容器的PaaS</h2><pre><code>基于容器的PaaS为微服务应用开发人员和公司提供了开发、部署和管理应用的平台，使用户不必关心
-底层基础设施专心应用研发。Deis、Flynn和Dokku都是开源容器PaaS的代表。
-</code></pre><h1 id="容器支持技术"><a href="#容器支持技术" class="headerlink" title="容器支持技术"></a>容器支持技术</h1><h2 id="容器网络"><a href="#容器网络" class="headerlink" title="容器网络"></a>容器网络</h2><pre><code>容器的出现使网络拓扑变得更加动态和复杂。用户需要专门的解决方案来管理容器与容器、容器与其他实体之间的连通性和隔离性。
-
-docker network ：          是Docker原生的网络解决方案
-flannel、weave、calico ：  第三方开源解决方案
-</code></pre><h2 id="服务发现"><a href="#服务发现" class="headerlink" title="服务发现"></a>服务发现</h2><pre><code>服务发现会保存容器集群中所有微服务最新的消息，比如IP和端口，并对外提供API,提供服务查询功能
-etcd、consul、zookeeper是服务发现的典型解决方案。
-</code></pre><h2 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h2><pre><code>docker ps/top/stats ：  是Docker原生的命令行监控工具
-docker stats API ：     用户可以通过HTTP请求获取容器的状态信息
-sysdig、cAdvisor/Heapster、Weave Scope ： 是其他开源的容器监控方案
-</code></pre><h2 id="数据管理"><a href="#数据管理" class="headerlink" title="数据管理"></a>数据管理</h2><pre><code>容器经常在不同host之间迁移，如何保证持久化数据也能够动态迁移，是Rex-Ray这类数据管理工具提供的能力
-</code></pre><h2 id="日志管理"><a href="#日志管理" class="headerlink" title="日志管理"></a>日志管理</h2><pre><code>docker logs ：  Docker原生的日志工具
-logspout    ：  对日志提供了路由功能，它可以收集不同容器的日志并转发给其他工具进行后处理
-</code></pre><h2 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h2><pre><code>OpenSCAP能够对容器镜像进行扫描，发现潜在的漏洞    
-</code></pre>
       
     </div>
     
@@ -424,7 +483,7 @@ logspout    ：  对日志提供了路由功能，它可以收集不同容器的
       
         <div class="post-tags">
           
-            <a href="/tags/docker/" rel="tag"># docker</a>
+            <a href="/tags/cencos/" rel="tag"># cencos</a>
           
         </div>
       
@@ -437,8 +496,8 @@ logspout    ：  对日志提供了路由功能，它可以收集不同容器的
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/05/docker-4/" rel="next" title="初学docker必看总结">
-                <i class="fa fa-chevron-left"></i> 初学docker必看总结
+              <a href="/2017/12/29/ssh/" rel="next" title="SSH免密登录VM以及容器过程记录">
+                <i class="fa fa-chevron-left"></i> SSH免密登录VM以及容器过程记录
               </a>
             
           </div>
@@ -446,10 +505,6 @@ logspout    ：  对日志提供了路由功能，它可以收集不同容器的
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/07/docker-6/" rel="prev" title="Dockerfile构建镜像实例">
-                Dockerfile构建镜像实例 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -601,7 +656,7 @@ logspout    ：  对日志提供了路由功能，它可以收集不同容器的
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#容器核心技术"><span class="nav-number">1.</span> <span class="nav-text">容器核心技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#容器规范"><span class="nav-number">1.1.</span> <span class="nav-text">容器规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容器runtime"><span class="nav-number">1.2.</span> <span class="nav-text">容器runtime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容器管理工具"><span class="nav-number">1.3.</span> <span class="nav-text">容器管理工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容器定义工具"><span class="nav-number">1.4.</span> <span class="nav-text">容器定义工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Registries"><span class="nav-number">1.5.</span> <span class="nav-text">Registries</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容器OS"><span class="nav-number">1.6.</span> <span class="nav-text">容器OS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#容器平台技术"><span class="nav-number">2.</span> <span class="nav-text">容器平台技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#容器编排引擎"><span class="nav-number">2.1.</span> <span class="nav-text">容器编排引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容器管理平台"><span class="nav-number">2.2.</span> <span class="nav-text">容器管理平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于容器的PaaS"><span class="nav-number">2.3.</span> <span class="nav-text">基于容器的PaaS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#容器支持技术"><span class="nav-number">3.</span> <span class="nav-text">容器支持技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#容器网络"><span class="nav-number">3.1.</span> <span class="nav-text">容器网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务发现"><span class="nav-number">3.2.</span> <span class="nav-text">服务发现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监控"><span class="nav-number">3.3.</span> <span class="nav-text">监控</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据管理"><span class="nav-number">3.4.</span> <span class="nav-text">数据管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志管理"><span class="nav-number">3.5.</span> <span class="nav-text">日志管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全性"><span class="nav-number">3.6.</span> <span class="nav-text">安全性</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#查看系统相关信息"><span class="nav-number">1.</span> <span class="nav-text">查看系统相关信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看系统版本"><span class="nav-number">1.1.</span> <span class="nav-text">查看系统版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看系统位数"><span class="nav-number">1.2.</span> <span class="nav-text">查看系统位数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看内核版本"><span class="nav-number">1.3.</span> <span class="nav-text">查看内核版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#升级内核版本"><span class="nav-number">1.4.</span> <span class="nav-text">升级内核版本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#selinux设置"><span class="nav-number">2.</span> <span class="nav-text">selinux设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hostname"><span class="nav-number">3.</span> <span class="nav-text">hostname</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim"><span class="nav-number">4.</span> <span class="nav-text">vim</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装配置"><span class="nav-number">4.1.</span> <span class="nav-text">安装配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim常用快捷方式"><span class="nav-number">4.2.</span> <span class="nav-text">vim常用快捷方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ssh免密登录"><span class="nav-number">5.</span> <span class="nav-text">ssh免密登录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chrony同步时间"><span class="nav-number">6.</span> <span class="nav-text">chrony同步时间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装配置-1"><span class="nav-number">6.1.</span> <span class="nav-text">安装配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制同步时间"><span class="nav-number">6.2.</span> <span class="nav-text">强制同步时间</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Date-amp-Time"><span class="nav-number">7.</span> <span class="nav-text">Date&Time</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#手动修改时间"><span class="nav-number">7.1.</span> <span class="nav-text">手动修改时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看硬件时间"><span class="nav-number">7.2.</span> <span class="nav-text">查看硬件时间</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关闭IPv6"><span class="nav-number">8.</span> <span class="nav-text">关闭IPv6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lrzsz工具的使用"><span class="nav-number">9.</span> <span class="nav-text">lrzsz工具的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Systemd"><span class="nav-number">10.</span> <span class="nav-text">Systemd</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git—-gt-gt-Tips"><span class="nav-number">11.</span> <span class="nav-text">Git—>>Tips</span></a></li></ol></div>
             
 
           </div>
