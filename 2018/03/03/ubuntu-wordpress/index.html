@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Gavin的博客">
 <meta property="og:description" content="Ubuntu下安装wordpress与Centos下安装的过程相似还是略有区别，记录一下  安装apache2   apt-get install apache2    systemctl start apache2    systemctl enable apache2 在本地curl localhost看看是否返回，然后到浏览器用服务器IP测试">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-03T05:59:28.504Z">
+<meta property="og:updated_time" content="2018-03-03T10:47:24.581Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu16.04下安装wordpress的过程">
 <meta name="twitter:description" content="Ubuntu下安装wordpress与Centos下安装的过程相似还是略有区别，记录一下  安装apache2   apt-get install apache2    systemctl start apache2    systemctl enable apache2 在本地curl localhost看看是否返回，然后到浏览器用服务器IP测试">
@@ -364,12 +364,11 @@
 <p>查看日志：/var/log/apache2/access_log  error_log</p>
 </blockquote>
 <h1 id="安装php7-0"><a href="#安装php7-0" class="headerlink" title="安装php7.0"></a>安装php7.0</h1><ul>
-<li><p>在Ubuntu下用apt-get安装php直接就是7.0版本</p>
-<p>安装php </p>
-</li>
+<li>在Ubuntu下用apt-get安装php直接就是7.0版本</li>
 </ul>
+<p>安装php </p>
 <p><code>apt-get install php php-mysql</code></p>
-<p>  安装php组件，与centos略微不同，没有这个组件Ubuntu上php测试出不来页面</p>
+<p>安装php组件，与centos略微不同，没有这个组件Ubuntu上php测试出不来页面</p>
 <p><code>apt-get install libapache2-mod-php7.0</code></p>
 <p>测试 PHP 是否安装成功</p>
 <pre><code>cat &lt;&lt;EOF | sudo tee -a /var/www/html/phpinfo.php
@@ -380,10 +379,9 @@ EOF
 </code></pre><p>重启Apache服务器 <code>systemctl restart apache2</code></p>
 <p>然后就可以到浏览器测试<a href="http://IP/phpinfo.php" target="_blank" rel="external">http://IP/phpinfo.php</a></p>
 <h1 id="安装mariadb10-0"><a href="#安装mariadb10-0" class="headerlink" title="安装mariadb10.0"></a>安装mariadb10.0</h1><ul>
-<li><p>在Ubuntu下用apt-get安装mariadb直接就是10.0版本</p>
-<p><code>apt-get install mariadb-server</code></p>
-</li>
+<li>在Ubuntu下用apt-get安装mariadb直接就是10.0版本</li>
 </ul>
+<p><code>apt-get install mariadb-server</code></p>
 <p><code>systemctl start mysql</code> </p>
 <p><code>systemctl enable maysql</code></p>
 <blockquote>
@@ -462,6 +460,10 @@ define(&apos;DB_HOST&apos;, &apos;localhost&apos;);
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/03/testlink/" rel="prev" title="Ubuntu16.04安装testlink">
+                Ubuntu16.04安装testlink <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -542,7 +544,7 @@ define(&apos;DB_HOST&apos;, &apos;localhost&apos;);
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -564,7 +566,7 @@ define(&apos;DB_HOST&apos;, &apos;localhost&apos;);
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
