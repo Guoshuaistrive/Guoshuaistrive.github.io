@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="环境准备1.Ubuntu16.04 2.Apache2 3.php7.0 4.mariadb10.0  上一篇博客在安装wordpress的时候已经安装好了php7.0和mariadb10.0的环境，此篇不再叙述">
+<meta name="description" content="环境准备1.Ubuntu16.04 2.Apache2 3.php7.0 4.mariadb10.0">
 <meta name="keywords" content="testlink">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu16.04安装testlink">
 <meta property="og:url" content="http://Guoshuaistrive.github.io/2018/03/04/testlink/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="环境准备1.Ubuntu16.04 2.Apache2 3.php7.0 4.mariadb10.0  上一篇博客在安装wordpress的时候已经安装好了php7.0和mariadb10.0的环境，此篇不再叙述">
+<meta property="og:description" content="环境准备1.Ubuntu16.04 2.Apache2 3.php7.0 4.mariadb10.0">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://wx4.sinaimg.cn/mw690/6ac4574dly1fozv44bob4j211p0k2q78.jpg">
-<meta property="og:updated_time" content="2018-03-03T11:49:35.108Z">
+<meta property="og:updated_time" content="2018-03-03T11:57:08.750Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu16.04安装testlink">
-<meta name="twitter:description" content="环境准备1.Ubuntu16.04 2.Apache2 3.php7.0 4.mariadb10.0  上一篇博客在安装wordpress的时候已经安装好了php7.0和mariadb10.0的环境，此篇不再叙述">
+<meta name="twitter:description" content="环境准备1.Ubuntu16.04 2.Apache2 3.php7.0 4.mariadb10.0">
 <meta name="twitter:image" content="https://wx4.sinaimg.cn/mw690/6ac4574dly1fozv44bob4j211p0k2q78.jpg">
 
 
@@ -359,17 +359,18 @@
 2.Apache2
 3.php7.0
 4.mariadb10.0
-</code></pre><blockquote>
-<p>上一篇博客在安装wordpress的时候已经安装好了php7.0和mariadb10.0的环境，此篇不再叙述<br><a id="more"></a></p>
-<h1 id="安装testlink"><a href="#安装testlink" class="headerlink" title="安装testlink"></a>安装testlink</h1></blockquote>
-<h2 id="创建testlink数据库"><a href="#创建testlink数据库" class="headerlink" title="创建testlink数据库"></a>创建testlink数据库</h2><pre><code>CREATE DATABASE testlink;
+</code></pre><a id="more"></a>
+<blockquote>
+<p>上一篇博客在安装wordpress的时候已经安装好了php7.0和mariadb10.0的环境，此篇不再叙述</p>
+</blockquote>
+<h1 id="安装testlink"><a href="#安装testlink" class="headerlink" title="安装testlink"></a>安装testlink</h1><h2 id="创建testlink数据库"><a href="#创建testlink数据库" class="headerlink" title="创建testlink数据库"></a>创建testlink数据库</h2><pre><code>CREATE DATABASE testlink;
 CREATE USER &apos;testlinkuser&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;444444&apos;;
 GRANT ALL PRIVILEGES ON testlink.* TO &apos;testlinkuser&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;444444&apos; WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 EXIT;
-</code></pre><h2 id="安装testlink-1"><a href="#安装testlink-1" class="headerlink" title="安装testlink"></a>安装testlink</h2><p>切换到/var/www/html目录下</p>
-<p>下载压缩包<code>wget http://github.com/TestLinkOpenSourceTRMS/testlink-code/archive/1.9.16.tar.gz</code></p>
-<p>解压 <code>tar -zxvf 1.9.16.tar.gz</code></p>
+</code></pre><h2 id="安装testlink-1"><a href="#安装testlink-1" class="headerlink" title="安装testlink"></a>安装testlink</h2><p>切换至/var/www/html目录,下载压缩包</p>
+<p><code>wget http://github.com/TestLinkOpenSourceTRMS/testlink-code/archive/1.9.16.tar.gz</code></p>
+<p>解压  <code>tar -zxvf 1.9.16.tar.gz</code></p>
 <p>将custom_config.inc.php.example重命名为custom_config.inc.php，并且替换文件内容</p>
 <pre><code>mv /var/www/html/testlink-code-1.9.16/custom_config.inc.php.example /var/www/html/testlink-code-1.9.16/custom_config.inc.php
 
