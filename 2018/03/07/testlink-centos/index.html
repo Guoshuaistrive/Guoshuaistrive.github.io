@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="docker," />
+  <meta name="keywords" content="testlink," />
 
 
 
@@ -79,24 +79,18 @@
 
 
 
-<meta name="description" content="今天继续上一篇博客，把肖老师的剩下文章记录完毕。  容器主机网络模型Docker 内建的网络模型是 Bridge Network。这种网络是基于主机内部模型的网络，设计之初也是为了解决单机模式下容器之间的互联互通问题。">
-<meta name="keywords" content="docker">
+<meta name="description" content="这篇博客记录了在Centos7.4完全初始化的情况下从头到尾安装testlink的过程，其中包含centos上如何安装php7和mariadb10.1的过程，以及配置虚拟主机的步骤。  安装httpdyum install httpd systemctl start httpd systemctl enable httpd 在本地curl localhost看看是否返回,然后再到浏览器用服务器i">
+<meta name="keywords" content="testlink">
 <meta property="og:type" content="article">
-<meta property="og:title" content="肖德时文章笔记（二）">
-<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/26/肖德时文章笔记（二）/index.html">
+<meta property="og:title" content="Centos7.4安装testlink">
+<meta property="og:url" content="http://Guoshuaistrive.github.io/2018/03/07/testlink-centos/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="今天继续上一篇博客，把肖老师的剩下文章记录完毕。  容器主机网络模型Docker 内建的网络模型是 Bridge Network。这种网络是基于主机内部模型的网络，设计之初也是为了解决单机模式下容器之间的互联互通问题。">
+<meta property="og:description" content="这篇博客记录了在Centos7.4完全初始化的情况下从头到尾安装testlink的过程，其中包含centos上如何安装php7和mariadb10.1的过程，以及配置虚拟主机的步骤。  安装httpdyum install httpd systemctl start httpd systemctl enable httpd 在本地curl localhost看看是否返回,然后再到浏览器用服务器i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://images.gitbook.cn/20e5c040-c374-11e7-91b9-cb02ca6acdf9">
-<meta property="og:image" content="http://images.gitbook.cn/2ae28e10-c375-11e7-a275-4181d09742c4">
-<meta property="og:image" content="http://images.gitbook.cn/1abcb9c0-c834-11e7-abe8-f7b30b0f0c8d">
-<meta property="og:image" content="http://images.gitbook.cn/3b45d8d0-c833-11e7-8d31-d710380fda5d">
-<meta property="og:image" content="http://images.gitbook.cn/a0c14f00-c833-11e7-8d31-d710380fda5d">
-<meta property="og:updated_time" content="2017-11-26T08:08:18.922Z">
+<meta property="og:updated_time" content="2018-03-07T12:40:34.882Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="肖德时文章笔记（二）">
-<meta name="twitter:description" content="今天继续上一篇博客，把肖老师的剩下文章记录完毕。  容器主机网络模型Docker 内建的网络模型是 Bridge Network。这种网络是基于主机内部模型的网络，设计之初也是为了解决单机模式下容器之间的互联互通问题。">
-<meta name="twitter:image" content="http://images.gitbook.cn/20e5c040-c374-11e7-91b9-cb02ca6acdf9">
+<meta name="twitter:title" content="Centos7.4安装testlink">
+<meta name="twitter:description" content="这篇博客记录了在Centos7.4完全初始化的情况下从头到尾安装testlink的过程，其中包含centos上如何安装php7和mariadb10.1的过程，以及配置虚拟主机的步骤。  安装httpdyum install httpd systemctl start httpd systemctl enable httpd 在本地curl localhost看看是否返回,然后再到浏览器用服务器i">
 
 
 
@@ -126,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/11/26/肖德时文章笔记（二）/"/>
+  <link rel="canonical" href="http://Guoshuaistrive.github.io/2018/03/07/testlink-centos/"/>
 
 
 
 
 
-  <title>肖德时文章笔记（二） | Gavin的博客</title>
+  <title>Centos7.4安装testlink | Gavin的博客</title>
   
 
 
@@ -259,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/26/肖德时文章笔记（二）/">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2018/03/07/testlink-centos/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guo shuai">
@@ -276,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">肖德时文章笔记（二）</h1>
+          <h1 class="post-title" itemprop="name headline">Centos7.4安装testlink</h1>
         
 
         <div class="post-meta">
@@ -288,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-26T13:13:04+08:00">
-                2017-11-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T20:26:00+08:00">
+                2018-03-07
               </time>
             
 
@@ -311,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/learn/" itemprop="url" rel="index">
-                    <span itemprop="name">learn</span>
+                  <a href="/categories/exercise/" itemprop="url" rel="index">
+                    <span itemprop="name">exercise</span>
                   </a>
                 </span>
 
@@ -328,7 +322,7 @@
 
           
           
-             <span id="/2017/11/26/肖德时文章笔记（二）/" class="leancloud_visitors" data-flag-title="肖德时文章笔记（二）">
+             <span id="/2018/03/07/testlink-centos/" class="leancloud_visitors" data-flag-title="Centos7.4安装testlink">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -360,29 +354,107 @@
 
       
         <blockquote>
-<p>今天继续上一篇博客，把肖老师的剩下文章记录完毕。</p>
+<p>这篇博客记录了在Centos7.4完全初始化的情况下从头到尾安装testlink的过程，其中包含centos上如何安装php7和mariadb10.1的过程，以及配置虚拟主机的步骤。</p>
 </blockquote>
-<h1 id="容器主机网络模型"><a href="#容器主机网络模型" class="headerlink" title="容器主机网络模型"></a>容器主机网络模型</h1><p>Docker 内建的网络模型是 Bridge Network。这种网络是基于主机内部模型的网络，设计之初也是为了解决单机模式下容器之间的互联互通问题。</p>
-<p><img src="http://images.gitbook.cn/20e5c040-c374-11e7-91b9-cb02ca6acdf9" alt=""><br><a id="more"></a> </p>
-<h1 id="跨越主机的容器网络模型"><a href="#跨越主机的容器网络模型" class="headerlink" title="跨越主机的容器网络模型"></a>跨越主机的容器网络模型</h1><p>跨越主机访问，最原生的方式是 Macvlan（真实的网络虚拟化技术） 驱动支持的二层网络模型，它实现了容器网络和主机网络的原生互联。相比 Linux Bridge，性能更高。因为它跳过了主机网卡和容器网络直接的转发过程，容器网卡接口直接对接主机网口，可以视作为主机网络的延伸。这样的网络，让外部访问容器变的非常简便，不再需要端口映射。</p>
-<p><img src="http://images.gitbook.cn/2ae28e10-c375-11e7-a275-4181d09742c4" alt=""></p>
-<h1 id="容器监控实践"><a href="#容器监控实践" class="headerlink" title="容器监控实践"></a>容器监控实践</h1><p>完美通过 Prometheus 的架构来了解监控的流程架构图</p>
-<p><img src="http://images.gitbook.cn/1abcb9c0-c834-11e7-abe8-f7b30b0f0c8d" alt=""></p>
-<p>它采用 Pull 模式来主动收集监控信息，并可以采用 Grafana 定制出需要的监控大屏面板。</p>
-<h1 id="日志系统的容器化实践"><a href="#日志系统的容器化实践" class="headerlink" title="日志系统的容器化实践"></a>日志系统的容器化实践</h1><p>容器领域里面的日志分为控制台日志和应用业务日志两类。对于容器控制台接口，需要通过容器进程开放的接口来采集，</p>
-<p><img src="http://images.gitbook.cn/3b45d8d0-c833-11e7-8d31-d710380fda5d" alt=""></p>
+<h1 id="安装httpd"><a href="#安装httpd" class="headerlink" title="安装httpd"></a>安装httpd</h1><pre><code>yum install httpd
+systemctl start httpd
+systemctl enable httpd
+</code></pre><p>在本地curl localhost看看是否返回,然后再到浏览器用服务器ip测试<br><a id="more"></a></p>
 <blockquote>
-<p>在我们生产实践推荐中，偏向于采用系统提供的日志系统 systemd-journal 来接收日志采集，然后通过 fluentd 采集代理进程，把相应的日志按照业务规则分类汇聚，发送到 Elasticsearch 这样的中央日志管理系统。</p>
+<p> 查看日志：<code>/var/log/httpd/access_log  error_log</code></p>
 </blockquote>
-<ul>
-<li>通常采用流式消息队列服务 Kafka 作为日志存储的异步缓冲，可以极大的缓解日志流量，并高效的解决日志采集的汇聚难题。</li>
+<h1 id="安装php7"><a href="#安装php7" class="headerlink" title="安装php7"></a>安装php7</h1><p>添加IUS的repo源，这是专门针对红帽系统提供rpm包更新的</p>
+<p><code>yum install https://centos7.iuscommunity.org/ius-release.rpm</code></p>
+<p>安装php7</p>
+<pre><code>yum install php70u php70u-pdo php70u-mysqlnd \
+php70u-opcache php70u-xml php70u-gd \
+php70u-devel php70u-json
+</code></pre><p>查看结果</p>
+<pre><code>root@guoshuai-01 ~]# php -v
+PHP 7.0.27 (cli) (built: Jan  4 2018 13:39:07) ( NTS )
+Copyright (c) 1997-2017 The PHP Group
+Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies
+with Zend OPcache v7.0.27, Copyright (c) 1999-2017, by Zend Technologies
+</code></pre><p>测试 PHP 是否安装成功</p>
+<pre><code>cat &lt;&lt;EOF | sudo tee -a /var/www/html/phpinfo.php
+&lt;?php
+phpinfo();
+?&gt;
+EOF
+</code></pre><p>重启httpd服务器   <code>systemctl restart httpd</code></p>
+<p>到浏览器<code>http://ip/phpinfo.php</code>测试  </p>
+<h1 id="安装mariadb"><a href="#安装mariadb" class="headerlink" title="安装mariadb"></a>安装mariadb</h1><p>数据库就是mariadb，红帽默认是5.5版本，testlink要求5.6以上的版本才能支持</p>
+<pre><code>cat &lt;&lt;EOF | sudo tee -a /etc/yum.repos.d/MariaDB.repo
+# MariaDB 10.1 CentOS repository list - created 2017-01-14 03:11 UTC
+# http://downloads.mariadb.org/mariadb/repositories/
+[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/10.1/centos7-amd64
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1 
+EOF
+</code></pre><p>安装mariadb </p>
+<pre><code>yum install MariaDB-server MariaDB-client -y
+systemctl start mariadb
+systemctl enable mariadb
+</code></pre><p>安全设置 /usr/bin/mysql_secure_installation</p>
+<h1 id="安装testlink"><a href="#安装testlink" class="headerlink" title="安装testlink"></a>安装testlink</h1><p>创建testlink数据库</p>
+<pre><code>CREATE DATABASE testlink;
+CREATE USER &apos;testlinkuser&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;20180307&apos;;
+GRANT ALL PRIVILEGES ON testlink.* TO &apos;testlinkuser&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;20180307&apos; WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+</code></pre><p>切换至/var/www/html目录,下载压缩包</p>
+<p><code>wget http://github.com/TestLinkOpenSourceTRMS/testlink-code/archive/1.9.16.tar.gz</code></p>
+<p>解压 <code>tar -zxvf 1.9.16.tar.gz</code></p>
+<p>创建一个定制文件，并替换其中部分内容</p>
+<p><code>cp /var/www/html/testlink-code-1.9.16/custom_config.inc.php.example 
+/var/www/html/testlink-code-1.9.16/custom_config.inc.php</code></p>
+<p><code>vi /var/www/html/testlink-code-1.9.16/custom_config.inc.php</code></p>
+<pre><code>// $tlCfg-&gt;log_path = &apos;/var/testlink-ga-testlink-code/logs/&apos;; /* unix example */
+// $g_repositoryPath = &apos;/var/testlink-ga-testlink-code/upload_area/&apos;;  /* unix example */
+
+$tlCfg-&gt;log_path = &apos;/var/www/html/testlink-code-1.9.16/logs/&apos;;
+$g_repositoryPath = &apos;/var/www/html/testlink-code-1.9.16/upload_area/&apos;;
+$tlCfg-&gt;config_check_warning_mode = &apos;SILENT&apos;;
+</code></pre><p>设置权限 <code>chown -R apache:apache /var/www/html/testlink-code-1.9.16</code></p>
+<p>此时，可以用ip访问看看testlink是否联通</p>
+<h1 id="配置虚拟主机"><a href="#配置虚拟主机" class="headerlink" title="配置虚拟主机"></a>配置虚拟主机</h1><pre><code>cat &lt;&lt;EOF | sudo tee -a /etc/httpd/conf.d/testlink.conf    
+&lt;VirtualHost *:80&gt;    
+ServerAdmin admin@gs.com    
+DocumentRoot /var/www/html/testlink-code-1.9.16/    
+ServerName testlink.gs.com    
+ServerAlias www.testlink.gs.com    
+&lt;Directory /var/www/html/testlink-code-1.9.16/&gt;    
+Options FollowSymLinks    
+AllowOverride All    
+Order allow,deny    
+allow from all    
+&lt;/Directory&gt;    
+ErrorLog /var/log/httpd/testlink.gs.com-error_log    
+CustomLog /var/log/httpd/testlink.gs.com-access_log common    
+&lt;/VirtualHost&gt;    
+EOF
+</code></pre><p>重启服务器 systemctl restart httpd </p>
+<blockquote>
+<p> 在C:\windows\system32\drivers\etc\hosts文件中加入域名到本地IP地址的映射 </p>
+</blockquote>
+<p>150.129.193.14   testlink.gs.com </p>
+<h1 id="结束安装"><a href="#结束安装" class="headerlink" title="结束安装"></a>结束安装</h1><p>一路点击continue即可，进入数据库页面之后的配置如下</p>
+<pre><code>Database Type: MySQL/MariaDB (5.6+ / 10.+)
+Database host: localhost
+Database name: testlink
+Table prefix: &lt;LEAVE IT EMPTY&gt;
+Database admin login: root
+Database admin password: &lt;your-MariaDB-root-password&gt;
+TestLink DB login: testlinkuser
+TestLink DB password: yourpassword
+</code></pre><p>现在即可登录网页使用testlink，登录名称和密码均为admin</p>
+<pre><code>Login Name: admin
+Password: admin
+</code></pre><ul>
+<li>登录之后即可修改你的密码</li>
 </ul>
-<blockquote>
-<p>Fluentd 是当前一站式解决容器日志采集方案的首选。由于 Fluentd 是一套 ruby 编写的日志采集框架，很难让人信服其海量的日志处理能力。所以在今年早些时候推出了基于 C 语言编写的高性能日志转发工具 fluentbit，可以完美承上输入层，起下输出层，如下</p>
-</blockquote>
-<p><img src="http://images.gitbook.cn/a0c14f00-c833-11e7-8d31-d710380fda5d" alt=""></p>
-<p>日志收集到之后，会通过相应的过滤插件汇聚清洗日志条目并聚合到日志中心系统，系统用户通过可视化界面可以检索自己需要的日志信息。</p>
-<p>（待修）</p>
+<p>参考文章 <a href="https://www.vultr.com/docs/how-to-install-testlink-on-centos-7" target="_blank" rel="external">https://www.vultr.com/docs/how-to-install-testlink-on-centos-7</a></p>
 
       
     </div>
@@ -400,7 +472,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/docker/" rel="tag"># docker</a>
+            <a href="/tags/testlink/" rel="tag"># testlink</a>
           
         </div>
       
@@ -413,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/25/肖德时文章笔记（一）/" rel="next" title="肖德时文章笔记（一）">
-                <i class="fa fa-chevron-left"></i> 肖德时文章笔记（一）
+              <a href="/2018/03/04/testlink/" rel="next" title="Ubuntu16.04安装testlink">
+                <i class="fa fa-chevron-left"></i> Ubuntu16.04安装testlink
               </a>
             
           </div>
@@ -422,10 +494,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/27/ELK/" rel="prev" title="ELK日志管理系统">
-                ELK日志管理系统 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -577,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#容器主机网络模型"><span class="nav-number">1.</span> <span class="nav-text">容器主机网络模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#跨越主机的容器网络模型"><span class="nav-number">2.</span> <span class="nav-text">跨越主机的容器网络模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#容器监控实践"><span class="nav-number">3.</span> <span class="nav-text">容器监控实践</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#日志系统的容器化实践"><span class="nav-number">4.</span> <span class="nav-text">日志系统的容器化实践</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装httpd"><span class="nav-number">1.</span> <span class="nav-text">安装httpd</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装php7"><span class="nav-number">2.</span> <span class="nav-text">安装php7</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装mariadb"><span class="nav-number">3.</span> <span class="nav-text">安装mariadb</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装testlink"><span class="nav-number">4.</span> <span class="nav-text">安装testlink</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置虚拟主机"><span class="nav-number">5.</span> <span class="nav-text">配置虚拟主机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结束安装"><span class="nav-number">6.</span> <span class="nav-text">结束安装</span></a></li></ol></div>
             
 
           </div>
