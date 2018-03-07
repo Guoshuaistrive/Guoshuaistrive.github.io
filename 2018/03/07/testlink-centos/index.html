@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Gavin的博客">
 <meta property="og:description" content="这篇博客记录了在Centos7.4完全初始化的情况下从头到尾安装testlink的过程，其中包含centos上如何安装php7和mariadb10.1的过程，以及配置虚拟主机的步骤。  安装httpdyum install httpd systemctl start httpd systemctl enable httpd 在本地curl localhost看看是否返回,然后再到浏览器用服务器i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-07T12:40:34.882Z">
+<meta property="og:updated_time" content="2018-03-07T12:56:37.150Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos7.4安装testlink">
 <meta name="twitter:description" content="这篇博客记录了在Centos7.4完全初始化的情况下从头到尾安装testlink的过程，其中包含centos上如何安装php7和mariadb10.1的过程，以及配置虚拟主机的步骤。  安装httpdyum install httpd systemctl start httpd systemctl enable httpd 在本地curl localhost看看是否返回,然后再到浏览器用服务器i">
@@ -407,8 +407,7 @@ FLUSH PRIVILEGES;
 <p><code>wget http://github.com/TestLinkOpenSourceTRMS/testlink-code/archive/1.9.16.tar.gz</code></p>
 <p>解压 <code>tar -zxvf 1.9.16.tar.gz</code></p>
 <p>创建一个定制文件，并替换其中部分内容</p>
-<p><code>cp /var/www/html/testlink-code-1.9.16/custom_config.inc.php.example 
-/var/www/html/testlink-code-1.9.16/custom_config.inc.php</code></p>
+<p><code>cp /var/www/html/testlink-code-1.9.16/custom_config.inc.php.example /var/www/html/testlink-code-1.9.16/custom_config.inc.php</code></p>
 <p><code>vi /var/www/html/testlink-code-1.9.16/custom_config.inc.php</code></p>
 <pre><code>// $tlCfg-&gt;log_path = &apos;/var/testlink-ga-testlink-code/logs/&apos;; /* unix example */
 // $g_repositoryPath = &apos;/var/testlink-ga-testlink-code/upload_area/&apos;;  /* unix example */
@@ -417,7 +416,7 @@ $tlCfg-&gt;log_path = &apos;/var/www/html/testlink-code-1.9.16/logs/&apos;;
 $g_repositoryPath = &apos;/var/www/html/testlink-code-1.9.16/upload_area/&apos;;
 $tlCfg-&gt;config_check_warning_mode = &apos;SILENT&apos;;
 </code></pre><p>设置权限 <code>chown -R apache:apache /var/www/html/testlink-code-1.9.16</code></p>
-<p>此时，可以用ip访问看看testlink是否联通</p>
+<p>此时，可以先用ip访问看看testlink是否联通</p>
 <h1 id="配置虚拟主机"><a href="#配置虚拟主机" class="headerlink" title="配置虚拟主机"></a>配置虚拟主机</h1><pre><code>cat &lt;&lt;EOF | sudo tee -a /etc/httpd/conf.d/testlink.conf    
 &lt;VirtualHost *:80&gt;    
 ServerAdmin admin@gs.com    
@@ -438,8 +437,8 @@ EOF
 <blockquote>
 <p> 在C:\windows\system32\drivers\etc\hosts文件中加入域名到本地IP地址的映射 </p>
 </blockquote>
-<p>150.129.193.14   testlink.gs.com </p>
-<h1 id="结束安装"><a href="#结束安装" class="headerlink" title="结束安装"></a>结束安装</h1><p>一路点击continue即可，进入数据库页面之后的配置如下</p>
+<pre><code>150.129.193.14   testlink.gs.com 
+</code></pre><h1 id="结束安装"><a href="#结束安装" class="headerlink" title="结束安装"></a>结束安装</h1><p>一路点击continue即可，进入数据库页面之后的配置如下</p>
 <pre><code>Database Type: MySQL/MariaDB (5.6+ / 10.+)
 Database host: localhost
 Database name: testlink
@@ -454,7 +453,7 @@ Password: admin
 </code></pre><ul>
 <li>登录之后即可修改你的密码</li>
 </ul>
-<p>参考文章 <a href="https://www.vultr.com/docs/how-to-install-testlink-on-centos-7" target="_blank" rel="external">https://www.vultr.com/docs/how-to-install-testlink-on-centos-7</a></p>
+<p>参考文章  <a href="https://www.vultr.com/docs/how-to-install-testlink-on-centos-7" target="_blank" rel="external">https://www.vultr.com/docs/how-to-install-testlink-on-centos-7</a></p>
 
       
     </div>
