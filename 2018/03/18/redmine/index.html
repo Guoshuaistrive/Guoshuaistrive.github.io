@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="docker," />
+  <meta name="keywords" content="redmine," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="什么是容器 容器由两部分组成：  （1）应用程序本身； （2）依赖：比如应用程序需要的库或其他软件容器在Host操作系统的用户空间中运行,           与操作系统的其他进程隔离。  每个容器都有一个软件镜像，相当于集装箱中的货物">
-<meta name="keywords" content="docker">
+<meta name="description" content="更改系统默认源Ubuntu默认使用的国外的源，在更新的时候会很慢。中国科技大学的源一般使用起来比较快，直接选择中科大的源。 先备份 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak 删除默认源，添加中科大的源sudo vi /etc/apt/sources.list">
+<meta name="keywords" content="redmine">
 <meta property="og:type" content="article">
-<meta property="og:title" content="容器核心知识">
-<meta property="og:url" content="http://Guoshuaistrive.github.io/2017/11/12/容器核心知识/index.html">
+<meta property="og:title" content="Ubuntu16.04安装redmine的过程">
+<meta property="og:url" content="http://Guoshuaistrive.github.io/2018/03/18/redmine/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="什么是容器 容器由两部分组成：  （1）应用程序本身； （2）依赖：比如应用程序需要的库或其他软件容器在Host操作系统的用户空间中运行,           与操作系统的其他进程隔离。  每个容器都有一个软件镜像，相当于集装箱中的货物">
+<meta property="og:description" content="更改系统默认源Ubuntu默认使用的国外的源，在更新的时候会很慢。中国科技大学的源一般使用起来比较快，直接选择中科大的源。 先备份 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak 删除默认源，添加中科大的源sudo vi /etc/apt/sources.list">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-12T11:28:06.018Z">
+<meta property="og:updated_time" content="2018-03-18T12:18:51.711Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="容器核心知识">
-<meta name="twitter:description" content="什么是容器 容器由两部分组成：  （1）应用程序本身； （2）依赖：比如应用程序需要的库或其他软件容器在Host操作系统的用户空间中运行,           与操作系统的其他进程隔离。  每个容器都有一个软件镜像，相当于集装箱中的货物">
+<meta name="twitter:title" content="Ubuntu16.04安装redmine的过程">
+<meta name="twitter:description" content="更改系统默认源Ubuntu默认使用的国外的源，在更新的时候会很慢。中国科技大学的源一般使用起来比较快，直接选择中科大的源。 先备份 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak 删除默认源，添加中科大的源sudo vi /etc/apt/sources.list">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Guoshuaistrive.github.io/2017/11/12/容器核心知识/"/>
+  <link rel="canonical" href="http://Guoshuaistrive.github.io/2018/03/18/redmine/"/>
 
 
 
 
 
-  <title>容器核心知识 | Gavin的博客</title>
+  <title>Ubuntu16.04安装redmine的过程 | Gavin的博客</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2017/11/12/容器核心知识/">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2018/03/18/redmine/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guo shuai">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">容器核心知识</h1>
+          <h1 class="post-title" itemprop="name headline">Ubuntu16.04安装redmine的过程</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-12T19:07:54+08:00">
-                2017-11-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T20:45:50+08:00">
+                2018-03-18
               </time>
             
 
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/summary/" itemprop="url" rel="index">
-                    <span itemprop="name">summary</span>
+                  <a href="/categories/exercise/" itemprop="url" rel="index">
+                    <span itemprop="name">exercise</span>
                   </a>
                 </span>
 
@@ -322,7 +322,7 @@
 
           
           
-             <span id="/2017/11/12/容器核心知识/" class="leancloud_visitors" data-flag-title="容器核心知识">
+             <span id="/2018/03/18/redmine/" class="leancloud_visitors" data-flag-title="Ubuntu16.04安装redmine的过程">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -353,162 +353,107 @@
       
 
       
-        <h1 id="什么是容器"><a href="#什么是容器" class="headerlink" title="什么是容器"></a>什么是容器</h1><blockquote>
-<p>容器由两部分组成：</p>
-</blockquote>
-<pre><code>（1）应用程序本身；
-（2）依赖：比如应用程序需要的库或其他软件容器在Host操作系统的用户空间中运行,
-          与操作系统的其他进程隔离。
+        <h1 id="更改系统默认源"><a href="#更改系统默认源" class="headerlink" title="更改系统默认源"></a>更改系统默认源</h1><p>Ubuntu默认使用的国外的源，在更新的时候会很慢。中国科技大学的源一般使用起来比较快，直接选择中科大的源。</p>
+<p>先备份 <code>sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</code></p>
+<p>删除默认源，添加中科大的源<code>sudo vi /etc/apt/sources.list</code></p>
+<a id="more"></a>
+<pre><code># USTC (University of Science and Technology of Thina)
+# xenial is ubuntu 16.04 version
+deb http://mirrors.ustc.edu.cn/ubuntu/ xenial main restricted universe multiverse
+deb http://mirrors.ustc.edu.cn/ubuntu/ xenial-security main restricted universe multiverse
+deb http://mirrors.ustc.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse
+deb http://mirrors.ustc.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse
+deb http://mirrors.ustc.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse
+deb-src http://mirrors.ustc.edu.cn/ubuntu/ xenial main restricted universe multiverse
+deb-src http://mirrors.ustc.edu.cn/ubuntu/ xenial-security main restricted universe multiverse
+deb-src http://mirrors.ustc.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse
+deb-src http://mirrors.ustc.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse
+deb-src http://mirrors.ustc.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse
 </code></pre><blockquote>
-<p>每个容器都有一个软件镜像，相当于集装箱中的货物<br><a id="more"></a></p>
-<h1 id="容器解决的问题"><a href="#容器解决的问题" class="headerlink" title="容器解决的问题"></a>容器解决的问题</h1></blockquote>
+<p>Ubuntu 16.04的版本代号为xenial，所以上面全部是xenial，如果是其他版本的Ubuntu，也是同样的道理，只不过修改代号就可以了。</p>
+</blockquote>
+<p>更新列表 <code>sudo apt-get update</code></p>
+<p>然后再<code>apt-get upgrade</code>一下</p>
+<h1 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h1><p><code>apt-get install mysql-server mysql-client libmysqlclient-dev imagemagick libmagickwand-dev libssl-dev libcurl4-openssl-dev git-core subversion</code></p>
+<h1 id="安装rvm和ruby"><a href="#安装rvm和ruby" class="headerlink" title="安装rvm和ruby"></a>安装rvm和ruby</h1><p><code>gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3</code></p>
+<p><code>curl -L https://get.rvm.io | bash -s stable --ruby=2.2.5</code></p>
 <ul>
-<li>Docker将集装箱思想运用到软件打包上，为代码提供了一个基于容器的标准化运输系统。</li>
-<li>Docker可以将任何应用及其依赖打包成一个轻量级、可移植、自包含的容器，容器可以运行在几乎所有的操作系统上。</li>
+<li>如果安装出现错误，按照人家提示的信息再运行一条命令即可。</li>
 </ul>
-<h1 id="Docker镜像"><a href="#Docker镜像" class="headerlink" title="Docker镜像"></a>Docker镜像</h1><blockquote>
-<p>镜像是Docker容器的基石，容器是镜像的运行实例，有了镜像才能启动容器。</p>
-</blockquote>
-<h1 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h1><ol>
-<li><p>docker commit（从容器创建新镜像） </p>
-<ul>
-<li>运行容器： <code>docker run -it ubuntu</code></li>
-<li>修改容器：  在容器安装vim</li>
-<li>将容器保存为新的镜像：  <code>docker commit NAMES Ubuntu-gs-vim</code></li>
-</ul>
-</li>
-<li><p><code>docker build -t centos-gs-dockerfile .</code>（从Dockerfile构建镜像）</p>
-</li>
-</ol>
-<h1 id="镜像上传"><a href="#镜像上传" class="headerlink" title="镜像上传"></a>镜像上传</h1><ul>
-<li><p>在Docker Hub上注册一个账号</p>
-</li>
-<li><p>在Docker Host上登录<code># docker login -u guoshuai</code></p>
-</li>
-<li><p>修改镜像repo使之与Docker Hub账号匹配  <code>docker tag httpd guoshuai/httpd:v1</code></p>
-</li>
-<li><p>将镜像上传到Docker Hub  <code>docker push guoshuai/httpd:v1</code></p>
-</li>
-<li><p>这个镜像就可以被其他Docker host下载使用了: <code>docker pull guoshuai/httpd:v1</code></p>
-</li>
-</ul>
-<h1 id="搭建本地Registry"><a href="#搭建本地Registry" class="headerlink" title="搭建本地Registry"></a>搭建本地Registry</h1><ul>
-<li><p>启动registry,我们使用的镜像时registry：2<br><code>docker run -d -p 5000:5000 -v /myregistry:/var/lib/registry registry:2</code></p>
-</li>
-<li><p>通过docker tag 重命名镜像，使之与registry匹配<br><code>docker tag guoshuai/httpd:v1 registry.example.net:5000/guoshuai/httpd:v1</code></p>
-</li>
-<li><p>通过docker push上镜像: </p>
-<p>   <code>docker push registry.example.net:5000/guoshuai/httpd:v1</code></p>
-</li>
-</ul>
-<blockquote>
-<p>这个镜像就可以从本地registry下载使用了: <code>docker pull registry.example.net:5000/guoshuai/httpd:v1</code></p>
-</blockquote>
-<h1 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h1><blockquote>
-<p>rmi只能删除host上的镜像，不会删除registry的镜像</p>
-</blockquote>
-<pre><code>[root@i-y61tbtqs ~]# docker images docker.io/node
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-docker.io/node      0.10                0f9a0e09fbda        12 months ago       631.4 MB
+<p>重载RVM，并添加到 .bashrc</p>
+<p><code>source /usr/local/rvm/scripts/rvm</code></p>
+<p> <code>echo &#39;[[ -s &quot;/usr/local/rvm/scripts/rvm&quot; ]] &amp;&amp; source &quot;/usr/local/rvm/scripts/rvm&quot;&#39; &gt;&gt; ~/.bashrc</code></p>
+<h1 id="配置Redmine数据库"><a href="#配置Redmine数据库" class="headerlink" title="配置Redmine数据库"></a>配置Redmine数据库</h1><pre><code>create database redmine;
+create user redmine@localhost identified by &apos;20180318&apos;;
+grant all privileges on redmine.* to redmine@localhost identified by &apos;20180318&apos;;
+flush privileges;
+</code></pre><h1 id="安装Phusion-Passenger和Nginx"><a href="#安装Phusion-Passenger和Nginx" class="headerlink" title="安装Phusion Passenger和Nginx"></a>安装Phusion Passenger和Nginx</h1><p><code>gem install passenger --no-ri --no-rdoc</code></p>
+<p><code>passenger-install-nginx-module</code></p>
+<p>这条命令运行时会有提示：默认选择Ruby and Python； 之后选择1.Yes：download…..; 往下enter即可</p>
+<h1 id="配置Nginx"><a href="#配置Nginx" class="headerlink" title="配置Nginx"></a>配置Nginx</h1><p><code>cd /opt/nginx/conf/</code></p>
+<p>打开文件<code>vi nginx.conf</code>，在末尾加一行</p>
+<pre><code>include vhost/*.conf;
+</code></pre><h2 id="创建redmine虚拟主机配置文件"><a href="#创建redmine虚拟主机配置文件" class="headerlink" title="创建redmine虚拟主机配置文件"></a>创建redmine虚拟主机配置文件</h2><p>新建目录 <code>mkdir -p /opt/nginx/conf/vhost</code></p>
+<p>切换到该目录下<code>cd /opt/nginx/conf/vhost/</code></p>
+<p>创建配置文件<code>vi redmine.conf</code></p>
+<pre><code>server {
+        listen       80;
+        server_name  www.redmine.me;
 
-[root@i-y61tbtqs ~]# docker rmi docker.io/node:0.10
-Untagged: docker.io/node:0.10
-Untagged: docker.io/node@sha256:c32b4d56f05c69df6e87d06bf7d5f6a5c6a0e7bcdb8e5ffab0e7a1853a90008f
-</code></pre><h1 id="容器长期运行"><a href="#容器长期运行" class="headerlink" title="容器长期运行"></a>容器长期运行</h1><pre><code>[root@i-y61tbtqs ~]# docker run -d centos-gs /bin/bash -c &quot;while true ; do sleep 1; done&quot;
-405a497e2418030560553f08ac218730f33819b08493934c2bdad5d6b428d04b
-</code></pre><ul>
-<li><p>服务类容器以daemon的形式运行，对外提供服务，比如Web Server，数据库等。 通过-d以后台方式启动这类容器是非常合适的。若要排查问题，可以通过exec -it进入容器。</p>
-</li>
-<li><p>工具类容器运行</p>
-<pre><code>[root@i-y61tbtqs ~]# docker run -it busybox
-Unable to find image &apos;busybox:latest&apos; locally
-Trying to pull repository docker.io/library/busybox ... 
-latest: Pulling from docker.io/library/busybox
-0ffadd58f2a6: Pull complete 
-Digest: sha256:bbc3a03235220b170ba48a157dd097dd1379299370e1ed99ce976df0355d24f0
-/ # 
-/ # wget www.baidu.com
-Connecting to www.baidu.com (220.181.112.244:80)
-index.html           100% |*****************************************************************************************************************************************************************************************************************************|  2381   0:00:00 ETA
-/ # 
-/ # 
-/ # exit
-</code></pre></li>
-</ul>
-<h1 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h1><ul>
-<li><p>通过attach直接进入容器启动命令的终端，不会启动新的进程</p>
-<pre><code>` docker attach containerID`
-</code></pre></li>
-<li><p>通过docker exec进入相同的容器，执行bash，打开一个bash终端，可以启动新的进程</p>
-<pre><code>[root@i-y61tbtqs ~]# docker exec -it b39568e501d5 bash
-[root@b39568e501d5 /]# ps -elf
-F S UID        PID  PPID  C PRI  NI ADDR SZ WCHAN  STIME TTY          TIME CMD
-4 S root         1     0  0  80   0 -  2909 do_wai 06:20 ?        00:00:00 /bin/bash -c while true ; do sleep 1; done
-4 S root      1539     0  0  80   0 -  2943 do_wai 06:46 ?        00:00:00 bash
-0 S root      1630     1  0  80   0 -  1079 hrtime 06:47 ?        00:00:00 sleep 1
-0 R root      1631  1539  0  80   0 - 11862 -      06:47 ?        00:00:00 ps -elf
-</code></pre></li>
-</ul>
-<h1 id="通过docker-stop停止运行的容器"><a href="#通过docker-stop停止运行的容器" class="headerlink" title="通过docker stop停止运行的容器"></a>通过docker stop停止运行的容器</h1><pre><code>[root@i-y61tbtqs ~]# docker stop condescending_wright
-condescending_wright
+        root /var/www/redmine/public;
+        passenger_enabled on;
+        client_max_body_size      10m; # Max attachemnt size
 
-[root@i-y61tbtqs ~]# docker ps -a
-405a497e2418    centos-gs    &quot;/bin/bash -c &apos;while &quot;   52 minutes ago      Exited (137) 12 seconds ago    condescending_wright
-</code></pre><h1 id="通过docker-start重新启动已经停止的容器"><a href="#通过docker-start重新启动已经停止的容器" class="headerlink" title="通过docker start重新启动已经停止的容器"></a>通过docker start重新启动已经停止的容器</h1><pre><code>[root@i-y61tbtqs ~]# docker start condescending_wright
-condescending_wright
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+    }
+</code></pre><h2 id="配置Nginx系统启动"><a href="#配置Nginx系统启动" class="headerlink" title="配置Nginx系统启动"></a>配置Nginx系统启动</h2><p>切换到系统目录 <code>cd /lib/systemd/system/</code><br>创建文件 <code>vi nginx.service</code></p>
+<pre><code>[Unit]
+Description=The NGINX HTTP and reverse proxy server
+After=syslog.target network.target remote-fs.target nss-lookup.target
 
-[root@i-y61tbtqs ~]# docker ps 
-CONTAINER ID        IMAGE             COMMAND                  CREATED             STATUS              PORTS       NAMES
-0f5a73a251c7        centos-gs        &quot;/bin/bash -c &apos;while &quot;   25 minutes ago      Up 25 minutes                    amazing_northcutt
-405a497e2418        centos-gs        &quot;/bin/bash -c &apos;while &quot;   48 minutes ago      Up About a minute                condescending_wright
-</code></pre><h1 id="通过docker-pause暂停运行的容器"><a href="#通过docker-pause暂停运行的容器" class="headerlink" title="通过docker pause暂停运行的容器"></a>通过docker pause暂停运行的容器</h1><pre><code>[root@i-y61tbtqs ~]# docker pause condescending_wright
-condescending_wright
+[Service]
+Type=forking
+PIDFile=/opt/nginx/logs/nginx.pid
+ExecStartPre=/opt/nginx/sbin/nginx -t
+ExecStart=/opt/nginx/sbin/nginx
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+PrivateTmp=true
 
-[root@i-y61tbtqs ~]# docker ps 
-CONTAINER ID        IMAGE                              COMMAND                  CREATED             STATUS                   PORTS                    NAMES
-0f5a73a251c7        centos-gs                          &quot;/bin/bash -c &apos;while &quot;   45 minutes ago      Up 45 minutes                                     amazing_northcutt
-405a497e2418        centos-gs                          &quot;/bin/bash -c &apos;while &quot;   About an hour ago   Up 42 seconds (Paused)                            condescending_wright
-</code></pre><h1 id="通过docker-unpause暂停运行的容器"><a href="#通过docker-unpause暂停运行的容器" class="headerlink" title="通过docker unpause暂停运行的容器"></a>通过docker unpause暂停运行的容器</h1><pre><code>[root@i-y61tbtqs ~]# docker unpause condescending_wright
-condescending_wright
-
-[root@i-y61tbtqs ~]# docker ps 
-CONTAINER ID        IMAGE                              COMMAND                  CREATED             STATUS              PORTS                    NAMES
-0f5a73a251c7        centos-gs                          &quot;/bin/bash -c &apos;while &quot;   46 minutes ago      Up 46 minutes                                amazing_northcutt
-405a497e2418        centos-gs                          &quot;/bin/bash -c &apos;while &quot;   About an hour ago   Up About a minute                            condescending_wright
-</code></pre><h1 id="通过docker-rm-删除容器"><a href="#通过docker-rm-删除容器" class="headerlink" title="通过docker rm 删除容器"></a>通过docker rm 删除容器</h1><pre><code>[root@i-y61tbtqs ~]# docker rm d4077529c75a 
-d4077529c75a
-
-[root@i-y61tbtqs ~]# docker rm c1071a798d4c 5c6e3a3a5ac1 
-c1071a798d4c
-5c6e3a3a5ac1
-</code></pre><ul>
-<li><p>也可以批量删除所有已经退出的容器：<br>docker rm -v $(docker ps -aq -f status=exited)</p>
-<pre><code>[root@i-y61tbtqs ~]# docker rm -v $(docker ps -aq -f status=exited)
-338b1e829092
-2f2dd4a485e6
-6a159ccc70bc
-c48590350063
-b39568e501d5
-5c34170cca83
-1b884b95de8f
-c1866d24cbd0
-45b449430edf
-99f4be7d1b16
-6cc247fece89
-</code></pre></li>
-</ul>
-<h1 id="资源限制"><a href="#资源限制" class="headerlink" title="资源限制"></a>资源限制</h1><ul>
-<li><p>内存限额,执行如下命令含义是：该容器最多使用200MB的内存和100MB的swap。<br><code>docker run -m 200M --memory-swap=300M ubuntu</code></p>
-</li>
-<li><p>CPU限额，通过–cpu-shares设置容器使用CPU的权重值</p>
-</li>
-</ul>
-<h1 id="底层技术"><a href="#底层技术" class="headerlink" title="底层技术"></a>底层技术</h1><ul>
-<li><p>cgroup全称（Control Group）可以设置进程使用资源限额</p>
-</li>
-<li><p>namespace管理着host中全局唯一的资源，并可以让每个容器都觉得只有自己在使用它。换句话说，namespace实现了容器间资源的隔离。</p>
-</li>
-</ul>
+[Install]
+WantedBy=multi-user.target
+</code></pre><p>重载系统服务<code>systemctl daemon-reload</code></p>
+<p>系统命令启动Nginx <code>systemctl start nginx</code></p>
+<p>检查Nginx <code>netstat -plntu | grep nginx</code></p>
+<h1 id="安装Redmine"><a href="#安装Redmine" class="headerlink" title="安装Redmine"></a>安装Redmine</h1><p>创建redmine目录<code>mkdir -p /var/www/</code></p>
+<p>切换到该目录下 <code>cd /var/www/</code></p>
+<p>下载redmine <code>svn co https://svn.redmine.org/redmine/branches/3.2-stable redmine</code></p>
+<p>进入redmine目录，复制配置文件</p>
+<pre><code>cd redmine
+cp config/configuration.yml.example config/configuration.yml
+cp config/database.yml.example config/database.yml
+</code></pre><p>编辑数据库文件,修改production的配置<code>vi config/database.yml</code></p>
+<pre><code>production:
+  adapter: mysql2
+  database: redmine
+  host: localhost
+  username: redmine
+  password: &quot;20180318&quot;
+  encoding: utf8
+</code></pre><p>在redmine目录下，创建一个新目录改变一下owner</p>
+<pre><code>mkdir -p tmp tmp/pdf public/plugin_assets
+sudo chown -R www-data:www-data files log tmp public/plugin_assets
+sudo chmod -R 775 files log tmp public/plugin_assets
+</code></pre><p>为Redmine安装bundler和gem依赖</p>
+<pre><code>gem install bundler
+bundle install --without development test
+</code></pre><p>Now generate the secret token and then generate the database:<br>    bundle exec rake generate_secret_token<br>    RAILS_ENV=production bundle exec rake db:migrate<br>    RAILS_ENV=production bundle exec rake redmine:load_default_data</p>
+<p>重启Nginx <code>systemctl restart nginx</code>，在网页访问redmine的域名</p>
 
       
     </div>
@@ -526,7 +471,7 @@ c1866d24cbd0
       
         <div class="post-tags">
           
-            <a href="/tags/docker/" rel="tag"># docker</a>
+            <a href="/tags/redmine/" rel="tag"># redmine</a>
           
         </div>
       
@@ -539,8 +484,8 @@ c1866d24cbd0
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/10/容器网络/" rel="next" title="容器网络">
-                <i class="fa fa-chevron-left"></i> 容器网络
+              <a href="/2018/03/17/gitlab/" rel="next" title="Ubuntu16.04下安装gitlab">
+                <i class="fa fa-chevron-left"></i> Ubuntu16.04下安装gitlab
               </a>
             
           </div>
@@ -548,10 +493,6 @@ c1866d24cbd0
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/13/镜像分层/" rel="prev" title="镜像的分层结构">
-                镜像的分层结构 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -703,7 +644,7 @@ c1866d24cbd0
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是容器"><span class="nav-number">1.</span> <span class="nav-text">什么是容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#容器解决的问题"><span class="nav-number">2.</span> <span class="nav-text">容器解决的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker镜像"><span class="nav-number">3.</span> <span class="nav-text">Docker镜像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构建镜像"><span class="nav-number">4.</span> <span class="nav-text">构建镜像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#镜像上传"><span class="nav-number">5.</span> <span class="nav-text">镜像上传</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建本地Registry"><span class="nav-number">6.</span> <span class="nav-text">搭建本地Registry</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除镜像"><span class="nav-number">7.</span> <span class="nav-text">删除镜像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#容器长期运行"><span class="nav-number">8.</span> <span class="nav-text">容器长期运行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进入容器"><span class="nav-number">9.</span> <span class="nav-text">进入容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过docker-stop停止运行的容器"><span class="nav-number">10.</span> <span class="nav-text">通过docker stop停止运行的容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过docker-start重新启动已经停止的容器"><span class="nav-number">11.</span> <span class="nav-text">通过docker start重新启动已经停止的容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过docker-pause暂停运行的容器"><span class="nav-number">12.</span> <span class="nav-text">通过docker pause暂停运行的容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过docker-unpause暂停运行的容器"><span class="nav-number">13.</span> <span class="nav-text">通过docker unpause暂停运行的容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过docker-rm-删除容器"><span class="nav-number">14.</span> <span class="nav-text">通过docker rm 删除容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#资源限制"><span class="nav-number">15.</span> <span class="nav-text">资源限制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#底层技术"><span class="nav-number">16.</span> <span class="nav-text">底层技术</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#更改系统默认源"><span class="nav-number">1.</span> <span class="nav-text">更改系统默认源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装依赖"><span class="nav-number">2.</span> <span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装rvm和ruby"><span class="nav-number">3.</span> <span class="nav-text">安装rvm和ruby</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置Redmine数据库"><span class="nav-number">4.</span> <span class="nav-text">配置Redmine数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Phusion-Passenger和Nginx"><span class="nav-number">5.</span> <span class="nav-text">安装Phusion Passenger和Nginx</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置Nginx"><span class="nav-number">6.</span> <span class="nav-text">配置Nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建redmine虚拟主机配置文件"><span class="nav-number">6.1.</span> <span class="nav-text">创建redmine虚拟主机配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Nginx系统启动"><span class="nav-number">6.2.</span> <span class="nav-text">配置Nginx系统启动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Redmine"><span class="nav-number">7.</span> <span class="nav-text">安装Redmine</span></a></li></ol></div>
             
 
           </div>
