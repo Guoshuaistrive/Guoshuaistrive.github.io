@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Gavin的博客">
 <meta property="og:description" content="更改系统默认源Ubuntu默认使用的国外的源，在更新的时候会很慢。中国科技大学的源一般使用起来比较快，直接选择中科大的源。 先备份 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak 删除默认源，添加中科大的源sudo vi /etc/apt/sources.list">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-18T12:18:51.711Z">
+<meta property="og:updated_time" content="2018-03-19T06:14:34.860Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu16.04安装redmine的过程">
 <meta name="twitter:description" content="更改系统默认源Ubuntu默认使用的国外的源，在更新的时候会很慢。中国科技大学的源一般使用起来比较快，直接选择中科大的源。 先备份 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak 删除默认源，添加中科大的源sudo vi /etc/apt/sources.list">
@@ -390,8 +390,8 @@ flush privileges;
 </code></pre><h1 id="安装Phusion-Passenger和Nginx"><a href="#安装Phusion-Passenger和Nginx" class="headerlink" title="安装Phusion Passenger和Nginx"></a>安装Phusion Passenger和Nginx</h1><p><code>gem install passenger --no-ri --no-rdoc</code></p>
 <p><code>passenger-install-nginx-module</code></p>
 <p>这条命令运行时会有提示：默认选择Ruby and Python； 之后选择1.Yes：download…..; 往下enter即可</p>
-<h1 id="配置Nginx"><a href="#配置Nginx" class="headerlink" title="配置Nginx"></a>配置Nginx</h1><p><code>cd /opt/nginx/conf/</code></p>
-<p>打开文件<code>vi nginx.conf</code>，在末尾加一行</p>
+<h1 id="配置Nginx"><a href="#配置Nginx" class="headerlink" title="配置Nginx"></a>配置Nginx</h1><p>切换目录 <code>cd /opt/nginx/conf/</code></p>
+<p>打开文件 <code>vi nginx.conf</code>，在末尾加一行</p>
 <pre><code>include vhost/*.conf;
 </code></pre><h2 id="创建redmine虚拟主机配置文件"><a href="#创建redmine虚拟主机配置文件" class="headerlink" title="创建redmine虚拟主机配置文件"></a>创建redmine虚拟主机配置文件</h2><p>新建目录 <code>mkdir -p /opt/nginx/conf/vhost</code></p>
 <p>切换到该目录下<code>cd /opt/nginx/conf/vhost/</code></p>
@@ -452,8 +452,11 @@ sudo chmod -R 775 files log tmp public/plugin_assets
 </code></pre><p>为Redmine安装bundler和gem依赖</p>
 <pre><code>gem install bundler
 bundle install --without development test
-</code></pre><p>Now generate the secret token and then generate the database:<br>    bundle exec rake generate_secret_token<br>    RAILS_ENV=production bundle exec rake db:migrate<br>    RAILS_ENV=production bundle exec rake redmine:load_default_data</p>
-<p>重启Nginx <code>systemctl restart nginx</code>，在网页访问redmine的域名</p>
+</code></pre><p>生成密令和数据库</p>
+<pre><code>bundle exec rake generate_secret_token
+RAILS_ENV=production bundle exec rake db:migrate
+RAILS_ENV=production bundle exec rake redmine:load_default_data
+</code></pre><p>重启Nginx <code>systemctl restart nginx</code>，在网页访问redmine的域名</p>
 
       
     </div>
