@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="gitlab," />
+  <meta name="keywords" content="kubernetes," />
 
 
 
@@ -79,20 +79,18 @@
 
 
 
-<meta name="description" content="Ubuntu下安装gitlab是相对顺利的，按部就班走下来，基本没问题 安装配置依赖项如果要使用Postfix来发送邮件,在安装期间请选择Internet Site sudo apt-get install curl openssh-server ca-certificates postfix">
-<meta name="keywords" content="gitlab">
+<meta name="description" content="环境准备etcd  3.2.15 flannel  0.7 docker  17.06.0-ce docker-ce版本安装链接">
+<meta name="keywords" content="kubernetes">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu16.04下安装gitlab">
-<meta property="og:url" content="http://Guoshuaistrive.github.io/2018/03/17/gitlab/index.html">
+<meta property="og:title" content="kubernetes1.9.0安装过程记录">
+<meta property="og:url" content="http://Guoshuaistrive.github.io/2018/06/05/k8s/index.html">
 <meta property="og:site_name" content="Gavin的博客">
-<meta property="og:description" content="Ubuntu下安装gitlab是相对顺利的，按部就班走下来，基本没问题 安装配置依赖项如果要使用Postfix来发送邮件,在安装期间请选择Internet Site sudo apt-get install curl openssh-server ca-certificates postfix">
+<meta property="og:description" content="环境准备etcd  3.2.15 flannel  0.7 docker  17.06.0-ce docker-ce版本安装链接">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://wx1.sinaimg.cn/mw690/6ac4574dly1fpg3uip48rj211w0k4wis.jpg">
-<meta property="og:updated_time" content="2018-03-17T12:56:24.705Z">
+<meta property="og:updated_time" content="2018-06-05T15:12:23.970Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu16.04下安装gitlab">
-<meta name="twitter:description" content="Ubuntu下安装gitlab是相对顺利的，按部就班走下来，基本没问题 安装配置依赖项如果要使用Postfix来发送邮件,在安装期间请选择Internet Site sudo apt-get install curl openssh-server ca-certificates postfix">
-<meta name="twitter:image" content="https://wx1.sinaimg.cn/mw690/6ac4574dly1fpg3uip48rj211w0k4wis.jpg">
+<meta name="twitter:title" content="kubernetes1.9.0安装过程记录">
+<meta name="twitter:description" content="环境准备etcd  3.2.15 flannel  0.7 docker  17.06.0-ce docker-ce版本安装链接">
 
 
 
@@ -122,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://Guoshuaistrive.github.io/2018/03/17/gitlab/"/>
+  <link rel="canonical" href="http://Guoshuaistrive.github.io/2018/06/05/k8s/"/>
 
 
 
 
 
-  <title>Ubuntu16.04下安装gitlab | Gavin的博客</title>
+  <title>kubernetes1.9.0安装过程记录 | Gavin的博客</title>
   
 
 
@@ -255,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2018/03/17/gitlab/">
+    <link itemprop="mainEntityOfPage" href="http://Guoshuaistrive.github.io/2018/06/05/k8s/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guo shuai">
@@ -272,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Ubuntu16.04下安装gitlab</h1>
+          <h1 class="post-title" itemprop="name headline">kubernetes1.9.0安装过程记录</h1>
         
 
         <div class="post-meta">
@@ -284,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-17T20:41:02+08:00">
-                2018-03-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-05T22:54:05+08:00">
+                2018-06-05
               </time>
             
 
@@ -324,7 +322,7 @@
 
           
           
-             <span id="/2018/03/17/gitlab/" class="leancloud_visitors" data-flag-title="Ubuntu16.04下安装gitlab">
+             <span id="/2018/06/05/k8s/" class="leancloud_visitors" data-flag-title="kubernetes1.9.0安装过程记录">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -355,17 +353,262 @@
       
 
       
-        <p>Ubuntu下安装gitlab是相对顺利的，按部就班走下来，基本没问题</p>
-<h1 id="安装配置依赖项"><a href="#安装配置依赖项" class="headerlink" title="安装配置依赖项"></a>安装配置依赖项</h1><p>如果要使用Postfix来发送邮件,在安装期间请选择<code>Internet Site</code></p>
-<p><code>sudo apt-get install curl openssh-server ca-certificates postfix</code></p>
+        <h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><pre><code>etcd  3.2.15
+flannel  0.7
+docker  17.06.0-ce
+</code></pre><p><a href="https://docs.docker.com/install/linux/docker-ce/centos/#install-docker-ce" target="_blank" rel="external">docker-ce版本安装链接</a></p>
 <a id="more"></a>
-<h1 id="添加GitLab仓库-并安装到服务器上"><a href="#添加GitLab仓库-并安装到服务器上" class="headerlink" title="添加GitLab仓库,并安装到服务器上"></a>添加GitLab仓库,并安装到服务器上</h1><p><code>curl -sS http://packages.gitlab.cc/install/gitlab-ce/script.deb.sh | sudo bash</code></p>
-<p><code>sudo apt-get install gitlab-ce</code></p>
-<h1 id="启动GitLab"><a href="#启动GitLab" class="headerlink" title="启动GitLab"></a>启动GitLab</h1><p><code>sudo gitlab-ctl reconfigure</code></p>
-<h1 id="在浏览器访问http-IP-8080"><a href="#在浏览器访问http-IP-8080" class="headerlink" title="在浏览器访问http://IP:8080"></a>在浏览器访问<a href="http://IP:8080" target="_blank" rel="external">http://IP:8080</a></h1><p><img src="https://wx1.sinaimg.cn/mw690/6ac4574dly1fpg3uip48rj211w0k4wis.jpg" alt=""></p>
-<blockquote>
-<p>首次访问GitLab,系统会让你重新设置管理员的密码,设置成功后会返回登录界面。默认的管理员账号是root,如果你想更改默认管理员账号,请输入上面设置的新密码登录系统后修改帐号名。</p>
+<h1 id="Master安装"><a href="#Master安装" class="headerlink" title="Master安装"></a>Master安装</h1><p>下载k8s-server压缩包，并解压</p>
+<pre><code>wget https://dl.k8s.io/v1.9.0/kubernetes-server-linux-amd64.tar.gz
+tar -xzvf kubernetes-server-linux-amd64.tar.gz
+</code></pre><p>将解压缩的server目录里面的组件，放入/usr/bin</p>
+<pre><code>[root@t-awsbj-paas-test-01 bin]# ls kube
+kube-apiserver       kube-controller-manager        kubectl       kubelet          kube-proxy         kube-scheduler
+</code></pre><h2 id="创建配置文件"><a href="#创建配置文件" class="headerlink" title="创建配置文件"></a>创建配置文件</h2><h3 id="etcd配置文件"><a href="#etcd配置文件" class="headerlink" title="etcd配置文件"></a>etcd配置文件</h3><pre><code>[root@t-awsbj-paas-test-01 kubernetes]# vi /etc/etcd/etcd.conf
+#[Member]
+ETCD_DATA_DIR=&quot;/var/lib/etcd/default.etcd&quot;
+ETCD_LISTEN_CLIENT_URLS=&quot;http://127.0.0.1:2379&quot;
+ETCD_NAME=&quot;default&quot;
+#
+#[Clustering]
+ETCD_ADVERTISE_CLIENT_URLS=&quot;http://localhost:2379&quot;
+#
+</code></pre><h3 id="在-etc-kubernetes下创建kube的配置文件"><a href="#在-etc-kubernetes下创建kube的配置文件" class="headerlink" title="在/etc/kubernetes下创建kube的配置文件"></a>在/etc/kubernetes下创建kube的配置文件</h3><pre><code>[root@t-awsbj-paas-test-01 kubernetes]# pwd
+/etc/kubernetes
+</code></pre><p><code>kube-apiserver</code></p>
+<pre><code>[root@t-awsbj-paas-test-01 kubernetes]# cat apiserver
+# The following values are used to configure the kube-apiserver
+#
+
+# The address on the local server to listen to.
+#KUBE_API_ADDRESS=&quot;--address=0.0.0.0&quot;
+KUBE_API_ADDRESS=&quot;--insecure-bind-address=0.0.0.0&quot;
+
+# The port on the local server to listen on.
+KUBE_API_PORT=&quot;--port=8080&quot;
+
+# Port minions listen on
+#KUBELET_PORT=&quot;--kubelet-port=10250&quot;
+
+# Comma separated list of nodes in the etcd cluster
+KUBE_ETCD_SERVERS=&quot;--etcd-servers=http://127.0.0.1:2379&quot;
+
+# Address range to use for services
+KUBE_SERVICE_ADDRESSES=&quot;--service-cluster-ip-range=10.125.0.0/16&quot;
+
+# default admission control policies
+KUBE_ADMISSION_CONTROL=&quot;--admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,ResourceQuota&quot;
+
+# Add your own!
+KUBE_API_ARGS=&quot;--storage-backend=etcd3&quot;
+</code></pre><p><code>config</code></p>
+<pre><code>[root@t-awsbj-paas-test-01 kubernetes]# cat config
+KUBE_LOGTOSTDERR=&quot;--logtostderr=true&quot;
+KUBE_LOG_LEVEL=&quot;--v=0&quot;
+KUBE_ALLOW_PRIV=&quot;--allow-privileged=false&quot;
+KUBE_MASTER=&quot;--master=http://master-ip:8080&quot;
+</code></pre><p><code>controll-manager</code></p>
+<pre><code>[root@t-awsbj-paas-test-01 kubernetes]# cat controller-manager
+KUBE_CONTROLLER_MANAGER_ARGS=&quot;--master=http://master-ip:8080 --logtostderr=false --log-dir=/var/log/kubernetes --v=2&quot;
+</code></pre><p><code>scheduler</code></p>
+<pre><code>[root@t-awsbj-paas-test-01 kubernetes]# cat scheduler
+KUBE_SCHEDULER_ARGS=&quot;--master=http://master-ip:8080 --logtostderr=false --log-dir=/var/log/kubernetes --v=2&quot;
+</code></pre><h2 id="创建启动文件"><a href="#创建启动文件" class="headerlink" title="创建启动文件"></a>创建启动文件</h2><h3 id="etcd启动文件"><a href="#etcd启动文件" class="headerlink" title="etcd启动文件"></a>etcd启动文件</h3><pre><code>[root@t-awsbj-paas-test-01 ~]# cd /usr/lib/systemd/system
+[root@t-awsbj-paas-test-01 system]# cat etcd.service
+[Unit]
+Description=Etcd Server
+After=network.target
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+WorkingDirectory=/var/lib/etcd/
+EnvironmentFile=-/etc/etcd/etcd.conf
+User=etcd
+# set GOMAXPROCS to number of processors
+#ExecStart=/bin/bash -c &quot;GOMAXPROCS=$(nproc) /usr/bin/etcd --name=\&quot;${ETCD_NAME}\&quot; --data-dir=\&quot;${ETCD_DATA_DIR}\&quot; --listen-client-urls=\&quot;${ETCD_LISTEN_CLIENT_URLS}\&quot;&quot;
+ExecStart=/usr/bin/etcd
+Restart=on-failure
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+</code></pre><h3 id="kube启动文件"><a href="#kube启动文件" class="headerlink" title="kube启动文件"></a>kube启动文件</h3><p><code>apisever</code></p>
+<pre><code>[root@t-awsbj-paas-test-01 system]# cat kube-apiserver.service
+[Unit]
+Description=Kubernetes API Service
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+After=network.target
+After=etcd.service
+
+[Service]
+EnvironmentFile=-/etc/kubernetes/config
+EnvironmentFile=-/etc/kubernetes/apiserver
+ExecStart=/usr/bin/kube-apiserver \
+        $KUBE_LOGTOSTDERR \
+        $KUBE_LOG_LEVEL \
+        $KUBE_ETCD_SERVERS \
+        $KUBE_API_ADDRESS \
+        $KUBE_API_PORT \
+        $KUBELET_PORT \
+        $KUBE_ALLOW_PRIV \
+        $KUBE_SERVICE_ADDRESSES \
+        $KUBE_ADMISSION_CONTROL \
+        $KUBE_API_ARGS
+Restart=on-failure
+Type=notify
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+</code></pre><p><code>controller-manager</code></p>
+<pre><code>[root@t-awsbj-paas-test-01 system]# cat kube-controller-manager.service
+[Unit]
+Description=Kubernetes Controller Manager
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+After=etcd.service
+After=kube-apiserver.service
+Requires=etcd.service
+Requires=kube-apiserver.service
+
+[Service]
+User=root
+EnvironmentFile=-/etc/kubernetes/config
+EnvironmentFile=-/etc/kubernetes/controller-manager
+ExecStart=/usr/bin/kube-controller-manager \
+        $KUBE_LOGTOSTDERR \
+        $KUBE_LOG_LEVEL \
+        $KUBE_MASTER \
+        $KUBE_CONTROLLER_MANAGER_ARGS
+Restart=on-failure
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+</code></pre><p><code>scheduler</code></p>
+<pre><code>[root@t-awsbj-paas-test-01 system]# cat kube-scheduler.service
+[Unit]
+Description=Kubernetes Scheduler Plugin
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+
+[Service]
+EnvironmentFile=-/etc/kubernetes/config
+EnvironmentFile=-/etc/kubernetes/scheduler
+ExecStart=/usr/bin/kube-scheduler \
+        $KUBE_LOGTOSTDERR \
+        $KUBE_LOG_LEVEL \
+        $KUBE_MASTER \
+        $KUBE_SCHEDULER_ARGS
+Restart=on-failure
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+</code></pre><h2 id="配置完成后启动"><a href="#配置完成后启动" class="headerlink" title="配置完成后启动"></a>配置完成后启动</h2><pre><code>sudo systemctl daemon-reload
+sudo systemctl enable kube-apiserver kube-controller-manager kube-scheduler
+sudo systemctl start kube-apiserver kube-controller-manager kube-scheduler
+</code></pre><h1 id="Node安装"><a href="#Node安装" class="headerlink" title="Node安装"></a>Node安装</h1><p>下载k8s-node压缩包，并解压</p>
+<pre><code>wget https://dl.k8s.io/v1.9.0/kubernetes-node-linux-amd64.tar.gz
+tar -xzvf kubernetes-node-linux-amd64.tar.gz
+</code></pre><p>将解压缩的node目录里面的组件，放入/usr/bin<br>    [root@t-awsbj-paas-test-02 bin]# ls kube<br>    kubectl     kubelet     kube-proxy</p>
+<h2 id="创建配置文件-1"><a href="#创建配置文件-1" class="headerlink" title="创建配置文件"></a>创建配置文件</h2><h3 id="在-etc-kubernetes下创建kube的配置文件-1"><a href="#在-etc-kubernetes下创建kube的配置文件-1" class="headerlink" title="在/etc/kubernetes下创建kube的配置文件"></a>在/etc/kubernetes下创建kube的配置文件</h3><pre><code>[root@t-awsbj-paas-test-02 kubernetes]# ls
+config  kubelet  proxy
+</code></pre><p><code>config</code></p>
+<pre><code>[root@t-awsbj-paas-test-02 kubernetes]# cat config
+KUBE_LOGTOSTDERR=&quot;--logtostderr=true&quot;
+KUBE_LOG_LEVEL=&quot;--v=3&quot;
+KUBE_ALLOW_PRIV=&quot;--allow-privileged=false&quot;
+</code></pre><p><code>kubelet</code></p>
+<pre><code>[root@t-awsbj-paas-test-02 kubernetes]# cat kubelet
+#KUBELET_ADDRESS=&quot;--address=127.0.0.1&quot;
+KUBELET_HOSTNAME=&quot;--hostname-override=node-ip&quot;
+#KUBELET_API_SERVER=&quot;--api-servers=http://192.168.56.110:8080&quot;
+# pod infrastructure container
+KUBELET_POD_INFRA_CONTAINER=&quot;--pod-infra-container-image=registry.access.redhat.com/rhel7/pod-infrastructure:latest&quot;
+#KUBELET_ARGS=&quot;--enable-server=true --enable-debugging-handlers=true --fail-swap-on=false --kubeconfig=/var/lib/kubelet/kubeconfig&quot;
+KUBELET_ARGS=&quot;--api-servers=http://master-ip:8080
+--hostname-override=master-ip --logtostderr=false
+--log-dir=/var/log/kubernetes --v=2&quot;
+</code></pre><p><code>roxy</code></p>
+<pre><code>[root@t-awsbj-paas-test-02 kubernetes]# cat proxy
+KUBE_PROXY_ARGS=&quot;--master=http://10.125.234.164:8080 --logtostderr=false --log-dir=/var/log/kubernetes --v=2&quot;
+</code></pre><h3 id="额外配置文件kubeconfig"><a href="#额外配置文件kubeconfig" class="headerlink" title="额外配置文件kubeconfig"></a>额外配置文件kubeconfig</h3><pre><code>[root@t-awsbj-paas-test-02 ~]# vi /var/lib/kubelet/kubeconfig
+
+apiVersion: v1
+kind: Config
+users:
+- name: kubelet
+clusters:
+- name: kubernetes
+  cluster:
+    server: http://master-ip:8080
+contexts:
+- context:
+    cluster: kubernetes
+    user: kubelet
+  name: service-account-context
+current-context: service-account-context
+</code></pre><h2 id="创建启动文件-1"><a href="#创建启动文件-1" class="headerlink" title="创建启动文件"></a>创建启动文件</h2><pre><code>[root@t-awsbj-paas-test-02 ~]# cd /usr/lib/systemd/system
+[root@t-awsbj-paas-test-02 system]# ls kube
+kubelet.service     kube-proxy.service
+</code></pre><p><code>kubelet</code></p>
+<pre><code>[root@t-awsbj-paas-test-02 system]# cat kubelet.service
+[Unit]
+Description=Kubernetes Kubelet
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+After=docker.service
+Requires=docker.service
+
+[Service]
+WorkingDirectory=/var/lib/kubelet
+EnvironmentFile=-/etc/kubernetes/config
+EnvironmentFile=-/etc/kubernetes/kubelet
+ExecStart=/usr/bin/kubelet \
+        $KUBE_LOGTOSTDERR \
+        $KUBE_LOG_LEVEL \
+        $KUBELET_API_SERVER \
+        $KUBELET_ADDRESS \
+        $KUBELET_PORT \
+        $KUBELET_HOSTNAME \
+        $KUBE_ALLOW_PRIV \
+        $KUBELET_POD_INFRA_CONTAINER \
+        $KUBELET_ARGS
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+</code></pre><p><code>kube-proxy</code></p>
+<pre><code>[root@t-awsbj-paas-test-02 system]# cat kube-proxy.service
+[Unit]
+Description=Kubernetes proxy
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+After=network.target
+
+[Service]
+EnvironmentFile=-/etc/kubernetes/config
+EnvironmentFile=-/etc/kubernetes/proxy
+ExecStart=/usr/bin/kube-proxy \
+        $KUBE_LOGTOSTDERR \
+        $KUBE_LOG_LEVEL \
+        $KUBE_MASTER \
+        $KUBE_PROXY_ARGS
+Restart=on-failure
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+</code></pre><h2 id="配置完成后启动-1"><a href="#配置完成后启动-1" class="headerlink" title="配置完成后启动"></a>配置完成后启动</h2><pre><code>sudo systemctl daemon-reload
+sudo systemctl enable kubelet kube-proxy
+sudo systemctl start kubelet kube-proxy
+</code></pre><blockquote>
+<p>同理，部署另一台node</p>
 </blockquote>
+<h1 id="验证k8s服务"><a href="#验证k8s服务" class="headerlink" title="验证k8s服务"></a>验证k8s服务</h1><pre><code>[root@t-awsbj-paas-test-01 ~]# kubectl get nodes
+NAME             STATUS    ROLES     AGE       VERSION
+10.125.235.131   Ready     &lt;none&gt;    5h        v1.9.0
+10.125.235.55    Ready     &lt;none&gt;    5h        v1.9.0
+</code></pre><p>参考文章：<br><a href="https://www.cnblogs.com/peterinblog/p/8124746.html" target="_blank" rel="external">https://www.cnblogs.com/peterinblog/p/8124746.html</a></p>
 
       
     </div>
@@ -383,7 +626,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/gitlab/" rel="tag"># gitlab</a>
+            <a href="/tags/kubernetes/" rel="tag"># kubernetes</a>
           
         </div>
       
@@ -396,8 +639,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/12/usetestlink/" rel="next" title="Testlink使用过程记录">
-                <i class="fa fa-chevron-left"></i> Testlink使用过程记录
+              <a href="/2018/03/18/redmine/" rel="next" title="Ubuntu16.04安装redmine的过程">
+                <i class="fa fa-chevron-left"></i> Ubuntu16.04安装redmine的过程
               </a>
             
           </div>
@@ -405,10 +648,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/18/redmine/" rel="prev" title="Ubuntu16.04安装redmine的过程">
-                Ubuntu16.04安装redmine的过程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -560,7 +799,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装配置依赖项"><span class="nav-number">1.</span> <span class="nav-text">安装配置依赖项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加GitLab仓库-并安装到服务器上"><span class="nav-number">2.</span> <span class="nav-text">添加GitLab仓库,并安装到服务器上</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动GitLab"><span class="nav-number">3.</span> <span class="nav-text">启动GitLab</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在浏览器访问http-IP-8080"><span class="nav-number">4.</span> <span class="nav-text">在浏览器访问http://IP:8080</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境准备"><span class="nav-number">1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Master安装"><span class="nav-number">2.</span> <span class="nav-text">Master安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建配置文件"><span class="nav-number">2.1.</span> <span class="nav-text">创建配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#etcd配置文件"><span class="nav-number">2.1.1.</span> <span class="nav-text">etcd配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在-etc-kubernetes下创建kube的配置文件"><span class="nav-number">2.1.2.</span> <span class="nav-text">在/etc/kubernetes下创建kube的配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建启动文件"><span class="nav-number">2.2.</span> <span class="nav-text">创建启动文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#etcd启动文件"><span class="nav-number">2.2.1.</span> <span class="nav-text">etcd启动文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kube启动文件"><span class="nav-number">2.2.2.</span> <span class="nav-text">kube启动文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置完成后启动"><span class="nav-number">2.3.</span> <span class="nav-text">配置完成后启动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node安装"><span class="nav-number">3.</span> <span class="nav-text">Node安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建配置文件-1"><span class="nav-number">3.1.</span> <span class="nav-text">创建配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在-etc-kubernetes下创建kube的配置文件-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">在/etc/kubernetes下创建kube的配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#额外配置文件kubeconfig"><span class="nav-number">3.1.2.</span> <span class="nav-text">额外配置文件kubeconfig</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建启动文件-1"><span class="nav-number">3.2.</span> <span class="nav-text">创建启动文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置完成后启动-1"><span class="nav-number">3.3.</span> <span class="nav-text">配置完成后启动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#验证k8s服务"><span class="nav-number">4.</span> <span class="nav-text">验证k8s服务</span></a></li></ol></div>
             
 
           </div>
